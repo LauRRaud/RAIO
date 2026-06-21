@@ -11,6 +11,7 @@ import { Media } from "@/payload/collections/Media";
 import { Orders } from "@/payload/collections/Orders";
 import { Pages } from "@/payload/collections/Pages";
 import { Products } from "@/payload/collections/Products";
+import { Trainings } from "@/payload/collections/Trainings";
 import { Users } from "@/payload/collections/Users";
 import { HomePage } from "@/payload/globals/HomePage";
 import { PageImages } from "@/payload/globals/PageImages";
@@ -26,7 +27,7 @@ export default buildConfig({
       titleSuffix: "- RAIO admin"
     }
   },
-  collections: [Users, Media, Pages, Products, Orders, Events, JournalArticles],
+  collections: [Users, Media, Pages, Products, Orders, Events, Trainings, JournalArticles],
   globals: [SiteSettings, HomePage, PageImages],
   editor: lexicalEditor(),
   localization: {

@@ -6,7 +6,7 @@ import { Header } from "@/components/Header";
 import { LineIcon } from "@/components/Icons";
 import { TrainingCardsCarousel } from "@/components/TrainingCardsCarousel";
 import { getLocalizedPath } from "@/lib/i18n";
-import { getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { getMessagesWithAdminImages, getTrainingItems } from "@/lib/payloadContent";
 
 const qualityIconComponents = {
   leaf: Leaf,
@@ -16,6 +16,7 @@ const qualityIconComponents = {
 export async function TrainingPage({ locale = "et" }) {
   const messages = await getMessagesWithAdminImages(locale);
   const t = messages.training;
+  const trainings = await getTrainingItems(locale, t.trainings);
   const path = (href) => getLocalizedPath(locale, href);
   const contactHref = path("/meist#kontakt");
 
@@ -68,7 +69,7 @@ export async function TrainingPage({ locale = "et" }) {
           </div>
 
           <TrainingCardsCarousel
-            trainings={t.trainings}
+            trainings={trainings}
             cta={t.cardCta}
             modalClose={t.modalClose}
             labels={messages.carousel.training}

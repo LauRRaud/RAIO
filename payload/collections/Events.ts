@@ -71,15 +71,33 @@ export const Events: CollectionConfig = {
     },
     {
       name: "description",
-      label: "Kirjeldus",
+      label: "Luhikirjeldus",
       type: "textarea",
       localized: true
+    },
+    {
+      name: "content",
+      label: "Modali detailne sisu",
+      type: "richText",
+      localized: true,
+      admin: {
+        description: "See tekst kuvatakse siis, kui kasutaja avab sundmuse kaardi modaali."
+      }
     },
     {
       name: "image",
       label: "Pilt",
       type: "upload",
       relationTo: "media"
+    },
+    {
+      name: "imagePosition",
+      label: "Pildi fookus",
+      type: "text",
+      defaultValue: "center center",
+      admin: {
+        description: "Naiteks: center 48%, center top voi 60% center."
+      }
     },
     {
       name: "ctaUrl",

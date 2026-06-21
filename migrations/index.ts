@@ -2,6 +2,7 @@ import * as migration_20260621_084547_initial_payload_schema from './20260621_08
 import * as migration_20260621_152759_orders_collection from './20260621_152759_orders_collection';
 import * as migration_20260621_154824_admin_workflow_fields from './20260621_154824_admin_workflow_fields';
 import * as migration_20260621_211020_page_images_global from './20260621_211020_page_images_global';
+import * as migration_20260621_211609_trainings_and_event_modal_content from './20260621_211609_trainings_and_event_modal_content';
 
 export const migrations = [
   {
@@ -22,6 +23,11 @@ export const migrations = [
   {
     up: migration_20260621_211020_page_images_global.up,
     down: migration_20260621_211020_page_images_global.down,
-    name: '20260621_211020_page_images_global'
+    name: '20260621_211020_page_images_global',
+  },
+  {
+    up: migration_20260621_211609_trainings_and_event_modal_content.up,
+    down: migration_20260621_211609_trainings_and_event_modal_content.down,
+    name: '20260621_211609_trainings_and_event_modal_content'
   },
 ];

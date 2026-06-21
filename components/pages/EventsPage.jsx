@@ -5,11 +5,12 @@ import { EventsCardsCarousel } from "@/components/EventsCardsCarousel";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getLocalizedPath } from "@/lib/i18n";
-import { getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { getEventItems, getMessagesWithAdminImages } from "@/lib/payloadContent";
 
 export async function EventsPage({ locale = "et" }) {
   const messages = await getMessagesWithAdminImages(locale);
   const t = messages.events;
+  const events = await getEventItems(locale, t.events);
   const path = (href) => getLocalizedPath(locale, href);
   const aboutHref = path("/meist");
   const contactHref = path("/meist#kontakt");
@@ -69,7 +70,7 @@ export async function EventsPage({ locale = "et" }) {
           </div>
 
           <EventsCardsCarousel
-            events={t.events}
+            events={events}
             cta={t.cardCta}
             modalClose={t.modalClose}
             labels={messages.carousel.events}
