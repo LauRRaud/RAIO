@@ -1,0 +1,45 @@
+/* Section primitives */
+.section {
+  padding: clamp(82px, 10vw, 154px) 0;
+}
+
+.section:nth-of-type(even) {
+  background: var(--surface);
+}
+
+.section h2 {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.section h2 {
+  font-size: clamp(3.5rem, 6.5vw, 8.2rem);
+  line-height: 0.94;
+}
+
+.section-heading {
+  display: grid;
+  gap: 10px;
+  margin-bottom: clamp(40px, 6vw, 86px);
+}
+
+.section-heading h2 {
+  max-width: 14ch;
+}
+
+@media (max-width: 720px) {
+
+  .section {
+    padding: 64px 0;
+  }
+}
+
+@media (max-width: 720px) {
+
+  .section h2 {
+    font-size: clamp(3.4rem, 15vw, 5.5rem);
+  }
+}

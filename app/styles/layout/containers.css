@@ -1,0 +1,11 @@
+/* Layout primitives */
+.container {
+  width: min(calc(100% - 76px), var(--container));
+  margin: 0 auto;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    width: min(calc(100% - 40px), var(--container));
+  }
+}

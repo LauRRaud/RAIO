@@ -1,0 +1,18 @@
+node_modules
+.next
+out
+output
+
+# Local tooling and editor state
+.agents
+.codex
+.playwright-mcp
+.vscode
+.idea
+
+# Keep environment variables out of version control
+.env
+.env*.local
+
+# Generated files
+/lib/generated/prisma

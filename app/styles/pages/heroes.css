@@ -1,0 +1,112 @@
+/* Shared page hero media behavior */
+:is(
+  .events-hero-redesign,
+  .journal-hero-redesign,
+  .tools-hero-redesign,
+  .training-hero-redesign,
+  .store-hero,
+  .about-hero
+) {
+  background: var(--ui-box-bg);
+  color: var(--ui-box-ink);
+}
+
+:is(
+  .events-hero-panel,
+  .journal-hero-panel,
+  .tools-hero-panel,
+  .training-hero-panel,
+  .store-hero-copy,
+  .about-hero-panel
+) :is(h1, p, span, a, svg) {
+  color: var(--ui-box-ink);
+}
+
+:is(
+  .events-short-rule,
+  .journal-short-rule,
+  .tools-short-rule,
+  .training-short-rule,
+  .store-short-rule,
+  .about-short-rule
+) {
+  background: rgba(245, 239, 229, 0.58);
+}
+
+@media (min-width: 981px) {
+
+  .events-hero-image,
+  .journal-hero-image,
+  .tools-hero-image,
+  .training-hero-image,
+  .store-hero-image,
+  .about-hero-image {
+    inset: 0 0 0 auto;
+    width: min(58vw, 1120px);
+    border-bottom-left-radius: 0;
+    overflow: hidden;
+  }
+
+  .events-hero-redesign,
+  .journal-hero-redesign,
+  .tools-hero-redesign,
+  .training-hero-redesign,
+  .store-hero,
+  .about-hero {
+    height: clamp(640px, calc(100vh - 98px), 820px);
+    min-height: 0;
+  }
+
+  .events-hero-panel,
+  .journal-hero-panel,
+  .tools-hero-panel,
+  .training-hero-panel,
+  .store-hero-copy,
+  .about-hero-panel {
+    transform: translateY(clamp(12px, 2.4vh, 32px));
+  }
+
+  .events-hero-image img,
+  .journal-hero-image img,
+  .tools-hero-image img,
+  .training-hero-image img,
+  .store-hero-image img,
+  .about-hero-image img {
+    object-position: var(--hero-image-position, center center);
+  }
+
+  .events-hero-redesign::before,
+  .journal-hero-redesign::before,
+  .tools-hero-redesign::before,
+  .training-hero-redesign::before,
+  .store-hero::before,
+  .about-hero::before {
+    background: none;
+  }
+}
+
+@media (max-width: 980px) {
+
+  .events-hero-image,
+  .journal-hero-image,
+  .tools-hero-image,
+  .training-hero-image,
+  .store-hero-image,
+  .about-hero-image {
+    inset: 0;
+    width: auto;
+  }
+}
+
+@media (min-width: 981px) and (max-width: 1199px) {
+
+  .events-hero-image,
+  .journal-hero-image,
+  .tools-hero-image,
+  .training-hero-image,
+  .store-hero-image,
+  .about-hero-image {
+    inset: 0;
+    width: auto;
+  }
+}

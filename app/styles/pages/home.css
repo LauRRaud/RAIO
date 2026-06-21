@@ -1,0 +1,401 @@
+/* Home page */
+.lookbook-home {
+  background: var(--raio-paper-soft);
+  color: var(--raio-ink);
+}
+
+.lookbook-hero {
+  position: relative;
+  min-height: 0;
+  height: clamp(640px, calc(100vh - 98px), 820px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.lookbook-hero-image {
+  object-fit: cover;
+  object-position: center center;
+  filter: saturate(0.82) contrast(1.04) brightness(0.8);
+  z-index: -2;
+}
+
+.lookbook-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(14, 13, 10, 0.78) 0%, rgba(14, 13, 10, 0.48) 34%, rgba(14, 13, 10, 0.12) 68%),
+    linear-gradient(0deg, rgba(14, 13, 10, 0.48) 0%, rgba(14, 13, 10, 0) 36%);
+}
+
+.lookbook-hero-content {
+  width: min(calc(100% - 96px), 1780px);
+  margin: 0 auto;
+  padding-top: 5vh;
+  color: var(--raio-white);
+  transform: translateY(-72px);
+}
+
+.lookbook-hero-logo {
+  max-width: none;
+  margin: 0;
+  line-height: 0;
+}
+
+.lookbook-hero-logo img {
+  width: clamp(200px, 29vw, 380px);
+  height: auto;
+}
+
+.lookbook-hero-title {
+  margin: 18px 0 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.2rem, 3vw, 4rem);
+  line-height: 1;
+}
+
+.lookbook-hero-copy {
+  max-width: 520px;
+  margin: 30px 0 0;
+  color: rgba(245, 239, 229, 0.86);
+  font-size: clamp(0.82rem, 0.9vw, 1rem);
+  font-weight: 600;
+  line-height: 1.85;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.text-link {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 54px;
+  padding-bottom: 10px;
+  color: var(--raio-ink);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-bottom: 1px solid currentColor;
+}
+
+.hero-scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(62px, 5vw, 88px);
+  z-index: 1;
+  display: inline-grid;
+  width: 66px;
+  height: 66px;
+  place-items: center;
+  color: var(--raio-white);
+  opacity: 0.86;
+  transform: translateX(-50%);
+  animation: hero-scroll-cue 2800ms cubic-bezier(0.42, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.hero-scroll-cue span {
+  display: block;
+  width: 34px;
+  height: 34px;
+  border-right: 4px solid currentColor;
+  border-bottom: 4px solid currentColor;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.34));
+  transform: rotate(45deg);
+}
+
+.hero-scroll-cue:hover,
+.hero-scroll-cue:focus-visible {
+  opacity: 1;
+}
+
+@keyframes hero-scroll-cue {
+  0%,
+  100% {
+    transform: translate(-50%, -4px);
+    opacity: 0.48;
+  }
+
+  50% {
+    transform: translate(-50%, 12px);
+    opacity: 1;
+  }
+}
+
+.philosophy-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  min-height: 680px;
+  background: var(--raio-paper-soft);
+}
+
+.philosophy-copy {
+  align-self: center;
+  width: min(100% - 80px, 520px);
+  margin: 0 auto;
+  padding: clamp(72px, 8vw, 126px) 0;
+}
+
+.philosophy-copy h2 {
+  max-width: 9ch;
+  margin: 0;
+  color: var(--raio-ink);
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(3.8rem, 5.8vw, 7.2rem);
+  font-weight: 400;
+  line-height: 0.88;
+}
+
+.philosophy-copy p {
+  margin: 34px 0 0;
+  color: rgba(23, 19, 15, 0.78);
+  font-size: clamp(1rem, 1.05vw, 1.18rem);
+  line-height: 1.8;
+}
+
+.philosophy-image {
+  position: relative;
+  min-height: 680px;
+  overflow: hidden;
+  background: var(--raio-dark);
+}
+
+.philosophy-image img {
+  object-fit: cover;
+  object-position: 28% center;
+  filter: saturate(0.82) contrast(1.04) brightness(0.72);
+}
+
+.category-world {
+  position: relative;
+  display: flex;
+  min-height: clamp(560px, 43vw, 780px);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--raio-dark);
+}
+
+.world-card {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: clamp(560px, 43vw, 780px);
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--raio-white);
+  transition:
+    flex-grow 460ms cubic-bezier(0.37, 0, 0.18, 1),
+    box-shadow 400ms ease;
+}
+
+.category-world .world-card:hover,
+.category-world .world-card:focus-visible {
+  flex-grow: 1.42;
+  transition:
+    flex-grow 460ms cubic-bezier(0.37, 0, 0.18, 1),
+    box-shadow 400ms ease;
+  box-shadow: inset 0 0 0 1px rgba(245, 239, 229, 0.08);
+}
+
+.world-card-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  overflow: hidden;
+}
+
+.world-card img {
+  object-fit: cover;
+  object-position: center center;
+  transform-origin: center center;
+  filter: none;
+  transform: scale(1);
+  transition:
+    transform 400ms cubic-bezier(0.37, 0, 0.63, 1),
+    filter 400ms ease,
+    object-position 400ms cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+.world-card-event .world-card-media img {
+  object-position: 50% 38%;
+}
+
+.world-card-meist .world-card-media img {
+  object-position: 50% 30%;
+}
+
+.world-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(0deg, rgba(12, 12, 10, 0.5) 0%, rgba(12, 12, 10, 0.12) 42%, rgba(12, 12, 10, 0) 78%);
+}
+
+.world-card:hover .world-card-media img,
+.world-card:focus-visible .world-card-media img {
+  filter: saturate(1.03) contrast(1.02) brightness(1.03);
+  transform: scale(1.045);
+}
+
+.world-card-event:hover .world-card-media img,
+.world-card-event:focus-visible .world-card-media img {
+  object-position: 50% 36%;
+}
+
+.world-card-meist:hover .world-card-media img,
+.world-card-meist:focus-visible .world-card-media img {
+  object-position: 50% 28%;
+}
+
+.world-card-content {
+  position: absolute;
+  left: clamp(22px, 2.5vw, 54px);
+  right: clamp(22px, 2.5vw, 54px);
+  bottom: clamp(38px, 4vw, 72px);
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+  z-index: 2;
+}
+
+.world-card-content strong {
+  font-size: clamp(1.05rem, 1.25vw, 1.42rem);
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.world-card-arrow {
+  margin-top: 10px;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+@media (max-width: 980px) {
+
+  .lookbook-hero {
+    min-height: calc(100vh - 118px);
+    height: auto;
+  }
+}
+
+@media (max-width: 980px) {
+
+  .lookbook-hero-image {
+    object-position: 56% center;
+  }
+}
+
+@media (max-width: 980px) {
+
+  .lookbook-hero-content {
+    width: min(calc(100% - 44px), 720px);
+    padding: 120px 0 92px;
+    transform: translateY(-64px);
+  }
+}
+
+@media (max-width: 980px) {
+
+  .lookbook-hero-logo img {
+    width: clamp(168px, 48vw, 276px);
+  }
+}
+
+@media (max-width: 980px) {
+
+  .philosophy-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 980px) {
+
+  .philosophy-copy {
+    width: min(calc(100% - 44px), 620px);
+    padding: 78px 0;
+  }
+}
+
+@media (max-width: 980px) {
+
+  .philosophy-image {
+    min-height: 78vw;
+  }
+}
+
+@media (max-width: 980px) {
+
+  .category-world {
+    flex-direction: column;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 980px) {
+
+  .world-card {
+    flex: 0 0 auto;
+    min-height: 118vw;
+    max-height: 680px;
+  }
+}
+
+@media (max-width: 620px) {
+
+  .lookbook-hero-content {
+    transform: none;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .lookbook-hero-overlay {
+    background:
+      linear-gradient(90deg, rgba(14, 13, 10, 0.76) 0%, rgba(14, 13, 10, 0.36) 72%),
+      linear-gradient(0deg, rgba(14, 13, 10, 0.58) 0%, rgba(14, 13, 10, 0) 42%);
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .lookbook-hero-copy {
+    max-width: 310px;
+    letter-spacing: 0.16em;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .text-link {
+    margin-top: 42px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-scroll-cue {
+    animation: none;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .philosophy-copy h2 {
+    font-size: clamp(3.5rem, 18vw, 5.4rem);
+  }
+
+}

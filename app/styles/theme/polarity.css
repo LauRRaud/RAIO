@@ -1,0 +1,439 @@
+/* Shared polarity for framed content and actions */
+:root {
+  --ui-box-bg: #191712;
+  --ui-box-ink: #f5efe5;
+  --ui-box-muted: rgba(245, 239, 229, 0.72);
+  --ui-box-line: transparent;
+  --ui-surface-button-bg: #11100d;
+  --ui-surface-button-ink: #f5efe5;
+  --ui-surface-button-hover-bg: #3a342a;
+  --ui-surface-button-hover-ink: #f5efe5;
+  --ui-box-button-bg: #f0e9dd;
+  --ui-box-button-ink: #11100d;
+  --ui-box-button-hover-bg: #fffaf1;
+  --ui-box-button-hover-ink: #11100d;
+  --ui-card-radius: var(--radius);
+  --ui-button-radius: 0.375rem;
+}
+
+.events-event-card,
+.events-host-cta,
+.journal-story-card,
+.journal-signup-banner,
+.tools-category-card,
+.tools-material-panel,
+.tools-care-card,
+.tools-custom-card,
+.training-card,
+.training-lasting-panel,
+.training-workshop-panel,
+.store-product-card,
+.store-sort,
+.about-story-panel,
+.about-closing-panel,
+.cart-item,
+.cart-summary,
+.product-warning,
+.related-card {
+  border: 0;
+  border-color: var(--ui-box-line);
+  background: var(--ui-box-bg);
+  color: var(--ui-box-ink);
+  border-radius: var(--ui-card-radius);
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.events-event-card :is(h3, p, span, strong, a, svg),
+.events-host-cta :is(h2, p, span, strong, a, svg),
+.journal-story-card :is(h3, p, span, strong, a, svg),
+.journal-signup-banner :is(h2, p, span, strong, a, svg),
+.tools-category-card :is(h3, p, span, strong, a, svg),
+.tools-material-panel :is(h2, h3, p, span, strong, a, svg),
+.tools-care-card :is(h2, h3, p, span, strong, a, svg),
+.tools-custom-card :is(h2, h3, p, span, strong, a, svg),
+.training-card :is(h3, p, span, strong, a, svg),
+.training-lasting-panel :is(h2, h3, p, span, strong, a, svg),
+.training-workshop-panel :is(h2, h3, p, span, strong, a, svg),
+.store-product-card :is(h3, p, span, strong, li, a, svg),
+.store-sort,
+.store-sort :is(select, svg),
+.about-story-panel :is(h2, p, span, strong, a, svg),
+.about-closing-panel :is(h2, p, span, strong, a, svg),
+.cart-item :is(h3, p, span, strong, button, svg),
+.cart-summary :is(h2, p, span, strong, a, button, svg),
+.product-warning :is(p, span, strong, a, svg),
+.related-card :is(strong, span, a, svg) {
+  color: var(--ui-box-ink);
+}
+
+.events-event-card :is(.events-location, .events-date),
+.journal-story-card .journal-story-meta,
+.store-product-card .store-product-category,
+.store-product-card .store-product-meta,
+.cart-item .remove-item,
+.cart-summary .summary-row span {
+  color: var(--ui-box-muted);
+}
+
+.events-event-image,
+.events-host-image,
+.journal-story-image,
+.tools-category-image,
+.tools-material-image,
+.tools-care-image,
+.tools-custom-image,
+.training-card-image,
+.training-lasting-image,
+.store-product-image,
+.about-story-image,
+.product-primary-media,
+.product-thumb,
+.related-card-media {
+  border: 0;
+  box-shadow: none;
+}
+
+.events-host-copy,
+.tools-material-values article + article,
+.training-quality-list,
+.training-quality-item,
+.summary-row,
+.quantity-control {
+  border-color: transparent;
+}
+
+.tools-material-values article + article,
+.training-quality-item,
+.events-host-copy,
+.summary-row,
+.quantity-control {
+  border-color: var(--ui-box-line);
+}
+
+.events-event-card,
+.journal-story-card,
+.tools-category-card,
+.training-card,
+.store-product-card,
+.tools-material-panel,
+.tools-care-card,
+.tools-custom-card,
+.about-story-panel,
+.events-host-cta,
+.training-lasting-panel {
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.events-event-image,
+.journal-story-image,
+.tools-category-image,
+.training-card-image,
+.store-product-image {
+  border-radius: var(--ui-card-radius) var(--ui-card-radius) 0 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.events-event-body,
+.journal-story-body,
+.tools-category-body,
+.training-card-body,
+.store-product-body {
+  background: var(--ui-box-bg);
+  border-radius: 0 0 var(--ui-card-radius) var(--ui-card-radius);
+}
+
+.about-story-image,
+.events-host-image,
+.tools-material-image,
+.training-lasting-image {
+  border-radius: var(--ui-card-radius) 0 0 var(--ui-card-radius);
+  background: transparent;
+  overflow: hidden;
+}
+
+.about-story-copy,
+.events-host-copy,
+.tools-material-copy,
+.training-lasting-copy,
+.training-quality-list {
+  background: var(--ui-box-bg);
+}
+
+.about-story-copy,
+.events-host-copy,
+.tools-material-copy,
+.training-quality-list {
+  border-radius: 0 var(--ui-card-radius) var(--ui-card-radius) 0;
+}
+
+.training-lasting-copy {
+  border-radius: 0;
+}
+
+.tools-care-copy,
+.tools-custom-copy {
+  background: var(--ui-box-bg);
+  border-radius: var(--ui-card-radius) 0 0 var(--ui-card-radius);
+}
+
+.tools-care-image,
+.tools-custom-image {
+  border-radius: 0 var(--ui-card-radius) var(--ui-card-radius) 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+@media (max-width: 980px) {
+  .about-story-image,
+  .events-host-image,
+  .tools-material-image,
+  .training-lasting-image {
+    border-radius: var(--ui-card-radius) var(--ui-card-radius) 0 0;
+  }
+
+  .about-story-copy,
+  .events-host-copy,
+  .tools-material-copy {
+    border-radius: 0 0 var(--ui-card-radius) var(--ui-card-radius);
+  }
+
+  .training-lasting-copy {
+    border-radius: 0;
+  }
+
+  .training-quality-list {
+    border-radius: 0 0 var(--ui-card-radius) var(--ui-card-radius);
+  }
+
+  .tools-care-copy,
+  .tools-custom-copy {
+    border-radius: var(--ui-card-radius) var(--ui-card-radius) 0 0;
+  }
+
+  .tools-care-image,
+  .tools-custom-image {
+    border-radius: 0 0 var(--ui-card-radius) var(--ui-card-radius);
+  }
+}
+
+.button,
+.button-primary,
+.button-secondary,
+.store-page .add-to-cart,
+.events-solid-button,
+.events-outline-button,
+.journal-solid-button,
+.training-solid-button,
+.tools-solid-button,
+.about-solid-button,
+.cart-solid-action {
+  border-color: var(--ui-surface-button-bg);
+  background: var(--ui-surface-button-bg);
+  color: var(--ui-surface-button-ink);
+  border-radius: var(--ui-button-radius);
+}
+
+body .events-event-card .events-outline-button,
+body .events-host-cta .events-solid-button,
+body .journal-signup-banner .journal-solid-button,
+body .training-lasting-panel .training-solid-button,
+body .training-workshop-panel .training-solid-button,
+body .tools-custom-card .tools-solid-button,
+body .about-story-panel .about-solid-button,
+body .about-closing-panel .about-solid-button,
+body .cart-item .cart-solid-action,
+body .cart-summary .cart-solid-action,
+body .cart-summary .button,
+body .store-product-card .add-to-cart,
+body .store-product-card .button,
+body .related-card .button {
+  border-color: var(--ui-box-button-bg);
+  background: var(--ui-box-button-bg);
+  color: var(--ui-box-button-ink);
+  border-radius: var(--ui-button-radius);
+}
+
+body .button,
+body .button-primary,
+body .button-secondary,
+body .store-page .add-to-cart,
+body .events-solid-button,
+body .events-outline-button,
+body .journal-solid-button,
+body .training-solid-button,
+body .tools-solid-button,
+body .about-solid-button,
+body .cart-solid-action {
+  border-color: var(--ui-surface-button-bg);
+  background: var(--ui-surface-button-bg);
+  color: var(--ui-surface-button-ink);
+  border-radius: var(--ui-button-radius);
+}
+
+.events-event-card .events-outline-button,
+.events-host-cta .events-solid-button,
+.journal-signup-banner .journal-solid-button,
+.training-lasting-panel .training-solid-button,
+.training-workshop-panel .training-solid-button,
+.tools-custom-card .tools-solid-button,
+.about-story-panel .about-solid-button,
+.about-closing-panel .about-solid-button,
+.cart-item .cart-solid-action,
+.cart-summary .cart-solid-action,
+.cart-summary .button,
+.store-product-card .add-to-cart,
+.store-product-card .button,
+.related-card .button {
+  border-color: var(--ui-box-button-bg);
+  background: var(--ui-box-button-bg);
+  color: var(--ui-box-button-ink);
+  border-radius: var(--ui-button-radius);
+}
+
+.button:hover,
+.button:focus-visible,
+.store-page .add-to-cart:hover,
+.store-page .add-to-cart:focus-visible,
+.events-solid-button:hover,
+.events-solid-button:focus-visible,
+.events-outline-button:hover,
+.events-outline-button:focus-visible,
+.journal-solid-button:hover,
+.journal-solid-button:focus-visible,
+.training-solid-button:hover,
+.training-solid-button:focus-visible,
+.tools-solid-button:hover,
+.tools-solid-button:focus-visible,
+.about-solid-button:hover,
+.about-solid-button:focus-visible,
+.cart-solid-action:hover,
+.cart-solid-action:focus-visible {
+  border-color: var(--ui-surface-button-hover-bg);
+  background: var(--ui-surface-button-hover-bg);
+  color: var(--ui-surface-button-hover-ink);
+}
+
+body .events-event-card .events-outline-button:hover,
+body .events-event-card .events-outline-button:focus-visible,
+body .events-host-cta .events-solid-button:hover,
+body .events-host-cta .events-solid-button:focus-visible,
+body .journal-signup-banner .journal-solid-button:hover,
+body .journal-signup-banner .journal-solid-button:focus-visible,
+body .training-lasting-panel .training-solid-button:hover,
+body .training-lasting-panel .training-solid-button:focus-visible,
+body .training-workshop-panel .training-solid-button:hover,
+body .training-workshop-panel .training-solid-button:focus-visible,
+body .tools-custom-card .tools-solid-button:hover,
+body .tools-custom-card .tools-solid-button:focus-visible,
+body .about-story-panel .about-solid-button:hover,
+body .about-story-panel .about-solid-button:focus-visible,
+body .about-closing-panel .about-solid-button:hover,
+body .about-closing-panel .about-solid-button:focus-visible,
+body .cart-item .cart-solid-action:hover,
+body .cart-item .cart-solid-action:focus-visible,
+body .cart-summary .cart-solid-action:hover,
+body .cart-summary .cart-solid-action:focus-visible,
+body .cart-summary .button:hover,
+body .cart-summary .button:focus-visible,
+body .store-product-card .add-to-cart:hover,
+body .store-product-card .add-to-cart:focus-visible,
+body .store-product-card .button:hover,
+body .store-product-card .button:focus-visible,
+body .related-card .button:hover,
+body .related-card .button:focus-visible {
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-box-button-hover-bg);
+  color: var(--ui-box-button-hover-ink);
+}
+
+body .store-product-card .add-to-cart,
+body .store-product-card .button {
+  border-color: var(--ui-box-button-bg);
+  background: var(--ui-box-button-bg);
+  color: var(--ui-box-button-ink);
+}
+
+body .store-product-card .add-to-cart:hover,
+body .store-product-card .add-to-cart:focus-visible,
+body .store-product-card .button:hover,
+body .store-product-card .button:focus-visible {
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-box-button-hover-bg);
+  color: var(--ui-box-button-hover-ink);
+}
+
+.store-page .store-product-card .add-to-cart,
+.store-page .store-product-card .button {
+  border-color: #f0e9dd;
+  background: #f0e9dd;
+  color: #11100d;
+}
+
+.store-page .store-product-card .add-to-cart:hover,
+.store-page .store-product-card .add-to-cart:focus-visible,
+.store-page .store-product-card .button:hover,
+.store-page .store-product-card .button:focus-visible {
+  border-color: #fffaf1;
+  background: #fffaf1;
+  color: #11100d;
+}
+
+body .add-to-cart.is-added,
+body .store-page .store-product-card .add-to-cart.is-added {
+  border-color: #3f4c29;
+  background: #3f4c29;
+  color: #f8f3ec;
+}
+
+:is(
+  .events-hero-redesign,
+  .journal-hero-redesign,
+  .tools-hero-redesign,
+  .training-hero-redesign,
+  .about-hero
+) :is(
+  .events-solid-button,
+  .journal-solid-button,
+  .tools-solid-button,
+  .training-solid-button,
+  .about-solid-button
+) {
+  border-color: var(--ui-box-button-bg);
+  background: var(--ui-box-button-bg);
+  color: var(--ui-box-button-ink);
+}
+
+:is(
+  .events-hero-redesign,
+  .journal-hero-redesign,
+  .tools-hero-redesign,
+  .training-hero-redesign,
+  .about-hero
+) :is(
+  .events-solid-button,
+  .journal-solid-button,
+  .tools-solid-button,
+  .training-solid-button,
+  .about-solid-button
+):hover,
+:is(
+  .events-hero-redesign,
+  .journal-hero-redesign,
+  .tools-hero-redesign,
+  .training-hero-redesign,
+  .about-hero
+) :is(
+  .events-solid-button,
+  .journal-solid-button,
+  .tools-solid-button,
+  .training-solid-button,
+  .about-solid-button
+):focus-visible {
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-box-button-hover-bg);
+  color: var(--ui-box-button-hover-ink);
+}

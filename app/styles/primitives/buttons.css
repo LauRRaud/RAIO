@@ -1,0 +1,107 @@
+/* Button primitives */
+.button {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0 34px;
+  color: var(--accent);
+  background: transparent;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.button-primary {
+  background: transparent;
+  color: var(--accent);
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--text);
+}
+
+.add-to-cart:disabled,
+.button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+@media (max-width: 720px) {
+
+  .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+
+  .product-actions .button,
+.summary-actions .button {
+    width: 100%;
+  }
+}
+
+.store-page .add-to-cart {
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.store-page .add-to-cart {
+  position: relative;
+  width: fit-content;
+  min-width: 0;
+  min-height: 44px;
+  margin-top: auto;
+  border: 1px solid var(--store-ink);
+  border-radius: 0;
+  background: var(--store-ink);
+  color: #f8f3ec;
+  padding: 0 46px;
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: 0.7rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.store-page .add-to-cart svg {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  flex: 0 0 auto;
+  transform: translateY(-50%);
+}
+
+.store-page .add-to-cart:hover,
+.store-page .add-to-cart:focus-visible {
+  background: #3a342a;
+  border-color: #3a342a;
+  color: #f8f3ec;
+}
+
+@media (max-width: 620px) {
+
+  .store-page .add-to-cart {
+    font-size: 0.7rem;
+  }
+}

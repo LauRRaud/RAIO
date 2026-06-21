@@ -1,0 +1,14 @@
+NOTCH GEOMETRY VALIDATION
+
+O notch (approved reference):
+- outer opening: 401 - 299 = 102 units
+- inner opening: 379 - 321 = 58 units
+- rounded transition: 22 units per terminal
+
+R notch (corrected):
+- outer opening: 535.5 - 433.5 = 102.0 units
+- inner opening: 513.5 - 455.5 = 58.0 units
+- rounded transition: 22.0 units per terminal
+
+Result: the notch heights and rounded-terminal geometry match exactly.
+The R and O notch locations differ intentionally because the R notch is aligned to the R bowl centre, while the O notch is centred in the O.

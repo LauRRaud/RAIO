@@ -1,0 +1,101 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, MapPin } from "lucide-react";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { getLocalizedPath } from "@/lib/i18n";
+import { getMessages } from "@/lib/messages";
+
+export function EventsPage({ locale = "et" }) {
+  const messages = getMessages(locale);
+  const t = messages.events;
+  const path = (href) => getLocalizedPath(locale, href);
+
+  return (
+    <>
+      <a href="#main" className="skip-link">
+        {messages.skipLink}
+      </a>
+      <Header locale={locale} currentPath="/sundmused" />
+
+      <main id="main" className="events-page-redesign">
+        <section className="events-hero-redesign" aria-labelledby="events-hero-title">
+          <div className="events-hero-panel">
+            <h1 id="events-hero-title">{t.heroTitle}</h1>
+            <span className="events-short-rule" aria-hidden="true" />
+            <div className="events-hero-text">
+              {t.heroText.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
+            <Link href="#lahitulevad" className="events-solid-button">
+              {t.heroCta}
+            </Link>
+          </div>
+
+          <div className="events-hero-image" style={{ "--hero-image-position": t.heroImagePosition }} aria-hidden="true">
+            <Image src={t.heroImage} alt="" fill priority quality={92} sizes="(max-width: 980px) 100vw, 80vw" />
+          </div>
+        </section>
+
+        <section className="events-upcoming-section" id="lahitulevad" aria-labelledby="events-upcoming-title">
+          <div className="events-section-top">
+            <h2 id="events-upcoming-title">{t.upcomingTitle}</h2>
+            <Link href={path("/kontakt")} className="events-all-link">
+              {t.allLink}
+              <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="events-grid-redesign">
+            {t.events.map((event) => (
+              <article className="events-event-card" key={event.title}>
+                <div className="events-event-image">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 25vw"
+                    style={{ objectPosition: event.imagePosition }}
+                  />
+                </div>
+                <div className="events-event-body">
+                  <p className="events-date">{event.date}</p>
+                  <h3>{event.title}</h3>
+                  <p>{event.description}</p>
+                  <p className="events-location">
+                    <MapPin size={15} strokeWidth={1.7} aria-hidden="true" />
+                    {event.location}
+                  </p>
+                  <Link href={path("/kontakt")} className="events-outline-button">
+                    {t.cardCta}
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <section className="events-host-cta" aria-labelledby="events-host-title">
+            <div className="events-host-image">
+              <Image
+                src={t.host.image}
+                alt={t.host.imageAlt}
+                fill
+                sizes="(max-width: 900px) 100vw, 58vw"
+              />
+            </div>
+            <div className="events-host-copy">
+              <h2 id="events-host-title">{t.host.title}</h2>
+              <span className="events-short-rule" aria-hidden="true" />
+              <p>{t.host.text}</p>
+              <Link href={path("/kontakt")} className="events-solid-button">
+                {t.host.cta}
+              </Link>
+            </div>
+          </section>
+        </section>
+      </main>
+      <Footer locale={locale} />
+    </>
+  );
+}

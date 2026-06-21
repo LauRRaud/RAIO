@@ -1,0 +1,132 @@
+/* Footer component */
+.footer {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(286px, 19vw, 340px);
+  padding: clamp(14px, 2vw, 30px) clamp(24px, 5vw, 64px) clamp(58px, 5vw, 78px);
+  background: var(--raio-dark);
+  color: var(--raio-white);
+  border-top: 1px solid rgba(245, 239, 229, 0.16);
+}
+
+.footer-shell {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  justify-items: center;
+  align-content: start;
+  text-align: center;
+  gap: clamp(22px, 2.2vw, 34px);
+}
+
+.footer-slogan {
+  margin: clamp(18px, 2vw, 32px) 0 0;
+  color: var(--raio-white);
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.55rem, 4.2vw, 3.55rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.footer-logo-link {
+  display: inline-flex;
+  width: fit-content;
+  transform: translateY(clamp(8px, 1.2vw, 16px));
+}
+
+.footer-logo {
+  width: auto;
+  height: 42px;
+  max-width: none;
+  image-rendering: auto;
+  shape-rendering: auto;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-top: clamp(8px, 1vw, 16px);
+  color: rgba(245, 239, 229, 0.86);
+  border: 1px solid rgba(245, 239, 229, 0.26);
+  border-radius: 50%;
+  transition: color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus-visible {
+  color: var(--raio-white);
+  border-color: rgba(245, 239, 229, 0.66);
+  transform: translateY(-2px);
+}
+
+.footer-social-link:focus-visible {
+  outline: 2px solid rgba(245, 239, 229, 0.78);
+  outline-offset: 4px;
+}
+
+.footer-social-icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 1.55;
+}
+
+.footer-fineprint {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 4px);
+  width: min(calc(100% - 44px), 720px);
+  margin: 0;
+  color: rgba(245, 239, 229, 0.72);
+  font-size: clamp(1.02rem, 1.05vw, 1.18rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 620px) {
+
+  .footer {
+    min-height: 260px;
+    padding: 20px 22px 62px;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .footer-shell {
+    gap: 20px;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .footer-logo {
+    height: 37px;
+  }
+
+}
+
+@media (min-width: 1500px) {
+
+  .footer-logo {
+    height: 46px;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .footer-slogan {
+    font-size: clamp(2.45rem, 11vw, 3.05rem);
+  }
+
+}

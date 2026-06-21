@@ -1,0 +1,538 @@
+{
+  "skipLink": "Skip to content",
+  "brand": {
+    "name": "RA•IO",
+    "company": "Raio33Movement OÜ",
+    "registrationCode": "17338447",
+    "country": "Estonia",
+    "email": "ra.io33movement@gmail.com"
+  },
+  "footer": {
+    "slogan": "Training is a feeling.",
+    "socialLabel": "Social media"
+  },
+  "home": {
+    "metadata": {
+      "title": "RA•IO | Training is a feeling",
+      "description": "A premium brand for natural movement, handmade tools, and embodied presence."
+    },
+    "skipLink": "Skip to content",
+    "hero": {
+      "image": "/Pictures/Avaleht/RAIO HERO.png",
+      "imageAlt": "RA•IO training outdoors with a natural tool",
+      "title": "Training is a feeling.",
+      "copy": "Natural strength. Handmade tools. Movement in presence.",
+      "cta": "Discover the world"
+    },
+    "philosophy": {
+      "heading": "Movement is a ritual.",
+      "body": "RA•IO is built for those who seek more than simple training. It is a connection with nature, your body, and community. Here, lasting strength is born.",
+      "cta": "Read our story",
+      "aboutPath": "/meist",
+      "image": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.png",
+      "imageAlt": "RA•IO stone training tool with a moss-covered handle"
+    },
+    "categoryWorld": {
+      "ariaLabel": "The RA•IO world",
+      "cards": [
+        {
+          "key": "treeningud",
+          "title": "Training",
+          "subtitle": "Movement",
+          "path": "/treeningud",
+          "image": "/Pictures/Avaleht/RAIO TREENINGUD.png",
+          "alt": "Person training outdoors with a RA•IO tool"
+        },
+        {
+          "key": "vahendid",
+          "title": "Tools",
+          "subtitle": "Handcraft",
+          "path": "/vahendid",
+          "image": "/Pictures/Avaleht/RAIO VAHENDID.png",
+          "alt": "Close-up of a RA•IO stone and wood training tool"
+        },
+        {
+          "key": "sundmused",
+          "title": "Events",
+          "subtitle": "Experiences",
+          "path": "/sundmused",
+          "image": "/Pictures/Avaleht/raio-sundmused.png",
+          "alt": "RA•IO event in nature at sunset",
+          "variant": "event"
+        },
+        {
+          "key": "meist",
+          "title": "About",
+          "subtitle": "Story",
+          "path": "/meist",
+          "image": "/Pictures/Avaleht/RAIO MEIST.png",
+          "alt": "Engraved RA•IO stone texture",
+          "variant": "meist"
+        },
+        {
+          "key": "journal",
+          "title": "RA•IO+",
+          "subtitle": "Stories",
+          "path": "/journal",
+          "image": "/Pictures/Avaleht/RAIO JOURNAL.png",
+          "alt": "Dark atmospheric mountain landscape"
+        }
+      ]
+    }
+  },
+  "training": {
+    "metadata": {
+      "title": "Training | RA•IO",
+      "description": "RA•IO training brings together strength, endurance, and mindful movement with the rhythm of nature."
+    },
+    "label": "Training",
+    "heroTitle": "Movement. In nature.",
+    "heroText": [
+      "RA•IO training brings together strength, endurance, and mindful movement with the rhythm of nature.",
+      "All of nature is your training ground."
+    ],
+    "heroCta": "See the trainings",
+    "heroImage": "/Pictures/Treeningud/header.png",
+    "listTitle": "Training in our nature",
+    "listIntro": "We offer a range of trainings that support both body and mind. Choose the format that suits you and connect through movement - with yourself, nature, and community.",
+    "cardCta": "Learn more",
+    "trainings": [
+      {
+        "title": "Functional training",
+        "description": "All-round development of the body through natural movement patterns and varied tasks.",
+        "duration": "60-90 min",
+        "level": "Intermediate",
+        "image": "/Pictures/Treeningud/funktsionnalne treening.png"
+      },
+      {
+        "title": "Strength & endurance training",
+        "description": "A focus on strength, endurance, and building physical capacity with natural tools.",
+        "duration": "75-90 min",
+        "level": "Intermediate-advanced",
+        "image": "/Pictures/Treeningud/header.png"
+      },
+      {
+        "title": "Mobility & flexibility",
+        "description": "Training for mobility, flexibility, and body awareness that helps prevent injuries and improves movement quality.",
+        "duration": "45-60 min",
+        "level": "Beginner-intermediate",
+        "image": "/Pictures/Treeningud/treening-jaab.png"
+      },
+      {
+        "title": "Ritual movement & breathing",
+        "description": "A slowing, grounding blend of practices that supports the nervous system, clarity, and inner balance.",
+        "duration": "60 min",
+        "level": "For everyone",
+        "image": "/Pictures/Treeningud/header.png"
+      }
+    ],
+    "qualities": [
+      { "title": "Outdoors all year round", "icon": "leaf" },
+      { "title": "Small groups", "icon": "hand" },
+      { "title": "A personal approach", "icon": "clock" },
+      { "title": "Community & connection", "icon": "heart" }
+    ],
+    "lasting": {
+      "title": "Training that stays with you afterwards.",
+      "text": "Our trainings take place in small groups, in carefully chosen places, where we can focus on what is essential - quality and a real experience.",
+      "cta": "About our trainers",
+      "image": "/Pictures/Treeningud/treening-jaab.png",
+      "imageAlt": "A training group by a lake in nature"
+    },
+    "workshop": {
+      "title": "Want to host a training or workshop?",
+      "text": "We offer options for private and corporate groups. Write to us and we'll create the right experience together.",
+      "cta": "Get in touch"
+    }
+  },
+  "tools": {
+    "metadata": {
+      "title": "Tools | RA•IO",
+      "description": "RA•IO handcrafted training tools made of wood and stone."
+    },
+    "label": "Tools",
+    "heroTitle": "Made from nature. For training that lasts.",
+    "heroText": [
+      "RA•IO tools are handcrafted training tools that combine the strength of nature, simplicity, and timeless durability.",
+      "Made of wood and stone."
+    ],
+    "heroImage": "/Pictures/Vahendid/header.png",
+    "heroImagePosition": "74% center",
+    "proofLabel": "Tool qualities",
+    "heroProof": [
+      { "label": "Natural materials", "icon": "leaf" },
+      { "label": "Handcrafted", "icon": "hand" },
+      { "label": "Timeless and durable", "icon": "clock" }
+    ],
+    "categoriesTitle": "Tool categories",
+    "categoryCta": "Learn more",
+    "categories": [
+      {
+        "title": "Wooden tools",
+        "description": "Staffs, clubs, and other wooden training tools.",
+        "image": "/Pictures/Vahendid/jalutuskepp.png",
+        "href": "/pood"
+      },
+      {
+        "title": "Kettlebells",
+        "description": "Stone kettlebells and wood & stone kettlebells.",
+        "image": "/Pictures/Vahendid/Puu ja kivi sangpomm.png",
+        "href": "/pood"
+      },
+      {
+        "title": "Dumbbells",
+        "description": "Stone dumbbells with wooden handles for strength and endurance training.",
+        "image": "/Pictures/Vahendid/hantlid.png",
+        "href": "/pood"
+      },
+      {
+        "title": "For children",
+        "description": "Safe, natural training tools made for children.",
+        "image": "/Pictures/Vahendid/laste treeningvahendid.png",
+        "href": "/pood"
+      },
+      {
+        "title": "Other tools",
+        "description": "Additional tools to add variety to your movement.",
+        "image": "/Pictures/Vahendid/kivi ja puit.png",
+        "href": "/pood"
+      }
+    ],
+    "material": {
+      "title": "Why wood and stone?",
+      "text": "Wood and stone are natural, durable, and timeless materials that create a genuine connection to the ground in training. Each tool is unique - in its shape, weight, and texture.",
+      "image": "/Pictures/Vahendid/kivi ja puit.png",
+      "imageAlt": "Natural stone as a training tool material",
+      "values": [
+        {
+          "title": "Balance with nature",
+          "text": "Natural materials support the body's natural development and functional movement."
+        },
+        {
+          "title": "Timeless quality",
+          "text": "Each tool is made to last for years and to become even more characterful over time."
+        },
+        {
+          "title": "A genuine experience",
+          "text": "Training that doesn't depend on trends, but rests on lasting value and feel."
+        }
+      ]
+    },
+    "care": {
+      "title": "Care",
+      "lines": [
+        "Clean with a damp cloth after training.",
+        "Avoid keeping it in water for long periods.",
+        "If the wood dries out, treat it with natural oil as needed.",
+        "Cared for properly, they last for generations."
+      ],
+      "image": "/Pictures/Vahendid/hooldus.png",
+      "imageAlt": "Cleaning a kettlebell with a cloth"
+    },
+    "custom": {
+      "title": "Want a custom solution?",
+      "lines": [
+        "We also make tools to order, with the weight, size, or material that suits your wishes.",
+        "Get in touch and we'll create something unique."
+      ],
+      "cta": "Get in touch",
+      "image": "/Pictures/Vahendid/kivi ja puit.png",
+      "imageAlt": "A stone training tool by a lake"
+    }
+  },
+  "events": {
+    "metadata": {
+      "title": "Events | RA•IO",
+      "description": "RA•IO events bring together movement, nature, and community."
+    },
+    "label": "Events",
+    "heroTitle": "Let's meet in nature.",
+    "heroText": [
+      "RA•IO events bring together movement, nature, and community.",
+      "Trainings, workshops, and challenges that create space to grow."
+    ],
+    "heroCta": "See all events",
+    "heroImage": "/Pictures/Sündmused/sundmused-header.png",
+    "heroImagePosition": "62% center",
+    "upcomingTitle": "Upcoming events",
+    "allLink": "View all",
+    "cardCta": "Learn more",
+    "events": [
+      {
+        "date": "25 May 2024",
+        "title": "Morning movement by the river",
+        "description": "Functional training in nature. Breathing, strength, and presence.",
+        "location": "Tartu, Emajõgi",
+        "image": "/Pictures/Sündmused/sundmused-header.png",
+        "imagePosition": "center 48%"
+      },
+      {
+        "date": "8 June 2024",
+        "title": "Kettlebell workshop",
+        "description": "Learn kettlebell technique, use, and history.",
+        "location": "Near Elva",
+        "image": "/Pictures/Sündmused/events-host-workshop.png",
+        "imagePosition": "center 44%"
+      },
+      {
+        "date": "22 June 2024",
+        "title": "Sunrise training and swim",
+        "description": "Movement, cold water, and a morning ritual.",
+        "location": "Lake Peipsi, Kallaste",
+        "image": "/Pictures/Sündmused/events-lake-sunrise.png",
+        "imagePosition": "center center"
+      },
+      {
+        "date": "13 July 2024",
+        "title": "Strength evening & sauna ritual",
+        "description": "An evening strength session, fire, sauna, and a circle of conversation.",
+        "location": "Võrumaa",
+        "image": "/Pictures/Sündmused/events-fire-ritual.png",
+        "imagePosition": "center center"
+      }
+    ],
+    "host": {
+      "title": "Host your own event.",
+      "text": "Company days, workshops, and movement experiences in nature.",
+      "cta": "Get in touch",
+      "image": "/Pictures/Sündmused/events-host-workshop.png",
+      "imageAlt": "A forest event area with kettlebells and wooden training tools"
+    }
+  },
+  "journal": {
+    "metadata": {
+      "title": "RA•IO+ | RA•IO",
+      "description": "RA•IO+ and articles"
+    },
+    "label": "RA•IO+",
+    "heroTitle": "Thoughts, experiences, and inspiration.",
+    "heroText": [
+      "Here you'll find stories about training, nature, the craft of making, and everyday movement."
+    ],
+    "heroCta": "See all articles",
+    "heroImage": "/Pictures/Journal/header vasakule.png",
+    "storiesTitle": "Latest stories",
+    "categoriesLabel": "Categories:",
+    "categoryNavLabel": "Categories",
+    "categories": ["All", "Training", "Nature", "Craft", "Thoughts"],
+    "readMore": "Read more",
+    "articles": [
+      {
+        "date": "23 May 2024",
+        "category": "Nature",
+        "title": "The power of morning movement",
+        "excerpt": "Why early-morning training brings clarity, energy, and calm to the day.",
+        "image": "/Pictures/Sündmused/events-lake-sunrise.png"
+      },
+      {
+        "date": "12 May 2024",
+        "category": "Craft",
+        "title": "Made by hand",
+        "excerpt": "Every tool is made by hand. From choosing the materials to the finish - the story behind the process.",
+        "image": "/Pictures/Vahendid/kivi ja puit.png"
+      },
+      {
+        "date": "5 May 2024",
+        "category": "Training",
+        "title": "Functional strength in nature",
+        "excerpt": "How to build strength, endurance, and mobility using the body and nature.",
+        "image": "/Pictures/Treeningud/funktsionnalne treening.png"
+      },
+      {
+        "date": "28 April 2024",
+        "category": "Thoughts",
+        "title": "Silence as a source of strength",
+        "excerpt": "Why time spent in silence helps strengthen focus, the nervous system, and inner resilience.",
+        "image": "/Pictures/Journal/RAIO MEIST1.png"
+      },
+      {
+        "date": "17 April 2024",
+        "category": "Craft",
+        "title": "Wood and stone - a timeless pairing",
+        "excerpt": "Natural materials that endure over time and support our movement.",
+        "image": "/Pictures/Vahendid/hooldus.png"
+      },
+      {
+        "date": "9 April 2024",
+        "category": "Nature",
+        "title": "Recovery in nature",
+        "excerpt": "How nature helps reduce stress and improves our physical and mental well-being.",
+        "image": "/Pictures/Journal/journal.png"
+      }
+    ],
+    "signup": {
+      "title": "Join RA•IO+",
+      "text": "From time to time we send good thoughts, news, and stories that support your journey.",
+      "cta": "Subscribe to the newsletter"
+    }
+  },
+  "shop": {
+    "metadata": {
+      "title": "Shop | RA•IO",
+      "description": "RA•IO first edition training tool pre-orders"
+    },
+    "kicker": "First edition",
+    "heroTitle": "Pre-orders open.",
+    "heroText": "Handcrafted training tools. Made of wood, stone, and time.",
+    "heroNote": "Limited quantity.",
+    "heroImage": "/Pictures/Pood/header pood.png",
+    "heroImagePosition": "72% center",
+    "productsTitle": "Products",
+    "categoryNavLabel": "Shop categories",
+    "sortLabel": "Sort products",
+    "sort": {
+      "popularity": "Popular",
+      "price": "Price",
+      "name": "Name"
+    },
+    "priceFrom": "From",
+    "metaPreorder": "Pre-order",
+    "metaProduction": "Ready in 2–4 weeks",
+    "orderCta": "Pre-order",
+    "addedToCart": "Added",
+    "viewProduct": "View product",
+    "categories": [
+      { "id": "all", "label": "All" },
+      { "id": "sangpommid", "label": "Kettlebells" },
+      { "id": "hantlid", "label": "Dumbbells" },
+      { "id": "puidust-vahendid", "label": "Wooden tools" },
+      { "id": "lastele", "label": "For children" }
+    ],
+    "statusLabels": {
+      "AVAILABLE": "Available",
+      "MADE_TO_ORDER": "Made to order",
+      "PREORDER": "Available to pre-order",
+      "TEMPORARILY_UNAVAILABLE": "Temporarily unavailable"
+    },
+    "actionLabels": {
+      "AVAILABLE": "Add to cart",
+      "MADE_TO_ORDER": "Order to be made",
+      "PREORDER": "Pre-order",
+      "TEMPORARILY_UNAVAILABLE": "Currently unavailable"
+    },
+    "products": {
+      "treeningnui-sau": {
+        "name": "Training club (staff)",
+        "description": "A wooden training tool for developing mobility, grip, and whole-body strength.",
+        "categoryLabel": "Wooden tools",
+        "productionNote": "Handmade to order.",
+        "estimatedProductionTime": "2-4 weeks"
+      },
+      "kivisangpomm": {
+        "name": "Stone kettlebell",
+        "description": "A stone kettlebell for strength, endurance, and body-control training.",
+        "categoryLabel": "Kettlebells",
+        "productionNote": "Every stone's shape and texture is unique.",
+        "estimatedProductionTime": "2-4 weeks"
+      },
+      "puu-kivi-sangpomm": {
+        "name": "Wood & stone kettlebell",
+        "description": "A stone kettlebell with a wooden handle for natural, versatile training.",
+        "categoryLabel": "Kettlebells",
+        "productionNote": "Made to honour the natural shape of the wood and stone.",
+        "estimatedProductionTime": "2-4 weeks"
+      },
+      "hantlid": {
+        "name": "Dumbbells",
+        "description": "Stone weights with wooden handles for calm strength and endurance training.",
+        "categoryLabel": "Dumbbells",
+        "productionNote": "The set's weight is confirmed when ordering.",
+        "estimatedProductionTime": "2-4 weeks"
+      },
+      "laste-treeningvahendid": {
+        "name": "Children's training tools",
+        "description": "Lighter natural tools made for children's playful movement.",
+        "categoryLabel": "For children",
+        "productionNote": "Size and weight are adapted to the child's age.",
+        "estimatedProductionTime": "2-4 weeks"
+      }
+    }
+  },
+  "product": {
+    "eyebrow": "Shop",
+    "openCart": "Open cart",
+    "relatedEyebrow": "Related",
+    "relatedTitle": "Same category",
+    "metaCategory": "Category",
+    "metaProduction": "Production time",
+    "metaNote": "Production note",
+    "notFound": "Product not found | RA•IO",
+    "productionWarning": "This product is handmade to order. Estimated production time is {time}. A more exact delivery time is confirmed after the order is placed."
+  },
+  "cart": {
+    "metadata": {
+      "title": "Cart | RA•IO",
+      "description": "RA•IO cart"
+    },
+    "eyebrow": "Cart",
+    "emptyTitle": "Your cart is empty.",
+    "emptyCopy": "Add a product from the shop to see quantities, delivery timing, and order flow here.",
+    "shopButton": "Go to shop",
+    "summaryEyebrow": "Summary",
+    "summaryTitle": "Order",
+    "subtotal": "Subtotal",
+    "shippingTitle": "Shipping",
+    "shippingLabel": "Confirmed after ordering",
+    "checkout": "Place order",
+    "clear": "Clear cart",
+    "remove": "Remove",
+    "decrease": "Decrease {name}",
+    "increase": "Increase {name}",
+    "production": "Some items are handmade to order. A more exact delivery time is confirmed after the order is placed.",
+    "productionWarning": "This product is handmade to order. Estimated production time is {time}. A more exact delivery time is confirmed after the order is placed."
+  },
+  "about": {
+    "metadata": {
+      "title": "About | RA•IO",
+      "description": "The RA•IO story — movement, handmade tools, and experiences in nature."
+    },
+    "label": "About",
+    "heroTitle": "Training, tool, and experience.",
+    "heroText": [
+      "RA•IO exists so these three are not separate things, but one whole journey back to the body and to nature."
+    ],
+    "heroImage": "/Pictures/Journal/RAIO MEIST1.png",
+    "cta": "Get in touch",
+    "storyTitle": "Our story",
+    "story": [
+      "The brand's public name is RA•IO and the legal company is Raio33Movement OÜ.",
+      "There is room here for movement, events, and handcrafted tools alike - all born from the same wish to move slower, by hand, and for real."
+    ],
+    "storyImage": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.png",
+    "storyImageAlt": "RA•IO stone training tool with a moss-covered handle",
+    "values": [
+      { "title": "Movement", "text": "Natural, mindful movement in the rhythm of nature." },
+      { "title": "Craft", "text": "Handmade tools of stone and wood, built to last." },
+      { "title": "Experience", "text": "Events and presence that connect people and nature." }
+    ],
+    "closingTitle": "Let's talk.",
+    "closingText": "Questions, collaboration, or orders — write to us.",
+    "closingCta": "Get in touch"
+  },
+  "contact": {
+    "metadata": {
+      "title": "Contact | RA•IO",
+      "description": "RA•IO contact page"
+    },
+    "eyebrow": "Contact",
+    "title": "Write when you want to train, order, or build something together.",
+    "description": "We handle training, events, orders, and collaboration enquiries from one place.",
+    "panelLabel": "Contact information",
+    "panelKicker": "Direct contact",
+    "response": "Send a short note about what you want to move forward with. We will reply as soon as possible.",
+    "topics": [
+      {
+        "title": "Orders",
+        "text": "Training tools, pre-orders, and production timing."
+      },
+      {
+        "title": "Training and events",
+        "text": "Groups, workshops, challenges, and custom formats."
+      },
+      {
+        "title": "Collaboration",
+        "text": "Companies, communities, and nature-based experiences."
+      }
+    ]
+  }
+}
