@@ -3,10 +3,12 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JournalCardsCarousel } from "@/components/JournalCardsCarousel";
 import { getMessages } from "@/lib/messages";
+import { getJournalArticles } from "@/lib/payloadContent";
 
-export function JournalPage({ locale = "et" }) {
+export async function JournalPage({ locale = "et" }) {
   const messages = getMessages(locale);
   const t = messages.journal;
+  const articles = await getJournalArticles(locale, t.articles);
   const emailHref = `mailto:${messages.brand.email}`;
 
   return (
@@ -68,7 +70,7 @@ export function JournalPage({ locale = "et" }) {
           </div>
 
           <JournalCardsCarousel
-            articles={t.articles}
+            articles={articles}
             readMore={t.readMore}
             modalClose={t.modalClose}
             labels={messages.carousel.journal}
