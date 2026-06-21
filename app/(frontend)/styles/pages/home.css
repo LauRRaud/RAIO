@@ -252,11 +252,12 @@
 }
 
 .world-card-content strong {
+  font-family: var(--font-display), Georgia, serif;
   font-size: clamp(1.05rem, 1.25vw, 1.42rem);
+  font-weight: 400;
   line-height: 1;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-weight: 700;
 }
 
 .world-card-arrow {

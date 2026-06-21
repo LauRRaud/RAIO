@@ -7,9 +7,57 @@
     "country": "Eesti",
     "email": "ra.io33movement@gmail.com"
   },
+  "metadata": {
+    "title": "RA•IO",
+    "description": "RA•IO koduleht, pood ja kogemuste platvorm"
+  },
+  "header": {
+    "homeLabel": "RA•IO avalehele",
+    "desktopNavLabel": "Peamenüü",
+    "languageLabel": "Keel",
+    "cartLabel": "Ostukorv",
+    "cartCountLabel": "toodet",
+    "openMenuLabel": "Ava menüü",
+    "mobileNavLabel": "Mobiilimenüü",
+    "languages": {
+      "et": "ET",
+      "en": "EN"
+    },
+    "primaryNav": [
+      { "key": "treeningud", "label": "Treeningud", "href": "/treeningud" },
+      { "key": "vahendid", "label": "Vahendid", "href": "/vahendid" },
+      { "key": "sundmused", "label": "Sündmused", "href": "/sundmused" },
+      { "key": "pood", "label": "Pood", "href": "/pood" },
+      { "key": "meist", "label": "Meist", "href": "/meist" },
+      { "key": "journal", "label": "RA•IO+", "href": "/journal" }
+    ]
+  },
   "footer": {
     "slogan": "Trenn on tunne.",
-    "socialLabel": "Sotsiaalmeedia"
+    "socialLabel": "Sotsiaalmeedia",
+    "instagramLabel": "Sotsiaalmeedia: Instagram"
+  },
+  "carousel": {
+    "training": {
+      "previous": "Eelmised treeningud",
+      "next": "Järgmised treeningud"
+    },
+    "events": {
+      "previous": "Eelmised sündmused",
+      "next": "Järgmised sündmused"
+    },
+    "journal": {
+      "previous": "Eelmised lood",
+      "next": "Järgmised lood"
+    },
+    "tools": {
+      "previous": "Eelmised vahendite kategooriad",
+      "next": "Järgmised vahendite kategooriad"
+    },
+    "products": {
+      "previous": "Eelmised tooted",
+      "next": "Järgmised tooted"
+    }
   },
   "home": {
     "metadata": {
@@ -97,34 +145,55 @@
     "listTitle": "Treeningud meie looduses",
     "listIntro": "Pakume erinevaid treeninguid, mis toetavad nii keha kui vaimu. Vali endale sobiv formaat ja tule liikumise kaudu ühendusse - iseenda, looduse ja kogukonnaga.",
     "cardCta": "Vaata lähemalt",
+    "modalClose": "Sulge treening",
     "trainings": [
       {
         "title": "Funktsionaalne treening",
         "description": "Keha igakülgne arendamine läbi looduslike liikumismustrite ja mitmekesiste ülesannete.",
         "duration": "60-90 min",
         "level": "Kesktase",
-        "image": "/Pictures/Treeningud/funktsionnalne treening.png"
+        "image": "/Pictures/Treeningud/funktsionnalne treening.png",
+        "body": [
+          "Funktsionaalne treening arendab jõudu, liikuvust, tasakaalu ja vastupidavust ühe tervikuna. Liikumised lähtuvad päris keha vajadustest, mitte masinate etteantud radadest.",
+          "Treeningus kasutame keharaskust, looduslikke vahendeid ja ümbruse võimalusi. Iga harjutus aitab luua paremat kehakontrolli ja enesekindlust igapäevases liikumises.",
+          "Sobib neile, kes tahavad treenida mitmekülgselt, teadlikult ja looduse rütmis."
+        ]
       },
       {
         "title": "Jõu & vastupidavuse treening",
         "description": "Fookus jõul, vastupidavusel ja kehalise võimekuse arendamisel looduslike vahenditega.",
         "duration": "75-90 min",
         "level": "Kesktase-edasijõudnud",
-        "image": "/Pictures/Treeningud/header.png"
+        "image": "/Pictures/Treeningud/header.png",
+        "body": [
+          "See treening keskendub tugevamale pingutusele: kandevõimele, haardele, südamiku tööle ja pikemale töövõimele.",
+          "Kasutame looduslikke raskusi, sangpomme, keharaskust ja vahelduva tempoga lõike. Fookus on puhtal tehnikal ning suutlikkusel hoida kvaliteeti ka väsimuse all.",
+          "Treening sobib osalejale, kellel on juba baastunnetus olemas ja kes tahab keha võimekust edasi viia."
+        ]
       },
       {
         "title": "Mobiilsus & liikuvus",
         "description": "Liikuvuse, painduvuse ja kehatunnetuse treening, mis aitab ennetada vigu ja parandab liikumiskvaliteeti.",
         "duration": "45-60 min",
         "level": "Alg-tase-kesktase",
-        "image": "/Pictures/Treeningud/treening-jaab.png"
+        "image": "/Pictures/Treeningud/treening-jaab.png",
+        "body": [
+          "Mobiilsuse treening aitab kehal liikuda vabamalt ja turvalisemalt. Keskendume liigeste kontrollile, hingamisele, tasakaalule ja rahulikule liikumisulatusse sisenemisele.",
+          "See ei ole lihtsalt venitamine. Harjutused õpetavad keha looma jõudu ka nendes asendites, kus tavaliselt tekib ebakindlus või pinge.",
+          "Sobib hästi nii taastavaks treeninguks kui ka tugevamate treeningute toetamiseks."
+        ]
       },
       {
         "title": "Rituaalne liikumine & hingamine",
         "description": "Aeglustav ja ühendav praktikate segu, mis toetab närvisüsteemi, selgust ja sisemist tasakaalu.",
         "duration": "60 min",
         "level": "Kõigile",
-        "image": "/Pictures/Treeningud/header.png"
+        "image": "/Pictures/Treeningud/header.png",
+        "body": [
+          "Rituaalne liikumine loob ruumi aeglustamiseks. Fookus on hingamisel, kohalolul ja kehaga ühenduse taastamisel.",
+          "Praktika võib sisaldada pehmeid liikumisjada, maapinnaga kontakti, teadlikku hingamist ja vaikuse hetki. Eesmärk ei ole maksimumtulemus, vaid närvisüsteemi tasakaal.",
+          "Sobib kõigile, kes soovivad treeningusse rohkem rahu, tähelepanu ja sisemist selgust."
+        ]
       }
     ],
     "qualities": [
@@ -136,7 +205,7 @@
     "lasting": {
       "title": "Treening, mis jääb sinuga ka pärast.",
       "text": "Meie treeningud toimuvad väikestes gruppides, hoolikalt valitud paikades, kus saame keskenduda olemuslikule, kvaliteedile ja päris kogemusele.",
-      "cta": "Meist treeneritest",
+      "cta": "Treenerid",
       "image": "/Pictures/Treeningud/treening-jaab.png",
       "imageAlt": "Treeninggrupp järve ääres looduses"
     },
@@ -258,6 +327,7 @@
     "upcomingTitle": "Lähitulevad sündmused",
     "allLink": "Vaata kõiki",
     "cardCta": "Vaata lähemalt",
+    "modalClose": "Sulge sündmus",
     "events": [
       {
         "date": "25. mai 2024",
@@ -265,7 +335,12 @@
         "description": "Funktsionaalne treening looduses. Hingamine, jõud ja kohalolu.",
         "location": "Tartu, Emajõgi",
         "image": "/Pictures/Sündmused/sundmused-header.png",
-        "imagePosition": "center 48%"
+        "imagePosition": "center 48%",
+        "body": [
+          "Alustame päeva rahuliku soojenduse, hingamise ja loomulike liikumismustritega. Fookus on keha äratamisel, mitte kiirustamisel.",
+          "Treening ühendab keharaskuse, looduslikud vahendid ja ümbruse. Jõeäärne ruum aitab hoida kohalolu ning annab liikumisele lihtsa, maise rütmi.",
+          "Sobib neile, kes tahavad päeva alustada selgema pea, tugevama keha ja vaiksema närvisüsteemiga."
+        ]
       },
       {
         "date": "8. juuni 2024",
@@ -273,7 +348,12 @@
         "description": "Õpi sangpommi tehnikat, kasutust ja ajalugu.",
         "location": "Elva lähistel",
         "image": "/Pictures/Sündmused/events-host-workshop.png",
-        "imagePosition": "center 44%"
+        "imagePosition": "center 44%",
+        "body": [
+          "Töötoas vaatame sangpommi liikumiste põhialuseid: haare, hingamine, puusaliikumine ja kontrollitud jõu kasutamine.",
+          "Õpime, kuidas looduslikust materjalist vahend käitub käes ning kuidas treenida nii, et tehnika jääb puhas ja keha tunneb end turvaliselt.",
+          "Päev sobib nii esimeseks kokkupuuteks kui ka neile, kes tahavad oma liikumist täpsemaks muuta."
+        ]
       },
       {
         "date": "22. juuni 2024",
@@ -281,7 +361,12 @@
         "description": "Liikumine, külm vesi ja hommikune rituaal.",
         "location": "Peipsi järv, Kallaste",
         "image": "/Pictures/Sündmused/events-lake-sunrise.png",
-        "imagePosition": "center center"
+        "imagePosition": "center center",
+        "body": [
+          "Kohtume enne päeva algust, et liikuda päikesetõusu valguses ja luua kehale selge, rahulik äratus.",
+          "Treeningule järgneb teadlik suplus, kus fookus on hingamisel, kohalolul ja keha kuulamisel. Külm vesi ei ole võistlus, vaid rituaal.",
+          "See sündmus on loodud neile, kes otsivad lihtsat, tugevat ja meeldejäävat hommikukogemust."
+        ]
       },
       {
         "date": "13. juuli 2024",
@@ -289,7 +374,12 @@
         "description": "Õhtune jõutreening, tuli, saun ja vestlusring.",
         "location": "Võrumaa",
         "image": "/Pictures/Sündmused/events-fire-ritual.png",
-        "imagePosition": "center center"
+        "imagePosition": "center center",
+        "body": [
+          "Õhtu algab jõutreeninguga, kus kasutame keharaskust ja looduslikke vahendeid. Tempo on tugev, aga teadlik.",
+          "Pärast treeningut liigume taastumise ja saunarituaali juurde. Tuli, soojus ja vestlus loovad ruumi keha rahunemiseks.",
+          "Kogemus ühendab pingutuse, taastumise ja kogukonna. See on rohkem kui treening: see on terviklik õhtu looduses."
+        ]
       }
     ],
     "host": {
@@ -317,48 +407,79 @@
     "categoryNavLabel": "Kategooriad",
     "categories": ["Kõik", "Treening", "Loodus", "Käsitöö", "Mõtted"],
     "readMore": "Loe edasi",
+    "modalClose": "Sulge lugu",
     "articles": [
       {
         "date": "23. mai 2024",
         "category": "Loodus",
         "title": "Hommikuse liikumise jõud",
         "excerpt": "Miks varahommikused treeningud loovad päevale selguse, energia ja rahu.",
-        "image": "/Pictures/Sündmused/events-lake-sunrise.png"
+        "image": "/Pictures/Sündmused/events-lake-sunrise.png",
+        "body": [
+          "Varahommikune liikumine loob päevale teistsuguse alguse. Keha ärkab enne müra, mõtted muutuvad selgemaks ja treening ei ole ainult pingutus, vaid häälestus.",
+          "Looduses tehtud liikumine annab ruumi märgata hingamist, temperatuuri ja rütmi. Iga samm või kordus muutub lihtsaks viisiks tagasi kehasse tulla.",
+          "RA•IO hommikutes on oluline rahulik järjepidevus. Mitte maksimaalne tempo, vaid kohalolu, mis jääb päeva lõpuni kaasa."
+        ]
       },
       {
         "date": "12. mai 2024",
         "category": "Käsitöö",
         "title": "Käsitööna loodud",
         "excerpt": "Iga vahend valmib käsitsi. Materjalide valikust viimistluseni - lugu protsessi tagant.",
-        "image": "/Pictures/Vahendid/kivi ja puit.png"
+        "image": "/Pictures/Vahendid/kivi ja puit.png",
+        "body": [
+          "Käsitöö algab materjali kuulamisest. Puit ja kivi ei ole standardsed toorikud, vaid elavad vormid, mille kuju ja raskus suunavad kogu tööprotsessi.",
+          "Iga vahend sünnib aeglaselt: valik, tasakaal, lihv ja viimistlus. Tähtis ei ole ainult lõpptulemus, vaid ka see, et vahend tunduks käes loomulik.",
+          "Seetõttu ei ole kaks RA•IO vahendit kunagi päris samad. See on osa nende tugevusest ja iseloomust."
+        ]
       },
       {
         "date": "5. mai 2024",
         "category": "Treening",
         "title": "Funktsionaalne tugevus looduses",
         "excerpt": "Kuidas arendada jõudu, vastupidavust ja liikuvust kasutades keha ja loodust.",
-        "image": "/Pictures/Treeningud/funktsionnalne treening.png"
+        "image": "/Pictures/Treeningud/funktsionnalne treening.png",
+        "body": [
+          "Funktsionaalne tugevus ei ole ainult raskuse tõstmine. See on oskus liikuda, hoida tasakaalu, hingata ja kanda jõudu erinevates olukordades.",
+          "Loodus loob treeningule muutlikud tingimused: pinnas, ilm, ruum ja vahendid sunnivad keha kohanema. Just selles kohanemises sünnib praktiline tugevus.",
+          "RA•IO treeningus ühendame jõu, vastupidavuse ja liikuvuse nii, et keha muutub valmisolevamaks ka väljaspool treeningut."
+        ]
       },
       {
         "date": "28. aprill 2024",
         "category": "Mõtted",
         "title": "Vaikus kui jõuallikas",
         "excerpt": "Miks vaikuses viibimine aitab tugevdada fookust, närvisüsteemi ja sisemist vastupidavust.",
-        "image": "/Pictures/Journal/RAIO MEIST1.png"
+        "image": "/Pictures/Journal/RAIO MEIST1.png",
+        "body": [
+          "Vaikus ei ole tühjus. See on keskkond, kus keha saab märgata, mis on päriselt pinges ja mis vajab vabastamist.",
+          "Kui treeningu kõrval on ruumi vaikusele, muutub pingutus täpsemaks. Liikumine ei ole enam ainult välise tulemuse tagaajamine, vaid sisemise fookuse harjutamine.",
+          "Sellepärast on RA•IO kogemustes alati koht aeglustamisel. Tugevus vajab taastumist sama palju kui pingutust."
+        ]
       },
       {
         "date": "17. aprill 2024",
         "category": "Käsitöö",
         "title": "Puit ja kivi - ajatu kooslus",
         "excerpt": "Looduslikud materjalid, mis peavad vastu ajale ja toetavad meie liikumist.",
-        "image": "/Pictures/Vahendid/hooldus.png"
+        "image": "/Pictures/Vahendid/hooldus.png",
+        "body": [
+          "Puit ja kivi kannavad endas lihtsat ausust. Need ei vaja liigset disaini, sest nende raskus, tekstuur ja temperatuur räägivad juba ise.",
+          "Treeningvahendina loovad nad vahetu kontakti maapinna, käe ja liikumise vahel. Kivi annab raskuse, puit annab haarde ja soojuse.",
+          "Kui vahendit hooldada, muutub see ajas isiklikumaks. Kulumine ei tee seda nõrgemaks, vaid lisab loole kihte."
+        ]
       },
       {
         "date": "9. aprill 2024",
         "category": "Loodus",
         "title": "Looduses taastumine",
         "excerpt": "Kuidas loodus aitab vähendada stressi ja parandab meie füüsilist ning vaimset heaolu.",
-        "image": "/Pictures/Journal/journal.png"
+        "image": "/Pictures/Journal/journal.png",
+        "body": [
+          "Taastumine ei tähenda alati täielikku paigalolekut. Sageli tähendab see keskkonna vahetust, aeglasemat tempot ja tähelepanu tagasi hingamise juurde toomist.",
+          "Looduses väheneb vajadus kogu aeg reageerida. Helid, valgus ja avar ruum aitavad närvisüsteemil pehmeneda ning kehal treeningust paremini taastuda.",
+          "RA•IO jaoks on loodus nii treeningpaik kui taastumisruum. Mõlemad on sama terviku osad."
+        ]
       }
     ],
     "signup": {
@@ -385,6 +506,10 @@
       "popularity": "Populaarsed",
       "price": "Hind",
       "name": "Nimi"
+    },
+    "carousel": {
+      "previous": "Eelmised tooted",
+      "next": "Järgmised tooted"
     },
     "priceFrom": "Alates",
     "metaPreorder": "Ette tellimine",
@@ -416,31 +541,36 @@
         "name": "Treeningnui (sau)",
         "description": "Puidust treeningvahend liikuvuse, haarde ja kogu keha jõu arendamiseks.",
         "categoryLabel": "Puidust vahendid",
-        "productionNote": "Valmib käsitööna tellimuse alusel."
+        "productionNote": "Valmib käsitööna tellimuse alusel.",
+        "estimatedProductionTime": "2-4 nädalat"
       },
       "kivisangpomm": {
         "name": "Kivisangpomm",
         "description": "Kivist sangpomm jõu, vastupidavuse ja keha kontrolli treeninguks.",
         "categoryLabel": "Sangpommid",
-        "productionNote": "Iga kivi vorm ja tekstuur on ainulaadne."
+        "productionNote": "Iga kivi vorm ja tekstuur on ainulaadne.",
+        "estimatedProductionTime": "2-4 nädalat"
       },
       "puu-kivi-sangpomm": {
         "name": "Puu & kivi sangpomm",
         "description": "Puidust käepidemega kivisangpomm loomulikuks ja mitmekesiseks treeninguks.",
         "categoryLabel": "Sangpommid",
-        "productionNote": "Valmib puidu ja kivi loomulikku kuju arvestades."
+        "productionNote": "Valmib puidu ja kivi loomulikku kuju arvestades.",
+        "estimatedProductionTime": "2-4 nädalat"
       },
       "hantlid": {
         "name": "Hantlid",
         "description": "Kivist raskused puidust käepidemega rahulikuks jõu- ja vastupidavustreeninguks.",
         "categoryLabel": "Hantlid",
-        "productionNote": "Komplekti kaal täpsustatakse tellimisel."
+        "productionNote": "Komplekti kaal täpsustatakse tellimisel.",
+        "estimatedProductionTime": "2-4 nädalat"
       },
       "laste-treeningvahendid": {
         "name": "Laste treeningvahendid",
         "description": "Lastele loodud kergemad looduslikud vahendid mänguliseks liikumiseks.",
         "categoryLabel": "Lastele",
-        "productionNote": "Suurus ja kaal kohandatakse lapse vanusele."
+        "productionNote": "Suurus ja kaal kohandatakse lapse vanusele.",
+        "estimatedProductionTime": "2-4 nädalat"
       }
     }
   },
@@ -453,7 +583,14 @@
     "metaProduction": "Valmimisaeg",
     "metaNote": "Tootmise märkus",
     "notFound": "Toode ei leitud | RA•IO",
-    "productionWarning": "See toode valmib käsitööna tellimuse alusel. Eeldatav valmimisaeg on {time}. Täpsem tarneaeg kinnitatakse pärast tellimuse esitamist."
+    "productionWarning": "See toode valmib käsitööna tellimuse alusel. Eeldatav valmimisaeg on {time}. Täpsem tarneaeg kinnitatakse pärast tellimuse esitamist.",
+    "gallery": {
+      "controlsLabel": "Tootepildid",
+      "thumbsLabel": "Vali tootepilt",
+      "previous": "Eelmine pilt",
+      "next": "Järgmine pilt",
+      "thumbnail": "Näita pilti"
+    }
   },
   "cart": {
     "metadata": {
@@ -474,6 +611,10 @@
     "remove": "Eemalda",
     "decrease": "Vähenda toodet {name}",
     "increase": "Suurenda toodet {name}",
+    "totalLabel": "kokku",
+    "emailTitle": "RAIO ostukorv",
+    "emailNoteLabel": "Hoiatus",
+    "emailSubject": "RAIO tellimus",
     "production": "Mõned tooted valmivad käsitööna tellimuse alusel. Täpsem tarneaeg kinnitatakse pärast tellimuse esitamist.",
     "productionWarning": "See toode valmib käsitööna tellimuse alusel. Eeldatav valmimisaeg on {time}. Täpsem tarneaeg kinnitatakse pärast tellimuse esitamist."
   },
@@ -491,17 +632,33 @@
     "cta": "Võta ühendust",
     "storyTitle": "Meie lugu",
     "story": [
-      "Brändi avalik nimi on RA•IO ja juriidiline ettevõte on Raio33Movement OÜ.",
+      "Brändi nimi on RA•IO ja juriidiline ettevõte on Raio33Movement OÜ.",
       "Siin on ruum nii liikumisele, sündmustele kui ka käsitööna valmistatud tööriistadele - kõik sündinud samast soovist liikuda aeglasemalt, käega ja päriselt."
     ],
     "storyImage": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.png",
     "storyImageAlt": "Samblase sangaga kivist RA•IO treeningvahend",
     "values": [
-      { "title": "Liikumine", "text": "Loomulik, teadlik liikumine looduse rütmis." },
-      { "title": "Käsitöö", "text": "Kivist ja puidust käsitsi valmistatud vahendid, mis kestavad." },
-      { "title": "Kogemus", "text": "Sündmused ja kohalolu, mis ühendavad inimesi ja loodust." }
+      {
+        "title": "Liikumine",
+        "text": "Loomulik, teadlik liikumine looduse rütmis."
+      },
+      {
+        "title": "Käsitöö",
+        "text": "Kivist ja puidust käsitsi valmistatud vahendid, mis kestavad."
+      },
+      {
+        "title": "Kogemus",
+        "text": "Sündmused ja kohalolu, mis ühendavad inimesi ja loodust."
+      }
     ],
     "trainersTitle": "Treenerid",
+    "contactPanel": {
+      "title": "Kontakt",
+      "company": "Ärinimi",
+      "registration": "Registrikood",
+      "email": "E-post",
+      "instagram": "Instagram"
+    },
     "trainers": [
       {
         "name": "Rainer Olei",

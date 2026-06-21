@@ -1,13 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getProductActionLabel, productActionLabels } from "@/lib/shop";
 import { useCart } from "@/components/CartProvider";
 
-export function AddToCartButton({ product, quantity = 1, label, addedLabel = "Lisatud", disabledLabel, getActionLabel }) {
+export function AddToCartButton({ product, quantity = 1, label, addedLabel, disabledLabel }) {
   const { addItem } = useCart();
   const [wasAdded, setWasAdded] = useState(false);
-  const resolvedLabel = label || (getActionLabel ? getActionLabel(product.status) : getProductActionLabel(product.status));
   const disabled = product.status === "TEMPORARILY_UNAVAILABLE";
 
   useEffect(() => {
@@ -28,10 +26,10 @@ export function AddToCartButton({ product, quantity = 1, label, addedLabel = "Li
       className={`button button-primary add-to-cart${wasAdded ? " is-added" : ""}`}
       onClick={handleClick}
       disabled={disabled}
-      title={disabled ? disabledLabel || productActionLabels.TEMPORARILY_UNAVAILABLE : undefined}
+      title={disabled ? disabledLabel : undefined}
       aria-live="polite"
     >
-      {wasAdded ? addedLabel : resolvedLabel}
+      {wasAdded ? addedLabel : label}
     </button>
   );
 }

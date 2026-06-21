@@ -14,7 +14,7 @@ export function ShopPage({ locale = "et" }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath="/pood" />
+      <Header locale={locale} currentPath="/pood" labels={messages.header} brandName={messages.brand.name} />
 
       <main id="main" className="store-page">
         <section className="store-hero" aria-labelledby="store-hero-title">

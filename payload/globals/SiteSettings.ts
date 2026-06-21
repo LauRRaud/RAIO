@@ -21,6 +21,18 @@ export const SiteSettings: GlobalConfig = {
       defaultValue: "RA•IO"
     },
     {
+      name: "companyName",
+      label: "Ärinimi",
+      type: "text",
+      defaultValue: "Raio33Movement OÜ"
+    },
+    {
+      name: "registryCode",
+      label: "Registrikood",
+      type: "text",
+      defaultValue: "17338447"
+    },
+    {
       name: "footerSlogan",
       label: "Footeri slogan",
       type: "text",

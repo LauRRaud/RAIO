@@ -12,7 +12,7 @@ export function CartPage({ locale = "et" }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath="/ostukorv" />
+      <Header locale={locale} currentPath="/ostukorv" labels={messages.header} brandName={messages.brand.name} />
       <main id="main">
         <CartView
           locale={locale}

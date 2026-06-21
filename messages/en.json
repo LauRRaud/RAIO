@@ -7,9 +7,57 @@
     "country": "Estonia",
     "email": "ra.io33movement@gmail.com"
   },
+  "metadata": {
+    "title": "RA•IO",
+    "description": "RA•IO website, shop, and experience platform"
+  },
+  "header": {
+    "homeLabel": "RA•IO home",
+    "desktopNavLabel": "Main navigation",
+    "languageLabel": "Language",
+    "cartLabel": "Cart",
+    "cartCountLabel": "items",
+    "openMenuLabel": "Open menu",
+    "mobileNavLabel": "Mobile navigation",
+    "languages": {
+      "et": "ET",
+      "en": "EN"
+    },
+    "primaryNav": [
+      { "key": "treeningud", "label": "Training", "href": "/treeningud" },
+      { "key": "vahendid", "label": "Tools", "href": "/vahendid" },
+      { "key": "sundmused", "label": "Events", "href": "/sundmused" },
+      { "key": "pood", "label": "Shop", "href": "/pood" },
+      { "key": "meist", "label": "About", "href": "/meist" },
+      { "key": "journal", "label": "RA•IO+", "href": "/journal" }
+    ]
+  },
   "footer": {
     "slogan": "Training is a feeling.",
-    "socialLabel": "Social media"
+    "socialLabel": "Social media",
+    "instagramLabel": "Social media: Instagram"
+  },
+  "carousel": {
+    "training": {
+      "previous": "Previous trainings",
+      "next": "Next trainings"
+    },
+    "events": {
+      "previous": "Previous events",
+      "next": "Next events"
+    },
+    "journal": {
+      "previous": "Previous stories",
+      "next": "Next stories"
+    },
+    "tools": {
+      "previous": "Previous tool categories",
+      "next": "Next tool categories"
+    },
+    "products": {
+      "previous": "Previous products",
+      "next": "Next products"
+    }
   },
   "home": {
     "metadata": {
@@ -97,34 +145,55 @@
     "listTitle": "Training in our nature",
     "listIntro": "We offer a range of trainings that support both body and mind. Choose the format that suits you and connect through movement - with yourself, nature, and community.",
     "cardCta": "Learn more",
+    "modalClose": "Close training",
     "trainings": [
       {
         "title": "Functional training",
         "description": "All-round development of the body through natural movement patterns and varied tasks.",
         "duration": "60-90 min",
         "level": "Intermediate",
-        "image": "/Pictures/Treeningud/funktsionnalne treening.png"
+        "image": "/Pictures/Treeningud/funktsionnalne treening.png",
+        "body": [
+          "Functional training develops strength, mobility, balance, and endurance as one whole. The movements come from real body needs, not fixed machine paths.",
+          "We use bodyweight, natural tools, and the possibilities of the surrounding space. Every exercise helps build better body control and confidence in everyday movement.",
+          "It suits people who want to train with variety, awareness, and the rhythm of nature."
+        ]
       },
       {
         "title": "Strength & endurance training",
         "description": "A focus on strength, endurance, and building physical capacity with natural tools.",
         "duration": "75-90 min",
         "level": "Intermediate-advanced",
-        "image": "/Pictures/Treeningud/header.png"
+        "image": "/Pictures/Treeningud/header.png",
+        "body": [
+          "This session focuses on stronger effort: carrying capacity, grip, core work, and longer work capacity.",
+          "We use natural weights, kettlebells, bodyweight, and intervals with changing pace. The focus is clean technique and the ability to keep quality under fatigue.",
+          "It suits participants who already have a base and want to take their physical capacity further."
+        ]
       },
       {
         "title": "Mobility & flexibility",
         "description": "Training for mobility, flexibility, and body awareness that helps prevent injuries and improves movement quality.",
         "duration": "45-60 min",
         "level": "Beginner-intermediate",
-        "image": "/Pictures/Treeningud/treening-jaab.png"
+        "image": "/Pictures/Treeningud/treening-jaab.png",
+        "body": [
+          "Mobility training helps the body move more freely and safely. We focus on joint control, breathing, balance, and entering range of motion calmly.",
+          "This is not just stretching. The exercises teach the body to create strength in positions where uncertainty or tension usually appears.",
+          "It works well as a restorative session and as support for stronger training."
+        ]
       },
       {
         "title": "Ritual movement & breathing",
         "description": "A slowing, grounding blend of practices that supports the nervous system, clarity, and inner balance.",
         "duration": "60 min",
         "level": "For everyone",
-        "image": "/Pictures/Treeningud/header.png"
+        "image": "/Pictures/Treeningud/header.png",
+        "body": [
+          "Ritual movement creates room to slow down. The focus is breathing, presence, and restoring connection with the body.",
+          "The practice can include gentle movement sequences, contact with the ground, conscious breathing, and moments of silence. The goal is not maximum output, but nervous-system balance.",
+          "It suits anyone who wants more calm, attention, and inner clarity in their training."
+        ]
       }
     ],
     "qualities": [
@@ -258,6 +327,7 @@
     "upcomingTitle": "Upcoming events",
     "allLink": "View all",
     "cardCta": "Learn more",
+    "modalClose": "Close event",
     "events": [
       {
         "date": "25 May 2024",
@@ -265,7 +335,12 @@
         "description": "Functional training in nature. Breathing, strength, and presence.",
         "location": "Tartu, Emajõgi",
         "image": "/Pictures/Sündmused/sundmused-header.png",
-        "imagePosition": "center 48%"
+        "imagePosition": "center 48%",
+        "body": [
+          "We start the day with a calm warm-up, breathing, and natural movement patterns. The focus is waking the body, not rushing.",
+          "The session brings together bodyweight work, natural tools, and the surrounding space. The river setting helps keep presence and gives movement a grounded rhythm.",
+          "It is for people who want to begin the day with a clearer head, a stronger body, and a calmer nervous system."
+        ]
       },
       {
         "date": "8 June 2024",
@@ -273,7 +348,12 @@
         "description": "Learn kettlebell technique, use, and history.",
         "location": "Near Elva",
         "image": "/Pictures/Sündmused/events-host-workshop.png",
-        "imagePosition": "center 44%"
+        "imagePosition": "center 44%",
+        "body": [
+          "In the workshop we cover the foundations of kettlebell movement: grip, breathing, hip drive, and controlled use of strength.",
+          "We explore how a natural-material tool behaves in the hand and how to train with clean technique while keeping the body safe.",
+          "The day works both as a first introduction and for people who want to make their movement more precise."
+        ]
       },
       {
         "date": "22 June 2024",
@@ -281,7 +361,12 @@
         "description": "Movement, cold water, and a morning ritual.",
         "location": "Lake Peipsi, Kallaste",
         "image": "/Pictures/Sündmused/events-lake-sunrise.png",
-        "imagePosition": "center center"
+        "imagePosition": "center center",
+        "body": [
+          "We meet before the day begins to move in sunrise light and give the body a clear, calm start.",
+          "Training is followed by a mindful swim focused on breath, presence, and listening to the body. Cold water is not a competition; it is a ritual.",
+          "This event is made for people looking for a simple, strong, and memorable morning experience."
+        ]
       },
       {
         "date": "13 July 2024",
@@ -289,7 +374,12 @@
         "description": "An evening strength session, fire, sauna, and a circle of conversation.",
         "location": "Võrumaa",
         "image": "/Pictures/Sündmused/events-fire-ritual.png",
-        "imagePosition": "center center"
+        "imagePosition": "center center",
+        "body": [
+          "The evening begins with strength training using bodyweight and natural tools. The pace is strong, but conscious.",
+          "After training we move into recovery and a sauna ritual. Fire, heat, and conversation create space for the body to settle.",
+          "The experience connects effort, recovery, and community. It is more than a workout: it is a full evening in nature."
+        ]
       }
     ],
     "host": {
@@ -317,48 +407,79 @@
     "categoryNavLabel": "Categories",
     "categories": ["All", "Training", "Nature", "Craft", "Thoughts"],
     "readMore": "Read more",
+    "modalClose": "Close story",
     "articles": [
       {
         "date": "23 May 2024",
         "category": "Nature",
         "title": "The power of morning movement",
         "excerpt": "Why early-morning training brings clarity, energy, and calm to the day.",
-        "image": "/Pictures/Sündmused/events-lake-sunrise.png"
+        "image": "/Pictures/Sündmused/events-lake-sunrise.png",
+        "body": [
+          "Early-morning movement gives the day a different beginning. The body wakes before the noise, thoughts become clearer, and training becomes more than effort: it becomes orientation.",
+          "Moving outdoors creates space to notice breath, temperature, and rhythm. Every step or repetition becomes a simple way to return to the body.",
+          "RA•IO mornings are built around calm consistency. Not maximum pace, but presence that stays with you through the day."
+        ]
       },
       {
         "date": "12 May 2024",
         "category": "Craft",
         "title": "Made by hand",
         "excerpt": "Every tool is made by hand. From choosing the materials to the finish - the story behind the process.",
-        "image": "/Pictures/Vahendid/kivi ja puit.png"
+        "image": "/Pictures/Vahendid/kivi ja puit.png",
+        "body": [
+          "Handcraft begins by listening to the material. Wood and stone are not standard blanks, but living forms whose shape and weight guide the whole process.",
+          "Each tool is made slowly: selection, balance, sanding, and finish. The result matters, but so does the feeling that the tool belongs naturally in the hand.",
+          "That is why no two RA•IO tools are exactly the same. It is part of their strength and character."
+        ]
       },
       {
         "date": "5 May 2024",
         "category": "Training",
         "title": "Functional strength in nature",
         "excerpt": "How to build strength, endurance, and mobility using the body and nature.",
-        "image": "/Pictures/Treeningud/funktsionnalne treening.png"
+        "image": "/Pictures/Treeningud/funktsionnalne treening.png",
+        "body": [
+          "Functional strength is not only about lifting weight. It is the ability to move, balance, breathe, and carry strength through changing situations.",
+          "Nature gives training shifting conditions: ground, weather, space, and tools ask the body to adapt. Practical strength is built inside that adaptation.",
+          "In RA•IO training, strength, endurance, and mobility work together so the body becomes more ready beyond the training session."
+        ]
       },
       {
         "date": "28 April 2024",
         "category": "Thoughts",
         "title": "Silence as a source of strength",
         "excerpt": "Why time spent in silence helps strengthen focus, the nervous system, and inner resilience.",
-        "image": "/Pictures/Journal/RAIO MEIST1.png"
+        "image": "/Pictures/Journal/RAIO MEIST1.png",
+        "body": [
+          "Silence is not emptiness. It is an environment where the body can notice what is truly tense and what needs to be released.",
+          "When training leaves room for silence, effort becomes more precise. Movement is no longer only about an external result, but a practice of inner focus.",
+          "That is why RA•IO experiences always make space for slowing down. Strength needs recovery as much as effort."
+        ]
       },
       {
         "date": "17 April 2024",
         "category": "Craft",
         "title": "Wood and stone - a timeless pairing",
         "excerpt": "Natural materials that endure over time and support our movement.",
-        "image": "/Pictures/Vahendid/hooldus.png"
+        "image": "/Pictures/Vahendid/hooldus.png",
+        "body": [
+          "Wood and stone carry a simple honesty. They do not need excessive design, because their weight, texture, and temperature already speak clearly.",
+          "As training tools, they create direct contact between the ground, the hand, and movement. Stone gives weight; wood gives grip and warmth.",
+          "With care, the tool becomes more personal over time. Wear does not weaken it; it adds layers to its story."
+        ]
       },
       {
         "date": "9 April 2024",
         "category": "Nature",
         "title": "Recovery in nature",
         "excerpt": "How nature helps reduce stress and improves our physical and mental well-being.",
-        "image": "/Pictures/Journal/journal.png"
+        "image": "/Pictures/Journal/journal.png",
+        "body": [
+          "Recovery does not always mean complete stillness. Often it means changing the environment, lowering the pace, and bringing attention back to breathing.",
+          "In nature, the need to constantly react begins to soften. Sound, light, and open space help the nervous system settle and the body recover from training.",
+          "For RA•IO, nature is both a training ground and a recovery space. Both belong to the same whole."
+        ]
       }
     ],
     "signup": {
@@ -385,6 +506,10 @@
       "popularity": "Popular",
       "price": "Price",
       "name": "Name"
+    },
+    "carousel": {
+      "previous": "Previous products",
+      "next": "Next products"
     },
     "priceFrom": "From",
     "metaPreorder": "Pre-order",
@@ -458,7 +583,14 @@
     "metaProduction": "Production time",
     "metaNote": "Production note",
     "notFound": "Product not found | RA•IO",
-    "productionWarning": "This product is handmade to order. Estimated production time is {time}. A more exact delivery time is confirmed after the order is placed."
+    "productionWarning": "This product is handmade to order. Estimated production time is {time}. A more exact delivery time is confirmed after the order is placed.",
+    "gallery": {
+      "controlsLabel": "Product images",
+      "thumbsLabel": "Choose product image",
+      "previous": "Previous image",
+      "next": "Next image",
+      "thumbnail": "Show image"
+    }
   },
   "cart": {
     "metadata": {
@@ -479,6 +611,10 @@
     "remove": "Remove",
     "decrease": "Decrease {name}",
     "increase": "Increase {name}",
+    "totalLabel": "total",
+    "emailTitle": "RAIO cart",
+    "emailNoteLabel": "Note",
+    "emailSubject": "RAIO order",
     "production": "Some items are handmade to order. A more exact delivery time is confirmed after the order is placed.",
     "productionWarning": "This product is handmade to order. Estimated production time is {time}. A more exact delivery time is confirmed after the order is placed."
   },
@@ -502,11 +638,27 @@
     "storyImage": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.png",
     "storyImageAlt": "RA•IO stone training tool with a moss-covered handle",
     "values": [
-      { "title": "Movement", "text": "Natural, mindful movement in the rhythm of nature." },
-      { "title": "Craft", "text": "Handmade tools of stone and wood, built to last." },
-      { "title": "Experience", "text": "Events and presence that connect people and nature." }
+      {
+        "title": "Movement",
+        "text": "Natural, mindful movement in the rhythm of nature."
+      },
+      {
+        "title": "Craft",
+        "text": "Handmade tools of stone and wood, built to last."
+      },
+      {
+        "title": "Experience",
+        "text": "Events and presence that connect people and nature."
+      }
     ],
     "trainersTitle": "Trainers",
+    "contactPanel": {
+      "title": "Contact",
+      "company": "Business name",
+      "registration": "Registry code",
+      "email": "Email",
+      "instagram": "Instagram"
+    },
     "trainers": [
       {
         "name": "Rainer Olei",

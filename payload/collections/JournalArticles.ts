@@ -16,8 +16,9 @@ export const JournalArticles: CollectionConfig = {
   },
   admin: {
     useAsTitle: "title",
-    defaultColumns: ["title", "category", "publishedAt", "visible"],
-    group: "Journal"
+    defaultColumns: ["title", "category", "publishedAt", "featured", "visible"],
+    group: "Journal",
+    description: "Journal artiklid, kaanepildid, avaldamise ajad ja esiletõstmised."
   },
   fields: [
     {
@@ -51,6 +52,15 @@ export const JournalArticles: CollectionConfig = {
       type: "date"
     },
     {
+      name: "readingTime",
+      label: "Lugemisaeg",
+      type: "text",
+      localized: true,
+      admin: {
+        description: "Näiteks: 4 min lugemist"
+      }
+    },
+    {
       name: "excerpt",
       label: "Lühikirjeldus",
       type: "textarea",
@@ -67,6 +77,18 @@ export const JournalArticles: CollectionConfig = {
       label: "Sisu",
       type: "richText",
       localized: true
+    },
+    {
+      name: "featured",
+      label: "Esile tõstetud",
+      type: "checkbox",
+      defaultValue: false
+    },
+    {
+      name: "sortOrder",
+      label: "Järjekord",
+      type: "number",
+      defaultValue: 100
     },
     {
       name: "visible",

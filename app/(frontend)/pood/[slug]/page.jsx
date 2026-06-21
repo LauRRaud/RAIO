@@ -8,14 +8,15 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
+  const messages = getMessages("et");
   const product = getLocalizedProduct("et", slug);
 
   if (!product) {
-    return { title: getMessages("et").product.notFound };
+    return { title: messages.product.notFound };
   }
 
   return {
-    title: `${product.name} | RA•IO`,
+    title: `${product.name} | ${messages.brand.name}`,
     description: product.description
   };
 }

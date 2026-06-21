@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/components/CartProvider";
 
-export function CartButton({ href = "/ostukorv", label = "Ostukorv", countLabel = "toodet" }) {
+export function CartButton({ href = "/ostukorv", label, countLabel }) {
   const { itemCount } = useCart();
 
   return (

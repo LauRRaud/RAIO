@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import { CartProvider } from "@/components/CartProvider";
+import { getMessages } from "@/lib/messages";
 import "./globals.css";
 
 const display = localFont({
@@ -10,9 +11,11 @@ const display = localFont({
   variable: "--font-display"
 });
 
+const messages = getMessages("et");
+
 export const metadata = {
-  title: "RA•IO",
-  description: "RA•IO koduleht, pood ja kogemuste platvorm"
+  title: messages.metadata.title,
+  description: messages.metadata.description
 };
 
 metadata.icons = {

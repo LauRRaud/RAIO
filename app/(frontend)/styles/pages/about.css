@@ -125,7 +125,7 @@
 }
 
 .about-content-section {
-  width: min(calc(100% - 148px), 1680px);
+  width: min(calc(100% - 84px), 1680px);
   margin: 0 auto;
   padding: clamp(48px, 5.4vw, 84px) 0 clamp(56px, 6vw, 92px);
   display: grid;

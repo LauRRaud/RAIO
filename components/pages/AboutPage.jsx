@@ -18,10 +18,7 @@ export function AboutPage({ locale = "et" }) {
   const t = messages.about;
   const emailHref = `mailto:${messages.brand.email}`;
   const instagramHref = "https://www.instagram.com/ra.ioworld";
-  const contactLabels =
-    locale === "en"
-      ? { title: "Contact", company: "Business name", registration: "Registry code", email: "Email", instagram: "Instagram" }
-      : { title: "Kontakt", company: "Ärinimi", registration: "Registrikood", email: "E-post", instagram: "Instagram" };
+  const contactLabels = t.contactPanel;
   const contactItems = [
     { label: contactLabels.company, value: messages.brand.company },
     { label: contactLabels.registration, value: messages.brand.registrationCode },
@@ -33,7 +30,7 @@ export function AboutPage({ locale = "et" }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath="/meist" />
+      <Header locale={locale} currentPath="/meist" labels={messages.header} brandName={messages.brand.name} />
 
       <main id="main" className="about-page-redesign">
         <section className="about-hero" aria-labelledby="about-hero-title">
@@ -48,9 +45,6 @@ export function AboutPage({ locale = "et" }) {
                 <p key={line}>{line}</p>
               ))}
             </div>
-            <a href="#kontakt" className="about-solid-button">
-              {t.cta}
-            </a>
           </div>
         </section>
 
@@ -72,7 +66,7 @@ export function AboutPage({ locale = "et" }) {
             </div>
           </section>
 
-          <section className="about-trainers-section" aria-labelledby="about-trainers-title">
+          <section className="about-trainers-section" id="treenerid" aria-labelledby="about-trainers-title">
             <div className="about-trainers-heading">
               <h2 id="about-trainers-title">{t.trainersTitle}</h2>
             </div>
@@ -122,9 +116,6 @@ export function AboutPage({ locale = "et" }) {
                 ))}
               </dl>
               <div className="about-contact-actions">
-                <a href={emailHref} className="about-solid-button">
-                  {t.closingCta}
-                </a>
                 <a
                   className="about-social-link"
                   href={instagramHref}

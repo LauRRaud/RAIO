@@ -6,7 +6,11 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ProductGallery } from "@/components/ProductGallery";
 import { getLocalizedPath } from "@/lib/i18n";
-import { getLocalizedProduct, getLocalizedProducts, getMessages } from "@/lib/messages";
+import {
+  getLocalizedProduct,
+  getLocalizedProducts,
+  getMessages,
+} from "@/lib/messages";
 import { formatCurrency } from "@/lib/shop";
 
 export function ProductPage({ locale = "et", slug }) {
@@ -21,7 +25,7 @@ export function ProductPage({ locale = "et", slug }) {
 
   const path = (href) => getLocalizedPath(locale, href);
   const related = getLocalizedProducts(locale).filter(
-    (item) => item.slug !== product.slug && item.category === product.category
+    (item) => item.slug !== product.slug && item.category === product.category,
   );
 
   return (
@@ -29,11 +33,15 @@ export function ProductPage({ locale = "et", slug }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath={`/pood/${slug}`} />
+      <Header locale={locale} currentPath={`/pood/${slug}`} labels={messages.header} brandName={messages.brand.name} />
       <main id="main" className="product-page">
         <section className="product-hero section">
           <div className="container product-grid">
-            <ProductGallery images={product.images} productName={product.name} locale={locale} />
+            <ProductGallery
+              images={product.images}
+              productName={product.name}
+              labels={t.gallery}
+            />
 
             <div className="product-copy">
               <h1>{product.name}</h1>
@@ -43,7 +51,12 @@ export function ProductPage({ locale = "et", slug }) {
               <p className="lede product-lede">{product.description}</p>
 
               <div className="product-actions">
-                <AddToCartButton product={product} label={shop.actionLabels[product.status]} addedLabel={shop.addedToCart} />
+                <AddToCartButton
+                  product={product}
+                  label={shop.actionLabels[product.status]}
+                  addedLabel={shop.addedToCart}
+                  disabledLabel={shop.actionLabels.TEMPORARILY_UNAVAILABLE}
+                />
               </div>
 
               <div className="product-meta">
@@ -52,8 +65,14 @@ export function ProductPage({ locale = "et", slug }) {
                   <strong>{product.categoryLabel || product.category}</strong>
                 </div>
                 <div>
-                  <span>{t.metaNote}</span>
-                  <strong>{product.productionNote} {product.estimatedProductionTime}.</strong>
+                  <span>{shop.metaPreorder}</span>
+                  <strong>{shop.statusLabels[product.status]}</strong>
+                </div>
+                <div>
+                  <span>{t.metaProduction}</span>
+                  <strong>
+                    {product.productionNote} {product.estimatedProductionTime}.
+                  </strong>
                 </div>
               </div>
             </div>
@@ -69,9 +88,18 @@ export function ProductPage({ locale = "et", slug }) {
 
               <div className="related-grid">
                 {related.map((item) => (
-                  <Link key={item.slug} href={path(`/pood/${item.slug}`)} className="related-card">
+                  <Link
+                    key={item.slug}
+                    href={path(`/pood/${item.slug}`)}
+                    className="related-card"
+                  >
                     <span className="related-card-media">
-                      <Image src={item.images[0]} alt={item.name} fill sizes="(max-width: 900px) 100vw, 24vw" />
+                      <Image
+                        src={item.images[0]}
+                        alt={item.name}
+                        fill
+                        sizes="(max-width: 900px) 100vw, 24vw"
+                      />
                     </span>
                     <strong>{item.name}</strong>
                     <span>{formatCurrency(item.price)}</span>

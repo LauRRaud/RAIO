@@ -16,7 +16,7 @@ export const Orders: CollectionConfig = {
   },
   admin: {
     useAsTitle: "orderNumber",
-    defaultColumns: ["orderNumber", "customerName", "status", "orderTotal", "createdAt"],
+    defaultColumns: ["orderNumber", "customerName", "status", "paymentStatus", "priority", "followUpAt"],
     group: "Pood",
     description: "Poe eeltellimused, päringud ja käsitsi sisestatavad tellimused."
   },
@@ -57,6 +57,17 @@ export const Orders: CollectionConfig = {
         { label: "E-post", value: "email" },
         { label: "Telefon / vestlus", value: "direct" },
         { label: "Muu", value: "other" }
+      ]
+    },
+    {
+      name: "priority",
+      label: "Prioriteet",
+      type: "select",
+      defaultValue: "normal",
+      options: [
+        { label: "Tavaline", value: "normal" },
+        { label: "Kõrge", value: "high" },
+        { label: "Ootab infot", value: "waiting" }
       ]
     },
     {
@@ -145,6 +156,29 @@ export const Orders: CollectionConfig = {
           admin: {
             description: "Sisesta kokkulepitud lõppsumma eurodes."
           }
+        },
+        {
+          name: "paymentStatus",
+          label: "Makse staatus",
+          type: "select",
+          defaultValue: "pending",
+          options: [
+            { label: "Ootel", value: "pending" },
+            { label: "Osaliselt tasutud", value: "partial" },
+            { label: "Tasutud", value: "paid" },
+            { label: "Tagastatud", value: "refunded" }
+          ]
+        },
+        {
+          name: "depositPaid",
+          label: "Ettemaks tasutud",
+          type: "number",
+          min: 0
+        },
+        {
+          name: "targetReadyAt",
+          label: "Soovitud valmimise kuupäev",
+          type: "date"
         }
       ]
     },

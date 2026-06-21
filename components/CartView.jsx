@@ -10,7 +10,7 @@ import { getLocalizedProducts } from "@/lib/messages";
 
 export function CartView({
   locale = "et",
-  recipientEmail = "ra.io33movement@gmail.com",
+  recipientEmail,
   shopHref = "/pood",
   labels
 }) {
@@ -30,7 +30,7 @@ export function CartView({
     [items, localizedProductBySlug]
   );
   const subtotal = localizedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const checkoutHref = createCheckoutMailto(localizedItems, recipientEmail, locale, labels);
+  const checkoutHref = createCheckoutMailto(localizedItems, recipientEmail, labels);
   const hasProductionItems = localizedItems.some((item) => isProductionProduct(item.status));
 
   if (items.length === 0) {
@@ -89,9 +89,7 @@ export function CartView({
                     </div>
                     <div
                       className="cart-item-price"
-                      aria-label={`${item.quantity} x ${formatCurrency(item.price)}, ${
-                        locale === "en" ? "total" : "kokku"
-                      } ${formatCurrency(
+                      aria-label={`${item.quantity} x ${formatCurrency(item.price)}, ${labels.totalLabel} ${formatCurrency(
                         item.price * item.quantity
                       )}`}
                     >

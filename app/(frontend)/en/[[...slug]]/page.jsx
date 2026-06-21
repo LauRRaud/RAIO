@@ -27,6 +27,7 @@ function getRouteKey(slug) {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const route = getRouteKey(slug);
+  const messages = getMessages("en");
 
   if (!route || route === "en") {
     return getHomeMetadata("en");
@@ -40,11 +41,11 @@ export async function generateMetadata({ params }) {
     const productSlug = route.split("/").slice(1).join("/");
     const product = getLocalizedProduct("en", productSlug);
     return product
-      ? { title: `${product.name} | RA•IO`, description: product.description }
-      : { title: getMessages("en").product.notFound };
+      ? { title: `${product.name} | ${messages.brand.name}`, description: product.description }
+      : { title: messages.product.notFound };
   }
 
-  return { title: "RA•IO" };
+  return { title: messages.metadata.title };
 }
 
 export default async function EnglishSitePage({ params }) {

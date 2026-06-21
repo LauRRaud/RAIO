@@ -4,19 +4,19 @@ import { Leaf, UserRound } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { LineIcon } from "@/components/Icons";
+import { TrainingCardsCarousel } from "@/components/TrainingCardsCarousel";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getMessages } from "@/lib/messages";
 
 const qualityIconComponents = {
   leaf: Leaf,
-  user: UserRound
+  user: UserRound,
 };
 
 export function TrainingPage({ locale = "et" }) {
   const messages = getMessages(locale);
   const t = messages.training;
   const path = (href) => getLocalizedPath(locale, href);
-  const emailHref = `mailto:${messages.brand.email}`;
   const contactHref = path("/meist#kontakt");
 
   return (
@@ -24,10 +24,13 @@ export function TrainingPage({ locale = "et" }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath="/treeningud" />
+      <Header locale={locale} currentPath="/treeningud" labels={messages.header} brandName={messages.brand.name} />
 
       <main id="main" className="training-page-redesign">
-        <section className="training-hero-redesign" aria-labelledby="training-hero-title">
+        <section
+          className="training-hero-redesign"
+          aria-labelledby="training-hero-title"
+        >
           <div className="training-hero-panel">
             <h1 id="training-hero-title">{t.heroTitle}</h1>
             <span className="training-short-rule" aria-hidden="true" />
@@ -36,57 +39,45 @@ export function TrainingPage({ locale = "et" }) {
                 <p key={line}>{line}</p>
               ))}
             </div>
-            <Link href="#treeningud" className="training-solid-button">
-              {t.heroCta}
-            </Link>
           </div>
 
-          <div className="training-hero-image" style={{ "--hero-image-position": t.heroImagePosition }} aria-hidden="true">
-            <Image src={t.heroImage} alt="" fill priority quality={92} sizes="(max-width: 980px) 100vw, 80vw" />
+          <div
+            className="training-hero-image"
+            style={{ "--hero-image-position": t.heroImagePosition }}
+            aria-hidden="true"
+          >
+            <Image
+              src={t.heroImage}
+              alt=""
+              fill
+              priority
+              quality={92}
+              sizes="(max-width: 980px) 100vw, 80vw"
+            />
           </div>
         </section>
 
-        <section className="training-content-section" id="treeningud" aria-labelledby="training-list-title">
+        <section
+          className="training-content-section"
+          id="treeningud"
+          aria-labelledby="training-list-title"
+        >
           <div className="training-section-intro">
             <h2 id="training-list-title">{t.listTitle}</h2>
             <p>{t.listIntro}</p>
           </div>
 
-          <div className="training-card-grid">
-            {t.trainings.map((training) => (
-              <article className="training-card" key={training.title}>
-                <div className="training-card-image">
-                  <Image
-                    src={training.image}
-                    alt={training.title}
-                    fill
-                    loading="eager"
-                    sizes="(max-width: 900px) 100vw, 25vw"
-                  />
-                </div>
-                <div className="training-card-body">
-                  <h3>{training.title}</h3>
-                  <p>{training.description}</p>
-                  <div className="training-meta">
-                    <span>
-                      <LineIcon type="clock" />
-                      {training.duration}
-                    </span>
-                    <span>
-                      <LineIcon type="chart" />
-                      {training.level}
-                    </span>
-                  </div>
-                  <a href={emailHref} className="training-text-link">
-                    {t.cardCta}
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
+          <TrainingCardsCarousel
+            trainings={t.trainings}
+            cta={t.cardCta}
+            modalClose={t.modalClose}
+            labels={messages.carousel.training}
+          />
 
-          <section className="training-lasting-panel" aria-labelledby="training-lasting-title">
+          <section
+            className="training-lasting-panel"
+            aria-labelledby="training-lasting-title"
+          >
             <div className="training-lasting-image">
               <Image
                 src={t.lasting.image}
@@ -100,7 +91,7 @@ export function TrainingPage({ locale = "et" }) {
             <div className="training-lasting-copy">
               <h2 id="training-lasting-title">{t.lasting.title}</h2>
               <p>{t.lasting.text}</p>
-              <Link href={path("/meist")} className="training-solid-button">
+              <Link href={path("/meist#treenerid")} className="training-solid-button">
                 {t.lasting.cta}
               </Link>
             </div>
@@ -112,7 +103,11 @@ export function TrainingPage({ locale = "et" }) {
                 return (
                   <div className="training-quality-item" key={quality.title}>
                     {QualityIcon ? (
-                      <QualityIcon className="training-line-icon" strokeWidth={1.55} aria-hidden="true" />
+                      <QualityIcon
+                        className="training-line-icon"
+                        strokeWidth={1.55}
+                        aria-hidden="true"
+                      />
                     ) : (
                       <LineIcon type={quality.icon} />
                     )}
@@ -123,7 +118,10 @@ export function TrainingPage({ locale = "et" }) {
             </div>
           </section>
 
-          <section className="training-workshop-panel" aria-labelledby="training-workshop-title">
+          <section
+            className="training-workshop-panel"
+            aria-labelledby="training-workshop-title"
+          >
             <div className="training-workshop-copy">
               <h2 id="training-workshop-title">{t.workshop.title}</h2>
               <p>{t.workshop.text}</p>

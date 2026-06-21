@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock3, Droplets, Hand, Leaf, Sparkles } from "lucide-react";
+import { Clock3, Droplets, Hand, Leaf, Sparkles } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ToolsCategoryCarousel } from "@/components/ToolsCategoryCarousel";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getMessages } from "@/lib/messages";
 
@@ -19,7 +20,7 @@ export function ToolsPage({ locale = "et" }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath="/vahendid" />
+      <Header locale={locale} currentPath="/vahendid" labels={messages.header} brandName={messages.brand.name} />
 
       <main id="main" className="tools-page-redesign">
         <section className="tools-hero-redesign" aria-labelledby="tools-hero-title">
@@ -44,29 +45,7 @@ export function ToolsPage({ locale = "et" }) {
             <h2 id="tools-category-title">{t.categoriesTitle}</h2>
           </div>
 
-          <div className="tools-category-grid">
-            {t.categories.map((category) => (
-              <article className="tools-category-card" key={category.title}>
-                <Link href={path(category.href)} className="tools-category-image" aria-label={category.title}>
-                  <Image
-                    src={category.image}
-                    alt={category.title}
-                    fill
-                    loading="eager"
-                    sizes="(max-width: 900px) 100vw, 20vw"
-                  />
-                </Link>
-                <div className="tools-category-body">
-                  <h3>{category.title}</h3>
-                  <p>{category.description}</p>
-                  <Link href={path(category.href)} className="tools-text-link">
-                    {t.categoryCta}
-                    <ArrowRight size={18} strokeWidth={1.6} aria-hidden="true" />
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
+          <ToolsCategoryCarousel categories={t.categories} cta={t.categoryCta} locale={locale} labels={messages.carousel.tools} />
 
           <section className="tools-material-panel" aria-labelledby="tools-material-title">
             <div className="tools-material-copy">
@@ -98,9 +77,8 @@ export function ToolsPage({ locale = "et" }) {
             </div>
 
             <div className="tools-material-values">
-              {t.material.values.map((value, index) => (
+              {t.material.values.map((value) => (
                 <article key={value.title}>
-                  <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                   <h3>{value.title}</h3>
                   <p>{value.text}</p>
                 </article>

@@ -4,14 +4,10 @@ import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export function ProductGallery({ images, productName, locale = "et" }) {
+export function ProductGallery({ images, productName, labels }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const hasMultipleImages = images.length > 1;
   const activeImage = images[activeIndex] || images[0];
-  const labels =
-    locale === "en"
-      ? { previous: "Previous image", next: "Next image", thumbnail: "Show image" }
-      : { previous: "Eelmine pilt", next: "Järgmine pilt", thumbnail: "Näita pilti" };
 
   function showPrevious() {
     setActiveIndex((current) => (current === 0 ? images.length - 1 : current - 1));
@@ -34,7 +30,7 @@ export function ProductGallery({ images, productName, locale = "et" }) {
         />
 
         {hasMultipleImages ? (
-          <div className="product-gallery-controls" aria-label={locale === "en" ? "Product images" : "Tootepildid"}>
+          <div className="product-gallery-controls" aria-label={labels.controlsLabel}>
             <button className="product-gallery-arrow" type="button" onClick={showPrevious} aria-label={labels.previous}>
               <ChevronLeft size={28} strokeWidth={1.7} aria-hidden="true" />
             </button>
@@ -46,7 +42,7 @@ export function ProductGallery({ images, productName, locale = "et" }) {
       </div>
 
       {hasMultipleImages ? (
-        <div className="product-thumb-row" aria-label={locale === "en" ? "Choose product image" : "Vali tootepilt"}>
+        <div className="product-thumb-row" aria-label={labels.thumbsLabel}>
           {images.map((image, index) => (
             <button
               key={image}

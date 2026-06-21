@@ -16,7 +16,7 @@ export const Products: CollectionConfig = {
   },
   admin: {
     useAsTitle: "name",
-    defaultColumns: ["name", "category", "price", "status", "visible"],
+    defaultColumns: ["name", "category", "price", "status", "featured", "visible"],
     group: "Pood",
     description: "Avaliku poe tooted, hinnad, staatuseinfo ja tootmismärkused."
   },
@@ -36,6 +36,15 @@ export const Products: CollectionConfig = {
       unique: true,
       admin: {
         description: "Näiteks: kivisangpomm"
+      }
+    },
+    {
+      name: "sku",
+      label: "Tootekood",
+      type: "text",
+      unique: true,
+      admin: {
+        description: "Sisemine tähis tootmise ja tellimuste sidumiseks."
       }
     },
     {
@@ -82,6 +91,24 @@ export const Products: CollectionConfig = {
       type: "upload",
       relationTo: "media",
       hasMany: true
+    },
+    {
+      name: "featured",
+      label: "Esile tõstetud",
+      type: "checkbox",
+      defaultValue: false,
+      admin: {
+        description: "Kasuta, kui toodet peaks poes või avalehel eelistatult näitama."
+      }
+    },
+    {
+      name: "sortOrder",
+      label: "Järjekord",
+      type: "number",
+      defaultValue: 100,
+      admin: {
+        description: "Väiksem number tuleb nimekirjas ettepoole."
+      }
     },
     {
       name: "estimatedProductionTime",

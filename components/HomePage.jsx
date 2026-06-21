@@ -4,10 +4,11 @@ import { DocumentLang } from "@/components/DocumentLang";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getLocalizedPath } from "@/lib/i18n";
-import { getHomeMessages } from "@/lib/messages";
+import { getMessages } from "@/lib/messages";
 
 export function HomePage({ locale = "et" }) {
-  const messages = getHomeMessages(locale);
+  const messages = getMessages(locale);
+  const home = messages.home;
 
   return (
     <>
@@ -15,13 +16,13 @@ export function HomePage({ locale = "et" }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath="/" />
+      <Header locale={locale} currentPath="/" labels={messages.header} brandName={messages.brand.name} />
       <main id="main" className="lookbook-home" data-locale={locale}>
         <section className="lookbook-hero">
           <Image
             className="lookbook-hero-image"
-            src={messages.hero.image}
-            alt={messages.hero.imageAlt}
+            src={home.hero.image}
+            alt={home.hero.imageAlt}
             fill
             priority
             sizes="100vw"
@@ -31,14 +32,14 @@ export function HomePage({ locale = "et" }) {
             <h1 className="lookbook-hero-logo">
               <Image
                 src="/Logo/RAIO_horizontal_white_transparent.svg"
-                alt="RA•IO"
+                alt={messages.brand.name}
                 width={3073}
                 height={805}
                 priority
               />
             </h1>
-            <p className="lookbook-hero-title">{messages.hero.title}</p>
-            <p className="lookbook-hero-copy">{messages.hero.copy}</p>
+            <p className="lookbook-hero-title">{home.hero.title}</p>
+            <p className="lookbook-hero-copy">{home.hero.copy}</p>
           </div>
           <div className="hero-scroll-cue" aria-hidden="true">
             <span aria-hidden="true" />
@@ -47,25 +48,21 @@ export function HomePage({ locale = "et" }) {
 
         <section className="philosophy-section">
           <div className="philosophy-copy">
-            <h2>{messages.philosophy.heading}</h2>
-            <p>{messages.philosophy.body}</p>
-            <Link href={getLocalizedPath(locale, messages.philosophy.aboutPath)} className="text-link">
-              {messages.philosophy.cta}
-              <span aria-hidden="true">→</span>
-            </Link>
+            <h2>{home.philosophy.heading}</h2>
+            <p>{home.philosophy.body}</p>
           </div>
           <div className="philosophy-image">
             <Image
-              src={messages.philosophy.image}
-              alt={messages.philosophy.imageAlt}
+              src={home.philosophy.image}
+              alt={home.philosophy.imageAlt}
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
             />
           </div>
         </section>
 
-        <section className="category-world" aria-label={messages.categoryWorld.ariaLabel}>
-          {messages.categoryWorld.cards.map((card) => (
+        <section className="category-world" aria-label={home.categoryWorld.ariaLabel}>
+          {home.categoryWorld.cards.map((card) => (
             <Link
               key={card.key}
               href={getLocalizedPath(locale, card.path)}

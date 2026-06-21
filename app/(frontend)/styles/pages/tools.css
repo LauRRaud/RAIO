@@ -162,6 +162,71 @@
   gap: 12px;
 }
 
+.tools-category-carousel {
+  position: relative;
+  margin-inline: calc(clamp(44px, 4vw, 68px) * -1);
+  padding-inline: clamp(44px, 4vw, 68px);
+}
+
+.tools-category-carousel .tools-category-grid {
+  display: flex;
+  grid-template-columns: none;
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-padding-inline: clamp(44px, 4vw, 68px);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 0 2px 10px;
+}
+
+.tools-category-carousel .tools-category-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.tools-category-carousel .tools-category-card {
+  flex: 0 0 clamp(360px, 24vw, 432px);
+  scroll-snap-align: start;
+}
+
+.tools-category-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  width: clamp(46px, 3.5vw, 58px);
+  height: clamp(46px, 3.5vw, 58px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(17, 16, 13, 0.68);
+  color: #f8f3ec;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transform: translateY(-50%);
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.tools-category-arrow-left {
+  left: clamp(28px, 2vw, 40px);
+}
+
+.tools-category-arrow-right {
+  right: clamp(28px, 2vw, 40px);
+}
+
+.tools-category-arrow:hover,
+.tools-category-arrow:focus-visible {
+  background: rgba(17, 16, 13, 0.84);
+  outline: none;
+  transform: translateY(-50%) scale(1.04);
+}
+
+.tools-category-arrow:focus-visible {
+  box-shadow: 0 0 0 2px rgba(248, 243, 236, 0.34);
+}
+
 .tools-category-card {
   min-width: 0;
   display: grid;

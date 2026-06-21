@@ -40,7 +40,7 @@ export function Footer({ locale = "et" }) {
           href={instagramHref}
           target="_blank"
           rel="noreferrer"
-          aria-label={`${t.socialLabel}: Instagram`}
+          aria-label={t.instagramLabel}
         >
           <InstagramIcon className="footer-social-icon" aria-hidden="true" />
         </a>
