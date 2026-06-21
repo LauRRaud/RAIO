@@ -6,25 +6,21 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ProductGallery } from "@/components/ProductGallery";
 import { getLocalizedPath } from "@/lib/i18n";
-import {
-  getLocalizedProduct,
-  getLocalizedProducts,
-  getMessages,
-} from "@/lib/messages";
+import { getMessagesWithAdminImages, getPayloadProduct, getPayloadProducts } from "@/lib/payloadContent";
 import { formatCurrency } from "@/lib/shop";
 
-export function ProductPage({ locale = "et", slug }) {
-  const messages = getMessages(locale);
+export async function ProductPage({ locale = "et", slug }) {
+  const messages = await getMessagesWithAdminImages(locale);
   const t = messages.product;
   const shop = messages.shop;
-  const product = getLocalizedProduct(locale, slug);
+  const product = await getPayloadProduct(locale, slug);
 
   if (!product) {
     notFound();
   }
 
   const path = (href) => getLocalizedPath(locale, href);
-  const related = getLocalizedProducts(locale).filter(
+  const related = (await getPayloadProducts(locale)).filter(
     (item) => item.slug !== product.slug && item.category === product.category,
   );
 

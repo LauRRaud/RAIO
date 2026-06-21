@@ -13,6 +13,7 @@ import { Pages } from "@/payload/collections/Pages";
 import { Products } from "@/payload/collections/Products";
 import { Users } from "@/payload/collections/Users";
 import { HomePage } from "@/payload/globals/HomePage";
+import { PageImages } from "@/payload/globals/PageImages";
 import { SiteSettings } from "@/payload/globals/SiteSettings";
 
 const filename = fileURLToPath(import.meta.url);
@@ -26,7 +27,7 @@ export default buildConfig({
     }
   },
   collections: [Users, Media, Pages, Products, Orders, Events, JournalArticles],
-  globals: [SiteSettings, HomePage],
+  globals: [SiteSettings, HomePage, PageImages],
   editor: lexicalEditor(),
   localization: {
     locales: [

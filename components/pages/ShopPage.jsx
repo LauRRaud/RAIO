@@ -2,12 +2,12 @@ import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { StoreCatalog } from "@/components/StoreCatalog";
-import { getLocalizedProducts, getMessages } from "@/lib/messages";
+import { getMessagesWithAdminImages, getPayloadProducts } from "@/lib/payloadContent";
 
-export function ShopPage({ locale = "et" }) {
-  const messages = getMessages(locale);
+export async function ShopPage({ locale = "et" }) {
+  const messages = await getMessagesWithAdminImages(locale);
   const t = messages.shop;
-  const products = getLocalizedProducts(locale);
+  const products = await getPayloadProducts(locale);
 
   return (
     <>

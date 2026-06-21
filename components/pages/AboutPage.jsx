@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { getMessages } from "@/lib/messages";
+import { getMessagesWithAdminImages } from "@/lib/payloadContent";
 
 function InstagramIcon(props) {
   return (
@@ -13,8 +13,8 @@ function InstagramIcon(props) {
   );
 }
 
-export function AboutPage({ locale = "et" }) {
-  const messages = getMessages(locale);
+export async function AboutPage({ locale = "et" }) {
+  const messages = await getMessagesWithAdminImages(locale);
   const t = messages.about;
   const emailHref = `mailto:${messages.brand.email}`;
   const instagramHref = "https://www.instagram.com/ra.ioworld";

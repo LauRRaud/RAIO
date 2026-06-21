@@ -10,6 +10,8 @@ import { ToolsPage } from "@/components/pages/ToolsPage";
 import { TrainingPage } from "@/components/pages/TrainingPage";
 import { getHomeMetadata, getLocalizedProduct, getMessages, getPageMetadata } from "@/lib/messages";
 
+export const dynamic = "force-dynamic";
+
 const routePages = {
   treeningud: { page: "training", Component: TrainingPage },
   vahendid: { page: "tools", Component: ToolsPage },

@@ -23,8 +23,8 @@ export function CartView({
   const localizedItems = useMemo(
     () =>
       items.map((item) => ({
-        ...item,
         ...(localizedProductBySlug.get(item.slug) || {}),
+        ...item,
         quantity: item.quantity
       })),
     [items, localizedProductBySlug]

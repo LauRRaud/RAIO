@@ -2,6 +2,8 @@ import { ProductPage } from "@/components/pages/ProductPage";
 import { getLocalizedProduct, getMessages } from "@/lib/messages";
 import { shopProducts } from "@/lib/shop";
 
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
   return shopProducts.map((product) => ({ slug: product.slug }));
 }

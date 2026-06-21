@@ -1,6 +1,7 @@
 import * as migration_20260621_084547_initial_payload_schema from './20260621_084547_initial_payload_schema';
 import * as migration_20260621_152759_orders_collection from './20260621_152759_orders_collection';
 import * as migration_20260621_154824_admin_workflow_fields from './20260621_154824_admin_workflow_fields';
+import * as migration_20260621_211020_page_images_global from './20260621_211020_page_images_global';
 
 export const migrations = [
   {
@@ -16,6 +17,11 @@ export const migrations = [
   {
     up: migration_20260621_154824_admin_workflow_fields.up,
     down: migration_20260621_154824_admin_workflow_fields.down,
-    name: '20260621_154824_admin_workflow_fields'
+    name: '20260621_154824_admin_workflow_fields',
+  },
+  {
+    up: migration_20260621_211020_page_images_global.up,
+    down: migration_20260621_211020_page_images_global.down,
+    name: '20260621_211020_page_images_global'
   },
 ];

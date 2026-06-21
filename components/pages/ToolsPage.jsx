@@ -5,12 +5,12 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ToolsCategoryCarousel } from "@/components/ToolsCategoryCarousel";
 import { getLocalizedPath } from "@/lib/i18n";
-import { getMessages } from "@/lib/messages";
+import { getMessagesWithAdminImages } from "@/lib/payloadContent";
 
 const proofIcons = { leaf: Leaf, hand: Hand, clock: Clock3 };
 
-export function ToolsPage({ locale = "et" }) {
-  const messages = getMessages(locale);
+export async function ToolsPage({ locale = "et" }) {
+  const messages = await getMessagesWithAdminImages(locale);
   const t = messages.tools;
   const path = (href) => getLocalizedPath(locale, href);
   const contactHref = path("/meist#kontakt");

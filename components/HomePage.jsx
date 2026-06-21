@@ -4,10 +4,10 @@ import { DocumentLang } from "@/components/DocumentLang";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getLocalizedPath } from "@/lib/i18n";
-import { getMessages } from "@/lib/messages";
+import { getMessagesWithAdminImages } from "@/lib/payloadContent";
 
-export function HomePage({ locale = "et" }) {
-  const messages = getMessages(locale);
+export async function HomePage({ locale = "et" }) {
+  const messages = await getMessagesWithAdminImages(locale);
   const home = messages.home;
 
   return (

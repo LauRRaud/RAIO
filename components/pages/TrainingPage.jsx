@@ -6,15 +6,15 @@ import { Header } from "@/components/Header";
 import { LineIcon } from "@/components/Icons";
 import { TrainingCardsCarousel } from "@/components/TrainingCardsCarousel";
 import { getLocalizedPath } from "@/lib/i18n";
-import { getMessages } from "@/lib/messages";
+import { getMessagesWithAdminImages } from "@/lib/payloadContent";
 
 const qualityIconComponents = {
   leaf: Leaf,
   user: UserRound,
 };
 
-export function TrainingPage({ locale = "et" }) {
-  const messages = getMessages(locale);
+export async function TrainingPage({ locale = "et" }) {
+  const messages = await getMessagesWithAdminImages(locale);
   const t = messages.training;
   const path = (href) => getLocalizedPath(locale, href);
   const contactHref = path("/meist#kontakt");

@@ -2,11 +2,10 @@ import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JournalCardsCarousel } from "@/components/JournalCardsCarousel";
-import { getMessages } from "@/lib/messages";
-import { getJournalArticles } from "@/lib/payloadContent";
+import { getJournalArticles, getMessagesWithAdminImages } from "@/lib/payloadContent";
 
 export async function JournalPage({ locale = "et" }) {
-  const messages = getMessages(locale);
+  const messages = await getMessagesWithAdminImages(locale);
   const t = messages.journal;
   const articles = await getJournalArticles(locale, t.articles);
   const emailHref = `mailto:${messages.brand.email}`;
@@ -89,7 +88,7 @@ export async function JournalPage({ locale = "et" }) {
             </div>
             <div className="journal-signup-image" aria-hidden="true">
               <Image
-                src="/Pictures/Journal/RAIO MEIST1.png"
+                src={t.signupImage || "/Pictures/Journal/RAIO MEIST1.png"}
                 alt=""
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
