@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { AboutPage } from "@/components/pages/AboutPage";
 import { CartPage } from "@/components/pages/CartPage";
-import { ContactPage } from "@/components/pages/ContactPage";
 import { EventsPage } from "@/components/pages/EventsPage";
 import { HomePage } from "@/components/HomePage";
 import { JournalPage } from "@/components/pages/JournalPage";
@@ -18,8 +17,7 @@ const routePages = {
   journal: { page: "journal", Component: JournalPage },
   pood: { page: "shop", Component: ShopPage },
   ostukorv: { page: "cart", Component: CartPage },
-  meist: { page: "about", Component: AboutPage },
-  kontakt: { page: "contact", Component: ContactPage }
+  meist: { page: "about", Component: AboutPage }
 };
 
 function getRouteKey(slug) {

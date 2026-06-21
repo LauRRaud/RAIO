@@ -150,7 +150,11 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 12px 24px;
-  align-items: center;
+  align-items: baseline;
+}
+
+.journal-category-row span {
+  line-height: 1.2;
 }
 
 .journal-category-row button {

@@ -246,6 +246,31 @@
   line-height: 1.62;
 }
 
+.tools-material-proof-row {
+  max-width: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.5vw, 24px);
+  margin: clamp(24px, 2.4vw, 38px) 0 0;
+}
+
+.tools-material-proof-row .tools-proof-item {
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.tools-material-proof-row .tools-proof-item svg {
+  width: 27px;
+  height: 27px;
+  color: #f8f3ec;
+}
+
+.tools-material-proof-row .tools-proof-item span {
+  color: #f8f3ec;
+  font-size: clamp(0.76rem, 0.72vw, 0.88rem);
+  line-height: 1.2;
+  letter-spacing: 0.055em;
+}
+
 .tools-material-values {
   display: grid;
   grid-template-columns: 1fr;
@@ -481,6 +506,13 @@
   .tools-material-values article {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+}
+
+@media (max-width: 720px) {
+  .tools-material-proof-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 }
 
