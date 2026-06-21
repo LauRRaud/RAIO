@@ -1,14 +1,32 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { getLocalizedPath } from "@/lib/i18n";
 import { getMessages } from "@/lib/messages";
+
+function InstagramIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" {...props}>
+      <rect x="4" y="4" width="16" height="16" rx="4.5" />
+      <circle cx="12" cy="12" r="3.7" />
+      <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 export function AboutPage({ locale = "et" }) {
   const messages = getMessages(locale);
   const t = messages.about;
-  const contactHref = getLocalizedPath(locale, "/kontakt");
+  const emailHref = `mailto:${messages.brand.email}`;
+  const instagramHref = "https://www.instagram.com/ra.ioworld";
+  const contactLabels =
+    locale === "en"
+      ? { title: "Contact", company: "Business name", registration: "Registry code", email: "Email", instagram: "Instagram" }
+      : { title: "Kontakt", company: "Ärinimi", registration: "Registrikood", email: "E-post", instagram: "Instagram" };
+  const contactItems = [
+    { label: contactLabels.company, value: messages.brand.company },
+    { label: contactLabels.registration, value: messages.brand.registrationCode },
+    { label: contactLabels.email, value: messages.brand.email, href: emailHref },
+  ];
 
   return (
     <>
@@ -30,9 +48,9 @@ export function AboutPage({ locale = "et" }) {
                 <p key={line}>{line}</p>
               ))}
             </div>
-            <Link href={contactHref} className="about-solid-button">
+            <a href="#kontakt" className="about-solid-button">
               {t.cta}
-            </Link>
+            </a>
           </div>
         </section>
 
@@ -54,6 +72,31 @@ export function AboutPage({ locale = "et" }) {
             </div>
           </section>
 
+          <section className="about-trainers-section" aria-labelledby="about-trainers-title">
+            <div className="about-trainers-heading">
+              <h2 id="about-trainers-title">{t.trainersTitle}</h2>
+            </div>
+
+            <div className="about-trainers-layout">
+              {t.trainers.map((trainer) => (
+                <article className="about-trainer-card" key={trainer.name}>
+                  <div className="about-trainer-image">
+                    <Image
+                      src={trainer.image}
+                      alt={trainer.imageAlt}
+                      fill
+                      sizes="(max-width: 980px) 100vw, 34vw"
+                    />
+                  </div>
+                  <div className="about-trainer-copy">
+                    <h3>{trainer.name}</h3>
+                    <p>{trainer.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
           <section className="about-closing-panel" aria-labelledby="about-closing-title">
             <div className="about-closing-copy">
               <h2 id="about-closing-title">{t.closingTitle}</h2>
@@ -66,10 +109,33 @@ export function AboutPage({ locale = "et" }) {
                 ))}
               </div>
             </div>
-            <aside className="about-closing-action" aria-label={t.closingCta}>
-              <Link href={contactHref} className="about-solid-button">
-                {t.closingCta}
-              </Link>
+            <aside className="about-contact-panel" id="kontakt" aria-labelledby="about-contact-title">
+              <h3 id="about-contact-title">{contactLabels.title}</h3>
+              <dl className="about-contact-list">
+                {contactItems.map((item) => (
+                  <div key={item.label} className="about-contact-row">
+                    <dt>{item.label}</dt>
+                    <dd>
+                      {item.href ? <a href={item.href}>{item.value}</a> : item.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="about-contact-actions">
+                <a href={emailHref} className="about-solid-button">
+                  {t.closingCta}
+                </a>
+                <a
+                  className="about-social-link"
+                  href={instagramHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={contactLabels.instagram}
+                >
+                  <InstagramIcon className="about-social-icon" aria-hidden="true" />
+                  <span>{contactLabels.instagram}</span>
+                </a>
+              </div>
             </aside>
           </section>
         </div>

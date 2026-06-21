@@ -16,8 +16,9 @@ export const Products: CollectionConfig = {
   },
   admin: {
     useAsTitle: "name",
-    defaultColumns: ["name", "price", "status", "visible"],
-    group: "Pood"
+    defaultColumns: ["name", "category", "price", "status", "visible"],
+    group: "Pood",
+    description: "Avaliku poe tooted, hinnad, staatuseinfo ja tootmismärkused."
   },
   fields: [
     {

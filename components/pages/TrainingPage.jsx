@@ -1,15 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Leaf, UserRound } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { LineIcon } from "@/components/Icons";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getMessages } from "@/lib/messages";
 
+const qualityIconComponents = {
+  leaf: Leaf,
+  user: UserRound
+};
+
 export function TrainingPage({ locale = "et" }) {
   const messages = getMessages(locale);
   const t = messages.training;
   const path = (href) => getLocalizedPath(locale, href);
+  const emailHref = `mailto:${messages.brand.email}`;
+  const contactHref = path("/meist#kontakt");
 
   return (
     <>
@@ -33,7 +41,7 @@ export function TrainingPage({ locale = "et" }) {
             </Link>
           </div>
 
-          <div className="training-hero-image" aria-hidden="true">
+          <div className="training-hero-image" style={{ "--hero-image-position": t.heroImagePosition }} aria-hidden="true">
             <Image src={t.heroImage} alt="" fill priority quality={92} sizes="(max-width: 980px) 100vw, 80vw" />
           </div>
         </section>
@@ -69,10 +77,10 @@ export function TrainingPage({ locale = "et" }) {
                       {training.level}
                     </span>
                   </div>
-                  <Link href={path("/kontakt")} className="training-text-link">
+                  <a href={emailHref} className="training-text-link">
                     {t.cardCta}
                     <span aria-hidden="true">→</span>
-                  </Link>
+                  </a>
                 </div>
               </article>
             ))}
@@ -98,12 +106,20 @@ export function TrainingPage({ locale = "et" }) {
             </div>
 
             <div className="training-quality-list">
-              {t.qualities.map((quality) => (
-                <div className="training-quality-item" key={quality.title}>
-                  <LineIcon type={quality.icon} />
-                  <span>{quality.title}</span>
-                </div>
-              ))}
+              {t.qualities.map((quality) => {
+                const QualityIcon = qualityIconComponents[quality.icon];
+
+                return (
+                  <div className="training-quality-item" key={quality.title}>
+                    {QualityIcon ? (
+                      <QualityIcon className="training-line-icon" strokeWidth={1.55} aria-hidden="true" />
+                    ) : (
+                      <LineIcon type={quality.icon} />
+                    )}
+                    <span>{quality.title}</span>
+                  </div>
+                );
+              })}
             </div>
           </section>
 
@@ -112,7 +128,7 @@ export function TrainingPage({ locale = "et" }) {
               <h2 id="training-workshop-title">{t.workshop.title}</h2>
               <p>{t.workshop.text}</p>
             </div>
-            <Link href={path("/kontakt")} className="training-solid-button">
+            <Link href={contactHref} className="training-solid-button">
               {t.workshop.cta}
             </Link>
           </section>

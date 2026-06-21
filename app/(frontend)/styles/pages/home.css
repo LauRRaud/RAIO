@@ -50,7 +50,7 @@
 }
 
 .lookbook-hero-title {
-  margin: 18px 0 0;
+  margin: 42px 0 0;
   font-family: var(--font-display), Georgia, serif;
   font-size: clamp(2.2rem, 3vw, 4rem);
   line-height: 1;
@@ -145,7 +145,7 @@
   margin: 0;
   color: var(--raio-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(3.8rem, 5.8vw, 7.2rem);
+  font-size: clamp(3.3rem, 5vw, 6rem);
   font-weight: 400;
   line-height: 0.88;
 }
@@ -188,16 +188,13 @@
   isolation: isolate;
   color: var(--raio-white);
   transition:
-    flex-grow 460ms cubic-bezier(0.37, 0, 0.18, 1),
-    box-shadow 400ms ease;
+    flex-grow 1180ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 920ms ease;
 }
 
 .category-world .world-card:hover,
 .category-world .world-card:focus-visible {
-  flex-grow: 1.42;
-  transition:
-    flex-grow 460ms cubic-bezier(0.37, 0, 0.18, 1),
-    box-shadow 400ms ease;
+  flex-grow: 1.18;
   box-shadow: inset 0 0 0 1px rgba(245, 239, 229, 0.08);
 }
 
@@ -216,9 +213,8 @@
   filter: none;
   transform: scale(1);
   transition:
-    transform 400ms cubic-bezier(0.37, 0, 0.63, 1),
-    filter 400ms ease,
-    object-position 400ms cubic-bezier(0.37, 0, 0.63, 1);
+    transform 1240ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1080ms ease;
 }
 
 .world-card-event .world-card-media img {
@@ -240,17 +236,7 @@
 .world-card:hover .world-card-media img,
 .world-card:focus-visible .world-card-media img {
   filter: saturate(1.03) contrast(1.02) brightness(1.03);
-  transform: scale(1.045);
-}
-
-.world-card-event:hover .world-card-media img,
-.world-card-event:focus-visible .world-card-media img {
-  object-position: 50% 36%;
-}
-
-.world-card-meist:hover .world-card-media img,
-.world-card-meist:focus-visible .world-card-media img {
-  object-position: 50% 28%;
+  transform: scale(1.012);
 }
 
 .world-card-content {
@@ -395,7 +381,7 @@
 @media (max-width: 620px) {
 
   .philosophy-copy h2 {
-    font-size: clamp(3.5rem, 18vw, 5.4rem);
+    font-size: clamp(3.1rem, 15vw, 4.8rem);
   }
 
 }

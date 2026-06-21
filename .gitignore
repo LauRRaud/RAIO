@@ -17,6 +17,8 @@ output
 # Generated files
 /lib/generated/prisma
 /payload-types.ts
+console-errors.log
+raio-*.png
 
 # Runtime CMS uploads are stored on the server, not in Git.
 /public/media/*

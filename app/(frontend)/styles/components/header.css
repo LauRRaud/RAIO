@@ -111,6 +111,7 @@
 .desktop-nav a,
 .language-switch a,
 .mobile-menu-panel a {
+  font-family: var(--font-display), Georgia, serif;
   font-size: 0.72rem;
   font-weight: 600;
   line-height: 1;

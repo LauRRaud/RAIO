@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock3, Droplets, Hand, Leaf, Wrench } from "lucide-react";
+import { ArrowRight, Clock3, Droplets, Hand, Leaf, Sparkles } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getLocalizedPath } from "@/lib/i18n";
@@ -12,6 +12,7 @@ export function ToolsPage({ locale = "et" }) {
   const messages = getMessages(locale);
   const t = messages.tools;
   const path = (href) => getLocalizedPath(locale, href);
+  const contactHref = path("/meist#kontakt");
 
   return (
     <>
@@ -43,19 +44,6 @@ export function ToolsPage({ locale = "et" }) {
             <h2 id="tools-category-title">{t.categoriesTitle}</h2>
           </div>
 
-          <div className="tools-proof-row" aria-label={t.proofLabel}>
-            {t.heroProof.map((item) => {
-              const Icon = proofIcons[item.icon] || Leaf;
-
-              return (
-                <div className="tools-proof-item" key={item.label}>
-                  <Icon size={26} strokeWidth={1.35} aria-hidden="true" />
-                  <span>{item.label}</span>
-                </div>
-              );
-            })}
-          </div>
-
           <div className="tools-category-grid">
             {t.categories.map((category) => (
               <article className="tools-category-card" key={category.title}>
@@ -81,28 +69,42 @@ export function ToolsPage({ locale = "et" }) {
           </div>
 
           <section className="tools-material-panel" aria-labelledby="tools-material-title">
+            <div className="tools-material-copy">
+              <h2 id="tools-material-title">{t.material.title}</h2>
+              <p>{t.material.text}</p>
+
+              <div className="tools-proof-row tools-material-proof-row" aria-label={t.proofLabel}>
+                {t.heroProof.map((item) => {
+                  const Icon = proofIcons[item.icon] || Leaf;
+
+                  return (
+                    <div className="tools-proof-item" key={item.label}>
+                      <Icon size={26} strokeWidth={1.35} aria-hidden="true" />
+                      <span>{item.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
             <div className="tools-material-image">
               <Image
                 src={t.material.image}
                 alt={t.material.imageAlt}
                 fill
                 loading="eager"
-                sizes="(max-width: 900px) 100vw, 38vw"
+                sizes="(max-width: 900px) 100vw, 42vw"
               />
             </div>
 
-            <div className="tools-material-copy">
-              <h2 id="tools-material-title">{t.material.title}</h2>
-              <p>{t.material.text}</p>
-
-              <div className="tools-material-values">
-                {t.material.values.map((value) => (
-                  <article key={value.title}>
-                    <h3>{value.title}</h3>
-                    <p>{value.text}</p>
-                  </article>
-                ))}
-              </div>
+            <div className="tools-material-values">
+              {t.material.values.map((value, index) => (
+                <article key={value.title}>
+                  <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{value.title}</h3>
+                  <p>{value.text}</p>
+                </article>
+              ))}
             </div>
           </section>
 
@@ -128,12 +130,12 @@ export function ToolsPage({ locale = "et" }) {
 
             <section className="tools-custom-card" aria-labelledby="tools-custom-title">
               <div className="tools-custom-copy">
-                <Wrench size={28} strokeWidth={1.45} aria-hidden="true" />
+                <Sparkles size={28} strokeWidth={1.45} aria-hidden="true" />
                 <h2 id="tools-custom-title">{t.custom.title}</h2>
                 {t.custom.lines.map((line) => (
                   <p key={line}>{line}</p>
                 ))}
-                <Link href={path("/kontakt")} className="tools-solid-button">
+                <Link href={contactHref} className="tools-solid-button">
                   {t.custom.cta}
                 </Link>
               </div>

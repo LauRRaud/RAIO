@@ -93,6 +93,7 @@
     ],
     "heroCta": "See the trainings",
     "heroImage": "/Pictures/Treeningud/header.png",
+    "heroImagePosition": "42% center",
     "listTitle": "Training in our nature",
     "listIntro": "We offer a range of trainings that support both body and mind. Choose the format that suits you and connect through movement - with yourself, nature, and community.",
     "cardCta": "Learn more",
@@ -129,7 +130,7 @@
     "qualities": [
       { "title": "Outdoors all year round", "icon": "leaf" },
       { "title": "Small groups", "icon": "hand" },
-      { "title": "A personal approach", "icon": "clock" },
+      { "title": "A personal approach", "icon": "user" },
       { "title": "Community & connection", "icon": "heart" }
     ],
     "lasting": {
@@ -151,13 +152,13 @@
       "description": "RA•IO handcrafted training tools made of wood and stone."
     },
     "label": "Tools",
-    "heroTitle": "Made from nature. For training that lasts.",
+    "heroTitle": "Made from nature. For training.",
     "heroText": [
       "RA•IO tools are handcrafted training tools that combine the strength of nature, simplicity, and timeless durability.",
       "Made of wood and stone."
     ],
     "heroImage": "/Pictures/Vahendid/header.png",
-    "heroImagePosition": "74% center",
+    "heroImagePosition": "94% center",
     "proofLabel": "Tool qualities",
     "heroProof": [
       { "label": "Natural materials", "icon": "leaf" },
@@ -253,7 +254,7 @@
     ],
     "heroCta": "See all events",
     "heroImage": "/Pictures/Sündmused/sundmused-header.png",
-    "heroImagePosition": "62% center",
+    "heroImagePosition": "82% center",
     "upcomingTitle": "Upcoming events",
     "allLink": "View all",
     "cardCta": "Learn more",
@@ -376,7 +377,7 @@
     "heroText": "Handcrafted training tools. Made of wood, stone, and time.",
     "heroNote": "Limited quantity.",
     "heroImage": "/Pictures/Pood/header pood.png",
-    "heroImagePosition": "72% center",
+    "heroImagePosition": "94% center",
     "productsTitle": "Products",
     "categoryNavLabel": "Shop categories",
     "sortLabel": "Sort products",
@@ -504,6 +505,16 @@
       { "title": "Movement", "text": "Natural, mindful movement in the rhythm of nature." },
       { "title": "Craft", "text": "Handmade tools of stone and wood, built to last." },
       { "title": "Experience", "text": "Events and presence that connect people and nature." }
+    ],
+    "trainersTitle": "Trainers",
+    "trainers": [
+      {
+        "name": "Rainer Olei",
+        "role": "Trainer",
+        "text": "Guides RA•IO outdoor training with a focus on strength, technique, and presence.",
+        "image": "/Pictures/Meist/treener.jpg",
+        "imageAlt": "Trainer Rainer Olei"
+      }
     ],
     "closingTitle": "Let's talk.",
     "closingText": "Questions, collaboration, or orders — write to us.",

@@ -70,7 +70,7 @@
 ) h1 {
   font-size: var(--type-hero);
   font-weight: 400;
-  line-height: 1.04;
+  line-height: 1.16;
   letter-spacing: var(--track-heading);
   text-transform: none;
 }
@@ -78,7 +78,7 @@
 .tools-hero-panel h1 {
   max-width: 9.5ch;
   font-size: clamp(2.35rem, 3.35vw, 3.95rem);
-  line-height: 1.08;
+  line-height: 1.16;
 }
 
 :is(.tools-material-copy, .tools-care-card, .tools-custom-card) h2 {
@@ -92,7 +92,7 @@
   letter-spacing: var(--track-label);
 }
 
-:is(.product-copy, .cart-empty-heading, .contact-simple) h1 {
+:is(.product-copy, .cart-empty-heading) h1 {
   font-size: var(--type-page-hero);
   line-height: 0.96;
   letter-spacing: var(--track-heading);
@@ -164,8 +164,7 @@
   .about-page-redesign,
   .product-page,
   .cart-empty,
-  .cart-section,
-  .contact-simple
+  .cart-section
 ) p {
   font-family: var(--font-body);
   font-size: var(--type-body);
@@ -175,7 +174,7 @@
 }
 
 .lookbook-home .lookbook-hero-title {
-  margin-top: 30px;
+  margin-top: 54px;
   color: var(--raio-white);
   font-family: var(--font-display), Georgia, serif;
   font-size: 4.2rem;
@@ -298,6 +297,11 @@
   font-size: 0.84rem;
 }
 
+.training-page-redesign .training-quality-item span {
+  font-size: clamp(1.12rem, 1.12vw, 1.32rem);
+  line-height: 1.2;
+}
+
 .training-card-body p,
 .training-lasting-copy p,
 .journal-story-body > p:not(.journal-story-meta) {
@@ -312,7 +316,6 @@
   .product-meta strong,
   .cart-item-top p,
   .cart-summary p,
-  .contact-topic p,
   .about-closing-values p
 ) {
   font-family: var(--font-body);
@@ -332,18 +335,20 @@
 }
 
 .tools-page-redesign .tools-material-values p {
-  color: #f8f3ec;
+  color: var(--material-panel-muted);
   font-family: var(--font-body);
-  font-size: clamp(1.05rem, 1vw, 1.18rem);
+  font-size: clamp(0.94rem, 0.96vw, 1.08rem);
   font-weight: 400;
-  line-height: 1.52;
+  line-height: 1.6;
   letter-spacing: 0.01em;
   text-transform: none;
 }
 
 .tools-page-redesign .tools-material-values h3 {
-  font-family: var(--font-ui), system-ui, sans-serif;
-  font-weight: 700;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.55rem, 2vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: 0;
   text-transform: none;
 }
 
@@ -562,15 +567,6 @@
 :is(.events-event-image, .tools-category-image, .training-card-image, .journal-story-image, .store-product-image) {
   border-radius: 0;
   overflow: hidden;
-}
-
-:is(.events-event-image, .tools-category-image, .training-card-image, .journal-story-image, .store-product-image) img,
-:is(.events-host-image, .journal-signup-image, .tools-material-image, .tools-care-image, .tools-custom-image, .training-lasting-image, .about-story-image, .related-card-media) img,
-.related-card img {
-  inset: -1px !important;
-  width: calc(100% + 2px) !important;
-  height: calc(100% + 2px) !important;
-  max-width: none;
 }
 
 :is(.events-event-body, .tools-category-body, .training-card-body, .journal-story-body, .store-product-body) {
@@ -850,7 +846,7 @@
   border-bottom: 1px solid rgba(248, 243, 236, 0.72);
   color: #f8f3ec;
   font-family: var(--font-body);
-  font-size: clamp(1.02rem, 1vw, 1.16rem);
+  font-size: clamp(1.16rem, 1.18vw, 1.34rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: 0.02em;
@@ -869,7 +865,7 @@
   max-width: 30ch;
   margin: 24px auto 0;
   color: #f8f3ec;
-  font-size: clamp(1rem, 1.02vw, 1.13rem);
+  font-size: clamp(1.12rem, 1.12vw, 1.28rem);
   line-height: 1.55;
   letter-spacing: 0.01em;
 }
@@ -954,7 +950,7 @@
   }
 
   .lookbook-home .lookbook-hero-title {
-    margin-top: 24px;
+    margin-top: 36px;
     font-size: 3.1rem;
     line-height: 0.98;
     white-space: normal;
@@ -1049,4 +1045,216 @@
 
 .cart-section .cart-item-price strong {
   font-size: clamp(1.55rem, 1.9vw, 2.2rem);
+}
+
+/* Rounded treatment only for standalone product imagery. Card-paired images stay square. */
+:is(
+  .product-primary-media,
+  .product-thumb
+) {
+  border-radius: var(--ui-card-radius);
+  overflow: hidden;
+}
+
+.lookbook-home .philosophy-copy h2 {
+  max-width: 9ch;
+  font-size: clamp(3.3rem, 5vw, 6rem);
+  line-height: 0.9;
+}
+
+@media (max-width: 620px) {
+  .lookbook-home .philosophy-copy h2 {
+    font-size: clamp(3.1rem, 15vw, 4.8rem);
+  }
+}
+
+.events-event-card,
+.journal-story-card {
+  align-items: stretch;
+}
+
+.events-event-body,
+.journal-story-body {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.events-event-card .events-location {
+  width: fit-content;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: left;
+}
+
+.events-event-card .events-event-body {
+  display: grid;
+  grid-template-rows:
+    auto
+    minmax(6rem, auto)
+    minmax(5.4rem, auto)
+    minmax(2.8rem, auto)
+    50px;
+  align-content: center;
+  gap: 16px;
+}
+
+.events-event-card .events-date {
+  margin: 0 auto 2px;
+}
+
+.events-event-card .events-event-body h3 {
+  align-self: center;
+}
+
+.events-event-card .events-event-body h3 + p {
+  align-self: start;
+  margin-top: 0;
+}
+
+.events-event-card .events-outline-button {
+  align-self: end;
+  margin-top: 0;
+}
+
+.journal-story-card .journal-story-body {
+  position: relative;
+  justify-content: center;
+  padding-top: clamp(142px, 9vw, 170px);
+  padding-bottom: clamp(30px, 3vw, 46px);
+}
+
+.journal-story-card .journal-story-meta {
+  position: absolute;
+  top: clamp(74px, 5.8vw, 96px);
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100% - 56px);
+  margin: 0;
+  font-size: clamp(1.16rem, 1.18vw, 1.34rem);
+  line-height: 1.15;
+}
+
+.journal-story-card .journal-story-body h3 {
+  margin-top: clamp(18px, 1.7vw, 30px);
+}
+
+.journal-story-card .journal-story-body > p:not(.journal-story-meta) {
+  margin-top: clamp(22px, 2.1vw, 30px);
+}
+
+@media (max-width: 620px) {
+  .journal-story-card .journal-story-body {
+    padding-top: 136px;
+  }
+
+  .journal-story-card .journal-story-meta {
+    top: 54px;
+    max-width: calc(100% - 44px);
+  }
+}
+
+.tools-page-redesign .tools-material-panel {
+  --material-panel-bg: #11100d;
+  --material-panel-ink: #f8f3ec;
+  --material-panel-muted: rgba(248, 243, 236, 0.72);
+  --material-panel-line: rgba(248, 243, 236, 0.16);
+  border: 0;
+  border-radius: 12px;
+  background: var(--material-panel-bg);
+  color: var(--material-panel-ink);
+  overflow: hidden;
+}
+
+.tools-page-redesign .tools-material-panel::after {
+  display: none;
+}
+
+.tools-page-redesign .tools-material-copy {
+  background: transparent;
+  color: var(--material-panel-ink);
+  border-radius: 0;
+}
+
+.tools-page-redesign .tools-material-copy h2 {
+  color: var(--material-panel-ink);
+}
+
+.tools-page-redesign .tools-material-copy > p {
+  color: var(--material-panel-muted);
+}
+
+.tools-page-redesign .tools-material-image {
+  border-radius: 0;
+  background: #11100d;
+  overflow: hidden;
+}
+
+.tools-page-redesign .tools-material-image::after {
+  background: linear-gradient(90deg, rgba(17, 16, 13, 0.16), rgba(17, 16, 13, 0) 42%);
+}
+
+.tools-page-redesign .tools-material-proof-row,
+.tools-page-redesign .tools-material-values {
+  gap: 0;
+  background: var(--material-panel-line);
+}
+
+.tools-page-redesign .tools-material-proof-row .tools-proof-item,
+.tools-page-redesign .tools-material-values article {
+  background: rgba(248, 243, 236, 0.055);
+}
+
+.tools-page-redesign .tools-material-proof-row .tools-proof-item svg {
+  color: #9fb16c;
+}
+
+.tools-page-redesign .tools-material-proof-row .tools-proof-item span,
+.tools-page-redesign .tools-material-values h3 {
+  color: var(--material-panel-ink);
+}
+
+.tools-page-redesign .tools-material-values span {
+  color: rgba(159, 177, 108, 0.92);
+}
+
+.tools-page-redesign .tools-material-values p {
+  color: var(--material-panel-muted);
+}
+
+.tools-page-redesign .tools-material-proof-row,
+.tools-page-redesign .tools-material-values {
+  gap: clamp(14px, 1.4vw, 22px);
+  background: transparent;
+}
+
+.tools-page-redesign .tools-material-values article {
+  border: 1px solid var(--tools-inner-box-line);
+  border-radius: var(--tools-inner-box-radius);
+  background: var(--tools-inner-box-bg);
+}
+
+.tools-page-redesign .tools-material-proof-row .tools-proof-item {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.tools-page-redesign .tools-care-card,
+.tools-page-redesign .tools-custom-card {
+  border: 1px solid var(--tools-inner-box-line);
+  border-radius: var(--tools-inner-box-radius);
+  background: var(--tools-inner-box-bg);
+  overflow: hidden;
+}
+
+.tools-page-redesign :is(
+  .tools-proof-item,
+  .tools-care-copy,
+  .tools-custom-copy
+) svg,
+.training-page-redesign .training-line-icon,
+.events-page-redesign .events-location svg {
+  color: #9fb16c;
 }

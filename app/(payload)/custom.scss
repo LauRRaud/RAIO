@@ -1,1 +1,90 @@
+:root {
+  --theme-bg: #f0e9dd;
+  --theme-elevation-0: #f7f1e7;
+  --theme-elevation-50: #f0e9dd;
+  --theme-elevation-100: #e4dac9;
+  --theme-elevation-150: #d6cbb9;
+  --theme-elevation-200: #c7bba8;
+  --theme-elevation-250: #b8ab97;
+  --theme-elevation-300: #a99d8a;
+  --theme-elevation-350: #998c7a;
+  --theme-elevation-400: #887c6a;
+  --theme-elevation-450: #776b5a;
+  --theme-elevation-500: #665b4d;
+  --theme-elevation-550: #554c40;
+  --theme-elevation-600: #473f35;
+  --theme-elevation-650: #39322a;
+  --theme-elevation-700: #2c2721;
+  --theme-elevation-750: #211d18;
+  --theme-elevation-800: #171410;
+  --theme-elevation-850: #11100d;
+  --theme-elevation-900: #0c0b09;
+  --theme-elevation-950: #060504;
+  --theme-elevation-1000: #000;
+  --theme-success-500: #3f4c29;
+  --theme-warning-500: #8c6430;
+  --theme-error-500: #7c2632;
+  --font-body: Arial, Helvetica, sans-serif;
+}
 
+body {
+  background: #f0e9dd;
+}
+
+.template-default {
+  background:
+    linear-gradient(90deg, rgba(17, 16, 13, 0.06) 0, transparent 32%),
+    #f0e9dd;
+}
+
+.nav {
+  border-right: 1px solid rgba(17, 16, 13, 0.12);
+  background: #11100d;
+}
+
+.nav__brand {
+  min-height: 82px;
+  border-bottom: 1px solid rgba(245, 239, 229, 0.12);
+}
+
+.nav__brand::after {
+  content: "RA•IO admin";
+  color: #f8f3ec;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.nav a,
+.nav button,
+.nav__label {
+  color: rgba(248, 243, 236, 0.78);
+}
+
+.nav a:hover,
+.nav button:hover,
+.nav a:focus-visible,
+.nav button:focus-visible {
+  color: #f8f3ec;
+}
+
+.dashboard__wrap,
+.collection-list__wrap,
+.doc__wrap {
+  max-width: 1480px;
+}
+
+.card,
+.collection-list,
+.doc-tab,
+.form-field,
+.group-field,
+.array-field {
+  border-radius: 8px;
+}
+
+.btn,
+button {
+  border-radius: 8px;
+}

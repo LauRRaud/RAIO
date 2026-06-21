@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ProductGallery } from "@/components/ProductGallery";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getLocalizedProduct, getLocalizedProducts, getMessages } from "@/lib/messages";
 import { formatCurrency } from "@/lib/shop";
@@ -32,18 +33,7 @@ export function ProductPage({ locale = "et", slug }) {
       <main id="main" className="product-page">
         <section className="product-hero section">
           <div className="container product-grid">
-            <div className="product-gallery">
-              <div className="product-primary-media">
-                <Image src={product.images[0]} alt={product.name} fill priority sizes="(max-width: 900px) 100vw, 42vw" />
-              </div>
-              <div className="product-thumb-row">
-                {product.images.map((image, index) => (
-                  <div key={index} className="product-thumb">
-                    <Image src={image} alt={`${product.name} ${index + 1}`} fill sizes="120px" />
-                  </div>
-                ))}
-              </div>
-            </div>
+            <ProductGallery images={product.images} productName={product.name} locale={locale} />
 
             <div className="product-copy">
               <h1>{product.name}</h1>

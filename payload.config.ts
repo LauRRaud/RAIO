@@ -8,6 +8,7 @@ import sharp from "sharp";
 import { Events } from "@/payload/collections/Events";
 import { JournalArticles } from "@/payload/collections/JournalArticles";
 import { Media } from "@/payload/collections/Media";
+import { Orders } from "@/payload/collections/Orders";
 import { Pages } from "@/payload/collections/Pages";
 import { Products } from "@/payload/collections/Products";
 import { Users } from "@/payload/collections/Users";
@@ -24,7 +25,7 @@ export default buildConfig({
       titleSuffix: "- RAIO admin"
     }
   },
-  collections: [Users, Media, Pages, Products, Events, JournalArticles],
+  collections: [Users, Media, Pages, Products, Orders, Events, JournalArticles],
   globals: [SiteSettings, HomePage],
   editor: lexicalEditor(),
   localization: {

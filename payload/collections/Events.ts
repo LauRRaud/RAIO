@@ -17,7 +17,8 @@ export const Events: CollectionConfig = {
   admin: {
     useAsTitle: "title",
     defaultColumns: ["title", "date", "location", "visible"],
-    group: "Sisu"
+    group: "Sisu",
+    description: "Treeningud, töötoad ja kogukonna sündmused, mida saab avalikul lehel kuvada."
   },
   fields: [
     {

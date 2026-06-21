@@ -15,10 +15,6 @@ const primaryNav = [
   { key: "journal", et: "RA•IO+", en: "RA•IO+", href: "/journal" }
 ];
 
-const secondaryNav = [
-  { key: "kontakt", et: "Kontakt", en: "Contact", href: "/kontakt" }
-];
-
 function localizedItems(locale, items) {
   return items.map((item) => ({
     ...item,
@@ -40,7 +36,7 @@ export function Header({ locale = "et", currentPath = "/" }) {
   const etHref = getLocalizedPath("et", currentPath);
   const enHref = getLocalizedPath("en", currentPath);
   const mainItems = localizedItems(locale, primaryNav);
-  const mobileItems = localizedItems(locale, [...primaryNav, ...secondaryNav]);
+  const mobileItems = localizedItems(locale, primaryNav);
 
   useEffect(() => {
     const showAtTopOffset = 12;

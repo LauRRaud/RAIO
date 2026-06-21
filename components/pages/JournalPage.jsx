@@ -10,6 +10,7 @@ export function JournalPage({ locale = "et" }) {
   const messages = getMessages(locale);
   const t = messages.journal;
   const path = (href) => getLocalizedPath(locale, href);
+  const emailHref = `mailto:${messages.brand.email}`;
 
   return (
     <>
@@ -83,9 +84,9 @@ export function JournalPage({ locale = "et" }) {
             <div className="journal-signup-copy">
               <h2 id="journal-signup-title">{t.signup.title}</h2>
               <p>{t.signup.text}</p>
-              <Link href={path("/kontakt")} className="journal-solid-button">
+              <a href={emailHref} className="journal-solid-button">
                 {t.signup.cta}
-              </Link>
+              </a>
             </div>
             <div className="journal-signup-image" aria-hidden="true">
               <Image

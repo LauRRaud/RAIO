@@ -16,7 +16,7 @@ export function Footer({ locale = "et" }) {
   const brand = messages.brand;
   const t = messages.footer;
   const homeHref = locale === "en" ? "/en" : "/";
-  const instagramHref = "https://www.instagram.com/raio33movement/";
+  const instagramHref = "https://www.instagram.com/ra.ioworld";
   const currentYear = new Date().getFullYear();
 
   return (

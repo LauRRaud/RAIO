@@ -93,6 +93,7 @@
     ],
     "heroCta": "Vaata treeninguid",
     "heroImage": "/Pictures/Treeningud/header.png",
+    "heroImagePosition": "42% center",
     "listTitle": "Treeningud meie looduses",
     "listIntro": "Pakume erinevaid treeninguid, mis toetavad nii keha kui vaimu. Vali endale sobiv formaat ja tule liikumise kaudu ühendusse - iseenda, looduse ja kogukonnaga.",
     "cardCta": "Vaata lähemalt",
@@ -129,7 +130,7 @@
     "qualities": [
       { "title": "Looduses aasta ringi", "icon": "leaf" },
       { "title": "Väikesed grupid", "icon": "hand" },
-      { "title": "Personaalne lähenemine", "icon": "clock" },
+      { "title": "Personaalne lähenemine", "icon": "user" },
       { "title": "Kogukond & ühendus", "icon": "heart" }
     ],
     "lasting": {
@@ -151,13 +152,13 @@
       "description": "RA•IO käsitööna valminud treeningvahendid puidust ja kivist."
     },
     "label": "Vahendid",
-    "heroTitle": "Loodud loodusest. Treeninguks, mis jääb.",
+    "heroTitle": "Loodud loodusest. Treeninguks.",
     "heroText": [
       "RA•IO vahendid on käsitööna valmivad treeningvahendid, mis ühendavad looduse jõu, lihtsuse ja ajatu vastupidavuse.",
       "Valmistatud puidust ja kivist."
     ],
     "heroImage": "/Pictures/Vahendid/header.png",
-    "heroImagePosition": "74% center",
+    "heroImagePosition": "94% center",
     "proofLabel": "Vahendite omadused",
     "heroProof": [
       { "label": "Looduslikud materjalid", "icon": "leaf" },
@@ -253,7 +254,7 @@
     ],
     "heroCta": "Vaata kõiki sündmusi",
     "heroImage": "/Pictures/Sündmused/sundmused-header.png",
-    "heroImagePosition": "62% center",
+    "heroImagePosition": "82% center",
     "upcomingTitle": "Lähitulevad sündmused",
     "allLink": "Vaata kõiki",
     "cardCta": "Vaata lähemalt",
@@ -376,7 +377,7 @@
     "heroText": "Käsitööna valmivad treeningvahendid. Loodud puidust, kivist ja ajast.",
     "heroNote": "Piiratud kogus.",
     "heroImage": "/Pictures/Pood/header pood.png",
-    "heroImagePosition": "72% center",
+    "heroImagePosition": "94% center",
     "productsTitle": "Tooted",
     "categoryNavLabel": "Poe kategooriad",
     "sortLabel": "Järjesta tooted",
@@ -499,6 +500,16 @@
       { "title": "Liikumine", "text": "Loomulik, teadlik liikumine looduse rütmis." },
       { "title": "Käsitöö", "text": "Kivist ja puidust käsitsi valmistatud vahendid, mis kestavad." },
       { "title": "Kogemus", "text": "Sündmused ja kohalolu, mis ühendavad inimesi ja loodust." }
+    ],
+    "trainersTitle": "Treenerid",
+    "trainers": [
+      {
+        "name": "Rainer Olei",
+        "role": "Treener",
+        "text": "Juhendab RA•IO treeninguid looduses ning hoiab fookust jõul, tehnikal ja kohalolul.",
+        "image": "/Pictures/Meist/treener.jpg",
+        "imageAlt": "Treener Rainer Olei"
+      }
     ],
     "closingTitle": "Räägime lähemalt.",
     "closingText": "Küsimused, koostöö või tellimused — kirjuta meile.",

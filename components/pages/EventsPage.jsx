@@ -10,6 +10,8 @@ export function EventsPage({ locale = "et" }) {
   const messages = getMessages(locale);
   const t = messages.events;
   const path = (href) => getLocalizedPath(locale, href);
+  const aboutHref = path("/meist");
+  const contactHref = path("/meist#kontakt");
 
   return (
     <>
@@ -41,7 +43,7 @@ export function EventsPage({ locale = "et" }) {
         <section className="events-upcoming-section" id="lahitulevad" aria-labelledby="events-upcoming-title">
           <div className="events-section-top">
             <h2 id="events-upcoming-title">{t.upcomingTitle}</h2>
-            <Link href={path("/kontakt")} className="events-all-link">
+            <Link href={aboutHref} className="events-all-link">
               {t.allLink}
               <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
             </Link>
@@ -67,7 +69,7 @@ export function EventsPage({ locale = "et" }) {
                     <MapPin size={15} strokeWidth={1.7} aria-hidden="true" />
                     {event.location}
                   </p>
-                  <Link href={path("/kontakt")} className="events-outline-button">
+                  <Link href={aboutHref} className="events-outline-button">
                     {t.cardCta}
                   </Link>
                 </div>
@@ -88,7 +90,7 @@ export function EventsPage({ locale = "et" }) {
               <h2 id="events-host-title">{t.host.title}</h2>
               <span className="events-short-rule" aria-hidden="true" />
               <p>{t.host.text}</p>
-              <Link href={path("/kontakt")} className="events-solid-button">
+              <Link href={contactHref} className="events-solid-button">
                 {t.host.cta}
               </Link>
             </div>
