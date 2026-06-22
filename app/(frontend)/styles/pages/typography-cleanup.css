@@ -2586,4 +2586,14 @@
     align-items: center;
     gap: 16px;
   }
+
+  /* Center the "Treenerid" button in the lasting panel. */
+  .training-page-redesign .training-lasting-copy {
+    align-items: center;
+    text-align: center;
+  }
+
+  .training-page-redesign .training-lasting-copy .training-solid-button {
+    margin-inline: auto;
+  }
 }

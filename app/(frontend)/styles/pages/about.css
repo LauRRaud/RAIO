@@ -501,14 +501,18 @@
     align-items: start;
   }
 
-  .about-closing-action,
-  .about-contact-panel {
+  .about-closing-action {
     align-self: auto;
     min-height: 0;
     border-left: 0;
     border-top: 1px solid rgba(245, 239, 229, 0.14);
     padding-left: 0;
     padding-top: 26px;
+  }
+
+  .about-contact-panel {
+    align-self: auto;
+    min-height: 0;
   }
 }
 
@@ -550,5 +554,44 @@
 
   .about-trainers-section {
     padding: 30px 24px;
+  }
+}
+
+@media (max-width: 620px) {
+  /* Unify the trainer card into one rounded clipped dark card instead of
+     a separate image + gap + bordered box. */
+  .about-trainer-card {
+    gap: 0;
+    background: var(--ui-box-bg);
+    border-radius: var(--ui-card-radius);
+    overflow: hidden;
+  }
+
+  .about-trainer-image {
+    min-height: clamp(280px, 72vw, 380px);
+    border-radius: 0;
+  }
+
+  .about-trainer-image::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(25, 23, 18, 0), var(--ui-box-bg));
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .about-trainer-copy {
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    align-items: center;
+    padding: 30px 24px 38px;
+  }
+
+  .about-trainer-copy p {
+    margin-inline: auto;
   }
 }
