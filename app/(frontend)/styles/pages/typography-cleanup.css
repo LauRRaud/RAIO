@@ -2365,3 +2365,81 @@
     bottom: 102px;
   }
 }
+
+@media (max-width: 620px) {
+  :is(
+      .events-event-arrow,
+      .journal-story-arrow,
+      .store-page .store-product-arrow
+    ) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .events-event-arrow-left,
+  .events-event-arrow-right {
+    top: clamp(386px, 112vw, 404px);
+  }
+
+  .events-event-carousel .events-event-arrow-left,
+  .events-event-carousel .events-event-arrow-right {
+    top: 386px;
+  }
+
+  .journal-story-arrow-left,
+  .journal-story-arrow-right {
+    top: clamp(292px, 85vw, 314px);
+  }
+
+  .journal-story-carousel .journal-story-arrow-left,
+  .journal-story-carousel .journal-story-arrow-right {
+    top: 302px;
+  }
+
+  .store-page .store-product-arrow-left,
+  .store-page .store-product-arrow-right {
+    top: clamp(260px, 78vw, 282px);
+  }
+
+  :is(
+      .events-event-arrow,
+      .journal-story-arrow,
+      .store-page .store-product-arrow
+    ):is(:hover, :focus, :focus-visible, :active) {
+    transform: translateY(-50%);
+  }
+
+  :is(
+      .events-event-arrow-left,
+      .journal-story-arrow-left,
+      .store-page .store-product-arrow-left
+    ) {
+    left: 8px;
+  }
+
+  :is(
+      .events-event-arrow-right,
+      .journal-story-arrow-right,
+      .store-page .store-product-arrow-right
+    ) {
+    right: 8px;
+  }
+
+  .events-event-carousel
+    .events-event-card
+    .events-event-body
+    > p:not(.events-date):not(.events-location) {
+    position: relative;
+    transform: translateY(-18px);
+  }
+
+  .events-event-carousel .events-event-card .events-location {
+    width: min(calc(100% - 76px), 286px);
+    justify-content: center;
+    text-align: center;
+  }
+
+  .events-event-carousel .events-event-card .events-location svg {
+    flex: 0 0 auto;
+  }
+}
