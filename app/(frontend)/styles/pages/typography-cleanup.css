@@ -2443,3 +2443,75 @@
     flex: 0 0 auto;
   }
 }
+
+@media (min-width: 621px) {
+  :is(
+      .events-hero-redesign,
+      .journal-hero-redesign,
+      .tools-hero-redesign,
+      .training-hero-redesign,
+      .store-hero,
+      .about-hero
+    )::before {
+    background: none;
+  }
+
+  .lookbook-hero-overlay {
+    display: none;
+  }
+
+  :is(
+      .lookbook-hero-image,
+      .events-hero-image img,
+      .journal-hero-image img,
+      .tools-hero-image img,
+      .training-hero-image img,
+      .store-hero-image img,
+      .about-hero-image img
+    ) {
+    filter: saturate(0.96) contrast(1.04) brightness(1);
+  }
+}
+
+/* Hide subpixel seams where image blocks meet dark copy panels. */
+:is(
+    .events-event-image,
+    .journal-story-image,
+    .store-product-image,
+    .tools-category-image,
+    .training-card-image
+  ) {
+  margin-bottom: -1px;
+  border-bottom: 0;
+}
+
+:is(
+    .events-event-body,
+    .journal-story-body,
+    .store-product-body,
+    .tools-category-body,
+    .training-card-body
+  ) {
+  border-top: 0;
+}
+
+:is(
+    .tools-care-image,
+    .tools-custom-image,
+    .training-lasting-image,
+    .journal-signup-image,
+    .events-host-image
+  ) {
+  margin-top: -1px;
+  border-top: 0;
+}
+
+.training-page-redesign .training-lasting-copy .training-solid-button {
+  margin-top: clamp(30px, 3vw, 44px);
+}
+
+@media (max-width: 620px) {
+  .training-page-redesign .training-lasting-copy .training-solid-button {
+    margin-top: 34px;
+  }
+}
