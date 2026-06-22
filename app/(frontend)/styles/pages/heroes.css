@@ -110,3 +110,34 @@
     width: auto;
   }
 }
+
+@media (max-width: 620px) {
+  :root {
+    --mobile-first-section-height: clamp(500px, calc(100svh - 118px), 560px);
+  }
+
+  :is(
+    .lookbook-hero,
+    .events-hero-redesign,
+    .journal-hero-redesign,
+    .tools-hero-redesign,
+    .training-hero-redesign,
+    .store-hero,
+    .about-hero
+  ) {
+    height: var(--mobile-first-section-height);
+    min-height: 0;
+  }
+
+  :is(
+    .events-hero-redesign,
+    .journal-hero-redesign,
+    .tools-hero-redesign,
+    .training-hero-redesign,
+    .store-hero,
+    .about-hero
+  ) {
+    align-items: flex-end;
+    padding: 94px 0 58px;
+  }
+}

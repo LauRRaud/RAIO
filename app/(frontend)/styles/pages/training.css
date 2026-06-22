@@ -39,8 +39,8 @@
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(240, 233, 221, 1) 0%, rgba(240, 233, 221, 1) 31%, rgba(240, 233, 221, 0.78) 43%, rgba(240, 233, 221, 0.12) 58%),
-    linear-gradient(0deg, rgba(17, 16, 13, 0.16) 0%, rgba(17, 16, 13, 0) 34%);
+    linear-gradient(90deg, rgba(17, 16, 13, 0.68) 0%, rgba(17, 16, 13, 0.5) 42%, rgba(17, 16, 13, 0.18) 70%, rgba(17, 16, 13, 0.34) 100%),
+    linear-gradient(0deg, rgba(17, 16, 13, 0.38) 0%, rgba(17, 16, 13, 0) 46%);
   pointer-events: none;
 }
 
@@ -651,8 +651,8 @@ body .training-modal-content .training-meta span {
 
   .training-hero-redesign::before {
     background:
-      linear-gradient(90deg, rgba(240, 233, 221, 0.98) 0%, rgba(240, 233, 221, 0.9) 56%, rgba(240, 233, 221, 0.32) 100%),
-      linear-gradient(0deg, rgba(240, 233, 221, 0.96) 0%, rgba(240, 233, 221, 0.2) 58%);
+      linear-gradient(90deg, rgba(17, 16, 13, 0.7) 0%, rgba(17, 16, 13, 0.52) 58%, rgba(17, 16, 13, 0.24) 100%),
+      linear-gradient(0deg, rgba(17, 16, 13, 0.42) 0%, rgba(17, 16, 13, 0.08) 58%);
   }
 }
 

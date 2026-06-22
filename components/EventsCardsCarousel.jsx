@@ -99,7 +99,7 @@ export function EventsCardsCarousel({ events, cta, modalClose, labels }) {
                 src={event.image}
                 alt={event.title}
                 fill
-                sizes="(max-width: 620px) 82vw, 540px"
+                sizes="(max-width: 620px) 100vw, 540px"
                 style={{ objectPosition: event.imagePosition }}
               />
             </div>

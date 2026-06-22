@@ -106,7 +106,7 @@ export function TrainingCardsCarousel({
                 alt={training.title}
                 fill
                 loading="eager"
-                sizes="(max-width: 620px) 82vw, 430px"
+                sizes="(max-width: 620px) 100vw, 430px"
               />
             </div>
             <div className="training-card-body">

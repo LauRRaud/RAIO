@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import { CartButton } from "@/components/CartButton";
 import { getLocalizedPath } from "@/lib/i18n";
 
@@ -28,6 +28,9 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName }) 
   const enHref = getLocalizedPath("en", currentPath);
   const mainItems = localizedItems(locale, t.primaryNav);
   const mobileItems = localizedItems(locale, t.primaryNav);
+  const activeLanguage = locale === "en" ? t.languages.en : t.languages.et;
+  const alternateLanguage = locale === "en" ? t.languages.et : t.languages.en;
+  const alternateLanguageHref = locale === "en" ? etHref : enHref;
 
   useEffect(() => {
     const showAtTopOffset = 12;
@@ -100,14 +103,15 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName }) 
         </nav>
 
         <div className="header-actions">
-          <div className="language-switch" aria-label={t.languageLabel}>
-            <Link className={locale === "et" ? "is-active" : ""} href={etHref}>
-              {t.languages.et}
-            </Link>
-            <Link className={locale === "en" ? "is-active" : ""} href={enHref}>
-              {t.languages.en}
-            </Link>
-          </div>
+          <details className="language-switch">
+            <summary aria-label={t.languageLabel}>
+              <span>{activeLanguage}</span>
+              <ChevronDown size={15} strokeWidth={1.8} aria-hidden="true" />
+            </summary>
+            <div className="language-switch-menu">
+              <Link href={alternateLanguageHref}>{alternateLanguage}</Link>
+            </div>
+          </details>
           <CartButton
             href={cartHref}
             label={t.cartLabel}
@@ -125,8 +129,6 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName }) 
                     {item.label}
                   </Link>
                 ))}
-                <Link href={etHref}>{t.languages.et}</Link>
-                <Link href={enHref}>{t.languages.en}</Link>
                 <Link href={cartHref}>{t.cartLabel}</Link>
               </nav>
             </div>

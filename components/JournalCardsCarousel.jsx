@@ -99,7 +99,7 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
                 src={article.image}
                 alt={article.title}
                 fill
-                sizes="(max-width: 620px) 82vw, 540px"
+                sizes="(max-width: 620px) 100vw, 540px"
               />
             </div>
             <div className="journal-story-body">

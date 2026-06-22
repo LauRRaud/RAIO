@@ -1226,8 +1226,8 @@
 
 @media (max-width: 620px) {
   .lookbook-home .philosophy-copy h2 {
-    font-size: clamp(2.85rem, 13.6vw, 4.3rem);
-    line-height: 1.02;
+    font-size: clamp(2.75rem, 12.4vw, 3.85rem);
+    line-height: 1.08;
   }
 }
 
@@ -1894,13 +1894,14 @@
     .tools-page-redesign .tools-category-carousel,
     .training-page-redesign .training-card-carousel
   ) {
-    --raio-carousel-gap: 4px;
+    --raio-carousel-gap: 0px;
     --raio-carousel-edge-gap: 0px;
-    --raio-carousel-arrow-size: 32px;
-    width: min(100vw, 100%);
-    grid-template-columns: var(--raio-carousel-arrow-size) minmax(0, 1fr) var(
-        --raio-carousel-arrow-size
-      );
+    --raio-carousel-arrow-size: 58px;
+    left: auto;
+    width: 100%;
+    display: block;
+    padding-inline: 0;
+    transform: none;
   }
 
   :is(
@@ -1912,12 +1913,19 @@
   ) {
     --raio-carousel-gap: 4px;
     --raio-carousel-edge-gap: 0px;
-    --raio-carousel-arrow-size: 32px;
-    --raio-carousel-side-offset: calc(
-      var(--raio-carousel-edge-gap) + var(--raio-carousel-arrow-size) +
-        var(--raio-carousel-gap)
-    );
-    width: calc(100% - (var(--raio-carousel-side-offset) * 2));
+    --raio-carousel-arrow-size: 58px;
+    width: 100%;
+  }
+
+  :is(
+    .events-event-carousel .events-grid-redesign,
+    .journal-story-carousel .journal-card-grid,
+    .store-page .store-product-carousel .store-product-grid,
+    .tools-page-redesign .tools-category-carousel .tools-category-grid,
+    .training-page-redesign .training-card-carousel .training-card-grid
+  ) {
+    width: 100%;
+    gap: 0;
   }
 
   :is(
@@ -1928,6 +1936,108 @@
     .training-page-redesign .training-card-carousel .training-card
   ) {
     flex-basis: 100%;
+  }
+
+  :is(
+    .events-event-arrow,
+    .journal-story-arrow,
+    .store-page .store-product-arrow,
+    .tools-page-redesign .tools-category-arrow,
+    .training-page-redesign .training-card-arrow
+  ) {
+    position: absolute;
+    z-index: 6;
+    width: var(--raio-carousel-arrow-size);
+    height: var(--raio-carousel-arrow-size);
+    border: 1px solid rgba(245, 239, 229, 0.26);
+    background: rgba(245, 239, 229, 0.14);
+    color: #fffaf1;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.2);
+    transform: none;
+  }
+
+  :is(
+    .events-event-arrow,
+    .journal-story-arrow,
+    .store-page .store-product-arrow,
+    .tools-page-redesign .tools-category-arrow,
+    .training-page-redesign .training-card-arrow
+  ) svg {
+    width: 42px;
+    height: 42px;
+    stroke-width: 2.35;
+  }
+
+  .tools-page-redesign .tools-category-arrow-left {
+    top: clamp(365px, 104vw, 430px);
+    left: 10px;
+  }
+
+  .tools-page-redesign .tools-category-arrow-right {
+    top: clamp(365px, 104vw, 430px);
+    right: 10px;
+  }
+
+  .store-page .store-product-arrow-left {
+    top: clamp(375px, 107vw, 440px);
+    left: 10px;
+  }
+
+  .store-page .store-product-arrow-right {
+    top: clamp(375px, 107vw, 440px);
+    right: 10px;
+  }
+
+  .training-page-redesign .training-card-arrow-left {
+    top: clamp(435px, 112vw, 470px);
+    left: 10px;
+  }
+
+  .training-page-redesign .training-card-arrow-right {
+    top: clamp(435px, 112vw, 470px);
+    right: 10px;
+  }
+
+  .events-event-arrow-left {
+    top: clamp(320px, 96vw, 390px);
+    left: 10px;
+  }
+
+  .events-event-arrow-right {
+    top: clamp(320px, 96vw, 390px);
+    right: 10px;
+  }
+
+  .journal-story-arrow-left {
+    top: clamp(300px, 86vw, 350px);
+    left: 10px;
+  }
+
+  .journal-story-arrow-right {
+    top: clamp(300px, 86vw, 350px);
+    right: 10px;
+  }
+
+  :is(
+    .events-event-carousel .events-event-body h3,
+    .journal-story-carousel .journal-story-body h3,
+    .store-page .store-product-carousel .store-product-body h3,
+    .tools-page-redesign .tools-category-carousel .tools-category-body h3,
+    .training-page-redesign .training-card-carousel .training-card-body h3
+  ) {
+    max-width: none;
+    font-size: clamp(1.42rem, 6.2vw, 1.72rem);
+    margin-bottom: 58px;
+  }
+
+  :is(
+    .events-event-carousel .events-event-body h3 + p,
+    .journal-story-carousel .journal-story-body > p:not(.journal-story-meta),
+    .tools-page-redesign .tools-category-carousel .tools-category-body > p,
+    .training-page-redesign .training-card-carousel .training-card-body > p,
+    .store-page .store-product-carousel .store-price
+  ) {
+    margin-top: 0;
   }
 }
 

@@ -141,7 +141,7 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
                   src={product.images[0]}
                   alt={product.name}
                   fill
-                  sizes="(max-width: 620px) 82vw, 430px"
+                  sizes="(max-width: 620px) 100vw, 430px"
                 />
               </Link>
               <div className="store-product-body">

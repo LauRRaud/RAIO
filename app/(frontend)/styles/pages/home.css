@@ -301,6 +301,7 @@
 
   .philosophy-section {
     grid-template-columns: 1fr;
+    min-height: 0;
   }
 }
 
@@ -308,7 +309,7 @@
 
   .philosophy-copy {
     width: min(calc(100% - 44px), 620px);
-    padding: 78px 0;
+    padding: 58px 0 48px;
   }
 }
 
@@ -381,8 +382,19 @@
 
 @media (max-width: 620px) {
 
+  .philosophy-copy {
+    width: min(calc(100% - 40px), 620px);
+    padding: 42px 0 34px;
+  }
+
   .philosophy-copy h2 {
-    font-size: clamp(3.1rem, 15vw, 4.8rem);
+    font-size: clamp(2.75rem, 12.4vw, 3.85rem);
+    line-height: 1.08;
+  }
+
+  .philosophy-copy p {
+    margin-top: 22px;
+    line-height: 1.72;
   }
 
 }

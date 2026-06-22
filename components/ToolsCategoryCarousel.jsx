@@ -81,7 +81,7 @@ export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }
                 alt={category.title}
                 fill
                 loading="eager"
-                sizes="(max-width: 620px) 82vw, 430px"
+                sizes="(max-width: 620px) 100vw, 430px"
               />
             </Link>
             <div className="tools-category-body">
