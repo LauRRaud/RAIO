@@ -35,9 +35,6 @@ export async function EventsPage({ locale = "et" }) {
                 <p key={line}>{line}</p>
               ))}
             </div>
-            <Link href="#lahitulevad" className="events-solid-button">
-              {t.heroCta}
-            </Link>
           </div>
 
           <div

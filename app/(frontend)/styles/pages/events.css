@@ -398,6 +398,10 @@ body .events-event-modal-content .events-location {
   margin-bottom: 28px;
 }
 
+.events-host-copy .events-solid-button {
+  align-self: center;
+}
+
 .events-hero-redesign {
   height: clamp(620px, calc(100vh - 78px), 860px);
   min-height: 0;

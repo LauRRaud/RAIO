@@ -531,6 +531,11 @@ body .training-modal-content .training-meta span {
   font-size: clamp(0.76rem, 0.8vw, 0.9rem);
 }
 
+.training-workshop-panel > .training-solid-button {
+  width: min(100%, 220px);
+  justify-self: center;
+}
+
 .training-hero-redesign {
   height: clamp(620px, calc(100vh - 78px), 860px);
   min-height: 0;

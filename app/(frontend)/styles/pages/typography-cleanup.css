@@ -2341,6 +2341,22 @@
   }
 }
 
+.journal-story-carousel .journal-text-link {
+  bottom: clamp(42px, 3.2vw, 58px);
+  width: min(100% - 72px, 190px);
+}
+
+.journal-story-carousel .journal-story-body > p:not(.journal-story-meta) {
+  transform: translateY(10px);
+}
+
+@media (max-width: 620px) {
+  .journal-story-carousel .journal-text-link {
+    bottom: 44px;
+    width: min(calc(100% - 88px), 190px);
+  }
+}
+
 @media (max-width: 620px) {
   :is(
       .events-event-arrow,
