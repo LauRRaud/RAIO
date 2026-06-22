@@ -140,8 +140,8 @@
       "All of nature is your training ground."
     ],
     "heroCta": "See the trainings",
-    "heroImage": "/Pictures/Treeningud/header.png",
-    "heroImagePosition": "42% center",
+    "heroImage": "/Pictures/Avaleht/RAIO TREENINGUD.png",
+    "heroImagePosition": "center center",
     "listTitle": "Training in our nature",
     "listIntro": "We offer a range of trainings that support both body and mind. Choose the format that suits you and connect through movement - with yourself, nature, and community.",
     "cardCta": "Learn more",
@@ -226,8 +226,8 @@
       "RA•IO tools are handcrafted training tools that combine the strength of nature, simplicity, and timeless durability.",
       "Made of wood and stone."
     ],
-    "heroImage": "/Pictures/Vahendid/header.png",
-    "heroImagePosition": "94% center",
+    "heroImage": "/Pictures/Avaleht/RAIO VAHENDID.png",
+    "heroImagePosition": "center center",
     "proofLabel": "Tool qualities",
     "heroProof": [
       { "label": "Natural materials", "icon": "leaf" },
@@ -322,8 +322,8 @@
       "Trainings, workshops, and challenges that create space to grow."
     ],
     "heroCta": "See all events",
-    "heroImage": "/Pictures/Sündmused/sundmused-header.png",
-    "heroImagePosition": "82% center",
+    "heroImage": "/Pictures/Avaleht/raio-sundmused.png",
+    "heroImagePosition": "center center",
     "upcomingTitle": "Upcoming events",
     "allLink": "View all",
     "cardCta": "Learn more",
@@ -401,7 +401,7 @@
       "Here you'll find stories about training, nature, the craft of making, and everyday movement."
     ],
     "heroCta": "See all articles",
-    "heroImage": "/Pictures/Journal/header vasakule.png",
+    "heroImage": "/Pictures/Avaleht/RAIO JOURNAL.png",
     "storiesTitle": "Latest stories",
     "categoriesLabel": "Categories:",
     "categoryNavLabel": "Categories",
@@ -628,7 +628,7 @@
     "heroText": [
       "RA•IO exists so these three are not separate things, but one whole journey back to the body and to nature."
     ],
-    "heroImage": "/Pictures/Journal/RAIO MEIST1.png",
+    "heroImage": "/Pictures/Avaleht/RAIO MEIST.png",
     "cta": "Get in touch",
     "storyTitle": "Our story",
     "story": [

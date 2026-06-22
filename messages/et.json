@@ -140,8 +140,8 @@
       "Treeninguks on kogu loodus."
     ],
     "heroCta": "Vaata treeninguid",
-    "heroImage": "/Pictures/Treeningud/header.png",
-    "heroImagePosition": "42% center",
+    "heroImage": "/Pictures/Avaleht/RAIO TREENINGUD.png",
+    "heroImagePosition": "center center",
     "listTitle": "Treeningud meie looduses",
     "listIntro": "Pakume erinevaid treeninguid, mis toetavad nii keha kui vaimu. Vali endale sobiv formaat ja tule liikumise kaudu ühendusse - iseenda, looduse ja kogukonnaga.",
     "cardCta": "Vaata lähemalt",
@@ -226,8 +226,8 @@
       "RA•IO vahendid on käsitööna valmivad treeningvahendid, mis ühendavad looduse jõu, lihtsuse ja ajatu vastupidavuse.",
       "Valmistatud puidust ja kivist."
     ],
-    "heroImage": "/Pictures/Vahendid/header.png",
-    "heroImagePosition": "94% center",
+    "heroImage": "/Pictures/Avaleht/RAIO VAHENDID.png",
+    "heroImagePosition": "center center",
     "proofLabel": "Vahendite omadused",
     "heroProof": [
       { "label": "Looduslikud materjalid", "icon": "leaf" },
@@ -322,8 +322,8 @@
       "Treeningud, töötoad ja väljakutsed, mis loovad ruumi kasvamiseks."
     ],
     "heroCta": "Vaata kõiki sündmusi",
-    "heroImage": "/Pictures/Sündmused/sundmused-header.png",
-    "heroImagePosition": "82% center",
+    "heroImage": "/Pictures/Avaleht/raio-sundmused.png",
+    "heroImagePosition": "center center",
     "upcomingTitle": "Lähitulevad sündmused",
     "allLink": "Vaata kõiki",
     "cardCta": "Vaata lähemalt",
@@ -401,7 +401,7 @@
       "Siit leiad lugusid treeningutest, loodusest, töö käsitööna valmimisest ja igapäevasest liikumisest."
     ],
     "heroCta": "Vaata kõiki artikleid",
-    "heroImage": "/Pictures/Journal/header vasakule.png",
+    "heroImage": "/Pictures/Avaleht/RAIO JOURNAL.png",
     "storiesTitle": "Viimased lood",
     "categoriesLabel": "Kategooriad:",
     "categoryNavLabel": "Kategooriad",
@@ -628,7 +628,7 @@
     "heroText": [
       "RA•IO on loodud selleks, et need kolm ei oleks eraldi asjad, vaid üks terviklik teekond keha ja looduse juurde."
     ],
-    "heroImage": "/Pictures/Journal/RAIO MEIST1.png",
+    "heroImage": "/Pictures/Avaleht/RAIO MEIST.png",
     "cta": "Võta ühendust",
     "storyTitle": "Meie lugu",
     "story": [

@@ -144,7 +144,7 @@
     .about-hero
   ) {
     align-items: flex-start;
-    padding: clamp(44px, 12vw, 84px) 0 58px;
+    padding: clamp(88px, 16vh, 150px) 0 64px;
   }
 
   :is(
