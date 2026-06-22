@@ -38,9 +38,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    linear-gradient(90deg, rgba(240, 233, 221, 0.99) 0%, rgba(240, 233, 221, 0.94) 24%, rgba(240, 233, 221, 0.62) 38%, rgba(240, 233, 221, 0.08) 58%),
-    linear-gradient(0deg, rgba(17, 16, 13, 0.18) 0%, rgba(17, 16, 13, 0) 34%);
+  background: none;
   pointer-events: none;
 }
 
@@ -481,9 +479,7 @@ body .events-event-modal-content .events-location {
 @media (max-width: 620px) {
 
   .events-hero-redesign::before {
-    background:
-      linear-gradient(90deg, rgba(240, 233, 221, 0.98) 0%, rgba(240, 233, 221, 0.86) 48%, rgba(240, 233, 221, 0.3) 100%),
-      linear-gradient(0deg, rgba(240, 233, 221, 0.95) 0%, rgba(240, 233, 221, 0.2) 58%);
+    background: none;
   }
 
 }

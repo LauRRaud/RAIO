@@ -494,10 +494,11 @@
 
 .tools-custom-image::before {
   content: "";
+  display: none;
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(90deg, rgba(240, 233, 221, 0.72), rgba(240, 233, 221, 0));
+  background: none;
   pointer-events: none;
 }
 
@@ -720,6 +721,26 @@
   .tools-proof-item span {
     font-size: 0.72rem;
     line-height: 1.22;
+  }
+
+  .tools-material-proof-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 28px 0 0;
+  }
+
+  .tools-material-proof-row .tools-proof-item {
+    min-height: 0;
+    grid-template-columns: 40px minmax(0, 1fr);
+    justify-items: start;
+    gap: 14px;
+    text-align: left;
+  }
+
+  .tools-material-proof-row .tools-proof-item span {
+    font-size: 0.78rem;
+    line-height: 1.25;
+    letter-spacing: 0.12em;
   }
 
   .tools-page-redesign .tools-material-copy h2 {

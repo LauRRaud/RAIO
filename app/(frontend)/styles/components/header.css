@@ -112,6 +112,7 @@
 .desktop-nav a,
 .language-switch summary,
 .language-switch a,
+.language-switch-mobile,
 .mobile-menu-panel a {
   font-family: var(--font-display), Georgia, serif;
   font-size: 0.72rem;
@@ -124,6 +125,7 @@
 .desktop-nav a,
 .language-switch summary,
 .language-switch a,
+.language-switch-mobile,
 .mobile-menu-panel a {
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -171,7 +173,8 @@
   gap: 10px;
 }
 
-.language-switch {
+.language-switch,
+.language-switch-mobile {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -179,7 +182,12 @@
   padding-right: 16px;
 }
 
-.language-switch::after {
+.language-switch-mobile {
+  display: none;
+}
+
+.language-switch::after,
+.language-switch-mobile::after {
   content: "";
   position: absolute;
   right: 0;
@@ -203,6 +211,23 @@
   cursor: pointer;
   list-style: none;
   transition: color 160ms ease;
+}
+
+.language-switch-mobile {
+  min-width: 52px;
+  justify-content: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-size: 1.24rem;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: var(--raio-ink);
+  transition: color 160ms ease;
+}
+
+.language-switch-mobile:hover,
+.language-switch-mobile:focus-visible {
+  color: var(--raio-ink);
 }
 
 .language-switch summary::-webkit-details-marker {
@@ -316,11 +341,14 @@
   position: absolute;
   top: calc(100% + 14px);
   right: 0;
-  width: min(82vw, 360px);
-  padding: 24px;
+  width: clamp(214px, 58vw, 248px);
+  max-width: calc(100vw - 40px);
+  padding: 24px 22px;
+  border-radius: var(--ui-card-radius, 8px);
   background: rgba(25, 23, 18, 0.97);
   color: var(--raio-white);
   box-shadow: 0 24px 60px rgba(17, 16, 13, 0.26);
+  overflow: hidden;
 }
 
 .mobile-menu-panel nav {
@@ -358,7 +386,8 @@
 
 @media (max-width: 1180px) {
 
-  .language-switch summary {
+  .language-switch summary,
+  .language-switch-mobile {
     font-size: 1.05rem;
     letter-spacing: 0.12em;
   }
@@ -381,19 +410,21 @@
 
 @media (max-width: 980px) {
 
-  .language-switch {
+  .language-switch-desktop {
+    display: none;
+  }
+
+  .language-switch-mobile {
+    display: inline-flex;
     margin-right: 0;
     padding-right: 12px;
   }
 
-  .language-switch summary {
+  .language-switch-mobile {
     padding: 8px 0;
-    font-size: 0.94rem;
+    padding-right: 12px;
+    font-size: 1rem;
     letter-spacing: 0.12em;
-  }
-
-  .language-switch-menu {
-    right: 12px;
   }
 }
 
@@ -421,29 +452,18 @@
     height: 27px;
   }
 
-  .language-switch {
+  .language-switch-mobile {
     padding-right: 10px;
   }
 
-  .language-switch::after {
+  .language-switch-mobile::after {
     height: 16px;
   }
 
-  .language-switch summary {
+  .language-switch-mobile {
     min-width: 44px;
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
-  }
-
-  .language-switch-menu {
-    right: 10px;
-    min-width: 58px;
-    padding: 9px 10px;
-  }
-
-  .language-switch-menu a {
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
+    font-size: 1.08rem;
+    letter-spacing: 0.12em;
   }
 
 }

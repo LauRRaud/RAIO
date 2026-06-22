@@ -40,6 +40,7 @@ export default buildConfig({
   },
   secret: process.env.PAYLOAD_SECRET || "dev-only-change-this-secret",
   db: postgresAdapter({
+    push: false,
     pool: {
       connectionString: process.env.DATABASE_URL || "postgres://payload:payload@127.0.0.1:5432/payload"
     }

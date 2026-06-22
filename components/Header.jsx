@@ -103,7 +103,7 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName }) 
         </nav>
 
         <div className="header-actions">
-          <details className="language-switch">
+          <details className="language-switch language-switch-desktop">
             <summary aria-label={t.languageLabel}>
               <span>{activeLanguage}</span>
               <ChevronDown size={15} strokeWidth={1.8} aria-hidden="true" />
@@ -112,6 +112,9 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName }) 
               <Link href={alternateLanguageHref}>{alternateLanguage}</Link>
             </div>
           </details>
+          <Link className="language-switch-mobile" href={alternateLanguageHref} aria-label={t.languageLabel}>
+            {activeLanguage}
+          </Link>
           <CartButton
             href={cartHref}
             label={t.cartLabel}
