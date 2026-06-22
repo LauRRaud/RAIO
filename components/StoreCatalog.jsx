@@ -24,6 +24,10 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
     { value: "price", label: labels.sort.price },
     { value: "name", label: labels.sort.name },
   ];
+  const categoryOptions = categories.map((category) => ({
+    value: category.id,
+    label: category.label,
+  }));
 
   const visibleProducts = useMemo(() => {
     const filtered =
@@ -93,14 +97,24 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
             ))}
           </nav>
         </div>
-        <SelectPrimitive
-          aria-label={labels.sortLabel}
-          className="store-sort"
-          options={sortOptions}
-          theme="dark"
-          value={sortKey}
-          onChange={setSortKey}
-        />
+        <div className="store-filter-controls">
+          <SelectPrimitive
+            aria-label={labels.categoryNavLabel}
+            className="store-category-select"
+            options={categoryOptions}
+            theme="dark"
+            value={activeCategory}
+            onChange={setActiveCategory}
+          />
+          <SelectPrimitive
+            aria-label={labels.sortLabel}
+            className="store-sort"
+            options={sortOptions}
+            theme="dark"
+            value={sortKey}
+            onChange={setSortKey}
+          />
+        </div>
       </div>
 
       <div className="store-product-carousel">

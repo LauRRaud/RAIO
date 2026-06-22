@@ -2596,3 +2596,38 @@
     line-height: 1.06;
   }
 }
+
+@media (max-width: 620px) {
+  .store-page .store-products-header > :first-child {
+    width: 100%;
+  }
+
+  .store-page .store-products-header h2 {
+    align-self: center;
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .store-page .store-product-carousel .store-product-image {
+    z-index: 1;
+    margin-bottom: -2px;
+    transform: translateZ(0);
+  }
+
+  .store-page .store-product-carousel .store-product-image::after {
+    content: none;
+  }
+
+  .store-page .store-product-carousel .store-product-body {
+    position: relative;
+    z-index: 2;
+    margin-top: -2px;
+    padding-top: 30px;
+  }
+
+  .store-page .store-product-carousel .store-product-arrow-left,
+  .store-page .store-product-carousel .store-product-arrow-right {
+    top: clamp(465px, 122vw, 515px);
+  }
+}
