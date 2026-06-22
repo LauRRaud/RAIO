@@ -2631,3 +2631,61 @@
     top: clamp(465px, 122vw, 515px);
   }
 }
+
+/* Remove remaining outer hairlines from framed content boxes. */
+:is(
+    .events-event-card,
+    .events-host-cta,
+    .journal-story-card,
+    .journal-signup-banner,
+    .tools-category-card,
+    .tools-material-panel,
+    .tools-care-card,
+    .tools-custom-card,
+    .training-card,
+    .training-lasting-panel,
+    .training-workshop-panel,
+    .about-story-panel,
+    .about-closing-panel,
+    .store-page .store-product-card,
+    .related-card
+  ) {
+  border: 0 !important;
+  outline: 0;
+  box-shadow: none !important;
+}
+
+:is(
+    .events-event-image,
+    .events-event-body,
+    .events-host-image,
+    .events-host-copy,
+    .journal-story-image,
+    .journal-story-body,
+    .journal-signup-image,
+    .journal-signup-copy,
+    .tools-category-image,
+    .tools-category-body,
+    .tools-material-image,
+    .tools-material-copy,
+    .tools-care-image,
+    .tools-care-copy,
+    .tools-custom-image,
+    .tools-custom-copy,
+    .training-card-image,
+    .training-card-body,
+    .training-lasting-image,
+    .training-lasting-copy,
+    .training-workshop-copy,
+    .about-story-image,
+    .about-story-copy,
+    .about-closing-copy,
+    .store-page .store-product-image,
+    .store-page .store-product-body,
+    .related-card-media,
+    .related-card-body
+  ) {
+  border: 0 !important;
+  outline: 0;
+  box-shadow: none !important;
+}
