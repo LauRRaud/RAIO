@@ -2053,6 +2053,22 @@
     right: 10px;
   }
 
+  /* Compress the training card's lower section so it fits the screen:
+     don't stretch cards to equal height, and drop the margin-top:auto
+     gap that pushes the CTA to the bottom. */
+  .training-page-redesign .training-card-carousel .training-card {
+    align-self: start;
+  }
+
+  .training-page-redesign .training-card-carousel .training-meta {
+    margin-top: 14px;
+  }
+
+  .training-page-redesign .training-card-carousel .training-text-link {
+    margin-top: 0;
+    padding-top: clamp(16px, 4vw, 22px);
+  }
+
   .events-event-arrow-left {
     top: clamp(320px, 96vw, 390px);
     left: 10px;
@@ -2082,7 +2098,7 @@
   ) {
     max-width: none;
     font-size: clamp(1.42rem, 6.2vw, 1.72rem);
-    margin-bottom: 58px;
+    margin-bottom: 74px;
   }
 
   :is(
