@@ -12,6 +12,7 @@
   align-items: center;
   overflow: hidden;
   isolation: isolate;
+  background: var(--raio-dark);
 }
 
 .lookbook-hero-image {
