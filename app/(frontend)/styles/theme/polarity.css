@@ -146,6 +146,32 @@
   border-radius: 0 0 var(--ui-card-radius) var(--ui-card-radius);
 }
 
+/* Single rounded clip for the vertical image-on-top cards: the card
+   itself carries the radius and a matching dark background, so there is
+   no image/body seam strip and the outer corners stay clean. */
+.events-event-card,
+.journal-story-card,
+.tools-category-card,
+.training-card,
+.store-product-card {
+  background: var(--ui-box-bg);
+  border-radius: var(--ui-card-radius);
+  overflow: hidden;
+}
+
+.events-event-image,
+.journal-story-image,
+.tools-category-image,
+.training-card-image,
+.store-product-image,
+.events-event-body,
+.journal-story-body,
+.tools-category-body,
+.training-card-body,
+.store-product-body {
+  border-radius: 0;
+}
+
 .about-story-image,
 .events-host-image,
 .tools-material-image,

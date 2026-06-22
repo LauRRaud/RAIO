@@ -2450,20 +2450,19 @@
   }
 
   .events-event-carousel .events-event-card .events-location {
+    display: block;
     width: fit-content;
-    max-width: calc(100% - 76px);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-align: left;
+    max-width: calc(100% - 56px);
+    text-align: center;
   }
 
   .events-event-carousel .events-event-card .events-location svg {
+    display: inline-block;
+    vertical-align: middle;
     width: 26px;
     height: 26px;
-    margin-top: 0;
-    flex: 0 0 auto;
+    margin: 0 6px 3px 0;
+    flex: none;
   }
 }
 
@@ -2504,7 +2503,7 @@
     .tools-category-image,
     .training-card-image
   ) {
-  margin-bottom: -1px;
+  margin-bottom: 0;
   border-bottom: 0;
 }
 
@@ -2536,5 +2535,47 @@
 @media (max-width: 620px) {
   .training-page-redesign .training-lasting-copy .training-solid-button {
     margin-top: 34px;
+  }
+}
+
+@media (max-width: 620px) {
+  /* Page heroes: more vertical breathing room and a larger lede. */
+  :is(
+    .events-hero-text,
+    .training-hero-text,
+    .tools-hero-text,
+    .journal-hero-text,
+    .about-hero-text
+  ) {
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  :is(
+    .events-hero-text p,
+    .training-hero-text p,
+    .tools-hero-text p,
+    .journal-hero-text p,
+    .about-hero-text p
+  ) {
+    font-size: clamp(1.28rem, 5.1vw, 1.5rem);
+    line-height: 1.72;
+  }
+
+  :is(
+    .events-short-rule,
+    .training-short-rule,
+    .tools-short-rule,
+    .journal-short-rule,
+    .about-short-rule
+  ) {
+    margin: 42px 0 32px;
+  }
+
+  /* Homepage second (philosophy) section: larger copy, more spacing. */
+  .lookbook-home .philosophy-copy p {
+    margin-top: 30px;
+    font-size: clamp(1.28rem, 5.1vw, 1.5rem);
+    line-height: 1.74;
   }
 }
