@@ -29,7 +29,6 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName }) 
   const mainItems = localizedItems(locale, t.primaryNav);
   const mobileItems = localizedItems(locale, t.primaryNav);
   const activeLanguage = locale === "en" ? t.languages.en : t.languages.et;
-  const alternateLanguage = locale === "en" ? t.languages.et : t.languages.en;
   const alternateLanguageHref = locale === "en" ? etHref : enHref;
 
   useEffect(() => {
@@ -103,18 +102,9 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName }) 
         </nav>
 
         <div className="header-actions">
-          <details className="language-switch language-switch-desktop">
-            <summary aria-label={t.languageLabel}>
-              <span>{activeLanguage}</span>
-              <ChevronDown size={15} strokeWidth={1.8} aria-hidden="true" />
-            </summary>
-            <div className="language-switch-menu">
-              <Link href={alternateLanguageHref}>{alternateLanguage}</Link>
-            </div>
-          </details>
-          <Link className="language-switch-mobile" href={alternateLanguageHref} aria-label={t.languageLabel}>
+          <Link className="language-switch-link" href={alternateLanguageHref} aria-label={t.languageLabel}>
             <span>{activeLanguage}</span>
-            <ChevronDown size={14} strokeWidth={1.8} aria-hidden="true" />
+            <ChevronDown size={15} strokeWidth={1.8} aria-hidden="true" />
           </Link>
           <CartButton
             href={cartHref}

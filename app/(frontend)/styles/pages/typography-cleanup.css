@@ -2434,12 +2434,19 @@
   }
 
   .events-event-carousel .events-event-card .events-location {
-    width: min(calc(100% - 76px), 286px);
+    width: fit-content;
+    max-width: calc(100% - 76px);
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    text-align: center;
+    gap: 8px;
+    text-align: left;
   }
 
   .events-event-carousel .events-event-card .events-location svg {
+    width: 24px;
+    height: 24px;
+    margin-top: 0;
     flex: 0 0 auto;
   }
 }
