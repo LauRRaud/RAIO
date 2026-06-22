@@ -423,7 +423,7 @@
 }
 
 .store-products-header h2 {
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .store-page .store-category-nav {
@@ -533,7 +533,7 @@
 
 .store-page .store-product-card .add-to-cart,
 .store-page .store-product-card .button {
-  width: min(100%, 260px);
+  width: min(100%, 220px);
   min-height: 44px;
   margin-top: 16px;
   align-self: center;
@@ -2605,6 +2605,7 @@
   .store-page .store-products-header h2 {
     align-self: center;
     width: 100%;
+    margin-bottom: 14px;
     margin-inline: auto;
     text-align: center;
   }

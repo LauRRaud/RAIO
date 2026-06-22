@@ -115,7 +115,7 @@
   border-radius: 0;
   background: var(--training-ink);
   color: #f8f3ec;
-  padding: 0 28px;
+  padding: 0 22px;
   transition:
     background 160ms ease,
     color 160ms ease,

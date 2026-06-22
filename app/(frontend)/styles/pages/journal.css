@@ -111,7 +111,7 @@
   border-radius: 0;
   background: var(--journal-ink);
   color: #f8f3ec;
-  padding: 0 28px;
+  padding: 0 22px;
   transition:
     background 160ms ease,
     color 160ms ease,
@@ -390,7 +390,9 @@ body .journal-article-content .journal-story-meta {
 }
 
 .journal-signup-copy .journal-solid-button {
-  margin-top: 24px;
+  display: flex;
+  width: fit-content;
+  margin: 24px auto 0;
 }
 
 .journal-signup-image {
