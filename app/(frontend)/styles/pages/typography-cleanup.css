@@ -583,13 +583,11 @@
   .training-card,
   .journal-story-card
 ) {
-  --corner-mask-bg: var(--bg);
-  --corner-mask-size: var(--ui-card-radius);
   position: relative;
   border: 0;
-  border-radius: 0;
-  overflow: visible;
-  clip-path: none;
+  border-radius: var(--ui-card-radius);
+  overflow: hidden;
+  clip-path: inset(0 round var(--ui-card-radius));
   box-shadow: none;
 }
 
@@ -599,36 +597,7 @@
   .training-card,
   .journal-story-card
 )::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background:
-    radial-gradient(
-        circle at 100% 100%,
-        transparent 0 calc(var(--corner-mask-size) - 0.25px),
-        var(--corner-mask-bg) var(--corner-mask-size)
-      )
-      top left / var(--corner-mask-size) var(--corner-mask-size) no-repeat,
-    radial-gradient(
-        circle at 0 100%,
-        transparent 0 calc(var(--corner-mask-size) - 0.25px),
-        var(--corner-mask-bg) var(--corner-mask-size)
-      )
-      top right / var(--corner-mask-size) var(--corner-mask-size) no-repeat,
-    radial-gradient(
-        circle at 100% 0,
-        transparent 0 calc(var(--corner-mask-size) - 0.25px),
-        var(--corner-mask-bg) var(--corner-mask-size)
-      )
-      bottom left / var(--corner-mask-size) var(--corner-mask-size) no-repeat,
-    radial-gradient(
-        circle at 0 0,
-        transparent 0 calc(var(--corner-mask-size) - 0.25px),
-        var(--corner-mask-bg) var(--corner-mask-size)
-      )
-      bottom right / var(--corner-mask-size) var(--corner-mask-size) no-repeat;
+  content: none;
 }
 
 :is(
@@ -665,13 +634,11 @@
   .store-page .store-product-card,
   .related-card
 ) {
-  --corner-mask-bg: var(--bg);
-  --corner-mask-size: var(--ui-card-radius);
   position: relative;
   border: 0;
-  border-radius: 0;
-  overflow: visible;
-  clip-path: none;
+  border-radius: var(--ui-card-radius);
+  overflow: hidden;
+  clip-path: inset(0 round var(--ui-card-radius));
   box-shadow: none;
 }
 
@@ -688,36 +655,7 @@
   .store-page .store-product-card,
   .related-card
 )::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background:
-    radial-gradient(
-        circle at 100% 100%,
-        transparent 0 calc(var(--corner-mask-size) - 0.25px),
-        var(--corner-mask-bg) var(--corner-mask-size)
-      )
-      top left / var(--corner-mask-size) var(--corner-mask-size) no-repeat,
-    radial-gradient(
-        circle at 0 100%,
-        transparent 0 calc(var(--corner-mask-size) - 0.25px),
-        var(--corner-mask-bg) var(--corner-mask-size)
-      )
-      top right / var(--corner-mask-size) var(--corner-mask-size) no-repeat,
-    radial-gradient(
-        circle at 100% 0,
-        transparent 0 calc(var(--corner-mask-size) - 0.25px),
-        var(--corner-mask-bg) var(--corner-mask-size)
-      )
-      bottom left / var(--corner-mask-size) var(--corner-mask-size) no-repeat,
-    radial-gradient(
-        circle at 0 0,
-        transparent 0 calc(var(--corner-mask-size) - 0.25px),
-        var(--corner-mask-bg) var(--corner-mask-size)
-      )
-      bottom right / var(--corner-mask-size) var(--corner-mask-size) no-repeat;
+  content: none;
 }
 
 :is(
@@ -1358,11 +1296,8 @@
 }
 
 .tools-page-redesign .tools-material-image::after {
-  background: linear-gradient(
-    90deg,
-    rgba(17, 16, 13, 0.16),
-    rgba(17, 16, 13, 0) 42%
-  );
+  content: none;
+  background: none;
 }
 
 .tools-page-redesign .tools-material-proof-row,
@@ -1475,7 +1410,31 @@
 
   .tools-page-redesign .tools-care-copy,
   .tools-page-redesign .tools-custom-copy {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: 12px;
     padding: 34px 24px 36px;
+  }
+
+  .tools-page-redesign :is(.tools-care-copy, .tools-custom-copy) > svg {
+    grid-column: 1;
+    grid-row: 1;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+  }
+
+  .tools-page-redesign :is(.tools-care-copy, .tools-custom-copy) h2 {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    text-align: left;
+  }
+
+  .tools-page-redesign :is(.tools-care-copy, .tools-custom-copy) p,
+  .tools-page-redesign .tools-custom-copy .tools-solid-button {
+    grid-column: 1 / -1;
   }
 }
 
@@ -1938,7 +1897,7 @@
     .tools-page-redesign .tools-category-carousel,
     .training-page-redesign .training-card-carousel
   ) {
-    --raio-carousel-gap: 0px;
+    --raio-carousel-gap: 14px;
     --raio-carousel-edge-gap: 0px;
     --raio-carousel-arrow-size: 58px;
     left: auto;
@@ -1969,7 +1928,7 @@
     .training-page-redesign .training-card-carousel .training-card-grid
   ) {
     width: 100%;
-    gap: 0;
+    gap: var(--raio-carousel-gap);
   }
 
   :is(
@@ -2593,7 +2552,47 @@
     text-align: center;
   }
 
+  .training-page-redesign .training-lasting-copy > p {
+    width: min(100%, 30ch);
+    margin-inline: 0 auto;
+    text-align: left;
+  }
+
   .training-page-redesign .training-lasting-copy .training-solid-button {
     margin-inline: auto;
+  }
+
+  :is(
+    .events-section-top h2,
+    .events-host-copy h2,
+    .journal-section-top h2,
+    .journal-signup-copy h2,
+    .store-products-header h2,
+    .tools-section-top h2,
+    .tools-material-copy h2,
+    .tools-care-copy h2,
+    .tools-custom-copy h2,
+    .training-section-intro h2,
+    .training-lasting-copy h2,
+    .about-story-copy h2,
+    .about-trainers-heading h2,
+    .about-closing-copy h2,
+    .about-contact-panel h3,
+    .product-related-heading h2,
+    .cart-summary h2
+  ) {
+    max-width: none;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .training-page-redesign .training-workshop-copy h2 {
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  .about-page-redesign .about-closing-copy h2 {
+    font-size: clamp(2.2rem, 9.5vw, 2.7rem);
+    line-height: 1.06;
   }
 }

@@ -370,13 +370,7 @@
 }
 
 .tools-material-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(23, 19, 15, 0) 58%, rgba(23, 19, 15, 0.18) 100%),
-    linear-gradient(90deg, rgba(231, 220, 203, 0.32), rgba(231, 220, 203, 0) 42%);
-  pointer-events: none;
+  content: none;
 }
 
 .tools-material-image img {

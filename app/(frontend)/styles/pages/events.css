@@ -537,6 +537,18 @@ body .events-event-modal-content .events-location {
     gap: 16px;
   }
 
+  .events-all-link {
+    gap: 16px;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+  }
+
+  .events-all-link svg {
+    width: 26px;
+    height: 26px;
+    stroke-width: 1.8;
+  }
+
 }
 
 @media (max-width: 620px) {
