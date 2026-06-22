@@ -122,9 +122,9 @@
 .about-story-panel,
 .events-host-cta,
 .training-lasting-panel {
-  background: transparent;
-  border-radius: 0;
-  overflow: visible;
+  background: var(--ui-box-bg);
+  border-radius: var(--ui-card-radius);
+  overflow: hidden;
 }
 
 .events-event-image,
