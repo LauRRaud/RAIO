@@ -2578,4 +2578,12 @@
     font-size: clamp(1.28rem, 5.1vw, 1.5rem);
     line-height: 1.74;
   }
+
+  /* Center the quality list (icon + label) within the panel. */
+  .training-page-redesign .training-quality-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
 }
