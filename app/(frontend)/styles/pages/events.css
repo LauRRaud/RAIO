@@ -38,7 +38,9 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: none;
+  background:
+    linear-gradient(90deg, rgba(17, 16, 13, 0.62) 0%, rgba(17, 16, 13, 0.42) 54%, rgba(17, 16, 13, 0.14) 100%),
+    linear-gradient(0deg, rgba(17, 16, 13, 0.34) 0%, rgba(17, 16, 13, 0.06) 58%);
   pointer-events: none;
 }
 
@@ -479,7 +481,9 @@ body .events-event-modal-content .events-location {
 @media (max-width: 620px) {
 
   .events-hero-redesign::before {
-    background: none;
+    background:
+      linear-gradient(90deg, rgba(17, 16, 13, 0.68) 0%, rgba(17, 16, 13, 0.48) 58%, rgba(17, 16, 13, 0.18) 100%),
+      linear-gradient(0deg, rgba(17, 16, 13, 0.42) 0%, rgba(17, 16, 13, 0.08) 62%);
   }
 
 }

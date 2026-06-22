@@ -42,8 +42,8 @@
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(240, 233, 221, 1) 0%, rgba(240, 233, 221, 1) 43%, rgba(240, 233, 221, 0.78) 54%, rgba(240, 233, 221, 0.12) 68%),
-    linear-gradient(0deg, rgba(17, 16, 13, 0.16) 0%, rgba(17, 16, 13, 0) 34%);
+    linear-gradient(90deg, rgba(17, 16, 13, 0.62) 0%, rgba(17, 16, 13, 0.42) 54%, rgba(17, 16, 13, 0.14) 100%),
+    linear-gradient(0deg, rgba(17, 16, 13, 0.34) 0%, rgba(17, 16, 13, 0.06) 58%);
   pointer-events: none;
 }
 
@@ -656,8 +656,8 @@
 
   .tools-hero-redesign::before {
     background:
-      linear-gradient(90deg, rgba(17, 16, 13, 0.92) 0%, rgba(17, 16, 13, 0.78) 54%, rgba(17, 16, 13, 0.28) 100%),
-      linear-gradient(0deg, rgba(17, 16, 13, 0.74) 0%, rgba(17, 16, 13, 0.12) 62%);
+      linear-gradient(90deg, rgba(17, 16, 13, 0.68) 0%, rgba(17, 16, 13, 0.48) 58%, rgba(17, 16, 13, 0.18) 100%),
+      linear-gradient(0deg, rgba(17, 16, 13, 0.42) 0%, rgba(17, 16, 13, 0.08) 62%);
   }
 }
 

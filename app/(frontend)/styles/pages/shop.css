@@ -33,7 +33,14 @@
 }
 
 .store-hero::before {
-  content: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(17, 16, 13, 0.62) 0%, rgba(17, 16, 13, 0.42) 54%, rgba(17, 16, 13, 0.14) 100%),
+    linear-gradient(0deg, rgba(17, 16, 13, 0.34) 0%, rgba(17, 16, 13, 0.06) 58%);
+  pointer-events: none;
 }
 
 .store-hero-copy {
@@ -388,7 +395,7 @@
 @media (max-width: 620px) {
 
   .store-hero::before {
-    content: none;
+    content: "";
   }
 }
 

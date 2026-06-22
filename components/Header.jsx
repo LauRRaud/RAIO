@@ -113,7 +113,8 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName }) 
             </div>
           </details>
           <Link className="language-switch-mobile" href={alternateLanguageHref} aria-label={t.languageLabel}>
-            {activeLanguage}
+            <span>{activeLanguage}</span>
+            <ChevronDown size={14} strokeWidth={1.8} aria-hidden="true" />
           </Link>
           <CartButton
             href={cartHref}
