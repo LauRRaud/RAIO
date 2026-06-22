@@ -333,8 +333,14 @@
 
   .world-card {
     flex: 0 0 auto;
-    min-height: 118vw;
-    max-height: 680px;
+    min-height: clamp(620px, 104vw, 900px);
+  }
+}
+
+@media (max-width: 620px) {
+
+  .world-card {
+    min-height: max(560px, calc(100svh - 72px));
   }
 }
 

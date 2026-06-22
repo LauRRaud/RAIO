@@ -2278,7 +2278,7 @@
   }
 
   .events-event-carousel .events-date {
-    transform: translateY(-12px);
+    transform: translateY(-20px);
   }
 
   .journal-story-carousel .journal-story-meta {
@@ -2444,8 +2444,8 @@
   }
 
   .events-event-carousel .events-event-card .events-location svg {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     margin-top: 0;
     flex: 0 0 auto;
   }

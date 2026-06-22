@@ -119,7 +119,7 @@
 
 @media (max-width: 620px) {
   :root {
-    --mobile-first-section-height: clamp(500px, calc(100svh - 118px), 560px);
+    --mobile-first-section-height: max(520px, calc(100svh - 72px));
   }
 
   :is(
