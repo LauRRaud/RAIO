@@ -24,12 +24,36 @@
       "en": "EN"
     },
     "primaryNav": [
-      { "key": "treeningud", "label": "Training", "href": "/treeningud" },
-      { "key": "vahendid", "label": "Tools", "href": "/vahendid" },
-      { "key": "sundmused", "label": "Events", "href": "/sundmused" },
-      { "key": "pood", "label": "Shop", "href": "/pood" },
-      { "key": "meist", "label": "About", "href": "/meist" },
-      { "key": "journal", "label": "RA•IO+", "href": "/journal" }
+      {
+        "key": "treeningud",
+        "label": "Training",
+        "href": "/treeningud"
+      },
+      {
+        "key": "vahendid",
+        "label": "Tools",
+        "href": "/vahendid"
+      },
+      {
+        "key": "sundmused",
+        "label": "Events",
+        "href": "/sundmused"
+      },
+      {
+        "key": "pood",
+        "label": "Shop",
+        "href": "/pood"
+      },
+      {
+        "key": "meist",
+        "label": "About",
+        "href": "/meist"
+      },
+      {
+        "key": "journal",
+        "label": "RA•IO+",
+        "href": "/journal"
+      }
     ]
   },
   "footer": {
@@ -62,23 +86,23 @@
   "home": {
     "metadata": {
       "title": "Raio - Training is a feeling.",
-      "description": "A premium brand for natural movement, handmade tools, and embodied presence."
+      "description": "Handcrafted kettlebells and training tools made of Estonian stone and wood. Training is a feeling."
     },
-    "skipLink": "Skip to content",
     "hero": {
-      "image": "/Pictures/Avaleht/RAIO HERO.png",
-      "imageAlt": "RA•IO training outdoors with a natural tool",
-      "title": "Training is a feeling.",
-      "copy": "Natural strength. Handmade tools. Movement in presence.",
-      "cta": "Discover the world"
+      "image": "/Pictures/Avaleht/RAIO HERO1.png",
+      "imageAlt": "A man carrying a RA•IO stone kettlebell at sunset",
+      "titleStart": "Training is a",
+      "titleAccent": "feeling.",
+      "copy": "Handcrafted kettlebells and training tools made of Estonian stone and local wood.",
+      "eyebrow": "Handcrafted training tools from Estonia"
     },
     "philosophy": {
-      "heading": "Movement is a ritual.",
-      "body": "RA•IO is built for those who seek more than simple training. It is a connection with nature, your body, and community. Here, lasting strength is born.",
-      "cta": "Read our story",
-      "aboutPath": "/meist",
+      "headingStart": "Movement is a",
+      "headingAccent": "ritual.",
+      "body": "RA•IO is built for those who seek more than simple training. It is a connection with nature, your body and community. The weight of stone, the warmth of wood, presence in the moment — here, lasting strength is born.",
       "image": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.png",
-      "imageAlt": "RA•IO stone training tool with a moss-covered handle"
+      "imageAlt": "Athlete carrying stone kettlebells on a forest trail",
+      "eyebrow": "Philosophy"
     },
     "categoryWorld": {
       "ariaLabel": "The RA•IO world",
@@ -126,6 +150,14 @@
           "alt": "Dark atmospheric mountain landscape"
         }
       ]
+    },
+    "tools": {
+      "image": "/Pictures/Pood/Puu ja kivi sangpomm.png",
+      "imageAlt": "Handcrafted wood and stone kettlebell on grass",
+      "eyebrow": "Handcrafted tools",
+      "headingStart": "Stone, wood and",
+      "headingAccent": "your strength.",
+      "copy": "Kettlebells, dumbbells and walking staffs — made of Estonian stone and local wood, crafted by hand for you."
     }
   },
   "training": {
@@ -140,7 +172,7 @@
       "All of nature is your training ground."
     ],
     "heroCta": "See the trainings",
-    "heroImage": "/Pictures/Avaleht/RAIO TREENINGUD.png",
+    "heroImage": "/Pictures/Treeningud/header.png",
     "heroImagePosition": "center center",
     "listTitle": "Training in our nature",
     "listIntro": "We offer a range of trainings that support both body and mind. Choose the format that suits you and connect through movement - with yourself, nature, and community.",
@@ -197,10 +229,22 @@
       }
     ],
     "qualities": [
-      { "title": "Outdoors all year round", "icon": "leaf" },
-      { "title": "Small groups", "icon": "hand" },
-      { "title": "A personal approach", "icon": "user" },
-      { "title": "Community & connection", "icon": "heart" }
+      {
+        "title": "Outdoors all year round",
+        "icon": "leaf"
+      },
+      {
+        "title": "Small groups",
+        "icon": "hand"
+      },
+      {
+        "title": "A personal approach",
+        "icon": "user"
+      },
+      {
+        "title": "Community & connection",
+        "icon": "heart"
+      }
     ],
     "lasting": {
       "title": "Training that stays with you afterwards.",
@@ -213,7 +257,8 @@
       "title": "Want to host a training or workshop?",
       "text": "We offer options for private and corporate groups. Write to us and we'll create the right experience together.",
       "cta": "Get in touch"
-    }
+    },
+    "heroImageMobile": "/Pictures/Avaleht/RAIO TREENINGUD.png"
   },
   "tools": {
     "metadata": {
@@ -226,13 +271,22 @@
       "RA•IO tools are handcrafted training tools that combine the strength of nature, simplicity, and timeless durability.",
       "Made of wood and stone."
     ],
-    "heroImage": "/Pictures/Avaleht/RAIO VAHENDID.png",
+    "heroImage": "/Pictures/Vahendid/header.png",
     "heroImagePosition": "center center",
     "proofLabel": "Tool qualities",
     "heroProof": [
-      { "label": "Natural materials", "icon": "leaf" },
-      { "label": "Handcrafted", "icon": "hand" },
-      { "label": "Timeless and durable", "icon": "clock" }
+      {
+        "label": "Natural materials",
+        "icon": "leaf"
+      },
+      {
+        "label": "Handcrafted",
+        "icon": "hand"
+      },
+      {
+        "label": "Timeless and durable",
+        "icon": "clock"
+      }
     ],
     "categoriesTitle": "Tool categories",
     "categoryCta": "Learn more",
@@ -308,7 +362,8 @@
       "cta": "Get in touch",
       "image": "/Pictures/Vahendid/kivi ja puit.png",
       "imageAlt": "A stone training tool by a lake"
-    }
+    },
+    "heroImageMobile": "/Pictures/Avaleht/RAIO VAHENDID.png"
   },
   "events": {
     "metadata": {
@@ -322,7 +377,7 @@
       "Trainings, workshops, and challenges that create space to grow."
     ],
     "heroCta": "See all events",
-    "heroImage": "/Pictures/Avaleht/raio-sundmused.png",
+    "heroImage": "/Pictures/Sündmused/sundmused-header.png",
     "heroImagePosition": "center center",
     "upcomingTitle": "Upcoming events",
     "allLink": "View all",
@@ -388,7 +443,8 @@
       "cta": "Get in touch",
       "image": "/Pictures/Sündmused/events-host-workshop.png",
       "imageAlt": "A forest event area with kettlebells and wooden training tools"
-    }
+    },
+    "heroImageMobile": "/Pictures/Avaleht/raio-sundmused.png"
   },
   "journal": {
     "metadata": {
@@ -401,11 +457,17 @@
       "Here you'll find stories about training, nature, the craft of making, and everyday movement."
     ],
     "heroCta": "See all articles",
-    "heroImage": "/Pictures/Avaleht/RAIO JOURNAL.png",
+    "heroImage": "/Pictures/Journal/header vasakule.png",
     "storiesTitle": "Latest stories",
     "categoriesLabel": "Categories:",
     "categoryNavLabel": "Categories",
-    "categories": ["All", "Training", "Nature", "Craft", "Thoughts"],
+    "categories": [
+      "All",
+      "Training",
+      "Nature",
+      "Craft",
+      "Thoughts"
+    ],
     "readMore": "Read more",
     "modalClose": "Close story",
     "articles": [
@@ -486,7 +548,8 @@
       "title": "Join RA•IO+",
       "text": "From time to time we send good thoughts, news, and stories that support your journey.",
       "cta": "Subscribe to the newsletter"
-    }
+    },
+    "heroImageMobile": "/Pictures/Avaleht/RAIO JOURNAL.png"
   },
   "shop": {
     "metadata": {
@@ -518,11 +581,26 @@
     "addedToCart": "Added",
     "viewProduct": "View product",
     "categories": [
-      { "id": "all", "label": "All" },
-      { "id": "sangpommid", "label": "Kettlebells" },
-      { "id": "hantlid", "label": "Dumbbells" },
-      { "id": "puidust-vahendid", "label": "Wooden tools" },
-      { "id": "lastele", "label": "For children" }
+      {
+        "id": "all",
+        "label": "All"
+      },
+      {
+        "id": "sangpommid",
+        "label": "Kettlebells"
+      },
+      {
+        "id": "hantlid",
+        "label": "Dumbbells"
+      },
+      {
+        "id": "puidust-vahendid",
+        "label": "Wooden tools"
+      },
+      {
+        "id": "lastele",
+        "label": "For children"
+      }
     ],
     "statusLabels": {
       "AVAILABLE": "Available",
@@ -572,7 +650,8 @@
         "productionNote": "Size and weight are adapted to the child's age.",
         "estimatedProductionTime": "2-4 weeks"
       }
-    }
+    },
+    "heroImageMobile": "/Pictures/Pood/header pood.png"
   },
   "product": {
     "eyebrow": "Shop",
@@ -628,7 +707,7 @@
     "heroText": [
       "RA•IO exists so these three are not separate things, but one whole journey back to the body and to nature."
     ],
-    "heroImage": "/Pictures/Avaleht/RAIO MEIST.png",
+    "heroImage": "/Pictures/Journal/RAIO MEIST1.png",
     "cta": "Get in touch",
     "storyTitle": "Our story",
     "story": [
@@ -670,7 +749,8 @@
     ],
     "closingTitle": "Let's talk.",
     "closingText": "Questions, collaboration, or orders — write to us.",
-    "closingCta": "Get in touch"
+    "closingCta": "Get in touch",
+    "heroImageMobile": "/Pictures/Avaleht/RAIO MEIST.png"
   },
   "contact": {
     "metadata": {

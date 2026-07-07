@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HeroMedia } from "@/components/HeroMedia";
 import { JournalCardsCarousel } from "@/components/JournalCardsCarousel";
 import { getJournalArticles, getMessagesWithAdminImages } from "@/lib/payloadContent";
 
@@ -33,14 +34,7 @@ export async function JournalPage({ locale = "et" }) {
           </div>
 
           <div className="journal-hero-image" aria-hidden="true">
-            <Image
-              src={t.heroImage}
-              alt=""
-              fill
-              priority
-              quality={92}
-              sizes="(max-width: 980px) 100vw, 80vw"
-            />
+            <HeroMedia desktop={t.heroImage} mobile={t.heroImageMobile} />
           </div>
         </section>
 

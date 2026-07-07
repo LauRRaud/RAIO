@@ -24,12 +24,36 @@
       "en": "EN"
     },
     "primaryNav": [
-      { "key": "treeningud", "label": "Treeningud", "href": "/treeningud" },
-      { "key": "vahendid", "label": "Vahendid", "href": "/vahendid" },
-      { "key": "sundmused", "label": "Sündmused", "href": "/sundmused" },
-      { "key": "pood", "label": "Pood", "href": "/pood" },
-      { "key": "meist", "label": "Meist", "href": "/meist" },
-      { "key": "journal", "label": "RA•IO+", "href": "/journal" }
+      {
+        "key": "treeningud",
+        "label": "Treeningud",
+        "href": "/treeningud"
+      },
+      {
+        "key": "vahendid",
+        "label": "Vahendid",
+        "href": "/vahendid"
+      },
+      {
+        "key": "sundmused",
+        "label": "Sündmused",
+        "href": "/sundmused"
+      },
+      {
+        "key": "pood",
+        "label": "Pood",
+        "href": "/pood"
+      },
+      {
+        "key": "meist",
+        "label": "Meist",
+        "href": "/meist"
+      },
+      {
+        "key": "journal",
+        "label": "RA•IO+",
+        "href": "/journal"
+      }
     ]
   },
   "footer": {
@@ -62,23 +86,23 @@
   "home": {
     "metadata": {
       "title": "Raio - Trenn on tunne.",
-      "description": "Premium loodusliku liikumise, käsitöövahendite ja kohalolu bränd."
+      "description": "Käsitöö sangpommid ja treeningvahendid Eesti kivist ja puidust. Trenn on tunne."
     },
-    "skipLink": "Liigu sisuni",
     "hero": {
-      "image": "/Pictures/Avaleht/RAIO HERO.png",
-      "imageAlt": "RA•IO loodusliku treeningvahendiga õues",
-      "title": "Trenn on tunne.",
-      "copy": "Looduslik jõud. Käsitöö vahendid. Liikumine kohalolus.",
-      "cta": "Avasta maailma"
+      "image": "/Pictures/Avaleht/RAIO HERO1.png",
+      "imageAlt": "RA•IO kividest sangpommi kandev mees õhtupäikeses",
+      "titleStart": "Trenn on",
+      "titleAccent": "tunne.",
+      "copy": "Käsitöö sangpommid ja treeningvahendid Eesti kivist ning kodumaisest puidust.",
+      "eyebrow": "Käsitöö treeningvahendid Eestist"
     },
     "philosophy": {
-      "heading": "Liikumine on rituaal.",
-      "body": "RA•IO on loodud neile, kes otsivad midagi enamat kui lihtsat trenni. See on ühendus loodusega, oma kehaga ja kogukonnaga. Siin sünnib jõud, mis jääb.",
-      "cta": "Loe meie lugu",
-      "aboutPath": "/meist",
+      "headingStart": "Liikumine on",
+      "headingAccent": "rituaal.",
+      "body": "RA•IO on loodud neile, kes otsivad midagi enamat kui lihtsalt trenni. See on ühendus loodusega, oma keha ja kogukonnaga. Kivi raskus, puidu soojus ja kohalolu hetkes — siin sünnib jõud, mis jääb.",
       "image": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.png",
-      "imageAlt": "Samblase sangaga kivist RA•IO treeningvahend"
+      "imageAlt": "Kivist sangpommidega treenija metsarajal",
+      "eyebrow": "Filosoofia"
     },
     "categoryWorld": {
       "ariaLabel": "RA•IO maailm",
@@ -126,6 +150,14 @@
           "alt": "Tume atmosfäärne mägine maastik"
         }
       ]
+    },
+    "tools": {
+      "image": "/Pictures/Pood/Puu ja kivi sangpomm.png",
+      "imageAlt": "Puust ja kivist käsitöö sangpomm rohelisel murul",
+      "eyebrow": "Käsitöö vahendid",
+      "headingStart": "Kivi, puit ja",
+      "headingAccent": "sinu jõud.",
+      "copy": "Sangpommid, hantlid ja jalutuskepid — Eesti kivist ja kodumaisest puidust, käsitööna sinu kätte."
     }
   },
   "training": {
@@ -140,7 +172,7 @@
       "Treeninguks on kogu loodus."
     ],
     "heroCta": "Vaata treeninguid",
-    "heroImage": "/Pictures/Avaleht/RAIO TREENINGUD.png",
+    "heroImage": "/Pictures/Treeningud/header.png",
     "heroImagePosition": "center center",
     "listTitle": "Treeningud meie looduses",
     "listIntro": "Pakume erinevaid treeninguid, mis toetavad nii keha kui vaimu. Vali endale sobiv formaat ja tule liikumise kaudu ühendusse - iseenda, looduse ja kogukonnaga.",
@@ -197,10 +229,22 @@
       }
     ],
     "qualities": [
-      { "title": "Looduses aasta ringi", "icon": "leaf" },
-      { "title": "Väikesed grupid", "icon": "hand" },
-      { "title": "Personaalne lähenemine", "icon": "user" },
-      { "title": "Kogukond & ühendus", "icon": "heart" }
+      {
+        "title": "Looduses aasta ringi",
+        "icon": "leaf"
+      },
+      {
+        "title": "Väikesed grupid",
+        "icon": "hand"
+      },
+      {
+        "title": "Personaalne lähenemine",
+        "icon": "user"
+      },
+      {
+        "title": "Kogukond & ühendus",
+        "icon": "heart"
+      }
     ],
     "lasting": {
       "title": "Treening, mis jääb sinuga ka pärast.",
@@ -213,7 +257,8 @@
       "title": "Soovid korraldada treeningut või töötuba?",
       "text": "Pakume võimalust era- ja ettevõtete gruppidele. Kirjuta meile ja loome koos sobiva kogemuse.",
       "cta": "Võta ühendust"
-    }
+    },
+    "heroImageMobile": "/Pictures/Avaleht/RAIO TREENINGUD.png"
   },
   "tools": {
     "metadata": {
@@ -226,13 +271,22 @@
       "RA•IO vahendid on käsitööna valmivad treeningvahendid, mis ühendavad looduse jõu, lihtsuse ja ajatu vastupidavuse.",
       "Valmistatud puidust ja kivist."
     ],
-    "heroImage": "/Pictures/Avaleht/RAIO VAHENDID.png",
+    "heroImage": "/Pictures/Vahendid/header.png",
     "heroImagePosition": "center center",
     "proofLabel": "Vahendite omadused",
     "heroProof": [
-      { "label": "Looduslikud materjalid", "icon": "leaf" },
-      { "label": "Käsitööna valmistatud", "icon": "hand" },
-      { "label": "Ajatud ja vastupidavad", "icon": "clock" }
+      {
+        "label": "Looduslikud materjalid",
+        "icon": "leaf"
+      },
+      {
+        "label": "Käsitööna valmistatud",
+        "icon": "hand"
+      },
+      {
+        "label": "Ajatud ja vastupidavad",
+        "icon": "clock"
+      }
     ],
     "categoriesTitle": "Vahendite kategooriad",
     "categoryCta": "Vaata lähemalt",
@@ -308,7 +362,8 @@
       "cta": "Võta ühendust",
       "image": "/Pictures/Vahendid/kivi ja puit.png",
       "imageAlt": "Kivist treeningvahend järve ääres"
-    }
+    },
+    "heroImageMobile": "/Pictures/Avaleht/RAIO VAHENDID.png"
   },
   "events": {
     "metadata": {
@@ -322,7 +377,7 @@
       "Treeningud, töötoad ja väljakutsed, mis loovad ruumi kasvamiseks."
     ],
     "heroCta": "Vaata kõiki sündmusi",
-    "heroImage": "/Pictures/Avaleht/raio-sundmused.png",
+    "heroImage": "/Pictures/Sündmused/sundmused-header.png",
     "heroImagePosition": "center center",
     "upcomingTitle": "Lähitulevad sündmused",
     "allLink": "Vaata kõiki",
@@ -388,7 +443,8 @@
       "cta": "Võta ühendust",
       "image": "/Pictures/Sündmused/events-host-workshop.png",
       "imageAlt": "Metsane sündmuseala sangpommide ja puidust treeningvahenditega"
-    }
+    },
+    "heroImageMobile": "/Pictures/Avaleht/raio-sundmused.png"
   },
   "journal": {
     "metadata": {
@@ -401,11 +457,17 @@
       "Siit leiad lugusid treeningutest, loodusest, töö käsitööna valmimisest ja igapäevasest liikumisest."
     ],
     "heroCta": "Vaata kõiki artikleid",
-    "heroImage": "/Pictures/Avaleht/RAIO JOURNAL.png",
+    "heroImage": "/Pictures/Journal/header vasakule.png",
     "storiesTitle": "Viimased lood",
     "categoriesLabel": "Kategooriad:",
     "categoryNavLabel": "Kategooriad",
-    "categories": ["Kõik", "Treening", "Loodus", "Käsitöö", "Mõtted"],
+    "categories": [
+      "Kõik",
+      "Treening",
+      "Loodus",
+      "Käsitöö",
+      "Mõtted"
+    ],
     "readMore": "Loe edasi",
     "modalClose": "Sulge lugu",
     "articles": [
@@ -486,7 +548,8 @@
       "title": "Liitu RA•IO+ uudiskirjaga",
       "text": "Saadame aeg-ajalt häid mõtteid, uudiseid ja lugusid, mis toetavad sinu teekonda.",
       "cta": "Liitu uudiskirjaga"
-    }
+    },
+    "heroImageMobile": "/Pictures/Avaleht/RAIO JOURNAL.png"
   },
   "shop": {
     "metadata": {
@@ -518,11 +581,26 @@
     "addedToCart": "Lisatud",
     "viewProduct": "Vaata toodet",
     "categories": [
-      { "id": "all", "label": "Kõik" },
-      { "id": "sangpommid", "label": "Sangpommid" },
-      { "id": "hantlid", "label": "Hantlid" },
-      { "id": "puidust-vahendid", "label": "Puidust vahendid" },
-      { "id": "lastele", "label": "Lastele" }
+      {
+        "id": "all",
+        "label": "Kõik"
+      },
+      {
+        "id": "sangpommid",
+        "label": "Sangpommid"
+      },
+      {
+        "id": "hantlid",
+        "label": "Hantlid"
+      },
+      {
+        "id": "puidust-vahendid",
+        "label": "Puidust vahendid"
+      },
+      {
+        "id": "lastele",
+        "label": "Lastele"
+      }
     ],
     "statusLabels": {
       "AVAILABLE": "Saadaval",
@@ -572,7 +650,8 @@
         "productionNote": "Suurus ja kaal kohandatakse lapse vanusele.",
         "estimatedProductionTime": "2-4 nädalat"
       }
-    }
+    },
+    "heroImageMobile": "/Pictures/Pood/header pood.png"
   },
   "product": {
     "eyebrow": "Pood",
@@ -628,7 +707,7 @@
     "heroText": [
       "RA•IO on loodud selleks, et need kolm ei oleks eraldi asjad, vaid üks terviklik teekond keha ja looduse juurde."
     ],
-    "heroImage": "/Pictures/Avaleht/RAIO MEIST.png",
+    "heroImage": "/Pictures/Journal/RAIO MEIST1.png",
     "cta": "Võta ühendust",
     "storyTitle": "Meie lugu",
     "story": [
@@ -670,7 +749,8 @@
     ],
     "closingTitle": "Räägime lähemalt.",
     "closingText": "Küsimused, koostöö või tellimused — kirjuta meile.",
-    "closingCta": "Võta ühendust"
+    "closingCta": "Võta ühendust",
+    "heroImageMobile": "/Pictures/Avaleht/RAIO MEIST.png"
   },
   "contact": {
     "metadata": {

@@ -1,7 +1,7 @@
 /* Design tokens */
 :root {
-  --bg: #f0e9dd;
-  --background: #f0e9dd;
+  --bg: #f2ddc2;
+  --background: #f2ddc2;
   --surface: #fbf8f1;
   --surface-soft: #eee4d4;
   --surface-strong: #171310;
@@ -19,10 +19,14 @@
   --container: 1440px;
   --narrow: 1160px;
   --radius: 0.5rem;
+  /* Consistent, homepage-scale height for the full-bleed content bands on the
+     subpages. One knob to tune them all. Kept tighter than a full viewport so
+     short copy never floats in an empty colour field. */
+  --band-h: clamp(540px, 68vh, 780px);
 }
 :root {
-  --raio-paper: #f0e9dd;
-  --raio-paper-soft: #f0e9dd;
+  --raio-paper: #f2ddc2;
+  --raio-paper-soft: #f2ddc2;
   --raio-ink: #17130f;
   --raio-faded: #6f685e;
   --raio-dark: #11100d;

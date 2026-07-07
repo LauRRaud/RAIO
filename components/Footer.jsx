@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getLocalizedPath } from "@/lib/i18n";
 import { getMessages } from "@/lib/messages";
 
 function InstagramIcon(props) {
@@ -15,9 +16,14 @@ export function Footer({ locale = "et" }) {
   const messages = getMessages(locale);
   const brand = messages.brand;
   const t = messages.footer;
+  const header = messages.header;
   const homeHref = locale === "en" ? "/en" : "/";
   const instagramHref = "https://www.instagram.com/ra.ioworld";
   const currentYear = new Date().getFullYear();
+  const navItems = (header?.primaryNav || []).map((item) => ({
+    ...item,
+    href: getLocalizedPath(locale, item.href)
+  }));
 
   return (
     <footer className="footer">
@@ -25,7 +31,7 @@ export function Footer({ locale = "et" }) {
         <Link href={homeHref} className="footer-logo-link" aria-label={brand.name}>
           <img
             className="footer-logo"
-            src="/Logo/RAIO_horizontal_white_transparent.svg"
+            src="/Logo/RAIO_horizontal_black_transparent.svg"
             alt={brand.name}
             width={3073}
             height={805}
@@ -35,6 +41,16 @@ export function Footer({ locale = "et" }) {
 
         <p className="footer-slogan">{t.slogan}</p>
 
+        {navItems.length ? (
+          <nav className="footer-nav" aria-label={header.desktopNavLabel}>
+            {navItems.map((item) => (
+              <Link key={item.key} href={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        ) : null}
+
         <a
           className="footer-social-link"
           href={instagramHref}
@@ -43,6 +59,7 @@ export function Footer({ locale = "et" }) {
           aria-label={t.instagramLabel}
         >
           <InstagramIcon className="footer-social-icon" aria-hidden="true" />
+          <span className="footer-social-handle">ra.ioworld</span>
         </a>
 
         <p className="footer-fineprint">

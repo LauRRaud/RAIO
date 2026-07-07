@@ -72,9 +72,11 @@
     .about-hero-panel
   )
   h1 {
-  font-size: var(--type-hero);
+  /* Sized so the longest single Estonian words (ETTETELLIMINE,
+     INSPIRATSIOONI) still fit the hero text column on every viewport. */
+  font-size: clamp(2.5rem, 3.15vw, 4.05rem);
   font-weight: 400;
-  line-height: 1.16;
+  line-height: 1.12;
   letter-spacing: var(--track-heading);
   text-transform: none;
 }
@@ -146,6 +148,23 @@
   line-height: 1.08;
   letter-spacing: var(--track-heading);
   text-transform: none;
+}
+
+/* Short rule above section headings — the same motif as the hero panels. */
+:is(
+    .events-section-top,
+    .journal-section-top,
+    .tools-section-top,
+    .training-section-intro,
+    .store-products-header
+  )
+  h2::before {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 1px;
+  margin-bottom: clamp(14px, 1.4vw, 22px);
+  background: rgba(23, 19, 16, 0.42);
 }
 
 :is(
@@ -1331,13 +1350,22 @@
 .tools-page-redesign .tools-material-proof-row,
 .tools-page-redesign .tools-material-values {
   gap: clamp(14px, 1.4vw, 22px);
+}
+
+.tools-page-redesign .tools-material-proof-row {
   background: transparent;
 }
 
+/* Durability values form their own band, distinct from the rust image panel above. */
+.tools-page-redesign .tools-material-values {
+  background: var(--tools-paper-soft);
+}
+
+/* Cards clearly stand out from the band (were near-transparent on rust). */
 .tools-page-redesign .tools-material-values article {
-  border: 1px solid var(--tools-inner-box-line);
-  border-radius: var(--tools-inner-box-radius);
-  background: var(--tools-inner-box-bg);
+  border: 0;
+  border-radius: 0;
+  background: #191712;
 }
 
 .tools-page-redesign .tools-material-values article {
@@ -2705,4 +2733,170 @@
   border: 0 !important;
   outline: 0;
   box-shadow: none !important;
+}
+
+/* ---------- Carousel cards: full-bleed image with overlaid copy ----------
+   The tools/training/store cards join the events & journal cards: the photo
+   fills the whole card, a dark gradient grounds the lower half, and the copy
+   plus action sit on top — no separate black box under the image. */
+
+.tools-page-redesign .tools-category-card,
+.training-page-redesign .training-card,
+.store-page .store-product-card {
+  position: relative;
+  min-height: clamp(500px, 32vw, 610px);
+  isolation: isolate;
+  display: flex;
+  align-items: stretch;
+  background: #11100d;
+}
+
+.tools-page-redesign .tools-category-card::before,
+.training-page-redesign .training-card::before,
+.store-page .store-product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(17, 16, 13, 0.05) 0%,
+      rgba(17, 16, 13, 0.22) 38%,
+      rgba(17, 16, 13, 0.92) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(17, 16, 13, 0.38) 0%,
+      rgba(17, 16, 13, 0.1) 48%,
+      rgba(17, 16, 13, 0.3) 100%
+    );
+}
+
+.tools-page-redesign .tools-category-image,
+.training-page-redesign .training-card-image,
+.store-page .store-product-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  aspect-ratio: auto;
+  background: #11100d;
+}
+
+.tools-page-redesign .tools-category-image img,
+.training-page-redesign .training-card-image img,
+.store-page .store-product-image img {
+  object-fit: cover;
+  filter: saturate(0.9) contrast(1.04) brightness(0.86);
+  transform: scale(1.01);
+}
+
+/* One shared, unhurried zoom on hover — the same life as the world cards */
+:is(
+    .tools-page-redesign .tools-category-card,
+    .training-page-redesign .training-card,
+    .store-page .store-product-card,
+    .events-event-card,
+    .journal-story-card
+  )
+  :is(
+    .tools-category-image,
+    .training-card-image,
+    .store-product-image,
+    .events-event-image,
+    .journal-story-image
+  )
+  img {
+  transition: transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:is(
+    .tools-page-redesign .tools-category-card,
+    .training-page-redesign .training-card,
+    .store-page .store-product-card,
+    .events-event-card,
+    .journal-story-card
+  ):hover
+  :is(
+    .tools-category-image,
+    .training-card-image,
+    .store-product-image,
+    .events-event-image,
+    .journal-story-image
+  )
+  img {
+  transform: scale(1.05);
+}
+
+.tools-page-redesign .tools-category-body,
+.training-page-redesign .training-card-body,
+.store-page .store-product-body {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  min-height: 0;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background: transparent;
+  padding: clamp(24px, 2vw, 34px) clamp(20px, 1.8vw, 30px) clamp(26px, 2.2vw, 36px);
+  text-align: center;
+}
+
+.tools-page-redesign .tools-category-body :is(h3, p),
+.training-page-redesign .training-card-body :is(h3, p),
+.training-page-redesign .training-card .training-meta span,
+.tools-page-redesign .tools-category-body .tools-text-link,
+.training-page-redesign .training-card .training-text-link,
+.training-page-redesign .training-card .training-text-link span {
+  color: #f8f3ec;
+}
+
+.tools-page-redesign .tools-category-body h3,
+.training-page-redesign .training-card-body h3 {
+  max-width: 16ch;
+  margin: 0 auto;
+  font-size: clamp(1.5rem, 1.58vw, 1.95rem);
+  line-height: 1.16;
+}
+
+.tools-page-redesign .tools-category-body > p,
+.training-page-redesign .training-card-body > p {
+  max-width: 30ch;
+  margin: 14px auto 0;
+  font-size: clamp(1.08rem, 1.1vw, 1.24rem);
+  line-height: 1.52;
+}
+
+.training-page-redesign .training-card .training-meta {
+  margin-top: 16px;
+}
+
+.tools-page-redesign .tools-category-body .tools-text-link,
+.training-page-redesign .training-card .training-text-link {
+  margin-top: 20px;
+}
+
+.store-page .store-product-body h3 {
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+@media (max-width: 620px) {
+  .tools-page-redesign .tools-category-card,
+  .training-page-redesign .training-card,
+  .store-page .store-product-card {
+    min-height: 560px;
+  }
+
+  /* Overlay copy lives in the lower half of the card now — keep the swipe
+     arrows up on the photo, clear of the price and button. */
+  .store-page .store-product-arrow,
+  .tools-page-redesign .tools-category-arrow,
+  .training-page-redesign .training-card-arrow {
+    top: 34%;
+  }
 }

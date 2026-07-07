@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Leaf, UserRound } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HeroMedia } from "@/components/HeroMedia";
 import { LineIcon } from "@/components/Icons";
 import { TrainingCardsCarousel } from "@/components/TrainingCardsCarousel";
 import { getLocalizedPath } from "@/lib/i18n";
@@ -47,14 +48,7 @@ export async function TrainingPage({ locale = "et" }) {
             style={{ "--hero-image-position": t.heroImagePosition }}
             aria-hidden="true"
           >
-            <Image
-              src={t.heroImage}
-              alt=""
-              fill
-              priority
-              quality={92}
-              sizes="(max-width: 980px) 100vw, 80vw"
-            />
+            <HeroMedia desktop={t.heroImage} mobile={t.heroImageMobile} />
           </div>
         </section>
 
@@ -65,7 +59,6 @@ export async function TrainingPage({ locale = "et" }) {
         >
           <div className="training-section-intro">
             <h2 id="training-list-title">{t.listTitle}</h2>
-            <p>{t.listIntro}</p>
           </div>
 
           <TrainingCardsCarousel

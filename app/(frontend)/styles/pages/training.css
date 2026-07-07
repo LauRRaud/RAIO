@@ -238,7 +238,7 @@
 
 .training-card-image {
   position: relative;
-  aspect-ratio: 1.04 / 1;
+  aspect-ratio: 1.35 / 1;
   overflow: hidden;
   background: #17130f;
 }
@@ -763,5 +763,53 @@ body .training-modal-content .training-meta span {
     max-width: 12ch;
     font-size: clamp(1.8rem, 7.6vw, 2.25rem);
     line-height: 1.08;
+  }
+}
+
+/* --- Full-bleed content bands: edge-to-edge, square corners, seamless stacking.
+   The lasting band's image bleeds to the left edge; the workshop band is text-only
+   and keeps its side padding. Only the training carousel keeps its breathing room. --- */
+.training-page-redesign {
+  overflow-x: clip;
+  --band-pad: max(clamp(24px, 5vw, 76px), calc((100vw - 1560px) / 2));
+}
+
+/* Break the bands out to the full viewport width. */
+.training-page-redesign .training-lasting-panel,
+.training-page-redesign .training-workshop-panel {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+.training-page-redesign .training-lasting-panel { padding-inline: 0; }
+.training-page-redesign .training-workshop-panel {
+  padding-inline: var(--band-pad);
+  padding-block: clamp(44px, 5vw, 76px);
+}
+
+/* Square, borderless bands and images. */
+.training-page-redesign :is(.training-lasting-panel, .training-workshop-panel) {
+  --ui-card-radius: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+.training-page-redesign .training-lasting-image { border-radius: 0 !important; }
+
+/* Seamless stacking: bands touch each other and the footer. */
+.training-page-redesign .training-workshop-panel { margin-top: 0; }
+.training-page-redesign .training-content-section { padding-bottom: 0; }
+
+/* Lasting band: the image runs to the left edge; the quality list stays inset. */
+.training-page-redesign .training-quality-list { padding-inline-end: var(--band-pad); }
+
+/* Band colours (unchanged) over the polarity theme. */
+.training-page-redesign .training-lasting-panel { --ui-box-bg: #8c4327; background: #8c4327 !important; }
+.training-page-redesign .training-workshop-panel { --ui-box-bg: #4d5936; background: #4d5936 !important; }
+.training-page-redesign :is(.training-lasting-copy, .training-quality-list, .training-workshop-copy) { background: transparent !important; }
+
+/* Homepage-scale band height on desktop (mobile keeps its natural stacked height). */
+@media (min-width: 981px) {
+  .training-page-redesign .training-lasting-panel,
+  .training-page-redesign .training-workshop-panel {
+    min-height: var(--band-h);
   }
 }

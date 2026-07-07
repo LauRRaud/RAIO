@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { EventsCardsCarousel } from "@/components/EventsCardsCarousel";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HeroMedia } from "@/components/HeroMedia";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getEventItems, getMessagesWithAdminImages } from "@/lib/payloadContent";
 
@@ -42,14 +43,7 @@ export async function EventsPage({ locale = "et" }) {
             style={{ "--hero-image-position": t.heroImagePosition }}
             aria-hidden="true"
           >
-            <Image
-              src={t.heroImage}
-              alt=""
-              fill
-              priority
-              quality={92}
-              sizes="(max-width: 980px) 100vw, 80vw"
-            />
+            <HeroMedia desktop={t.heroImage} mobile={t.heroImageMobile} />
           </div>
         </section>
 

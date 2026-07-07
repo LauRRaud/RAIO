@@ -237,7 +237,7 @@
 
 .tools-category-image {
   position: relative;
-  aspect-ratio: 1.04 / 1;
+  aspect-ratio: 1.35 / 1;
   overflow: hidden;
   background: #17130f;
 }
@@ -282,7 +282,7 @@
   --material-panel-muted: rgba(23, 19, 15, 0.7);
   --material-panel-line: rgba(23, 19, 15, 0.14);
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(390px, 1.1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-areas:
     "copy image"
     "values values";
@@ -782,5 +782,74 @@
 .tools-care-image,
 .tools-custom-image {
     min-height: 72vw;
+  }
+}
+
+/* --- Full-bleed content bands: edge-to-edge, square corners, seamless stacking.
+   The band itself carries no horizontal padding — text is inset via the copy
+   cells so images run all the way to the screen edge, like the hero. Only the
+   category carousel keeps its own breathing room. --- */
+.tools-page-redesign {
+  overflow-x: clip;
+  --band-pad: max(clamp(24px, 5vw, 76px), calc((100vw - 1560px) / 2));
+}
+
+/* Break the bands out to the full viewport width. */
+.tools-page-redesign .tools-material-panel,
+.tools-page-redesign .tools-bottom-grid {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-inline: 0;
+}
+
+/* Square, borderless bands and images. */
+.tools-page-redesign :is(.tools-material-panel, .tools-care-card, .tools-custom-card) {
+  --ui-card-radius: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+.tools-page-redesign :is(.tools-material-image, .tools-care-image, .tools-custom-image) {
+  border-radius: 0 !important;
+}
+
+/* Seamless stacking: the band group touches the footer, and the two bottom
+   cards merge into one continuous bar (green | umber, no gap between them). */
+.tools-page-redesign .tools-bottom-grid {
+  margin-top: 0;
+  gap: 0;
+}
+.tools-page-redesign .tools-category-section {
+  padding-bottom: 0;
+}
+
+/* Keep text within the readable column; the outer image bleeds to the edge. */
+.tools-page-redesign .tools-material-copy {
+  padding-inline-start: var(--band-pad);
+  padding-block: clamp(34px, 4vw, 60px);
+}
+.tools-page-redesign .tools-material-values {
+  padding-block: clamp(40px, 4.5vw, 68px);
+  padding-inline: var(--band-pad);
+}
+.tools-page-redesign .tools-care-copy {
+  padding-inline-start: var(--band-pad);
+}
+
+/* Band colours (unchanged) over the polarity theme. */
+.tools-page-redesign .tools-material-panel {
+  --ui-box-bg: #8c4327;
+  background: #8c4327 !important;
+  padding-block: 0;
+  row-gap: 0;
+}
+.tools-page-redesign .tools-care-card { --ui-box-bg: #4d5936; background: #4d5936 !important; }
+.tools-page-redesign .tools-custom-card { --ui-box-bg: #33261b; background: #33261b !important; }
+.tools-page-redesign :is(.tools-material-copy, .tools-care-copy, .tools-custom-copy) { background: transparent !important; }
+
+/* Homepage-scale band height on desktop (mobile keeps its natural stacked height). */
+@media (min-width: 981px) {
+  .tools-page-redesign .tools-material-image,
+  .tools-page-redesign .tools-bottom-grid {
+    min-height: var(--band-h);
   }
 }

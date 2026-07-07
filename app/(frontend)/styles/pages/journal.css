@@ -366,7 +366,7 @@ body .journal-article-content .journal-story-meta {
 .journal-signup-banner {
   min-height: 280px;
   display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   margin-top: 28px;
   border: 1px solid var(--journal-line);
@@ -610,5 +610,47 @@ body .journal-article-content .journal-story-meta {
   .journal-article-content h2 {
     max-width: 12ch;
     font-size: clamp(2rem, 11vw, 3.15rem);
+  }
+}
+
+/* --- Full-bleed content band: edge-to-edge, square, seamless, homepage-scale.
+   Copy is inset on the left; the image bleeds to the right edge. --- */
+.journal-page-redesign {
+  overflow-x: clip;
+  --band-pad: max(clamp(24px, 5vw, 76px), calc((100vw - 1560px) / 2));
+}
+
+.journal-page-redesign .journal-signup-banner {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-inline: 0;
+}
+
+/* Square, borderless band + image. */
+.journal-page-redesign :is(.journal-signup-banner, .journal-signup-image) {
+  --ui-card-radius: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Copy inset on the left, vertically centred in the taller band. */
+.journal-page-redesign .journal-signup-copy {
+  padding-inline-start: var(--band-pad);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Seamless: no empty space below the band before the footer. */
+.journal-page-redesign .journal-stories-section { padding-bottom: 0; }
+
+/* Band colour (unchanged) over the polarity theme. */
+.journal-page-redesign .journal-signup-banner { --ui-box-bg: #4d5936; background: #4d5936 !important; }
+.journal-page-redesign .journal-signup-copy { background: transparent !important; }
+
+/* Homepage-scale band height on desktop (mobile keeps its natural stacked height). */
+@media (min-width: 981px) {
+  .journal-page-redesign .journal-signup-banner {
+    min-height: var(--band-h);
   }
 }

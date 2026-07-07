@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HeroMedia } from "@/components/HeroMedia";
 import { getMessagesWithAdminImages } from "@/lib/payloadContent";
 
 function InstagramIcon(props) {
@@ -35,7 +36,7 @@ export async function AboutPage({ locale = "et" }) {
       <main id="main" className="about-page-redesign">
         <section className="about-hero" aria-labelledby="about-hero-title">
           <div className="about-hero-image" aria-hidden="true">
-            <Image src={t.heroImage} alt="" fill priority quality={92} sizes="(max-width: 980px) 100vw, 80vw" />
+            <HeroMedia desktop={t.heroImage} mobile={t.heroImageMobile} />
           </div>
           <div className="about-hero-panel">
             <h1 id="about-hero-title">{t.heroTitle}</h1>

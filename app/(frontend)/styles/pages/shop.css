@@ -263,7 +263,7 @@
 .store-product-image {
   position: relative;
   display: block;
-  aspect-ratio: 1.03 / 1;
+  aspect-ratio: 0.9 / 1;
   overflow: hidden;
   background: #17130f;
 }

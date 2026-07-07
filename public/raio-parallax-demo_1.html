@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RA·IO — scroll-linked parallax demo</title>
+<style>
+  /* ===== Alus ===== */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: auto; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: #EFE7D2;
+    color: #312B21;
+  }
+
+  /* ===== Navigatsioon ===== */
+  nav {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px; padding: 0 48px;
+    background: #F3E3CC;
+  }
+  .logo { font-size: 22px; font-weight: 600; letter-spacing: 2px; }
+  .menu { display: flex; gap: 28px; font-size: 13px; letter-spacing: 2px; color: #5A4E3C; }
+  .menu span { cursor: pointer; }
+
+  /* ===== Sektsioonide üldstruktuur ===== */
+  section.split {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    overflow: hidden; /* külgedelt sisenevad elemendid lõigatakse servast */
+  }
+  .half {
+    flex: 1;
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+  .text-block { padding: 0 8vw; will-change: transform, opacity; }
+  .img-block {
+    width: 100%; height: 100%;
+    will-change: transform, opacity;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,.45); font-size: 14px; letter-spacing: 2px;
+  }
+  .kicker { font-size: 12px; letter-spacing: 3px; color: #8A5A3A; margin-bottom: 20px; }
+  h1, h2 { font-size: clamp(38px, 5.5vw, 68px); font-weight: 600; line-height: 1.05; letter-spacing: 1px; }
+  .accent { font-family: Georgia, "Times New Roman", serif; font-style: italic; font-weight: 400; color: #B5522F; }
+  .lede { font-size: 16px; line-height: 1.6; color: #7A6C58; margin-top: 22px; max-width: 420px; }
+
+  /* Sektsioon 1 — hero: elemendid kerivad ära, taust vähem */
+  #hero .img-block { background: #6E7A48; }
+
+  /* Sektsioon 2 — roheline, külgedelt */
+  #liikumine { background: #4E5A33; }
+  #liikumine .img-block { background: #3A4526; }
+  #liikumine h2 { color: #EAE5D0; }
+  #liikumine .accent { color: #D3C79E; }
+  #liikumine .lede { color: #C8C2AC; }
+
+  /* Sektsioon 3 — sisu tõuseb alt üles taustale */
+  #vahendid { background: #E4D7BC; }
+  #vahendid .img-block { background: #514A38; }
+
+  /* Sektsioon 4 — staatiline ruudustik */
+  #ruudustik { display: flex; height: 70vh; }
+  .cell {
+    flex: 1; position: relative;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding-bottom: 36px;
+    border-right: 1px solid rgba(0,0,0,.18);
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .cell:last-child { border-right: none; }
+  .cell span {
+    font-size: 15px; letter-spacing: 3px; color: #EDE7D6; z-index: 2;
+  }
+  .cell .fill {
+    position: absolute; inset: 0;
+    transition: transform .5s ease;
+  }
+  .cell:hover .fill { transform: scale(1.05); } /* valikuline hover, mitte parallax */
+
+  footer {
+    padding: 60px 48px; text-align: center;
+    font-size: 13px; letter-spacing: 2px; color: #7A6C58;
+    background: #EFE7D2;
+  }
+
+  @media (max-width: 720px) {
+    .menu { display: none; }
+    section.split { flex-direction: column; }
+    .half { min-height: 50vh; }
+    #ruudustik { flex-wrap: wrap; height: auto; }
+    .cell { flex: 1 1 40%; height: 30vh; border: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">RA·IO</span>
+</nav>
+
+<!-- Sektsioon 1: hero — sisuelemendid kerivad taustast kiiremini ära -->
+<section class="split" id="hero" data-motion="hero">
+  <div class="half">
+    <div class="text-block">
+      <p class="kicker">— KÄSITÖÖ VAHENDID</p>
+      <h1>TRENN ON<br><span class="accent">tunne.</span></h1>
+      <p class="lede">Käsitöö sangpommid ja treeningvahendid Eesti kivist ning kodumaisest puidust.</p>
+    </div>
+  </div>
+  <div class="half">
+    <div class="img-block"></div>
+  </div>
+</section>
+
+<!-- Sektsioon 2: liikumine — tekst ja foto tulevad külgedelt kokku -->
+<section class="split" id="liikumine" data-motion="side">
+  <div class="half">
+    <div class="img-block"></div>
+  </div>
+  <div class="half">
+    <div class="text-block">
+      <h2>LIIKUMINE ON<br><span class="accent">rituaal.</span></h2>
+      <p class="lede">RA·IO on loodud neile, kes otsivad midagi enamat kui lihtsalt trenni. See on ühendus loodusega, oma keha ja kogukonnaga.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Sektsioon 3: vahendid — sisu tõuseb alt üles tausta peale -->
+<section class="split" id="vahendid" data-motion="rise">
+  <div class="half">
+    <div class="text-block">
+      <h2>KIVI, PUIT JA<br><span class="accent">sinu jõud.</span></h2>
+      <p class="lede">Sangpommid, hantlid ja jalutuskepid — Eesti kivist ja kodumaisest puidust, käsitööna sinu kätte.</p>
+    </div>
+  </div>
+  <div class="half">
+    <div class="img-block"></div>
+  </div>
+</section>
+
+<!-- Sektsioon 4: staatiline pildiruudustik (ainult hover, mitte parallax) -->
+<section id="ruudustik">
+  <div class="cell"><div class="fill" style="background:#3E4A28"></div><span>TREENINGUD</span></div>
+  <div class="cell"><div class="fill" style="background:#4A4A2E"></div><span>VAHENDID</span></div>
+  <div class="cell"><div class="fill" style="background:#5A4327"></div><span>SÜNDMUSED</span></div>
+  <div class="cell"><div class="fill" style="background:#3A3630"></div><span>MEIST</span></div>
+  <div class="cell"><div class="fill" style="background:#4B4740"></div><span>RA·IO+</span></div>
+</section>
+
+<footer>RA·IO — scroll-linked parallax demo</footer>
+
+<script>
+(function () {
+  // Kui kasutaja on liikumise vähendamise sisse lülitanud, jääb kõik staatiliseks
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
+
+  var sections = Array.prototype.slice.call(document.querySelectorAll("section.split"));
+  var ticking = false;
+
+  function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
+
+  function update() {
+    var H = window.innerHeight;
+    var st = window.scrollY || window.pageYOffset;
+
+    sections.forEach(function (sec) {
+      var txt = sec.querySelector(".text-block");
+      var img = sec.querySelector(".img-block");
+      var m = sec.getAttribute("data-motion");
+      var top = sec.offsetTop;
+      var h = sec.offsetHeight;
+
+      if (m === "hero") {
+        // Seotud sellega, kui palju lehe algusest on keritud.
+        // Sisu (tekst + foto) liigub taustast kiiremini üles ja hajub;
+        // taust kerib tavalises tempos.
+        var p = clamp(st / (h * 0.85), 0, 1);
+        txt.style.transform = "translateY(" + (-p * H * 0.55) + "px)";
+        img.style.transform = "translateY(" + (-p * H * 0.32) + "px)";
+        txt.style.opacity = (1 - p * 0.85).toFixed(2);
+        img.style.opacity = (1 - p * 0.55).toFixed(2);
+
+      } else if (m === "side") {
+        // Seotud sektsiooni keskpunkti kaugusega vaatevälja keskest.
+        // Keskel: kohal. Servades: külgedele nihkunud. Kahesuunaline.
+        var center = top + h / 2 - st;
+        var d = clamp((center - H / 2) / (H * 0.7), -1, 1);
+        var a = Math.abs(d);
+        txt.style.transform = "translateX(" + (a * H * 0.45) + "px)";
+        img.style.transform = "translateX(" + (-a * H * 0.45) + "px)";
+        txt.style.opacity = (1 - a * 0.4).toFixed(2);
+
+      } else if (m === "rise") {
+        // NB: seotud sellega, kui palju sektsioon on ALT vaatevälja sisenenud
+        // (mitte keskpunktiga — lehe lõpus olev sektsioon ei pruugi kunagi
+        // keskele jõuda). Sisu alustab allpool ja tõuseb tausta peale.
+        var visible = clamp((st + H - top) / (H * 0.75), 0, 1);
+        var e = 1 - visible;
+        txt.style.transform = "translateY(" + (e * H * 0.45) + "px)";
+        img.style.transform = "translateY(" + (e * H * 0.3) + "px)";
+        txt.style.opacity = (1 - e * 0.7).toFixed(2);
+        img.style.opacity = (1 - e * 0.5).toFixed(2);
+      }
+    });
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  update();
+})();
+</script>
+
+</body>
+</html>

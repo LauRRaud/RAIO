@@ -135,7 +135,7 @@
 
 .about-story-panel {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   overflow: hidden;
   border: 1px solid var(--about-line);
   background: rgba(240, 233, 221, 0.62);
@@ -593,5 +593,86 @@
 
   .about-trainer-copy p {
     margin-inline: auto;
+  }
+}
+
+/* --- Full-bleed content bands: edge-to-edge, square corners, seamless stacking.
+   NOTE: .about-contact-panel is a column INSIDE .about-closing-panel, so it must
+   NOT break out to 100vw on its own — doing that overlapped the closing panel. --- */
+.about-page-redesign {
+  overflow-x: clip;
+  --band-pad: max(clamp(24px, 5vw, 76px), calc((100vw - 1560px) / 2));
+}
+
+/* Break the top-level bands out to the full viewport width. */
+.about-page-redesign .about-story-panel,
+.about-page-redesign .about-trainers-section,
+.about-page-redesign .about-closing-panel {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+.about-page-redesign .about-story-panel,
+.about-page-redesign .about-closing-panel {
+  padding-inline: 0;
+}
+/* Trainers band: images bleed to the left edge; the heading and copy stay inset,
+   and the copy sits directly on the dark section (no inner box). */
+.about-page-redesign .about-trainers-section {
+  padding-inline: 0;
+}
+.about-page-redesign .about-trainers-heading {
+  padding-inline-start: var(--band-pad);
+}
+.about-page-redesign .about-trainer-copy {
+  background: transparent !important;
+  padding-inline-end: var(--band-pad);
+}
+
+/* Square, borderless bands and images. */
+.about-page-redesign :is(
+  .about-story-panel, .about-trainers-section, .about-closing-panel,
+  .about-contact-panel, .about-story-image, .about-trainer-image, .about-trainer-copy
+) {
+  --ui-card-radius: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Seamless stacking: sections touch each other, the hero, and the footer. */
+.about-page-redesign .about-content-section {
+  gap: 0;
+  padding-block: 0;
+}
+
+/* Story band: image bleeds to the left edge; copy stays inset. */
+.about-page-redesign .about-story-copy { padding-inline-end: var(--band-pad); }
+
+/* Closing band: green copy | umber contact merge into one continuous bar — each
+   fills the full height, and the umber runs to the right edge. */
+.about-page-redesign .about-closing-panel {
+  gap: 0;
+  padding-block: 0;
+}
+.about-page-redesign .about-closing-copy {
+  padding-block: clamp(40px, 4.8vw, 72px);
+  padding-inline-start: var(--band-pad);
+  padding-inline-end: clamp(28px, 3vw, 52px);
+}
+.about-page-redesign .about-contact-panel {
+  align-self: stretch;
+  justify-content: center;
+}
+
+/* Band colours (unchanged) over the polarity theme. */
+.about-page-redesign .about-story-panel { --ui-box-bg: #8c4327; background: #8c4327 !important; }
+.about-page-redesign .about-closing-panel { --ui-box-bg: #4d5936; background: #4d5936 !important; }
+.about-page-redesign .about-contact-panel { --ui-box-bg: #33261b; background: #33261b !important; }
+.about-page-redesign :is(.about-story-copy, .about-closing-copy) { background: transparent !important; }
+
+/* Homepage-scale band height on desktop (mobile keeps its natural stacked height). */
+@media (min-width: 981px) {
+  .about-page-redesign .about-story-panel,
+  .about-page-redesign .about-closing-panel {
+    min-height: var(--band-h);
   }
 }

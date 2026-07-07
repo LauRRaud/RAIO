@@ -194,7 +194,7 @@ button.events-outline-button {
 
 .events-event-image {
   position: relative;
-  aspect-ratio: 1.23 / 1;
+  aspect-ratio: 1.35 / 1;
   overflow: hidden;
   background: #17130f;
 }
@@ -604,5 +604,57 @@ body .events-event-modal-content .events-location {
   .events-event-modal-content h2 {
     max-width: 12ch;
     font-size: clamp(2rem, 11vw, 3.15rem);
+  }
+}
+
+/* --- Full-bleed content band: edge-to-edge, square, seamless. The image sits on
+   the right (like the hero) and bleeds to the right edge; copy is inset on the
+   left. Only the events carousel keeps its breathing room. --- */
+.events-page-redesign {
+  overflow-x: clip;
+  --band-pad: max(clamp(24px, 5vw, 76px), calc((100vw - 1560px) / 2));
+}
+
+.events-page-redesign .events-host-cta {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-inline: 0;
+}
+
+/* Square, borderless band + image. */
+.events-page-redesign :is(.events-host-cta, .events-host-image) {
+  --ui-card-radius: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+.events-page-redesign .events-host-copy { border-left: 0; }
+
+/* Desktop: copy left | image right, image running to the right edge. */
+@media (min-width: 981px) {
+  .events-page-redesign .events-host-cta {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .events-page-redesign .events-host-copy {
+    grid-column: 1;
+    grid-row: 1;
+    padding-inline-start: var(--band-pad);
+  }
+  .events-page-redesign .events-host-image {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+/* Seamless: no empty space below the band before the footer. */
+.events-page-redesign .events-upcoming-section { padding-bottom: 0; }
+
+/* Band colour (unchanged) over the polarity theme. */
+.events-page-redesign .events-host-cta { --ui-box-bg: #8c4327; background: #8c4327 !important; }
+.events-page-redesign .events-host-copy { background: transparent !important; }
+
+/* Homepage-scale band height on desktop (mobile keeps its natural stacked height). */
+@media (min-width: 981px) {
+  .events-page-redesign .events-host-cta {
+    min-height: var(--band-h);
   }
 }

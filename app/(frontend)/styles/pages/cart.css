@@ -1,7 +1,7 @@
 /* Cart page */
 .cart-empty,
 .cart-section {
-  --cart-paper: #f0e9dd;
+  --cart-paper: #f2ddc2;
   --cart-ink: #11100d;
   --cart-muted: rgba(17, 16, 13, 0.68);
   --cart-line: rgba(17, 16, 13, 0.18);

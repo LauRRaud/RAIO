@@ -3,12 +3,29 @@ import Link from "next/link";
 import { DocumentLang } from "@/components/DocumentLang";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HomeMotion } from "@/components/HomeMotion";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getMessagesWithAdminImages } from "@/lib/payloadContent";
+
+function SplitMedia({ src, alt, position, priority = false }) {
+  return (
+    <div className="home-split-media">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        sizes="(max-width: 980px) 100vw, 50vw"
+        style={position ? { objectPosition: position } : undefined}
+      />
+    </div>
+  );
+}
 
 export async function HomePage({ locale = "et" }) {
   const messages = await getMessagesWithAdminImages(locale);
   const home = messages.home;
+  const { hero, philosophy, tools, categoryWorld } = home;
 
   return (
     <>
@@ -17,66 +34,56 @@ export async function HomePage({ locale = "et" }) {
         {messages.skipLink}
       </a>
       <Header locale={locale} currentPath="/" labels={messages.header} brandName={messages.brand.name} />
-      <main id="main" className="lookbook-home" data-locale={locale}>
-        <section className="lookbook-hero">
-          <Image
-            className="lookbook-hero-image"
-            src={home.hero.image}
-            alt={home.hero.imageAlt}
-            fill
-            priority
-            sizes="100vw"
-          />
-          <div className="lookbook-hero-overlay" />
-          <div className="lookbook-hero-content">
-            <h1 className="lookbook-hero-logo">
-              <Image
-                src="/Logo/RAIO_horizontal_white_transparent.svg"
-                alt={messages.brand.name}
-                width={3073}
-                height={805}
-                priority
-              />
+      <HomeMotion />
+      <main id="main" className="home-page" data-locale={locale}>
+        <section className="home-split home-split-hero" data-motion="hero">
+          <div className="home-split-copy">
+            <p className="home-split-eyebrow">{hero.eyebrow}</p>
+            <h1 className="home-hero-title">
+              {hero.titleStart}
+              <em className="home-title-accent">{hero.titleAccent}</em>
             </h1>
-            <p className="lookbook-hero-title">{home.hero.title}</p>
-            <p className="lookbook-hero-copy">{home.hero.copy}</p>
+            <p className="home-split-lede">{hero.copy}</p>
           </div>
-          <div className="hero-scroll-cue" aria-hidden="true">
-            <span aria-hidden="true" />
+          <SplitMedia src={hero.image} alt={hero.imageAlt} position="50% 38%" priority />
+        </section>
+
+        <section className="home-split home-split-philosophy" data-motion="side">
+          <SplitMedia src={philosophy.image} alt={philosophy.imageAlt} position="48% center" />
+          <div className="home-split-copy">
+            <p className="home-split-eyebrow">{philosophy.eyebrow}</p>
+            <h2 className="home-split-title">
+              {philosophy.headingStart} <em className="home-title-accent">{philosophy.headingAccent}</em>
+            </h2>
+            <p className="home-split-body">{philosophy.body}</p>
           </div>
         </section>
 
-        <section className="philosophy-section">
-          <div className="philosophy-copy">
-            <h2>{home.philosophy.heading}</h2>
-            <p>{home.philosophy.body}</p>
+        <section className="home-split home-split-tools" data-motion="rise">
+          <div className="home-split-copy">
+            <p className="home-split-eyebrow">{tools.eyebrow}</p>
+            <h2 className="home-split-title">
+              {tools.headingStart} <em className="home-title-accent">{tools.headingAccent}</em>
+            </h2>
+            <p className="home-split-body">{tools.copy}</p>
           </div>
-          <div className="philosophy-image">
-            <Image
-              src={home.philosophy.image}
-              alt={home.philosophy.imageAlt}
-              fill
-              sizes="(max-width: 900px) 100vw, 50vw"
-            />
-          </div>
+          <SplitMedia src={tools.image} alt={tools.imageAlt} position="50% 42%" />
         </section>
 
-        <section className="category-world" aria-label={home.categoryWorld.ariaLabel}>
-          {home.categoryWorld.cards.map((card) => (
+        <section className="home-world" aria-label={categoryWorld.ariaLabel}>
+          {categoryWorld.cards.map((card) => (
             <Link
               key={card.key}
               href={getLocalizedPath(locale, card.path)}
-              className={`world-card${card.variant ? ` world-card-${card.variant}` : ""}`}
+              className={`home-world-card${card.variant ? ` home-world-card-${card.variant}` : ""}`}
             >
-              <span className="world-card-media" style={{ position: "absolute" }}>
-                <Image src={card.image} alt={card.alt} fill sizes="(max-width: 900px) 100vw, 20vw" />
+              <span className="home-world-media">
+                <Image src={card.image} alt={card.alt} fill sizes="(max-width: 980px) 100vw, 20vw" />
               </span>
-              <span className="world-card-overlay" />
-              <span className="world-card-content">
+              <span className="home-world-overlay" />
+              <span className="home-world-content">
                 <strong>{card.title}</strong>
-                <span className="world-card-arrow" aria-hidden="true">
-                  →
-                </span>
+                <span className="home-world-sub">{card.subtitle}</span>
               </span>
             </Link>
           ))}

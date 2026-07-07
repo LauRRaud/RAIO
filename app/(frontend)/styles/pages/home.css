@@ -1,206 +1,436 @@
-/* Home page */
-.lookbook-home {
-  background: var(--raio-paper-soft);
-  color: var(--raio-ink);
-}
+/* Home page — warm natural palette, editorial split sections with scroll reveals */
 
-.lookbook-hero {
+.home-page {
+  --home-paper: #f2ddc2;
+  --home-cream: #f7f1e4;
+  --home-ink: #40342a;
+  --home-ink-soft: rgba(64, 52, 42, 0.78);
+  --home-muted: #7a6c5c;
+  --home-clay: #a5502f;
+  --home-clay-deep: #86391c;
+  --home-umber: #33261b;
+  --home-gold: #e8d5a7;
+  --home-serif: "Georgia Pro", Georgia, "Times New Roman", serif;
   position: relative;
-  min-height: 0;
-  height: clamp(640px, calc(100vh - 98px), 820px);
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  isolation: isolate;
-  background: var(--raio-dark);
+  background: var(--home-paper);
+  color: var(--home-ink);
+  overflow-x: clip;
 }
 
-.lookbook-hero-image {
-  object-fit: cover;
-  object-position: center center;
-  filter: saturate(0.82) contrast(1.04) brightness(0.8);
-  z-index: -2;
-}
-
-.lookbook-hero-overlay {
-  position: absolute;
+/* Tactile paper grain across the page */
+.home-page::after {
+  content: "";
+  position: fixed;
   inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(90deg, rgba(14, 13, 10, 0.78) 0%, rgba(14, 13, 10, 0.48) 34%, rgba(14, 13, 10, 0.12) 68%),
-    linear-gradient(0deg, rgba(14, 13, 10, 0.48) 0%, rgba(14, 13, 10, 0) 36%);
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.lookbook-hero-content {
-  width: min(calc(100% - 96px), 1780px);
-  margin: 0 auto;
-  padding-top: 5vh;
-  color: var(--raio-white);
-  transform: translateY(-72px);
+.home-title-accent {
+  display: block;
+  font-family: var(--home-serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--home-clay);
 }
 
-.lookbook-hero-logo {
-  max-width: none;
-  margin: 0;
-  line-height: 0;
+/* ---------- Split section system ---------- */
+/* Scroll-linked parallax lives in components/HomeMotion.jsx, which sets inline
+   transform/opacity on .home-split-copy and .home-split-media per frame. With
+   no JS the sections simply render static and fully visible. */
+
+.home-split {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  /* Each content band fills the viewport so neighbours never peek at the
+     top/bottom edges. */
+  min-height: 100svh;
+  overflow: clip;
 }
 
-.lookbook-hero-logo img {
-  width: clamp(200px, 29vw, 380px);
-  height: auto;
+/* Hero fills the first screen exactly: viewport minus the sticky header. */
+.home-split-hero {
+  min-height: calc(100svh - 78px);
 }
 
-.lookbook-hero-title {
-  margin: 42px 0 0;
-  font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(2.2rem, 3vw, 4rem);
-  line-height: 1;
+/* Editorial hero: generous copy column on the left, the photo held as a
+   framed gallery piece on the right — never stretched past its native size. */
+@media (min-width: 981px) {
+  .home-split-hero {
+    grid-template-columns: minmax(440px, 0.47fr) 0.53fr;
+    align-items: center;
+  }
+
+  .home-split-hero .home-split-copy {
+    max-width: 660px;
+    padding-inline: clamp(48px, 6vw, 116px) clamp(24px, 3vw, 56px);
+  }
+
+  .home-split-hero .home-hero-title {
+    font-size: clamp(3rem, 4.7vw, 5.5rem);
+  }
+
+  .home-split-hero .home-split-media {
+    align-self: center;
+    justify-self: center;
+    width: min(calc(100% - clamp(64px, 7vw, 136px)), 760px);
+    aspect-ratio: 5 / 4;
+    max-height: min(76vh, 680px);
+    box-shadow:
+      0 34px 90px rgba(15, 11, 6, 0.5),
+      0 6px 24px rgba(15, 11, 6, 0.3);
+  }
+
+  /* Philosophy: framed photo on the left, copy on the right */
+  .home-split-philosophy {
+    grid-template-columns: 0.53fr 0.47fr;
+    align-items: center;
+  }
+
+  .home-split-philosophy .home-split-media {
+    align-self: center;
+    justify-self: center;
+    width: min(calc(100% - clamp(64px, 7vw, 136px)), 700px);
+    aspect-ratio: 5 / 4;
+    max-height: min(74vh, 640px);
+    box-shadow:
+      0 34px 90px rgba(21, 26, 13, 0.42),
+      0 6px 24px rgba(21, 26, 13, 0.28);
+  }
+
+  .home-split-philosophy .home-split-copy {
+    max-width: 640px;
+    padding-inline: clamp(24px, 3vw, 56px) clamp(48px, 6vw, 116px);
+  }
+
+  /* Tools: copy left, and a portrait frame that matches the kettlebell
+     photo's own orientation — the tool reads at its natural scale instead
+     of a blown-up crop. */
+  .home-split-tools {
+    grid-template-columns: minmax(440px, 0.47fr) 0.53fr;
+    align-items: center;
+  }
+
+  .home-split-tools .home-split-media {
+    align-self: center;
+    justify-self: center;
+    width: min(calc(100% - clamp(64px, 7vw, 136px)), 520px);
+    aspect-ratio: 4 / 5;
+    max-height: min(80vh, 680px);
+    box-shadow:
+      0 34px 90px rgba(46, 17, 6, 0.44),
+      0 6px 24px rgba(46, 17, 6, 0.3);
+  }
+
+  .home-split-tools .home-split-copy {
+    max-width: 660px;
+    padding-inline: clamp(48px, 6vw, 116px) clamp(24px, 3vw, 56px);
+  }
+
+  /* Scroll-linked curtain reveal: HomeMotion drives --reveal from 0 → 1 as
+     the section enters. Without JS the default (1) keeps the photo visible. */
+  .home-split-philosophy .home-split-media::before,
+  .home-split-tools .home-split-media::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: 3;
+    transform-origin: bottom;
+    transform: scaleY(calc(1 - var(--reveal, 1)));
+    pointer-events: none;
+  }
+
+  .home-split-philosophy .home-split-media::before {
+    background: #46512f;
+  }
+
+  .home-split-tools .home-split-media::before {
+    background: #74351c;
+  }
 }
 
-.lookbook-hero-copy {
-  max-width: 520px;
-  margin: 30px 0 0;
-  color: rgba(245, 239, 229, 0.86);
-  font-size: clamp(0.82rem, 0.9vw, 1rem);
-  font-weight: 600;
-  line-height: 1.85;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+/* ---------- Hero entrance choreography ---------- */
+/* Pure CSS, so it composes with the scroll motion: the copy children and the
+   media curtain (::before) are elements HomeMotion never touches. */
+
+@media (min-width: 981px) and (prefers-reduced-motion: no-preference) {
+  .home-split-hero .home-split-eyebrow {
+    animation: home-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  }
+
+  .home-split-hero .home-hero-title {
+    animation: home-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+  }
+
+  .home-split-hero .home-split-lede {
+    animation: home-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.44s both;
+  }
+
+  /* Curtain wipe: a panel in the section colour slides off the framed photo */
+  .home-split-hero .home-split-media::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: 3;
+    background: #2b241b;
+    transform-origin: bottom;
+    animation: home-curtain 1.05s cubic-bezier(0.76, 0, 0.24, 1) 0.32s both;
+    pointer-events: none;
+  }
+
+  /* Quiet scroll cue at the foot of the hero */
+  .home-split-hero::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: 4;
+    width: 1px;
+    height: 62px;
+    background: linear-gradient(180deg, rgba(244, 239, 228, 0) 0%, rgba(244, 239, 228, 0.6) 100%);
+    transform-origin: top;
+    animation: home-scrollcue 2.8s cubic-bezier(0.65, 0, 0.35, 1) 1.4s infinite;
+    opacity: 0;
+  }
 }
 
-.text-link {
-  width: fit-content;
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 54px;
-  padding-bottom: 10px;
-  color: var(--raio-ink);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  border-bottom: 1px solid currentColor;
+@keyframes home-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-.hero-scroll-cue {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(62px, 5vw, 88px);
-  z-index: 1;
-  display: inline-grid;
-  width: 66px;
-  height: 66px;
-  place-items: center;
-  color: var(--raio-white);
-  opacity: 0.86;
-  transform: translateX(-50%);
-  animation: hero-scroll-cue 2800ms cubic-bezier(0.42, 0, 0.2, 1) infinite;
+@keyframes home-curtain {
+  to {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes home-scrollcue {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  72% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(1) translateY(10px);
+  }
+}
+
+.home-split-media {
+  position: relative;
+  overflow: hidden;
   will-change: transform, opacity;
 }
 
-.hero-scroll-cue span {
-  display: block;
-  width: 34px;
-  height: 34px;
-  border-right: 4px solid currentColor;
-  border-bottom: 4px solid currentColor;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.34));
-  transform: rotate(45deg);
-}
-
-.hero-scroll-cue:hover,
-.hero-scroll-cue:focus-visible {
-  opacity: 1;
-}
-
-@keyframes hero-scroll-cue {
-  0%,
-  100% {
-    transform: translate(-50%, -4px);
-    opacity: 0.48;
-  }
-
-  50% {
-    transform: translate(-50%, 12px);
-    opacity: 1;
-  }
-}
-
-.philosophy-section {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-  min-height: 680px;
-  background: var(--raio-paper-soft);
-}
-
-.philosophy-copy {
-  align-self: center;
-  width: min(100% - 80px, 520px);
-  margin: 0 auto;
-  padding: clamp(72px, 8vw, 126px) 0;
-}
-
-.philosophy-copy h2 {
-  max-width: 9ch;
-  margin: 0;
-  color: var(--raio-ink);
-  font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(3.3rem, 5vw, 6rem);
-  font-weight: 400;
-  line-height: 0.88;
-}
-
-.philosophy-copy p {
-  margin: 34px 0 0;
-  color: rgba(23, 19, 15, 0.78);
-  font-size: clamp(1rem, 1.05vw, 1.18rem);
-  line-height: 1.8;
-}
-
-.philosophy-image {
-  position: relative;
-  min-height: 680px;
-  overflow: hidden;
-  background: var(--raio-dark);
-}
-
-.philosophy-image img {
+.home-split-media img {
   object-fit: cover;
-  object-position: 28% center;
-  filter: saturate(0.82) contrast(1.04) brightness(0.72);
 }
 
-.category-world {
+.home-split-copy {
+  align-self: center;
+  width: 100%;
+  max-width: 620px;
+  padding: clamp(56px, 7vh, 110px) clamp(40px, 5.5vw, 96px);
+  will-change: transform, opacity;
+}
+
+.home-split-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 clamp(24px, 2.6vw, 34px);
+  color: var(--home-clay-deep);
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(0.92rem, 1vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.home-split-eyebrow::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  flex: 0 0 auto;
+  background: var(--home-clay);
+}
+
+.home-hero-title {
+  margin: 0;
+  color: var(--home-ink);
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(3.1rem, 5.2vw, 6rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.home-page[data-locale="en"] .home-hero-title {
+  font-size: clamp(2.6rem, 4.4vw, 5rem);
+}
+
+.home-hero-title .home-title-accent {
+  margin-top: 0.05em;
+  font-size: 1.02em;
+}
+
+.home-split-title {
+  margin: 0;
+  color: inherit;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.5rem, 4.2vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+.home-split-title .home-title-accent {
+  display: inline;
+  font-size: 1.02em;
+}
+
+.home-split-lede,
+.home-split-body {
+  margin: clamp(26px, 3vw, 38px) 0 0;
+  max-width: 46ch;
+  font-size: clamp(1.14rem, 1.35vw, 1.4rem);
+  line-height: 1.72;
+}
+
+/* Section colour treatments */
+
+.home-split-hero {
+  background:
+    radial-gradient(88% 78% at 70% 36%, rgba(233, 196, 148, 0.13) 0%, rgba(233, 196, 148, 0) 62%),
+    linear-gradient(128deg, #3e372c 0%, #2b241b 58%, #211b14 100%);
+  color: #f3eee2;
+}
+
+.home-split-hero .home-hero-title {
+  color: #f4efe4;
+}
+
+.home-split-hero .home-title-accent {
+  color: #d98a5c;
+}
+
+.home-split-hero .home-split-lede {
+  color: rgba(244, 239, 228, 0.84);
+}
+
+.home-split-hero .home-split-eyebrow {
+  color: #e6cfa4;
+}
+
+.home-split-hero .home-split-eyebrow::before {
+  background: rgba(230, 207, 164, 0.72);
+}
+
+.home-split-philosophy {
+  background:
+    radial-gradient(78% 68% at 30% 34%, rgba(232, 224, 170, 0.12) 0%, rgba(232, 224, 170, 0) 60%),
+    linear-gradient(150deg, #5c6941 0%, #4d5936 58%, #46512f 100%);
+  color: #f3efe2;
+}
+
+.home-split-philosophy .home-split-title {
+  color: #f3efe2;
+}
+
+.home-split-philosophy .home-title-accent {
+  color: var(--home-gold);
+}
+
+.home-split-philosophy .home-split-body {
+  color: #f1efe0;
+}
+
+.home-split-philosophy .home-split-eyebrow {
+  color: #eeddb4;
+}
+
+.home-split-philosophy .home-split-eyebrow::before {
+  background: rgba(232, 213, 167, 0.75);
+}
+
+.home-split-tools {
+  background:
+    radial-gradient(64% 56% at 72% 42%, rgba(242, 217, 182, 0.13) 0%, rgba(242, 217, 182, 0) 62%),
+    radial-gradient(130% 120% at 50% 0%, #a5502f 0%, #8c4327 56%, #74351c 100%);
+  color: #f7efe1;
+}
+
+.home-split-tools .home-split-title {
+  color: #f7efe1;
+}
+
+.home-split-tools .home-title-accent {
+  color: #f2d9b6;
+}
+
+.home-split-tools .home-split-body {
+  color: rgba(247, 239, 225, 0.86);
+}
+
+.home-split-tools .home-split-eyebrow {
+  color: #f2d9b6;
+}
+
+.home-split-tools .home-split-eyebrow::before {
+  background: rgba(242, 217, 182, 0.7);
+}
+
+/* ---------- World cards ---------- */
+
+.home-world {
   position: relative;
   display: flex;
   min-height: clamp(560px, 43vw, 780px);
   overflow: hidden;
-  isolation: isolate;
-  background: var(--raio-dark);
+  background: var(--home-umber);
 }
 
-.world-card {
+.home-world-card {
   position: relative;
   flex: 1 1 0;
   min-width: 0;
   min-height: clamp(560px, 43vw, 780px);
   overflow: hidden;
   isolation: isolate;
-  color: var(--raio-white);
-  transition:
-    flex-grow 1180ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 920ms ease;
+  color: #f7f1e4;
+  transition: flex-grow 1100ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.category-world .world-card:hover,
-.category-world .world-card:focus-visible {
-  flex-grow: 1.18;
-  box-shadow: inset 0 0 0 1px rgba(245, 239, 229, 0.08);
+.home-world-card:hover,
+.home-world-card:focus-visible {
+  flex-grow: 1.24;
 }
 
-.world-card-media {
+.home-world-media {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -208,237 +438,187 @@
   overflow: hidden;
 }
 
-.world-card img {
+.home-world-media img {
   object-fit: cover;
   object-position: center center;
-  transform-origin: center center;
-  filter: none;
-  transform: scale(1);
   transition:
-    transform 1240ms cubic-bezier(0.16, 1, 0.3, 1),
-    filter 1080ms ease;
+    transform 1300ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 900ms ease;
 }
 
-.world-card-event .world-card-media img {
+.home-world-card-event .home-world-media img {
   object-position: 50% 38%;
 }
 
-.world-card-meist .world-card-media img {
+.home-world-card-meist .home-world-media img {
   object-position: 50% 30%;
 }
 
-.world-card-overlay {
+.home-world-card:hover .home-world-media img,
+.home-world-card:focus-visible .home-world-media img {
+  transform: scale(1.045);
+  filter: brightness(1.06) saturate(1.04);
+}
+
+.home-world:has(.home-world-card:hover) .home-world-card:not(:hover) .home-world-media img {
+  filter: brightness(0.8) saturate(0.82);
+}
+
+.home-world-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    linear-gradient(0deg, rgba(12, 12, 10, 0.5) 0%, rgba(12, 12, 10, 0.12) 42%, rgba(12, 12, 10, 0) 78%);
+  background: linear-gradient(
+    0deg,
+    rgba(40, 27, 17, 0.6) 0%,
+    rgba(40, 27, 17, 0.16) 42%,
+    rgba(40, 27, 17, 0) 72%
+  );
 }
 
-.world-card:hover .world-card-media img,
-.world-card:focus-visible .world-card-media img {
-  filter: saturate(1.03) contrast(1.02) brightness(1.03);
-  transform: scale(1.012);
-}
-
-.world-card-content {
+.home-world-content {
   position: absolute;
-  left: clamp(22px, 2.5vw, 54px);
-  right: clamp(22px, 2.5vw, 54px);
-  bottom: clamp(38px, 4vw, 72px);
+  left: clamp(20px, 2.2vw, 44px);
+  right: clamp(20px, 2.2vw, 44px);
+  bottom: clamp(38px, 4vw, 68px);
+  z-index: 2;
   display: grid;
   justify-items: center;
-  gap: 18px;
   text-align: center;
-  z-index: 2;
 }
 
-.world-card-content strong {
+.home-world-content strong {
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(1.05rem, 1.25vw, 1.42rem);
+  font-size: clamp(1.14rem, 1.4vw, 1.62rem);
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-.world-card-arrow {
+.home-world-sub {
+  max-height: 0;
+  overflow: hidden;
+  margin-top: 0;
+  opacity: 0;
+  color: rgba(247, 241, 228, 0.78);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transform: translateY(6px);
+  transition:
+    opacity 460ms ease,
+    transform 460ms cubic-bezier(0.16, 1, 0.3, 1),
+    max-height 460ms ease,
+    margin-top 460ms ease;
+}
+
+.home-world-card:hover .home-world-sub,
+.home-world-card:focus-visible .home-world-sub {
+  max-height: 2em;
   margin-top: 10px;
-  font-size: 1.6rem;
-  line-height: 1;
+  opacity: 1;
+  transform: none;
 }
+
+/* ---------- Mobile: splits become image with overlaid text ---------- */
 
 @media (max-width: 980px) {
-
-  .lookbook-hero {
-    min-height: calc(100vh - 118px);
-    height: auto;
-  }
-}
-
-@media (max-width: 980px) {
-
-  .lookbook-hero-image {
-    object-position: 56% center;
-  }
-}
-
-@media (max-width: 980px) {
-
-  .lookbook-hero-content {
-    width: min(calc(100% - 44px), 720px);
-    padding: 120px 0 92px;
-    transform: translateY(-64px);
-  }
-}
-
-@media (max-width: 980px) {
-
-  .lookbook-hero-logo img {
-    width: clamp(168px, 48vw, 276px);
-  }
-}
-
-@media (max-width: 980px) {
-
-  .philosophy-section {
-    grid-template-columns: 1fr;
-    min-height: 0;
-  }
-}
-
-@media (max-width: 980px) {
-
-  .philosophy-copy {
-    width: min(calc(100% - 44px), 620px);
-    padding: 58px 0 48px;
-  }
-}
-
-@media (max-width: 980px) {
-
-  .philosophy-image {
-    min-height: 78vw;
-  }
-}
-
-@media (max-width: 980px) {
-
-  .category-world {
-    flex-direction: column;
-    min-height: 0;
-  }
-}
-
-@media (max-width: 980px) {
-
-  .world-card {
-    flex: 0 0 auto;
-    min-height: clamp(620px, 104vw, 900px);
-  }
-}
-
-@media (max-width: 620px) {
-
-  .world-card {
+  .home-split {
+    display: block;
     min-height: max(560px, calc(100svh - 72px));
   }
-}
 
-@media (max-width: 620px) {
-
-  .lookbook-hero-content {
-    transform: translateY(-7vh);
+  .home-split-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
   }
 
-}
-
-@media (max-width: 620px) {
-
-  .lookbook-hero-overlay {
-    background:
-      linear-gradient(90deg, rgba(17, 16, 13, 0.68) 0%, rgba(17, 16, 13, 0.48) 58%, rgba(17, 16, 13, 0.18) 100%),
-      linear-gradient(0deg, rgba(17, 16, 13, 0.44) 0%, rgba(17, 16, 13, 0.1) 62%);
-  }
-
-}
-
-@media (max-width: 620px) {
-
-  .lookbook-hero-copy {
-    max-width: 310px;
-    letter-spacing: 0.16em;
-  }
-
-}
-
-@media (max-width: 620px) {
-
-  .text-link {
-    margin-top: 42px;
-  }
-
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  .hero-scroll-cue {
-    animation: none;
-  }
-
-}
-
-@media (max-width: 620px) {
-
-  .philosophy-section {
-    min-height: clamp(620px, 124vw, 760px);
-    display: flex;
-    align-items: flex-end;
-    isolation: isolate;
-    overflow: hidden;
-    background: var(--raio-dark);
-  }
-
-  .philosophy-section::before {
+  .home-split::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: 1;
     background:
-      linear-gradient(0deg, rgba(12, 12, 10, 0.72) 0%, rgba(12, 12, 10, 0.34) 52%, rgba(12, 12, 10, 0.18) 100%),
-      linear-gradient(90deg, rgba(12, 12, 10, 0.56) 0%, rgba(12, 12, 10, 0.28) 72%);
+      linear-gradient(0deg, rgba(26, 18, 10, 0.74) 0%, rgba(26, 18, 10, 0.34) 52%, rgba(26, 18, 10, 0.12) 100%),
+      linear-gradient(90deg, rgba(26, 18, 10, 0.5) 0%, rgba(26, 18, 10, 0.08) 72%);
     pointer-events: none;
   }
 
-  .philosophy-copy {
+  .home-split-copy {
     position: relative;
     z-index: 2;
-    width: min(calc(100% - 40px), 620px);
-    padding: 0 0 54px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: max(560px, calc(100svh - 72px));
+    max-width: none;
+    padding: clamp(96px, 18vh, 168px) 26px 54px;
   }
 
-  .philosophy-copy h2 {
-    color: var(--raio-white);
-    font-size: clamp(2.75rem, 12.4vw, 3.85rem);
-    line-height: 1.08;
+  .home-split-copy .home-hero-title,
+  .home-split-copy .home-split-title {
+    color: var(--home-cream);
   }
 
-  .philosophy-copy p {
-    color: rgba(245, 239, 229, 0.9);
-    margin-top: 22px;
-    line-height: 1.72;
+  .home-split-hero .home-title-accent,
+  .home-split-tools .home-title-accent {
+    color: #f2ddc2;
   }
 
-  .philosophy-image {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+  .home-split-hero .home-split-lede,
+  .home-split-philosophy .home-split-body,
+  .home-split-tools .home-split-body {
+    color: rgba(247, 241, 228, 0.9);
+  }
+
+  .home-split-eyebrow {
+    color: #f2ddc2;
+  }
+
+  .home-split-eyebrow::before {
+    background: rgba(242, 221, 194, 0.75);
+  }
+
+  .home-world {
+    flex-direction: column;
     min-height: 0;
   }
 
-  .philosophy-image img {
-    object-position: 52% center;
-    filter: saturate(0.88) contrast(1.08) brightness(0.8);
+  .home-world-card {
+    flex: 0 0 auto;
+    min-height: clamp(480px, 88vw, 660px);
   }
 
+  .home-world-sub {
+    max-height: 2em;
+    margin-top: 10px;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .home-hero-title {
+    font-size: clamp(3rem, 14vw, 3.9rem);
+  }
+
+  .home-page[data-locale="en"] .home-hero-title {
+    font-size: clamp(2.4rem, 11vw, 3.1rem);
+  }
+
+  .home-split-title {
+    font-size: clamp(2.4rem, 11vw, 3.2rem);
+  }
+
+  .home-split-lede,
+  .home-split-body {
+    max-width: 36ch;
+  }
+
+  .home-world-card {
+    min-height: max(440px, 78svh);
+  }
 }

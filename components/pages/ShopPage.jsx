@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HeroMedia } from "@/components/HeroMedia";
 import { StoreCatalog } from "@/components/StoreCatalog";
 import { getMessagesWithAdminImages, getPayloadProducts } from "@/lib/payloadContent";
 
@@ -25,7 +25,7 @@ export async function ShopPage({ locale = "et" }) {
             <p>{t.heroNote}</p>
           </div>
           <div className="store-hero-image" style={{ "--hero-image-position": t.heroImagePosition }} aria-hidden="true">
-            <Image src={t.heroImage} alt="" fill priority quality={92} sizes="(max-width: 980px) 100vw, 80vw" />
+            <HeroMedia desktop={t.heroImage} mobile={t.heroImageMobile} />
           </div>
         </section>
 
