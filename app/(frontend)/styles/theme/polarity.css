@@ -1,19 +1,22 @@
 /* Shared polarity for framed content and actions */
 :root {
-  --ui-box-bg: #191712;
+  --ui-box-bg: #332a1e;
   --ui-box-ink: #f5efe5;
   --ui-box-muted: rgba(245, 239, 229, 0.72);
   --ui-box-line: transparent;
-  --ui-surface-button-bg: #11100d;
+  --ui-surface-button-bg: #332a1e;
   --ui-surface-button-ink: #f5efe5;
   --ui-surface-button-hover-bg: #3a342a;
   --ui-surface-button-hover-ink: #f5efe5;
   --ui-box-button-bg: #f0e9dd;
   --ui-box-button-ink: #11100d;
-  --ui-box-button-hover-bg: #fffaf1;
+  /* Hover = a gentle warm darken, NOT a near-white flash (owner: "hover ei
+     tohiks nii hele olla"). Single source of truth for every cream button. */
+  --ui-box-button-hover-bg: #e6d8c1;
   --ui-box-button-hover-ink: #11100d;
-  --ui-card-radius: var(--radius);
-  --ui-button-radius: 0.375rem;
+  /* Sharp editorial corners across the platform ("kandiline" brand language). */
+  --ui-card-radius: 0;
+  --ui-button-radius: 0;
 }
 
 .events-event-card,

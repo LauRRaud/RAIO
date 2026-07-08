@@ -108,7 +108,7 @@ export function EventsCardsCarousel({ events, cta, modalClose, labels }) {
               <h3>{event.title}</h3>
               <p>{event.description}</p>
               <p className="events-location">
-                <MapPin size={15} strokeWidth={1.7} aria-hidden="true" />
+                <MapPin size={24} strokeWidth={1.7} aria-hidden="true" />
                 {event.location}
               </p>
               <button

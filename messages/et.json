@@ -152,7 +152,7 @@
       ]
     },
     "tools": {
-      "image": "/Pictures/Pood/Puu ja kivi sangpomm.png",
+      "image": "/Pictures/Avaleht/pomm.png",
       "imageAlt": "Puust ja kivist käsitöö sangpomm rohelisel murul",
       "eyebrow": "Käsitöö vahendid",
       "headingStart": "Kivi, puit ja",
@@ -176,7 +176,7 @@
     "heroImagePosition": "center center",
     "listTitle": "Treeningud meie looduses",
     "listIntro": "Pakume erinevaid treeninguid, mis toetavad nii keha kui vaimu. Vali endale sobiv formaat ja tule liikumise kaudu ühendusse - iseenda, looduse ja kogukonnaga.",
-    "cardCta": "Vaata lähemalt",
+    "cardCta": "Vaata",
     "modalClose": "Sulge treening",
     "trainings": [
       {
@@ -196,7 +196,7 @@
         "description": "Fookus jõul, vastupidavusel ja kehalise võimekuse arendamisel looduslike vahenditega.",
         "duration": "75-90 min",
         "level": "Kesktase-edasijõudnud",
-        "image": "/Pictures/Treeningud/header.png",
+        "image": "/Pictures/Treeningud/jõu ja vastupidavuse treening.png",
         "body": [
           "See treening keskendub tugevamale pingutusele: kandevõimele, haardele, südamiku tööle ja pikemale töövõimele.",
           "Kasutame looduslikke raskusi, sangpomme, keharaskust ja vahelduva tempoga lõike. Fookus on puhtal tehnikal ning suutlikkusel hoida kvaliteeti ka väsimuse all.",
@@ -208,7 +208,7 @@
         "description": "Liikuvuse, painduvuse ja kehatunnetuse treening, mis aitab ennetada vigu ja parandab liikumiskvaliteeti.",
         "duration": "45-60 min",
         "level": "Alg-tase-kesktase",
-        "image": "/Pictures/Treeningud/treening-jaab.png",
+        "image": "/Pictures/Treeningud/liikuvus ja mobiilsus.png",
         "body": [
           "Mobiilsuse treening aitab kehal liikuda vabamalt ja turvalisemalt. Keskendume liigeste kontrollile, hingamisele, tasakaalule ja rahulikule liikumisulatusse sisenemisele.",
           "See ei ole lihtsalt venitamine. Harjutused õpetavad keha looma jõudu ka nendes asendites, kus tavaliselt tekib ebakindlus või pinge.",
@@ -220,7 +220,7 @@
         "description": "Aeglustav ja ühendav praktikate segu, mis toetab närvisüsteemi, selgust ja sisemist tasakaalu.",
         "duration": "60 min",
         "level": "Kõigile",
-        "image": "/Pictures/Treeningud/header.png",
+        "image": "/Pictures/Treeningud/rituaalne liikumine ja hingamine1.png",
         "body": [
           "Rituaalne liikumine loob ruumi aeglustamiseks. Fookus on hingamisel, kohalolul ja kehaga ühenduse taastamisel.",
           "Praktika võib sisaldada pehmeid liikumisjada, maapinnaga kontakti, teadlikku hingamist ja vaikuse hetki. Eesmärk ei ole maksimumtulemus, vaid närvisüsteemi tasakaal.",
@@ -247,7 +247,7 @@
       }
     ],
     "lasting": {
-      "title": "Treening, mis jääb sinuga ka pärast.",
+      "title": "Treening, mis jääb sinuga ka pärast.",
       "text": "Meie treeningud toimuvad väikestes gruppides, hoolikalt valitud paikades, kus saame keskenduda olemuslikule, kvaliteedile ja päris kogemusele.",
       "cta": "Treenerid",
       "image": "/Pictures/Treeningud/treening-jaab.png",
@@ -289,7 +289,7 @@
       }
     ],
     "categoriesTitle": "Vahendite kategooriad",
-    "categoryCta": "Vaata lähemalt",
+    "categoryCta": "Vaata",
     "categories": [
       {
         "title": "Puidust vahendid",
@@ -381,7 +381,7 @@
     "heroImagePosition": "center center",
     "upcomingTitle": "Lähitulevad sündmused",
     "allLink": "Vaata kõiki",
-    "cardCta": "Vaata lähemalt",
+    "cardCta": "Vaata",
     "modalClose": "Sulge sündmus",
     "events": [
       {

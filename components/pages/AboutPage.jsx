@@ -80,7 +80,7 @@ export async function AboutPage({ locale = "et" }) {
                       src={trainer.image}
                       alt={trainer.imageAlt}
                       fill
-                      sizes="(max-width: 980px) 100vw, 34vw"
+                      sizes="(max-width: 980px) 100vw, 44vw"
                     />
                   </div>
                   <div className="about-trainer-copy">

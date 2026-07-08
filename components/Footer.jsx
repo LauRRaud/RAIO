@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { getLocalizedPath } from "@/lib/i18n";
 import { getMessages } from "@/lib/messages";
 
 function InstagramIcon(props) {
@@ -16,14 +15,9 @@ export function Footer({ locale = "et" }) {
   const messages = getMessages(locale);
   const brand = messages.brand;
   const t = messages.footer;
-  const header = messages.header;
   const homeHref = locale === "en" ? "/en" : "/";
   const instagramHref = "https://www.instagram.com/ra.ioworld";
   const currentYear = new Date().getFullYear();
-  const navItems = (header?.primaryNav || []).map((item) => ({
-    ...item,
-    href: getLocalizedPath(locale, item.href)
-  }));
 
   return (
     <footer className="footer">
@@ -40,16 +34,6 @@ export function Footer({ locale = "et" }) {
         </Link>
 
         <p className="footer-slogan">{t.slogan}</p>
-
-        {navItems.length ? (
-          <nav className="footer-nav" aria-label={header.desktopNavLabel}>
-            {navItems.map((item) => (
-              <Link key={item.key} href={item.href}>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        ) : null}
 
         <a
           className="footer-social-link"

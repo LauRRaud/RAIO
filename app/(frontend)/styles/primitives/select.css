@@ -5,7 +5,7 @@
   --select-border: rgba(17, 16, 13, 0.2);
   --select-hover-bg: #eee8df;
   --select-hover-ink: #11100d;
-  --select-active-bg: #11100d;
+  --select-active-bg: #332a1e;
   --select-active-ink: #f5efe5;
   --select-shadow: 0 1.125rem 2.375rem rgba(17, 16, 13, 0.16);
   position: relative;
@@ -17,7 +17,7 @@
 }
 
 .ui-select[data-select-theme="dark"] {
-  --select-bg: #11100d;
+  --select-bg: #332a1e;
   --select-ink: #f5efe5;
   --select-border: rgba(245, 239, 229, 0.18);
   --select-hover-bg: #f0e9dd;

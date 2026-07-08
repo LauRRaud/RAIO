@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { getLocalizedPath } from "@/lib/i18n";
 
@@ -92,7 +92,6 @@ export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }
                 className="tools-text-link"
               >
                 {cta}
-                <ArrowRight size={18} strokeWidth={1.6} aria-hidden="true" />
               </Link>
             </div>
           </article>

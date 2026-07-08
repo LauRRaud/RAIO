@@ -43,31 +43,33 @@ export async function JournalPage({ locale = "et" }) {
           id="lood"
           aria-labelledby="journal-stories-title"
         >
-          <div className="journal-section-top">
-            <h2 id="journal-stories-title">{t.storiesTitle}</h2>
-            <div
-              className="journal-category-row"
-              aria-label={t.categoryNavLabel}
-            >
-              <span>{t.categoriesLabel}</span>
-              {t.categories.map((category, index) => (
-                <button
-                  className={index === 0 ? "is-active" : undefined}
-                  type="button"
-                  key={category}
-                >
-                  {category}
-                </button>
-              ))}
+          <div className="journal-scroll-band">
+            <div className="journal-section-top">
+              <h2 id="journal-stories-title">{t.storiesTitle}</h2>
+              <div
+                className="journal-category-row"
+                aria-label={t.categoryNavLabel}
+              >
+                <span>{t.categoriesLabel}</span>
+                {t.categories.map((category, index) => (
+                  <button
+                    className={index === 0 ? "is-active" : undefined}
+                    type="button"
+                    key={category}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <JournalCardsCarousel
-            articles={articles}
-            readMore={t.readMore}
-            modalClose={t.modalClose}
-            labels={messages.carousel.journal}
-          />
+            <JournalCardsCarousel
+              articles={articles}
+              readMore={t.readMore}
+              modalClose={t.modalClose}
+              labels={messages.carousel.journal}
+            />
+          </div>
 
           <section
             className="journal-signup-banner"
@@ -85,7 +87,7 @@ export async function JournalPage({ locale = "et" }) {
                 src={t.signupImage || "/Pictures/Journal/RAIO MEIST1.png"}
                 alt=""
                 fill
-                sizes="(max-width: 900px) 100vw, 50vw"
+                sizes="(max-width: 900px) 100vw, 44vw"
               />
             </div>
           </section>

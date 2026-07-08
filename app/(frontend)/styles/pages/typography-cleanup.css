@@ -4,7 +4,8 @@
     "Segoe UI", Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-ui:
     "Segoe UI", Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --ui-box-bg: #11100d;
+  /* Warm deep umber — the platform avoids true black surfaces. */
+  --ui-box-bg: #332a1e;
   --ui-box-muted: #f8f3ec;
   --type-hero: clamp(2.55rem, 3.45vw, 4.15rem);
   --type-page-hero: clamp(2.7rem, 4vw, 4.85rem);
@@ -33,7 +34,7 @@
 .store-hero-copy p:not(.store-kicker) {
   color: #f8f3ec;
   font-family: var(--font-body);
-  font-size: clamp(1.2rem, 1.18vw, 1.34rem);
+  font-size: clamp(1.3rem, 1.28vw, 1.48rem);
   line-height: 1.6;
   letter-spacing: 0.01em;
 }
@@ -72,22 +73,30 @@
     .about-hero-panel
   )
   h1 {
-  /* Sized so the longest single Estonian words (ETTETELLIMINE,
-     INSPIRATSIOONI) still fit the hero text column on every viewport. */
-  font-size: clamp(2.5rem, 3.15vw, 4.05rem);
+  /* Subpage heroes share the homepage hero's display face, tight leading and
+     letter-spacing — just a touch smaller so the longest single Estonian words
+     (ETTETELLIMINE, INSPIRATSIOONI) still fit the narrower hero text column. */
+  font-size: clamp(2.9rem, 4.55vw, 5.3rem);
   font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: var(--track-heading);
+  line-height: 1;
+  letter-spacing: 0.01em;
   text-transform: none;
 }
 
-.tools-hero-panel h1 {
-  max-width: 9.5ch;
-  font-size: clamp(2.35rem, 3.35vw, 3.95rem);
-  line-height: 1.16;
+/* Pages whose hero has a 13–14-char single word need a slightly gentler cap so
+   it never overflows the panel on one line. */
+.journal-hero-panel h1,
+.store-hero-copy h1 {
+  font-size: clamp(2.6rem, 3.75vw, 4.5rem);
 }
 
-:is(.tools-material-copy, .tools-care-card, .tools-custom-card) h2 {
+.tools-hero-panel h1 {
+  max-width: 10.5ch;
+  font-size: clamp(2.7rem, 4.15vw, 4.9rem);
+  line-height: 1.04;
+}
+
+:is(.tools-material-copy, .tools-care-copy, .tools-custom-copy) h2 {
   font-size: clamp(1.55rem, 2.15vw, 2.7rem);
   font-weight: 400;
   line-height: 1.12;
@@ -119,19 +128,52 @@
   text-transform: none;
 }
 
-.events-page-redesign .events-host-copy h2 {
-  font-size: clamp(3rem, 4.35vw, 5.25rem);
-  line-height: 1.02;
+/* Content-band headings adopt the hero header's tight display treatment —
+   bigger, leading at 1, minimal tracking (owner: "tekstid pane nagu headeris"). */
+.about-page-redesign .about-story-copy h2,
+.about-page-redesign .about-trainer-copy h3,
+.about-page-redesign .about-closing-copy h2,
+.events-page-redesign .events-host-copy h2,
+.journal-page-redesign .journal-signup-copy h2 {
+  font-size: clamp(2.7rem, 4.15vw, 4.85rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: none;
 }
 
-.about-page-redesign .about-closing-copy h2 {
-  font-size: clamp(3rem, 4.25vw, 5rem);
-  line-height: 1.1;
+/* The workshop heading is a long centred question — same treatment, gentler cap
+   so it stays to a line or two. */
+.training-page-redesign .training-workshop-copy h2 {
+  font-size: clamp(2.1rem, 3.05vw, 3.75rem);
+  line-height: 1.04;
+  letter-spacing: 0.01em;
+  text-transform: none;
 }
 
-.about-page-redesign .about-story-copy h2 {
-  font-size: clamp(3rem, 3.7vw, 4.8rem);
-  line-height: 0.98;
+/* Owner 2026-07-09: "võta need kriipsud ära" — ALL heading accent lines removed
+   (band-heading kriips, workshop rule, trainers rule, quality-grid centre line,
+   and the hero short-rules). Reverses the earlier "pane kriips pealkirja alla". */
+.store-custom-copy h2::after,
+.tools-page-redesign .tools-material-copy h2::after,
+.tools-page-redesign .tools-care-copy h2::after,
+.about-page-redesign .about-story-copy h2::after,
+.training-page-redesign .training-lasting-copy h2::after,
+.journal-page-redesign .journal-signup-copy h2::after,
+.training-page-redesign .training-workshop-copy h2::after,
+.about-trainers-heading h2::before,
+.training-page-redesign .training-quality-list::after {
+  content: none !important;
+}
+
+:is(
+  .events-short-rule,
+  .journal-short-rule,
+  .tools-short-rule,
+  .training-short-rule,
+  .store-short-rule,
+  .about-short-rule
+) {
+  display: none !important;
 }
 
 :is(
@@ -150,7 +192,8 @@
   text-transform: none;
 }
 
-/* Short rule above section headings — the same motif as the hero panels. */
+/* Section-heading accent line removed too (owner 2026-07-09: "võta need
+   kriipsud ära"). */
 :is(
     .events-section-top,
     .journal-section-top,
@@ -159,12 +202,7 @@
     .store-products-header
   )
   h2::before {
-  content: "";
-  display: block;
-  width: 54px;
-  height: 1px;
-  margin-bottom: clamp(14px, 1.4vw, 22px);
-  background: rgba(23, 19, 16, 0.42);
+  content: none;
 }
 
 :is(
@@ -363,8 +401,8 @@
 .training-lasting-copy p,
 .journal-story-body > p:not(.journal-story-meta) {
   font-family: var(--font-body);
-  font-size: 0.98rem;
-  line-height: 1.58;
+  font-size: clamp(1.18rem, 1.2vw, 1.36rem);
+  line-height: 1.62;
   letter-spacing: 0.01em;
 }
 
@@ -377,6 +415,20 @@
 ) {
   font-family: var(--font-body);
   letter-spacing: 0.01em;
+}
+
+/* Coloured-band body copy was still reading small next to the big headings
+   (owner 2026-07-08: "leidsin ikka väikseid tekste veel"). One winning bump for
+   every band paragraph — this layer loads last, so it beats the page files. */
+.events-host-copy p,
+.journal-signup-copy p,
+.store-custom-copy p,
+.about-story-copy p,
+.about-closing-copy p,
+.about-closing-values p,
+.about-trainer-copy p {
+  font-size: clamp(1.32rem, 1.35vw, 1.54rem);
+  line-height: 1.6;
 }
 
 :is(.tools-category-body p, .tools-care-copy p, .tools-custom-copy p) {
@@ -464,7 +516,7 @@
 
 .store-page .store-product-card {
   border: 0;
-  border-radius: 8px;
+  border-radius: 0;
   background: transparent;
   color: var(--ui-box-ink);
   overflow: hidden;
@@ -556,13 +608,16 @@
   min-height: 44px;
   margin-top: 16px;
   align-self: center;
-  border-color: var(--ui-box-button-bg);
-  background: var(--ui-box-button-bg);
-  color: var(--ui-box-button-ink);
+  gap: 10px;
+  border: 1px solid rgba(248, 243, 236, 0.5);
+  border-radius: 0;
+  background: rgba(248, 243, 236, 0.08);
+  color: #f4efe4;
   font-size: 1.04rem;
   font-weight: 600;
   letter-spacing: 0.025em;
   text-transform: none;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
 }
 
 .store-page .store-product-card .add-to-cart:hover,
@@ -571,7 +626,63 @@
 .store-page .store-product-card .button:focus-visible {
   border-color: var(--ui-box-button-hover-bg);
   background: var(--ui-box-button-hover-bg);
-  color: var(--ui-box-button-hover-ink);
+  color: #2b241b;
+}
+
+/* Solid band CTAs ("Võta ühendust" etc.) as transparent + border, matching the
+   card CTAs — fill with the primitive cream on hover (owner 2026-07-08:
+   "proovime primitiivnuppe ka läbipaistvatena ja raamiga"). */
+body :is(
+  .events-host-cta .events-solid-button,
+  .journal-signup-banner .journal-solid-button,
+  .training-lasting-panel .training-solid-button,
+  .training-workshop-panel .training-solid-button,
+  .about-story-panel .about-solid-button,
+  .about-closing-panel .about-solid-button,
+  .store-custom-band .store-solid-button
+) {
+  width: fit-content;
+  min-width: 0;
+  padding-inline: clamp(26px, 2.6vw, 36px);
+  border: 1px solid rgba(248, 243, 236, 0.5);
+  background: rgba(248, 243, 236, 0.08);
+  color: #f4efe4;
+}
+
+body :is(
+  .events-host-cta .events-solid-button,
+  .journal-signup-banner .journal-solid-button,
+  .training-lasting-panel .training-solid-button,
+  .training-workshop-panel .training-solid-button,
+  .about-story-panel .about-solid-button,
+  .about-closing-panel .about-solid-button,
+  .store-custom-band .store-solid-button
+):hover,
+body :is(
+  .events-host-cta .events-solid-button,
+  .journal-signup-banner .journal-solid-button,
+  .training-lasting-panel .training-solid-button,
+  .training-workshop-panel .training-solid-button,
+  .about-story-panel .about-solid-button,
+  .about-closing-panel .about-solid-button,
+  .store-custom-band .store-solid-button
+):focus-visible {
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-box-button-hover-bg);
+  color: #2b241b;
+}
+
+/* On the light-gray lasting band the transparent CTA needs a DARK outline. */
+body .training-page-redesign .training-lasting-panel .training-solid-button {
+  border-color: rgba(34, 28, 20, 0.42);
+  background: rgba(34, 28, 20, 0.05);
+  color: #221c14;
+}
+body .training-page-redesign .training-lasting-panel .training-solid-button:hover,
+body .training-page-redesign .training-lasting-panel .training-solid-button:focus-visible {
+  border-color: rgba(34, 28, 20, 0.62);
+  background: rgba(34, 28, 20, 0.12);
+  color: #221c14;
 }
 
 @media (max-width: 1480px) {
@@ -659,6 +770,18 @@
   overflow: hidden;
   clip-path: inset(0 round var(--ui-card-radius));
   box-shadow: none;
+}
+
+/* Lift the scroll/carousel cards off the page with a soft shadow (owner
+   2026-07-09: "pane kõikide alalehtede scroll kaartidele vari"). clip-path clips
+   a box-shadow, so drop it (redundant at radius 0) on these cards only. */
+.events-event-card,
+.journal-story-card,
+.tools-page-redesign .tools-category-card,
+.training-page-redesign .training-card,
+.store-page .store-product-card {
+  clip-path: none;
+  box-shadow: 0 24px 46px -12px rgba(0, 0, 0, 0.6);
 }
 
 :is(
@@ -784,7 +907,7 @@
   isolation: isolate;
   display: flex;
   align-items: flex-end;
-  background: #11100d;
+  background: #2b241b;
 }
 
 .events-event-card::before {
@@ -876,18 +999,20 @@
   margin-top: 1px;
 }
 
-.events-event-card .events-outline-button {
+body .events-event-card .events-outline-button {
   margin-inline: auto;
-  border-color: rgba(248, 243, 236, 0.9);
-  background: rgba(248, 243, 236, 0.94);
-  color: #11100d;
+  border: 1px solid rgba(248, 243, 236, 0.5);
+  border-radius: 0;
+  background: rgba(248, 243, 236, 0.08);
+  color: #f4efe4;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
 }
 
-.events-event-card .events-outline-button:hover,
-.events-event-card .events-outline-button:focus-visible {
-  border-color: #fffaf1;
-  background: #fffaf1;
-  color: #11100d;
+body .events-event-card .events-outline-button:hover,
+body .events-event-card .events-outline-button:focus-visible {
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-box-button-hover-bg);
+  color: #2b241b;
 }
 
 .journal-card-grid {
@@ -900,7 +1025,7 @@
   isolation: isolate;
   display: flex;
   align-items: flex-end;
-  background: #11100d;
+  background: #2b241b;
 }
 
 .journal-story-card::before {
@@ -978,7 +1103,9 @@
 
 .journal-story-body > p:not(.journal-story-meta) {
   max-width: 30ch;
-  margin: 24px auto 0;
+  /* Small title→text gap so a 3-line title doesn't crowd the excerpt against
+     the pinned button (owner 2026-07-09). The button stays put. */
+  margin: 13px auto 0;
   color: #f8f3ec;
   font-size: clamp(1.12rem, 1.12vw, 1.28rem);
   line-height: 1.55;
@@ -992,22 +1119,24 @@
   min-width: min(100%, 210px);
   min-height: 50px;
   justify-content: center;
+  gap: 10px;
   margin: 34px auto 0;
-  padding: 0 48px;
-  border: 1px solid rgba(248, 243, 236, 0.9);
-  border-radius: var(--ui-button-radius);
-  background: rgba(248, 243, 236, 0.94);
-  color: #11100d;
+  padding: 0 40px;
+  border: 1px solid rgba(248, 243, 236, 0.5);
+  border-radius: 0;
+  background: rgba(248, 243, 236, 0.08);
+  color: #f4efe4;
   font-size: clamp(1.08rem, 1vw, 1.2rem);
   line-height: 1.1;
   text-align: center;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
 }
 
 .journal-story-card .journal-text-link:hover,
 .journal-story-card .journal-text-link:focus-visible {
-  border-color: #fffaf1;
-  background: #fffaf1;
-  color: #11100d;
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-box-button-hover-bg);
+  color: #2b241b;
 }
 
 @media (max-width: 620px) {
@@ -1112,8 +1241,8 @@
 .events-event-card .events-location {
   width: 100%;
   display: grid;
-  grid-template-columns: 22px minmax(0, 1fr);
-  align-items: start;
+  grid-template-columns: 24px minmax(0, 1fr);
+  align-items: center;
   gap: 10px;
   margin: 18px 0 18px;
   color: #f8f3ec;
@@ -1123,9 +1252,10 @@
 }
 
 .events-event-card .events-location svg {
-  width: 20px;
-  height: 20px;
-  margin-top: 1px;
+  width: 24px;
+  height: 24px;
+  margin-top: 0;
+  align-self: center;
 }
 
 .events-event-card .events-outline-button {
@@ -1138,7 +1268,7 @@
 .events-hero-text p,
 .journal-hero-text p,
 .about-hero-text p {
-  font-size: clamp(1.12rem, 1.12vw, 1.28rem);
+  font-size: clamp(1.32rem, 1.35vw, 1.56rem);
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0.01em;
@@ -1275,12 +1405,12 @@
 }
 
 .tools-page-redesign .tools-material-panel {
-  --material-panel-bg: #11100d;
-  --material-panel-ink: #f8f3ec;
-  --material-panel-muted: rgba(248, 243, 236, 0.72);
-  --material-panel-line: rgba(248, 243, 236, 0.16);
+  --material-panel-bg: #d4d0c4;
+  --material-panel-ink: #221c14;
+  --material-panel-muted: rgba(34, 28, 20, 0.74);
+  --material-panel-line: rgba(34, 28, 20, 0.16);
   border: 0;
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--material-panel-bg);
   color: var(--material-panel-ink);
   overflow: hidden;
@@ -1303,14 +1433,14 @@
 }
 
 .tools-page-redesign .tools-material-copy > p {
-  color: rgba(248, 243, 236, 0.88);
-  font-size: clamp(1.04rem, 1.14vw, 1.26rem);
+  color: var(--material-panel-muted);
+  font-size: clamp(1.32rem, 1.35vw, 1.54rem);
   line-height: 1.68;
 }
 
 .tools-page-redesign .tools-material-image {
   border-radius: var(--tools-inner-box-radius);
-  background: #11100d;
+  background: #2b241b;
   overflow: hidden;
 }
 
@@ -1331,7 +1461,7 @@
 }
 
 .tools-page-redesign .tools-material-proof-row .tools-proof-item svg {
-  color: #9fb16c;
+  color: #45301e;
 }
 
 .tools-page-redesign .tools-material-proof-row .tools-proof-item span,
@@ -1356,30 +1486,10 @@
   background: transparent;
 }
 
-/* Durability values form their own band, distinct from the rust image panel above. */
-.tools-page-redesign .tools-material-values {
-  background: var(--tools-paper-soft);
-}
-
-/* Cards clearly stand out from the band (were near-transparent on rust). */
-.tools-page-redesign .tools-material-values article {
-  border: 0;
-  border-radius: 0;
-  background: #191712;
-}
-
-.tools-page-redesign .tools-material-values article {
-  justify-content: flex-start;
-}
-
-.tools-page-redesign .tools-material-values h3 {
-  margin: 0 0 18px;
-}
-
 .tools-page-redesign .tools-care-copy p,
 .tools-page-redesign .tools-custom-copy p {
   color: rgba(248, 243, 236, 0.88);
-  font-size: clamp(1.02rem, 1.08vw, 1.18rem);
+  font-size: clamp(1.32rem, 1.35vw, 1.54rem);
   line-height: 1.66;
 }
 
@@ -1401,14 +1511,27 @@
 .tools-page-redesign
   :is(.tools-proof-item, .tools-care-copy, .tools-custom-copy)
   svg,
-.training-page-redesign .training-line-icon,
-.events-page-redesign .events-location svg {
+.training-page-redesign .training-line-icon {
   color: #9fb16c;
 }
 
+/* Location marker matches the card's cream text — the green pin read poorly
+   against it (owner 2026-07-08: "asukoha marker tekstiga võrreldes liiga halb"). */
+.events-page-redesign .events-location svg {
+  color: #f4efe4;
+}
+
+/* MIKS proof + quality-list icons = a dark brown accent on the rust band, NOT
+   green (owner 2026-07-08: "ikoonide värv pane tumedam pruun"). Card-meta / other
+   line icons stay green. */
+.tools-page-redesign .tools-material-proof-row .tools-proof-item svg,
+.training-page-redesign .training-quality-item .training-line-icon {
+  color: #45301e;
+}
+
 .tools-page-redesign :is(.tools-care-copy, .tools-custom-copy) > svg {
-  width: 40px;
-  height: 40px;
+  width: 66px;
+  height: 66px;
 }
 
 @media (max-width: 620px) {
@@ -1417,19 +1540,6 @@
     line-height: 1.68;
   }
 
-  .tools-page-redesign .tools-material-values article {
-    min-height: 0;
-    padding: 30px 20px 28px;
-  }
-
-  .tools-page-redesign .tools-material-values h3 {
-    max-width: 10.5ch;
-    margin-bottom: 20px;
-    font-size: clamp(1.9rem, 8vw, 2.45rem);
-    line-height: 1.04;
-  }
-
-  .tools-page-redesign .tools-material-values p,
   .tools-page-redesign .tools-care-copy p,
   .tools-page-redesign .tools-custom-copy p {
     font-size: 1.02rem;
@@ -2258,9 +2368,12 @@
   position: absolute;
   left: 50%;
   bottom: clamp(44px, 3.8vw, 64px);
-  width: min(100% - 56px, 264px);
+  width: fit-content;
+  max-width: calc(100% - 48px);
   min-width: 0;
   margin: 0;
+  padding-inline: clamp(30px, 3vw, 44px);
+  white-space: nowrap;
   transform: translateX(-50%);
 }
 
@@ -2298,7 +2411,8 @@
       .journal-story-carousel .journal-text-link
     ) {
     bottom: 36px;
-    width: min(calc(100% - 44px), 264px);
+    width: fit-content;
+    max-width: calc(100% - 40px);
   }
 }
 
@@ -2700,6 +2814,21 @@
   box-shadow: none !important;
 }
 
+/* ...but the scroll/carousel cards DO keep a soft lift shadow (owner 2026-07-09:
+   "pane kõikide alalehtede scroll kaartidele vari") — must beat the reset above.
+   The reset :is() is (0,2,0) via `.store-page .store-product-card`, so EVERY
+   selector here needs ≥(0,2,0) — bare `.events-event-card` (0,1,0) lost, leaving
+   events/journal cards shadowless until the page-root prefix was added. */
+.events-page-redesign .events-event-card,
+.journal-page-redesign .journal-story-card,
+.tools-page-redesign .tools-category-card,
+.training-page-redesign .training-card,
+.store-page .store-product-card {
+  /* More visible lift (owner 2026-07-09: "pane scroll kaartidele vari nagu
+     piltidele") — a dark shadow reads faint on the terracotta band, so deepen it. */
+  box-shadow: 0 24px 46px -12px rgba(0, 0, 0, 0.6) !important;
+}
+
 :is(
     .events-event-image,
     .events-event-body,
@@ -2735,6 +2864,21 @@
   box-shadow: none !important;
 }
 
+/* Framed band photos get a NORMAL, even box-shadow (owner 2026-07-09: the old
+   drop-shadow "ujub ringi ja ebakorrapärase kujuga" — irregular, floaty). The
+   reset above nukes box-shadow with !important, so re-apply it here with equal
+   (0,2,0) specificity + !important, placed later so it wins. clip-path would
+   clip a box-shadow, so make sure it's off on these frames. */
+.about-page-redesign .about-story-image,
+.events-page-redesign .events-host-image,
+.journal-page-redesign .journal-signup-image,
+.training-page-redesign .training-lasting-image,
+.tools-page-redesign .tools-material-image,
+.tools-page-redesign .tools-care-image {
+  clip-path: none !important;
+  box-shadow: 0 16px 34px -10px rgba(12, 8, 4, 0.5) !important;
+}
+
 /* ---------- Carousel cards: full-bleed image with overlaid copy ----------
    The tools/training/store cards join the events & journal cards: the photo
    fills the whole card, a dark gradient grounds the lower half, and the copy
@@ -2748,7 +2892,7 @@
   isolation: isolate;
   display: flex;
   align-items: stretch;
-  background: #11100d;
+  background: #2b241b;
 }
 
 .tools-page-redesign .tools-category-card::before,
@@ -2759,18 +2903,21 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
+  /* Photo stays readable in the upper 2/3; the ground darkens only where the
+     copy sits. */
   background:
     linear-gradient(
       180deg,
-      rgba(17, 16, 13, 0.05) 0%,
-      rgba(17, 16, 13, 0.22) 38%,
-      rgba(17, 16, 13, 0.92) 100%
+      rgba(17, 16, 13, 0.02) 0%,
+      rgba(17, 16, 13, 0.1) 46%,
+      rgba(17, 16, 13, 0.55) 72%,
+      rgba(17, 16, 13, 0.9) 100%
     ),
     linear-gradient(
       90deg,
-      rgba(17, 16, 13, 0.38) 0%,
-      rgba(17, 16, 13, 0.1) 48%,
-      rgba(17, 16, 13, 0.3) 100%
+      rgba(17, 16, 13, 0.22) 0%,
+      rgba(17, 16, 13, 0.06) 48%,
+      rgba(17, 16, 13, 0.18) 100%
     );
 }
 
@@ -2781,15 +2928,38 @@
   inset: 0;
   z-index: 0;
   aspect-ratio: auto;
-  background: #11100d;
+  background: #2b241b;
 }
 
 .tools-page-redesign .tools-category-image img,
 .training-page-redesign .training-card-image img,
 .store-page .store-product-image img {
   object-fit: cover;
-  filter: saturate(0.9) contrast(1.04) brightness(0.86);
+  filter: saturate(0.92) contrast(1.03) brightness(0.92);
   transform: scale(1.01);
+}
+
+/* Training photos run bright (forest sunsets) — darken them and deepen the card
+   scrim so the overlaid text stays readable (owner: "treeningu pildid liiga
+   heledad, ei paista tekstid välja"). */
+.training-page-redesign .training-card-image img {
+  filter: saturate(0.9) contrast(1.05) brightness(0.72);
+}
+.training-page-redesign .training-card::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(17, 16, 13, 0.32) 0%,
+      rgba(17, 16, 13, 0.46) 42%,
+      rgba(17, 16, 13, 0.7) 72%,
+      rgba(17, 16, 13, 0.92) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(17, 16, 13, 0.3) 0%,
+      rgba(17, 16, 13, 0.14) 50%,
+      rgba(17, 16, 13, 0.26) 100%
+    );
 }
 
 /* One shared, unhurried zoom on hover — the same life as the world cards */
@@ -2842,7 +3012,8 @@
   justify-content: flex-end;
   align-items: center;
   background: transparent;
-  padding: clamp(24px, 2vw, 34px) clamp(20px, 1.8vw, 30px) clamp(26px, 2.2vw, 36px);
+  /* Tight copy block at the card foot — the photo stays visible above it. */
+  padding: clamp(18px, 1.6vw, 26px) clamp(20px, 1.8vw, 30px) clamp(20px, 1.8vw, 28px);
   text-align: center;
 }
 
@@ -2866,18 +3037,47 @@
 .tools-page-redesign .tools-category-body > p,
 .training-page-redesign .training-card-body > p {
   max-width: 30ch;
-  margin: 14px auto 0;
+  margin: 10px auto 0;
   font-size: clamp(1.08rem, 1.1vw, 1.24rem);
-  line-height: 1.52;
+  line-height: 1.5;
 }
 
 .training-page-redesign .training-card .training-meta {
-  margin-top: 16px;
+  margin-top: 12px;
+  gap: 8px;
 }
 
+/* Card CTAs read as outline arrow-buttons that fill on hover, not plain text
+   links (owner: "pane nupud noolega lingi asemele, Vaata"). */
 .tools-page-redesign .tools-category-body .tools-text-link,
 .training-page-redesign .training-card .training-text-link {
-  margin-top: 20px;
+  align-self: center;
+  gap: 10px;
+  margin-top: clamp(16px, 1.6vw, 22px);
+  padding: 12px 26px;
+  border: 1px solid rgba(248, 243, 236, 0.5);
+  border-radius: 0;
+  background: rgba(248, 243, 236, 0.08);
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+.tools-page-redesign .tools-category-body .tools-text-link:hover,
+.tools-page-redesign .tools-category-body .tools-text-link:focus-visible,
+.training-page-redesign .training-card .training-text-link:hover,
+.training-page-redesign .training-card .training-text-link:focus-visible {
+  background: var(--ui-box-button-hover-bg);
+  border-color: var(--ui-box-button-hover-bg);
+  color: #2b241b;
+}
+.tools-page-redesign .tools-category-body .tools-text-link:hover :is(span, svg),
+.tools-page-redesign .tools-category-body .tools-text-link:focus-visible :is(span, svg),
+.training-page-redesign .training-card .training-text-link:hover :is(span, svg),
+.training-page-redesign .training-card .training-text-link:focus-visible :is(span, svg) {
+  color: #2b241b;
+}
+
+/* Events card CTA carries its arrow with a little breathing room. */
+.events-outline-button {
+  gap: 10px;
 }
 
 .store-page .store-product-body h3 {

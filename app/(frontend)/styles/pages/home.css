@@ -37,6 +37,28 @@
   text-transform: none;
   letter-spacing: 0;
   color: var(--home-clay);
+  will-change: transform, opacity;
+}
+
+/* The hero keyword breathes in on load, a beat after the heading. Scroll-linked
+   motion for all three keywords lives in HomeMotion.jsx. */
+@media (prefers-reduced-motion: no-preference) {
+  .home-split-hero .home-title-accent {
+    animation: home-accent-in 1.25s cubic-bezier(0.22, 0.61, 0.36, 1) 0.55s backwards;
+  }
+}
+
+@keyframes home-accent-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
 
 /* ---------- Split section system ---------- */
@@ -80,12 +102,12 @@
   .home-split-hero .home-split-media {
     align-self: center;
     justify-self: center;
-    width: min(calc(100% - clamp(64px, 7vw, 136px)), 760px);
-    aspect-ratio: 5 / 4;
-    max-height: min(76vh, 680px);
+    width: min(calc(100% - clamp(48px, 5vw, 104px)), 860px);
+    aspect-ratio: 3 / 2;
+    max-height: min(78vh, 700px);
     box-shadow:
-      0 34px 90px rgba(15, 11, 6, 0.5),
-      0 6px 24px rgba(15, 11, 6, 0.3);
+      0 20px 40px rgba(15, 11, 6, 0.52),
+      0 5px 13px rgba(15, 11, 6, 0.36);
   }
 
   /* Philosophy: framed photo on the left, copy on the right */
@@ -97,12 +119,12 @@
   .home-split-philosophy .home-split-media {
     align-self: center;
     justify-self: center;
-    width: min(calc(100% - clamp(64px, 7vw, 136px)), 700px);
-    aspect-ratio: 5 / 4;
-    max-height: min(74vh, 640px);
+    width: min(calc(100% - clamp(48px, 5vw, 104px)), 800px);
+    aspect-ratio: 3 / 2;
+    max-height: min(76vh, 660px);
     box-shadow:
-      0 34px 90px rgba(21, 26, 13, 0.42),
-      0 6px 24px rgba(21, 26, 13, 0.28);
+      0 20px 40px rgba(21, 26, 13, 0.46),
+      0 5px 13px rgba(21, 26, 13, 0.32);
   }
 
   .home-split-philosophy .home-split-copy {
@@ -121,12 +143,12 @@
   .home-split-tools .home-split-media {
     align-self: center;
     justify-self: center;
-    width: min(calc(100% - clamp(64px, 7vw, 136px)), 520px);
-    aspect-ratio: 4 / 5;
-    max-height: min(80vh, 680px);
+    width: min(calc(100% - clamp(48px, 5vw, 104px)), 800px);
+    aspect-ratio: 3 / 2;
+    max-height: min(76vh, 660px);
     box-shadow:
-      0 34px 90px rgba(46, 17, 6, 0.44),
-      0 6px 24px rgba(46, 17, 6, 0.3);
+      0 20px 40px rgba(46, 17, 6, 0.48),
+      0 5px 13px rgba(46, 17, 6, 0.34);
   }
 
   .home-split-tools .home-split-copy {
@@ -152,7 +174,7 @@
   }
 
   .home-split-tools .home-split-media::before {
-    background: #74351c;
+    background: #8a5240;
   }
 }
 
@@ -173,30 +195,23 @@
     animation: home-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.44s both;
   }
 
-  /* Curtain wipe: a panel in the section colour slides off the framed photo */
-  .home-split-hero .home-split-media::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    z-index: 3;
-    background: #2b241b;
-    transform-origin: bottom;
-    animation: home-curtain 1.05s cubic-bezier(0.76, 0, 0.24, 1) 0.32s both;
-    pointer-events: none;
-  }
+  /* Hero photo shows immediately — the load "curtain wipe" was removed
+     (owner 2026-07-09: "võta headeri piltidelt see efekt ära kui lehe laen"). */
 
-  /* Quiet scroll cue at the foot of the hero */
+  /* Scroll cue at the foot of the hero: a clean down-chevron (crisp SVG, round
+     joins) that gently drifts and fades. Sits low, clear of the framed photo. */
   .home-split-hero::before {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: 14px;
     z-index: 4;
-    width: 1px;
-    height: 62px;
-    background: linear-gradient(180deg, rgba(244, 239, 228, 0) 0%, rgba(244, 239, 228, 0.6) 100%);
-    transform-origin: top;
-    animation: home-scrollcue 2.8s cubic-bezier(0.65, 0, 0.35, 1) 1.4s infinite;
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    background: no-repeat center / contain
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 34 34' fill='none' stroke='%23f2ddc2' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 13.5l8 8 8-8'/%3E%3C/svg%3E");
+    animation: home-scrollcue 2.6s cubic-bezier(0.65, 0, 0.35, 1) 1.4s infinite;
     opacity: 0;
   }
 }
@@ -221,19 +236,17 @@
 @keyframes home-scrollcue {
   0% {
     opacity: 0;
-    transform: scaleY(0);
+    transform: translateY(-5px);
   }
-  30% {
-    opacity: 1;
-    transform: scaleY(1);
+  35% {
+    opacity: 0.9;
   }
-  72% {
-    opacity: 1;
-    transform: scaleY(1);
+  70% {
+    opacity: 0.9;
   }
   100% {
     opacity: 0;
-    transform: scaleY(1) translateY(10px);
+    transform: translateY(7px);
   }
 }
 
@@ -262,10 +275,10 @@
   margin: 0 0 clamp(24px, 2.6vw, 34px);
   color: var(--home-clay-deep);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(0.92rem, 1vw, 1.05rem);
-  font-weight: 600;
+  font-size: clamp(1.08rem, 1.22vw, 1.34rem);
+  font-weight: 700;
   line-height: 1.4;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
@@ -309,7 +322,9 @@
 }
 
 .home-split-title .home-title-accent {
-  display: inline;
+  /* inline-block: wraps as one unit and accepts the scroll-linked transform
+     from HomeMotion.jsx (transforms don't apply to plain inline boxes). */
+  display: inline-block;
   font-size: 1.02em;
 }
 
@@ -343,7 +358,7 @@
 }
 
 .home-split-hero .home-split-eyebrow {
-  color: #e6cfa4;
+  color: #f6e6c6;
 }
 
 .home-split-hero .home-split-eyebrow::before {
@@ -370,7 +385,7 @@
 }
 
 .home-split-philosophy .home-split-eyebrow {
-  color: #eeddb4;
+  color: #f5e9cb;
 }
 
 .home-split-philosophy .home-split-eyebrow::before {
@@ -380,7 +395,7 @@
 .home-split-tools {
   background:
     radial-gradient(64% 56% at 72% 42%, rgba(242, 217, 182, 0.13) 0%, rgba(242, 217, 182, 0) 62%),
-    radial-gradient(130% 120% at 50% 0%, #a5502f 0%, #8c4327 56%, #74351c 100%);
+    radial-gradient(130% 120% at 50% 0%, #ac6b52 0%, #9d5f47 56%, #8a5240 100%);
   color: #f7efe1;
 }
 
@@ -397,7 +412,7 @@
 }
 
 .home-split-tools .home-split-eyebrow {
-  color: #f2d9b6;
+  color: #f7e7cd;
 }
 
 .home-split-tools .home-split-eyebrow::before {
@@ -501,10 +516,10 @@
   overflow: hidden;
   margin-top: 0;
   opacity: 0;
-  color: rgba(247, 241, 228, 0.78);
-  font-size: 0.74rem;
+  color: rgba(247, 241, 228, 0.86);
+  font-size: clamp(1.04rem, 1.12vw, 1.24rem);
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   transform: translateY(6px);
   transition:

@@ -5,7 +5,7 @@
   --cart-ink: #11100d;
   --cart-muted: rgba(17, 16, 13, 0.68);
   --cart-line: rgba(17, 16, 13, 0.18);
-  --cart-card: #191712;
+  --cart-card: #332a1e;
   --cart-card-ink: #f5efe5;
   --cart-card-muted: rgba(245, 239, 229, 0.72);
   --cart-button: #f0e9dd;
@@ -151,7 +151,7 @@
   height: 100%;
   min-height: 100%;
   overflow: hidden;
-  background: #11100d;
+  background: #2b241b;
 }
 
 .cart-swatch img {
@@ -244,7 +244,7 @@
   grid-template-columns: 42px minmax(34px, auto) 42px;
   align-items: center;
   border: 1px solid rgba(245, 239, 229, 0.28);
-  border-radius: 0.375rem;
+  border-radius: 0;
   color: var(--cart-card-ink);
 }
 
@@ -349,7 +349,7 @@
   align-items: center;
   justify-content: center;
   border: 1px solid var(--cart-button);
-  border-radius: 0.375rem;
+  border-radius: 0;
   background: var(--cart-button);
   color: var(--cart-ink);
   padding: 0 26px;

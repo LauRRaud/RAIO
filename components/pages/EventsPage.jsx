@@ -52,20 +52,22 @@ export async function EventsPage({ locale = "et" }) {
           id="lahitulevad"
           aria-labelledby="events-upcoming-title"
         >
-          <div className="events-section-top">
-            <h2 id="events-upcoming-title">{t.upcomingTitle}</h2>
-            <Link href={aboutHref} className="events-all-link">
-              {t.allLink}
-              <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
-            </Link>
-          </div>
+          <div className="events-scroll-band">
+            <div className="events-section-top">
+              <h2 id="events-upcoming-title">{t.upcomingTitle}</h2>
+              <Link href={aboutHref} className="events-all-link">
+                {t.allLink}
+                <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
+              </Link>
+            </div>
 
-          <EventsCardsCarousel
-            events={events}
-            cta={t.cardCta}
-            modalClose={t.modalClose}
-            labels={messages.carousel.events}
-          />
+            <EventsCardsCarousel
+              events={events}
+              cta={t.cardCta}
+              modalClose={t.modalClose}
+              labels={messages.carousel.events}
+            />
+          </div>
 
           <section
             className="events-host-cta"
@@ -76,7 +78,7 @@ export async function EventsPage({ locale = "et" }) {
                 src={t.host.image}
                 alt={t.host.imageAlt}
                 fill
-                sizes="(max-width: 900px) 100vw, 58vw"
+                sizes="(max-width: 900px) 100vw, 44vw"
               />
             </div>
             <div className="events-host-copy">

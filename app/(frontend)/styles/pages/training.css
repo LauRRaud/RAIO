@@ -1,7 +1,7 @@
 /* Training page */
 .training-page-redesign {
-  --training-paper: #f0e9dd;
-  --training-paper-soft: #f0e9dd;
+  --training-paper: #f2ddc2;
+  --training-paper-soft: #f2ddc2;
   --training-ink: #11100d;
   --training-muted: rgba(17, 16, 13, 0.72);
   --training-line: rgba(17, 16, 13, 0.18);
@@ -102,8 +102,8 @@
 .training-workshop-copy p {
   margin: 0;
   color: var(--training-ink);
-  font-size: clamp(0.92rem, 0.98vw, 1.06rem);
-  line-height: 1.72;
+  font-size: clamp(1.06rem, 1.12vw, 1.24rem);
+  line-height: 1.7;
 }
 
 .training-solid-button {
@@ -286,8 +286,8 @@
 }
 
 .training-line-icon {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
   flex: 0 0 auto;
   color: var(--training-icon-green);
 }
@@ -439,7 +439,8 @@ body .training-modal-content .training-meta span {
 
 .training-lasting-panel {
   display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(0, 0.62fr) minmax(300px, 0.56fr);
+  /* Three equal strips: photo | copy | quality list — regular rhythm. */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   margin-top: 24px;
   border: 1px solid var(--training-line);
   background: rgba(240, 233, 221, 0.62);
@@ -474,8 +475,8 @@ body .training-modal-content .training-meta span {
 
 .training-lasting-copy p {
   margin-top: 14px;
-  font-size: clamp(0.68rem, 0.72vw, 0.82rem);
-  line-height: 1.56;
+  font-size: clamp(1.06rem, 1.12vw, 1.24rem);
+  line-height: 1.66;
 }
 
 .training-lasting-copy .training-solid-button {
@@ -492,10 +493,17 @@ body .training-modal-content .training-meta span {
 .training-quality-item {
   min-height: 66px;
   display: grid;
-  grid-template-columns: 44px minmax(0, 1fr);
+  grid-template-columns: 52px minmax(0, 1fr);
   align-items: center;
-  gap: 22px;
+  gap: 15px;
   border-bottom: 1px solid var(--training-line);
+}
+
+/* Quality-list icons read as a dark brown accent on the rust band, not green
+   (owner 2026-07-08: "ikoonide värv pane tumedam pruun"). Card-meta icons keep
+   their own colour. */
+.training-quality-item .training-line-icon {
+  color: #45301e;
 }
 
 .training-quality-item:last-child {
@@ -528,11 +536,11 @@ body .training-modal-content .training-meta span {
 .training-workshop-copy p {
   max-width: 540px;
   margin-top: 12px;
-  font-size: clamp(0.76rem, 0.8vw, 0.9rem);
+  font-size: clamp(1.08rem, 1.14vw, 1.26rem);
 }
 
 .training-workshop-panel > .training-solid-button {
-  width: min(100%, 220px);
+  width: fit-content;
   justify-self: center;
 }
 
@@ -648,7 +656,7 @@ body .training-modal-content .training-meta span {
 @media (max-width: 620px) {
 
   .training-hero-image img {
-    object-position: 62% center;
+    object-position: center center;
   }
 }
 
@@ -780,10 +788,95 @@ body .training-modal-content .training-meta span {
   width: 100vw;
   margin-inline: calc(50% - 50vw);
 }
-.training-page-redesign .training-lasting-panel { padding-inline: 0; }
-.training-page-redesign .training-workshop-panel {
-  padding-inline: var(--band-pad);
-  padding-block: clamp(44px, 5vw, 76px);
+
+/* Full-bleed terracotta band behind the scroll/carousel (owner 2026-07-09). */
+.training-page-redesign .training-content-section { padding: 0; }
+.training-page-redesign .training-scroll-band {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding: clamp(48px, 5vw, 82px) var(--band-pad) clamp(48px, 5.5vw, 78px);
+  background:
+    radial-gradient(72% 60% at 50% 0%, rgba(242, 217, 182, 0.1) 0%, rgba(242, 217, 182, 0) 60%),
+    linear-gradient(180deg, #a4664e 0%, #9a5c44 100%);
+}
+/* Dark text on terracotta (owner 2026-07-09). */
+.training-page-redesign .training-scroll-band .training-section-intro h2 {
+  color: #241610;
+}
+.training-page-redesign .training-scroll-band .training-section-intro p {
+  color: rgba(36, 22, 16, 0.82);
+  border-top-color: rgba(36, 22, 16, 0.28);
+}
+/* Bands stack seamlessly — no cream gaps between scroll/lasting/workshop. */
+.training-page-redesign .training-lasting-panel,
+.training-page-redesign .training-workshop-panel { margin-top: -1px; }
+/* Lasting band: wide framed photo on the left — hero-scale — with copy and
+   the quality list stacked on the right. */
+.training-page-redesign .training-lasting-panel {
+  grid-template-columns: minmax(480px, 740px) minmax(0, 1fr);
+  column-gap: clamp(40px, 5.5vw, 100px);
+  row-gap: clamp(26px, 2.6vw, 38px);
+  align-items: center;
+  align-content: center;
+  padding: clamp(56px, 6vw, 88px) var(--band-pad);
+}
+
+.training-page-redesign .training-lasting-image {
+  grid-row: 1 / 3;
+  width: 100%;
+  min-height: 0;
+  aspect-ratio: 3 / 2;
+  background: #2b241b;
+  /* Real box-shadow lives in typography-cleanup (beats the frame reset). */
+  filter: none;
+}
+
+.training-page-redesign .training-lasting-copy {
+  grid-column: 2;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.training-page-redesign .training-quality-list {
+  position: relative;
+  grid-column: 2;
+  border-left: 0;
+  padding: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Tighter vertical rhythm (owner 2026-07-09: "vahed väiksemaks vertikaalselt"). */
+  gap: clamp(6px, 0.7vw, 12px) clamp(28px, 3vw, 48px);
+  align-content: start;
+}
+
+/* A single SHORT accent line centred between the two rows (owner 2026-07-09:
+   "see kriips tee lühem ja pane kahe rea vahele") — not per-item borders. */
+.training-page-redesign .training-quality-list::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 1px;
+  background: rgba(34, 28, 20, 0.4);
+}
+
+/* Editorial list items: icon + centred label. Column matches the 50px icon so
+   it aligns like the MIKS row. No per-item rule — the list has one short one. */
+.training-page-redesign .training-quality-item {
+  min-height: 0;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  border-top: 0;
+  border-bottom: 0;
+  padding-block: clamp(8px, 0.9vw, 14px);
+}
+
+.training-page-redesign .training-quality-item .training-line-icon {
+  width: 50px;
+  height: 50px;
 }
 
 /* Square, borderless bands and images. */
@@ -794,22 +887,89 @@ body .training-modal-content .training-meta span {
 }
 .training-page-redesign .training-lasting-image { border-radius: 0 !important; }
 
-/* Seamless stacking: bands touch each other and the footer. */
-.training-page-redesign .training-workshop-panel { margin-top: 0; }
+/* Seamless stacking: bands touch each other and the footer. -1px overlap
+   hides the fractional-DPR hairline between the stacked bands. */
+.training-page-redesign .training-workshop-panel { margin-top: -1px; }
 .training-page-redesign .training-content-section { padding-bottom: 0; }
 
-/* Lasting band: the image runs to the left edge; the quality list stays inset. */
-.training-page-redesign .training-quality-list { padding-inline-end: var(--band-pad); }
+/* Workshop band: a centred call-to-action moment — no empty half-screen. */
+.training-page-redesign .training-workshop-panel {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 0;
+  padding-inline: var(--band-pad);
+  padding-block: clamp(72px, 8.5vw, 118px);
+  text-align: center;
+}
 
-/* Band colours (unchanged) over the polarity theme. */
-.training-page-redesign .training-lasting-panel { --ui-box-bg: #8c4327; background: #8c4327 !important; }
-.training-page-redesign .training-workshop-panel { --ui-box-bg: #4d5936; background: #4d5936 !important; }
+.training-page-redesign .training-workshop-copy {
+  display: grid;
+  justify-items: center;
+}
+
+/* Heading breaks onto two lines instead of one very wide line (owner 2026-07-08). */
+.training-page-redesign .training-workshop-copy h2 {
+  max-width: 32ch;
+  text-wrap: balance;
+}
+
+.training-page-redesign .training-workshop-copy h2::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 1px;
+  margin: clamp(16px, 1.6vw, 24px) auto 0;
+  background: rgba(245, 239, 229, 0.45);
+}
+
+.training-page-redesign .training-workshop-copy p {
+  max-width: 52ch;
+  /* Drop the paragraph lower, away from the heading rule (owner 2026-07-09:
+     "pane tekst ... alla poole"). */
+  margin-top: clamp(34px, 4.4vw, 64px);
+  font-size: clamp(1.18rem, 1.22vw, 1.42rem);
+  line-height: 1.62;
+}
+
+.training-page-redesign .training-workshop-panel > .training-solid-button {
+  justify-self: center;
+  margin-top: clamp(26px, 2.6vw, 36px);
+}
+
+/* Band colours (with the shared soft glow) over the polarity theme.
+   Lasting band = light "nature gray" with DARK ink (owner 2026-07-09: "Siia ka
+   hall: Treening, mis jääb sinuga ka pärast") — same treatment as the MIKS band. */
+.training-page-redesign .training-lasting-panel {
+  --ui-box-bg: #bcb9a9;
+  --ui-box-ink: #221c14;
+  --ui-box-muted: rgba(34, 28, 20, 0.72);
+  --ui-box-line: rgba(34, 28, 20, 0.16);
+  --training-line: rgba(34, 28, 20, 0.16);
+  --training-ink: #221c14;
+  background:
+    radial-gradient(64% 56% at 26% 30%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(135deg, #aaa694 0%, #97927f 100%) !important;
+}
+.training-page-redesign .training-workshop-panel {
+  --ui-box-bg: #4d5936;
+  background:
+    radial-gradient(70% 62% at 50% 20%, rgba(232, 224, 170, 0.1) 0%, rgba(232, 224, 170, 0) 62%),
+    linear-gradient(150deg, #55613c 0%, #48542f 100%) !important;
+}
 .training-page-redesign :is(.training-lasting-copy, .training-quality-list, .training-workshop-copy) { background: transparent !important; }
 
-/* Homepage-scale band height on desktop (mobile keeps its natural stacked height). */
-@media (min-width: 981px) {
-  .training-page-redesign .training-lasting-panel,
-  .training-page-redesign .training-workshop-panel {
-    min-height: var(--band-h);
+@media (max-width: 980px) {
+  .training-page-redesign .training-lasting-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .training-page-redesign .training-lasting-image {
+    grid-row: auto;
+    max-width: 480px;
+  }
+
+  .training-page-redesign .training-lasting-copy,
+  .training-page-redesign .training-quality-list {
+    grid-column: 1;
   }
 }

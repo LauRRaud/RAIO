@@ -152,7 +152,7 @@
       ]
     },
     "tools": {
-      "image": "/Pictures/Pood/Puu ja kivi sangpomm.png",
+      "image": "/Pictures/Avaleht/pomm.png",
       "imageAlt": "Handcrafted wood and stone kettlebell on grass",
       "eyebrow": "Handcrafted tools",
       "headingStart": "Stone, wood and",
@@ -176,7 +176,7 @@
     "heroImagePosition": "center center",
     "listTitle": "Training in our nature",
     "listIntro": "We offer a range of trainings that support both body and mind. Choose the format that suits you and connect through movement - with yourself, nature, and community.",
-    "cardCta": "Learn more",
+    "cardCta": "View",
     "modalClose": "Close training",
     "trainings": [
       {
@@ -196,7 +196,7 @@
         "description": "A focus on strength, endurance, and building physical capacity with natural tools.",
         "duration": "75-90 min",
         "level": "Intermediate-advanced",
-        "image": "/Pictures/Treeningud/header.png",
+        "image": "/Pictures/Treeningud/jõu ja vastupidavuse treening.png",
         "body": [
           "This session focuses on stronger effort: carrying capacity, grip, core work, and longer work capacity.",
           "We use natural weights, kettlebells, bodyweight, and intervals with changing pace. The focus is clean technique and the ability to keep quality under fatigue.",
@@ -208,7 +208,7 @@
         "description": "Training for mobility, flexibility, and body awareness that helps prevent injuries and improves movement quality.",
         "duration": "45-60 min",
         "level": "Beginner-intermediate",
-        "image": "/Pictures/Treeningud/treening-jaab.png",
+        "image": "/Pictures/Treeningud/liikuvus ja mobiilsus.png",
         "body": [
           "Mobility training helps the body move more freely and safely. We focus on joint control, breathing, balance, and entering range of motion calmly.",
           "This is not just stretching. The exercises teach the body to create strength in positions where uncertainty or tension usually appears.",
@@ -220,7 +220,7 @@
         "description": "A slowing, grounding blend of practices that supports the nervous system, clarity, and inner balance.",
         "duration": "60 min",
         "level": "For everyone",
-        "image": "/Pictures/Treeningud/header.png",
+        "image": "/Pictures/Treeningud/rituaalne liikumine ja hingamine1.png",
         "body": [
           "Ritual movement creates room to slow down. The focus is breathing, presence, and restoring connection with the body.",
           "The practice can include gentle movement sequences, contact with the ground, conscious breathing, and moments of silence. The goal is not maximum output, but nervous-system balance.",
@@ -289,7 +289,7 @@
       }
     ],
     "categoriesTitle": "Tool categories",
-    "categoryCta": "Learn more",
+    "categoryCta": "View",
     "categories": [
       {
         "title": "Wooden tools",
@@ -381,7 +381,7 @@
     "heroImagePosition": "center center",
     "upcomingTitle": "Upcoming events",
     "allLink": "View all",
-    "cardCta": "Learn more",
+    "cardCta": "View",
     "modalClose": "Close event",
     "events": [
       {

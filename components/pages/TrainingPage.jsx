@@ -57,16 +57,18 @@ export async function TrainingPage({ locale = "et" }) {
           id="treeningud"
           aria-labelledby="training-list-title"
         >
-          <div className="training-section-intro">
-            <h2 id="training-list-title">{t.listTitle}</h2>
-          </div>
+          <div className="training-scroll-band">
+            <div className="training-section-intro">
+              <h2 id="training-list-title">{t.listTitle}</h2>
+            </div>
 
-          <TrainingCardsCarousel
-            trainings={trainings}
-            cta={t.cardCta}
-            modalClose={t.modalClose}
-            labels={messages.carousel.training}
-          />
+            <TrainingCardsCarousel
+              trainings={trainings}
+              cta={t.cardCta}
+              modalClose={t.modalClose}
+              labels={messages.carousel.training}
+            />
+          </div>
 
           <section
             className="training-lasting-panel"

@@ -43,7 +43,9 @@
   z-index: 80;
   border: 0;
   border-bottom: 1px solid rgba(17, 16, 13, 0.1);
-  background: var(--raio-paper-soft);
+  /* Frame (header + footer) is a touch deeper & more muted than the page paper
+     (owner 2026-07-08: "jalus ja päis pastelsemaks, veidi tumedamaks"). */
+  background: #e6ceb0;
   box-shadow:
     0 10px 28px rgba(17, 16, 13, 0.14),
     0 4px 12px rgba(17, 16, 13, 0.08);

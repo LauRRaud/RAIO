@@ -129,7 +129,6 @@ export function TrainingCardsCarousel({
                 aria-haspopup="dialog"
               >
                 {cta}
-                <span aria-hidden="true">→</span>
               </button>
             </div>
           </article>

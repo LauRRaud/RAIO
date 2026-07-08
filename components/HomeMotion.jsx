@@ -20,6 +20,7 @@ export function HomeMotion() {
       sec,
       mode: sec.getAttribute("data-motion"),
       txt: sec.querySelector(".home-split-copy"),
+      acc: sec.querySelector(".home-title-accent"),
       box: sec.querySelector(".home-split-media"),
       img: sec.querySelector(".home-split-media img")
     }));
@@ -28,8 +29,8 @@ export function HomeMotion() {
     const clamp = (v, lo, hi) => (v < lo ? lo : v > hi ? hi : v);
 
     const reset = () => {
-      for (const { txt, box, img } of sections) {
-        for (const el of [txt, box, img]) {
+      for (const { txt, acc, box, img } of sections) {
+        for (const el of [txt, acc, box, img]) {
           if (el) {
             el.style.transform = "";
             el.style.opacity = "";
@@ -56,7 +57,7 @@ export function HomeMotion() {
       const H = window.innerHeight;
       const st = window.scrollY || window.pageYOffset;
 
-      for (const { sec, mode, txt, box, img } of sections) {
+      for (const { sec, mode, txt, acc, box, img } of sections) {
         if (!txt || !box) continue;
         const top = sec.offsetTop;
         const h = sec.offsetHeight;
@@ -74,13 +75,21 @@ export function HomeMotion() {
           if (img) {
             img.style.transform = `scale(1.12) translateY(${(p * 5).toFixed(2)}%)`;
           }
+          /* The italic word trails the rest of the heading on the way out —
+             the copy lifts, "tunne." lets go a beat later. */
+          if (acc) {
+            acc.style.transform = `translateY(${(p * H * 0.06).toFixed(1)}px)`;
+          }
         } else {
           /* Entry: 0 → 1 while the section scrolls into view. */
           const e = clamp((st + H - top) / (H * 0.75), 0, 1);
           const rest = 1 - e;
           txt.style.transform = `translateY(${(rest * 56).toFixed(1)}px)`;
           txt.style.opacity = clamp(e * 1.35, 0, 1).toFixed(2);
-          box.style.transform = "";
+          /* The framed photo trails the scroll slightly — real parallax
+             between the frame and its colour field, but small enough that
+             the frame never leaves the section. */
+          box.style.transform = `translateY(${(d * 46).toFixed(1)}px)`;
           box.style.opacity = "";
           /* Curtain reveal on the framed photo (CSS ::before reads --reveal).
              Eased so it opens briskly and settles softly. */
@@ -92,6 +101,23 @@ export function HomeMotion() {
           }
           if (img) {
             img.style.transform = `scale(1.06) translateY(${(-d * 2.4).toFixed(2)}%)`;
+          }
+          /* The italic keyword moves on its own layer, on a slower clock than
+             the copy: its entry window is ~1.5× longer, and the drift term is
+             tied to the section centre — so it only truly comes to rest when
+             the section is centred in the viewport, not right after entering.
+             It enters from far out to one side (the section clips it, and it's
+             near-transparent at max offset, so it reads as sliding in from the
+             margin) and keeps a slow glide while the section is on screen. */
+          if (acc) {
+            const ea = clamp((st + H - top) / (H * 1.15), 0, 1);
+            const restA = 1 - ea;
+            /* Enter from the outer margin on the same side as the copy column:
+               the first split (philosophy, copy on the right) slides in from the
+               right; the next (tools, copy on the left) from the left. */
+            const sign = mode === "side" ? 1 : -1;
+            acc.style.transform = `translate3d(${((restA * 168 + d * 26) * sign).toFixed(1)}px, ${(restA * 26 + d * 14).toFixed(1)}px, 0)`;
+            acc.style.opacity = clamp((ea - 0.1) * 1.32, 0, 1).toFixed(2);
           }
         }
       }
