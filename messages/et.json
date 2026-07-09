@@ -292,7 +292,7 @@
     "categoryCta": "Vaata",
     "categories": [
       {
-        "title": "Puidust vahendid",
+        "title": "Treeningsauad",
         "description": "Sauad, nuiad ja muud puidust treeningvahendid.",
         "image": "/Pictures/Vahendid/jalutuskepp.png",
         "href": "/pood?kategooria=puidust-vahendid"
@@ -595,7 +595,7 @@
       },
       {
         "id": "puidust-vahendid",
-        "label": "Puidust vahendid"
+        "label": "Treeningsauad"
       },
       {
         "id": "lastele",
@@ -618,7 +618,7 @@
       "treeningnui-sau": {
         "name": "Treeningnui (sau)",
         "description": "Puidust treeningvahend liikuvuse, haarde ja kogu keha jõu arendamiseks.",
-        "categoryLabel": "Puidust vahendid",
+        "categoryLabel": "Treeningsauad",
         "productionNote": "Valmib käsitööna tellimuse alusel.",
         "estimatedProductionTime": "2-4 nädalat"
       },

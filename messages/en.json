@@ -292,7 +292,7 @@
     "categoryCta": "View",
     "categories": [
       {
-        "title": "Wooden tools",
+        "title": "Training staffs",
         "description": "Staffs, clubs, and other wooden training tools.",
         "image": "/Pictures/Vahendid/jalutuskepp.png",
         "href": "/pood?kategooria=puidust-vahendid"
@@ -595,7 +595,7 @@
       },
       {
         "id": "puidust-vahendid",
-        "label": "Wooden tools"
+        "label": "Training staffs"
       },
       {
         "id": "lastele",
@@ -618,7 +618,7 @@
       "treeningnui-sau": {
         "name": "Training club (staff)",
         "description": "A wooden training tool for developing mobility, grip, and whole-body strength.",
-        "categoryLabel": "Wooden tools",
+        "categoryLabel": "Training staffs",
         "productionNote": "Handmade to order.",
         "estimatedProductionTime": "2-4 weeks"
       },
