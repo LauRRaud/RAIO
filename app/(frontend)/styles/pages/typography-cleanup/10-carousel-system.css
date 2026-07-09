@@ -60,9 +60,55 @@
   display: flex;
   grid-template-columns: none;
   gap: var(--raio-carousel-gap);
+  /* Native horizontal scroll — the images slide left/right; arrows scrollBy and
+     trackpad/drag work too (owner 2026-07-09: "saad kerida pilte"). Snap keeps
+     each card aligned. padding-bottom gives the card lift shadow room since
+     overflow-y must clip. */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  /* Reset the old scroll-padding (page files set ~4vw) — it shifted every snap
+     point off the card boundary, leaving a partial card after arrow clicks. */
+  scroll-padding-inline: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Shadow room (owner 2026-07-09: vari tagasi, aga "ei tunduks ära lõigatud").
+   A scrollport clips to its padding box, so give the track side/bottom padding
+   for the card shadow and pull the box back out with equal negative margins so
+   the layout doesn't move. scroll-padding keeps the snap points on the card
+   boundaries (offsetLeft now includes the side padding). The 18px stays under
+   the ≥24px column gap so the track never overlaps the edge arrows. */
+@media (min-width: 621px) {
+  :is(
+    .events-event-carousel .events-grid-redesign,
+    .journal-story-carousel .journal-card-grid,
+    .store-page .store-product-carousel .store-product-grid,
+    .tools-page-redesign .tools-category-carousel .tools-category-grid,
+    .training-page-redesign .training-card-carousel .training-card-grid
+  ) {
+    /* width grows by the side padding so the CONTENT area keeps its original
+       width — otherwise the cards shrink and the row ends short of the
+       section-top edge. Side padding MUST stay under the 24px column gap or
+       the off-screen neighbour card peeks into the visible strip; the shadow
+       itself is bottom-only (13-frames-shadows), so 20px of side room is
+       plenty and the bottom tail lives in the 48px. */
+    width: calc(100% + 40px);
+    padding: 0 20px 48px;
+    margin: 0 -20px -48px;
+    scroll-padding-inline: 20px;
+  }
+}
+
+/* Expanded events grid ("Vaata kõiki") wraps to multiple rows — it must not clip
+   or snap, and needs none of the shadow-room box tricks. */
+.events-event-carousel .events-grid-redesign.is-expanded {
   overflow: visible;
-  /* Room for the card lift shadow (13-frames-shadows) — overflow: visible
-     allows shadows to bleed naturally, no padding hack needed anymore! */
+  scroll-snap-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 :is(
@@ -95,6 +141,9 @@
 ) {
   position: static;
   grid-row: 1;
+  /* Above the track, whose shadow-room box overlaps the arrow gutters —
+     grid items honour z-index even without positioning. */
+  z-index: 1;
   width: var(--raio-carousel-arrow-size);
   height: var(--raio-carousel-arrow-size);
   display: inline-flex;
@@ -213,8 +262,11 @@
     gap: 0;
     /* Zero the 2px scroll-shadow padding so the card is truly edge to edge —
        otherwise shop/tools/training show a thin band strip on each side
-       (owner 2026-07-09: "mingi tausta triip veel servades"). */
+       (owner 2026-07-09: "mingi tausta triip veel servades"). Bottom padding +
+       equal negative margin give the card lift shadow room below the card. */
     padding-inline: 0;
+    padding-bottom: 44px;
+    margin-bottom: -44px;
   }
 
   :is(

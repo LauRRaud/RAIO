@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SelectPrimitive } from "@/components/SelectPrimitive";
 import { getLocalizedPath } from "@/lib/i18n";
+import { scrollCarouselByCards } from "@/lib/carouselScroll";
 
 const sorters = {
   popularity: (items) => items,
@@ -18,8 +19,7 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
   const [activeCategory, setActiveCategory] = useState("all");
   const [sortKey, setSortKey] = useState("popularity");
   const productTrackRef = useRef(null);
-  const touchStartX = useRef(null);
-  const [canScroll, setCanScroll] = useState(false);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
   const sortOptions = [
     { value: "popularity", label: labels.sort.popularity },
     { value: "price", label: labels.sort.price },
@@ -61,60 +61,23 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
     return (sorters[sortKey] || sorters.popularity)(filtered, locale);
   }, [activeCategory, products, sortKey, locale]);
 
-  const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(3);
-
   useEffect(() => {
-    const updateItemsPerPage = () => {
-      setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
-    };
-
-    updateItemsPerPage();
-    window.addEventListener("resize", updateItemsPerPage);
-
-    return () => {
-      window.removeEventListener("resize", updateItemsPerPage);
-    };
+    const update = () => setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
-  const totalPages = Math.ceil(visibleProducts.length / itemsPerPage);
-
+  // Jump the track back to the start when the filter or sort changes.
   useEffect(() => {
-    if (currentPage >= totalPages && totalPages > 0) {
-      setCurrentPage(totalPages - 1);
-    }
-  }, [totalPages, currentPage]);
-
-  // Reset to first page when category/sort changes
-  useEffect(() => {
-    setCurrentPage(0);
+    if (productTrackRef.current) productTrackRef.current.scrollLeft = 0;
   }, [activeCategory, sortKey]);
 
-  function changePage(direction) {
-    if (totalPages <= 1) return;
-
-    let newPage = currentPage + direction;
-    if (newPage >= totalPages) newPage = 0;
-    if (newPage < 0) newPage = totalPages - 1;
-
-    setCurrentPage(newPage);
+  function scrollByCards(direction) {
+    scrollCarouselByCards(productTrackRef.current, direction);
   }
 
-  const paginatedProducts = visibleProducts.slice(
-    currentPage * itemsPerPage,
-    (currentPage + 1) * itemsPerPage
-  );
-
-  function handleTouchStart(event) {
-    touchStartX.current = event.touches[0].clientX;
-  }
-
-  function handleTouchEnd(event) {
-    if (touchStartX.current == null) return;
-    const deltaX = event.changedTouches[0].clientX - touchStartX.current;
-    touchStartX.current = null;
-    if (Math.abs(deltaX) > 45) changePage(deltaX < 0 ? 1 : -1);
-  }
+  const showArrows = visibleProducts.length > itemsPerPage;
 
   return (
     <>
@@ -160,12 +123,12 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
       </div>
 
       <div className="store-product-carousel">
-        {totalPages > 1 ? (
+        {showArrows ? (
           <>
             <button
               className="store-product-arrow store-product-arrow-left"
               type="button"
-              onClick={() => changePage(-1)}
+              onClick={() => scrollByCards(-1)}
               aria-label={labels.carousel.previous}
             >
               <ChevronLeft size={28} strokeWidth={1.7} aria-hidden="true" />
@@ -173,7 +136,7 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
             <button
               className="store-product-arrow store-product-arrow-right"
               type="button"
-              onClick={() => changePage(1)}
+              onClick={() => scrollByCards(1)}
               aria-label={labels.carousel.next}
             >
               <ChevronRight size={28} strokeWidth={1.7} aria-hidden="true" />
@@ -181,8 +144,8 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
           </>
         ) : null}
 
-        <div className="store-product-grid" ref={productTrackRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-          {paginatedProducts.map((product) => (
+        <div className="store-product-grid" ref={productTrackRef}>
+          {visibleProducts.map((product) => (
             <article
               className="store-product-card"
               data-product={product.slug}
@@ -216,12 +179,12 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
                 >
                   {labels.orderCta}
                 </Link>
-                {totalPages > 1 ? (
+                {showArrows ? (
                   <div className="card-swipe-nav" aria-hidden="true">
                     <button
                       className="card-swipe-arrow"
                       type="button"
-                      onClick={() => changePage(-1)}
+                      onClick={() => scrollByCards(-1)}
                       aria-label={labels.carousel.previous}
                       tabIndex={-1}
                     >
@@ -230,7 +193,7 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
                     <button
                       className="card-swipe-arrow"
                       type="button"
-                      onClick={() => changePage(1)}
+                      onClick={() => scrollByCards(1)}
                       aria-label={labels.carousel.next}
                       tabIndex={-1}
                     >

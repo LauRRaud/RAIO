@@ -4,36 +4,20 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { scrollCarouselByCards } from "@/lib/carouselScroll";
 
 export function JournalCardsCarousel({ articles, readMore, modalClose, labels }) {
   const journalTrackRef = useRef(null);
   const closeButtonRef = useRef(null);
-  const touchStartX = useRef(null);
   const [activeArticle, setActiveArticle] = useState(null);
-  
-  const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
 
   useEffect(() => {
-    const updateItemsPerPage = () => {
-      setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
-    };
-
-    updateItemsPerPage();
-    window.addEventListener("resize", updateItemsPerPage);
-
-    return () => {
-      window.removeEventListener("resize", updateItemsPerPage);
-    };
+    const update = () => setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
-
-  const totalPages = Math.ceil(articles.length / itemsPerPage);
-
-  useEffect(() => {
-    if (currentPage >= totalPages && totalPages > 0) {
-      setCurrentPage(totalPages - 1);
-    }
-  }, [totalPages, currentPage]);
 
   useEffect(() => {
     if (!activeArticle) return undefined;
@@ -57,40 +41,20 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
     };
   }, [activeArticle]);
 
-  function changePage(direction) {
-    if (totalPages <= 1) return;
-
-    let newPage = currentPage + direction;
-    if (newPage >= totalPages) newPage = 0;
-    if (newPage < 0) newPage = totalPages - 1;
-
-    setCurrentPage(newPage);
+  function scrollByCards(direction) {
+    scrollCarouselByCards(journalTrackRef.current, direction);
   }
 
-  const visibleArticles = articles.slice(
-    currentPage * itemsPerPage,
-    (currentPage + 1) * itemsPerPage
-  );
-
-  function handleTouchStart(event) {
-    touchStartX.current = event.touches[0].clientX;
-  }
-
-  function handleTouchEnd(event) {
-    if (touchStartX.current == null) return;
-    const deltaX = event.changedTouches[0].clientX - touchStartX.current;
-    touchStartX.current = null;
-    if (Math.abs(deltaX) > 45) changePage(deltaX < 0 ? 1 : -1);
-  }
+  const showArrows = articles.length > itemsPerPage;
 
   return (
     <div className="journal-story-carousel">
-      {totalPages > 1 ? (
+      {showArrows ? (
         <>
           <button
             className="journal-story-arrow journal-story-arrow-left"
             type="button"
-            onClick={() => changePage(-1)}
+            onClick={() => scrollByCards(-1)}
             aria-label={labels.previous}
           >
             <ChevronLeft size={28} strokeWidth={1.7} aria-hidden="true" />
@@ -98,7 +62,7 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
           <button
             className="journal-story-arrow journal-story-arrow-right"
             type="button"
-            onClick={() => changePage(1)}
+            onClick={() => scrollByCards(1)}
             aria-label={labels.next}
           >
             <ChevronRight size={28} strokeWidth={1.7} aria-hidden="true" />
@@ -106,8 +70,8 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
         </>
       ) : null}
 
-      <div className="journal-card-grid" ref={journalTrackRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-        {visibleArticles.map((article) => (
+      <div className="journal-card-grid" ref={journalTrackRef}>
+        {articles.map((article) => (
           <article className="journal-story-card" key={article.title}>
             <div className="journal-story-image">
               <Image
@@ -134,12 +98,12 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
               >
                 {readMore}
               </button>
-              {totalPages > 1 ? (
+              {showArrows ? (
                 <div className="card-swipe-nav" aria-hidden="true">
                   <button
                     className="card-swipe-arrow"
                     type="button"
-                    onClick={() => changePage(-1)}
+                    onClick={() => scrollByCards(-1)}
                     aria-label={labels.previous}
                     tabIndex={-1}
                   >
@@ -148,7 +112,7 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
                   <button
                     className="card-swipe-arrow"
                     type="button"
-                    onClick={() => changePage(1)}
+                    onClick={() => scrollByCards(1)}
                     aria-label={labels.next}
                     tabIndex={-1}
                   >

@@ -20,19 +20,21 @@
 }
 
 /* ...but the scroll/carousel cards DO keep a soft lift shadow (owner 2026-07-09:
-   "pane kõikide alalehtede scroll kaartidele vari") — must beat the reset above.
-   The reset :is() is (0,2,0) via `.store-page .store-product-card`, so EVERY
-   selector here needs ≥(0,2,0) — bare `.events-event-card` (0,1,0) lost, leaving
-   events/journal cards shadowless until the page-root prefix was added. */
+   "lisa karusellile vari nii, et see ei tunduks ära lõigatud"). The scroll track
+   reserves padding room for it on the sides and bottom (10-carousel-system), so
+   it renders fully at rest instead of clipping at the track edges. The reset
+   :is() above is (0,2,0), so every selector here needs the page-root prefix. */
 .events-page-redesign .events-event-card,
 .journal-page-redesign .journal-story-card,
 .tools-page-redesign .tools-category-card,
 .training-page-redesign .training-card,
 .store-page .store-product-card {
-  /* Tighter, denser lift (owner 2026-07-09: vari "ei ole nii hajutatud ja alt
-     servast ka näha") — small blur so the edge stays crisp on the terracotta band.
-     The carousel scroll container reserves bottom room for this (10-carousel-system). */
-  box-shadow: 0 10px 20px -6px rgba(0, 0, 0, 0.5) !important;
+  /* Bottom-only: spread (-14) ≥ blur-ish (16) keeps the shadow inside the
+     card's horizontal footprint, so the OFF-SCREEN neighbour card's shadow
+     can't bleed into the 24px gap and get cut at the scrollport edge — that
+     bleed was the seam (owner 2026-07-10: "näen ikka lõigatud varje servades").
+     The track's bottom padding (10-carousel-system) gives the tail room. */
+  box-shadow: 0 20px 16px -14px rgba(0, 0, 0, 0.5) !important;
 }
 
 :is(

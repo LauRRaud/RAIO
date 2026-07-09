@@ -5,68 +5,33 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { getLocalizedPath } from "@/lib/i18n";
+import { scrollCarouselByCards } from "@/lib/carouselScroll";
 
 export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }) {
   const categoryTrackRef = useRef(null);
-  const touchStartX = useRef(null);
-  const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
 
   useEffect(() => {
-    const updateItemsPerPage = () => {
-      setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
-    };
-
-    updateItemsPerPage();
-    window.addEventListener("resize", updateItemsPerPage);
-
-    return () => {
-      window.removeEventListener("resize", updateItemsPerPage);
-    };
+    const update = () => setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
-  const totalPages = Math.ceil(categories.length / itemsPerPage);
+  const showNav = categories.length > itemsPerPage;
 
-  useEffect(() => {
-    if (currentPage >= totalPages && totalPages > 0) {
-      setCurrentPage(totalPages - 1);
-    }
-  }, [totalPages, currentPage]);
-
-  function changePage(direction) {
-    if (totalPages <= 1) return;
-
-    let newPage = currentPage + direction;
-    if (newPage >= totalPages) newPage = 0;
-    if (newPage < 0) newPage = totalPages - 1;
-
-    setCurrentPage(newPage);
-  }
-
-  const visibleCategories = categories.slice(
-    currentPage * itemsPerPage,
-    (currentPage + 1) * itemsPerPage
-  );
-
-  function handleTouchStart(event) {
-    touchStartX.current = event.touches[0].clientX;
-  }
-
-  function handleTouchEnd(event) {
-    if (touchStartX.current == null) return;
-    const deltaX = event.changedTouches[0].clientX - touchStartX.current;
-    touchStartX.current = null;
-    if (Math.abs(deltaX) > 45) changePage(deltaX < 0 ? 1 : -1);
+  function scrollByCards(direction) {
+    scrollCarouselByCards(categoryTrackRef.current, direction);
   }
 
   return (
     <div className="tools-category-carousel">
-      {totalPages > 1 ? (
+      {showNav ? (
         <>
           <button
             className="tools-category-arrow tools-category-arrow-left"
             type="button"
-            onClick={() => changePage(-1)}
+            onClick={() => scrollByCards(-1)}
             aria-label={labels.previous}
           >
             <ChevronLeft size={28} strokeWidth={1.7} aria-hidden="true" />
@@ -74,7 +39,7 @@ export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }
           <button
             className="tools-category-arrow tools-category-arrow-right"
             type="button"
-            onClick={() => changePage(1)}
+            onClick={() => scrollByCards(1)}
             aria-label={labels.next}
           >
             <ChevronRight size={28} strokeWidth={1.7} aria-hidden="true" />
@@ -82,8 +47,8 @@ export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }
         </>
       ) : null}
 
-      <div className="tools-category-grid" ref={categoryTrackRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-        {visibleCategories.map((category) => (
+      <div className="tools-category-grid" ref={categoryTrackRef}>
+        {categories.map((category) => (
           <article className="tools-category-card" key={category.title}>
             <Link
               href={getLocalizedPath(locale, category.href)}
@@ -107,12 +72,12 @@ export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }
               >
                 {cta}
               </Link>
-              {totalPages > 1 ? (
+              {showNav ? (
                 <div className="card-swipe-nav" aria-hidden="true">
                   <button
                     className="card-swipe-arrow"
                     type="button"
-                    onClick={() => changePage(-1)}
+                    onClick={() => scrollByCards(-1)}
                     aria-label={labels.previous}
                     tabIndex={-1}
                   >
@@ -121,7 +86,7 @@ export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }
                   <button
                     className="card-swipe-arrow"
                     type="button"
-                    onClick={() => changePage(1)}
+                    onClick={() => scrollByCards(1)}
                     aria-label={labels.next}
                     tabIndex={-1}
                   >
