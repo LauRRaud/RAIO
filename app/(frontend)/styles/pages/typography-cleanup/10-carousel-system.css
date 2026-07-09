@@ -332,78 +332,8 @@
   }
 }
 
-/* Desktop/tablet: lift the prev/next arrows out of the side gutters and put them
-   in a row directly under the section title, left-aligned with it — the same
-   "arrows under the title" arrangement as mobile (owner 2026-07-09: on desktop
-   they still sat beside the cards, "vaata ise, ei ole ju"). The carousel adopts
-   the same centred width as the section-top so its left edge — and therefore the
-   arrow row and the first card — line up under the heading. */
-@media (min-width: 621px) {
-  :is(
-    .events-event-carousel,
-    .journal-story-carousel,
-    .store-page .store-product-carousel,
-    .tools-page-redesign .tools-category-carousel,
-    .training-page-redesign .training-card-carousel
-  ) {
-    --raio-carousel-side-offset: calc(
-      var(--raio-carousel-edge-gap) + var(--raio-carousel-arrow-size) +
-        var(--raio-carousel-gap)
-    );
-    position: relative;
-    left: auto;
-    transform: none;
-    width: min(
-      calc(100vw - (var(--raio-carousel-side-offset) * 2)),
-      calc(1880px - (var(--raio-carousel-side-offset) * 2)),
-      1680px
-    );
-    margin-inline: auto;
-    display: grid;
-    grid-template-columns: auto auto minmax(0, 1fr);
-    grid-auto-rows: auto;
-    column-gap: 14px;
-    row-gap: clamp(22px, 2vw, 34px);
-    padding-inline: 0;
-    align-items: start;
-  }
-
-  :is(
-    .events-event-carousel .events-grid-redesign,
-    .journal-story-carousel .journal-card-grid,
-    .store-page .store-product-carousel .store-product-grid,
-    .tools-page-redesign .tools-category-carousel .tools-category-grid,
-    .training-page-redesign .training-card-carousel .training-card-grid
-  ) {
-    grid-column: 1 / -1;
-    grid-row: auto;
-    width: 100%;
-  }
-
-  :is(
-    .events-event-arrow-left,
-    .journal-story-arrow-left,
-    .store-page .store-product-arrow-left,
-    .tools-page-redesign .tools-category-arrow-left,
-    .training-page-redesign .training-card-arrow-left
-  ) {
-    grid-column: 1;
-    grid-row: 1;
-    justify-self: start;
-    align-self: center;
-  }
-
-  :is(
-    .events-event-arrow-right,
-    .journal-story-arrow-right,
-    .store-page .store-product-arrow-right,
-    .tools-page-redesign .tools-category-arrow-right,
-    .training-page-redesign .training-card-arrow-right
-  ) {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: start;
-    align-self: center;
-  }
-}
+/* Desktop keeps the base carousel layout: arrows in the side gutters at the
+   screen edges, vertically centred beside the cards (owner 2026-07-09: "pidi
+   olema ekraani servas, vertikaal keskjoonduses"). The in-card swipe nav is a
+   mobile-only affordance (hidden ≥621px in 14-overlay-cards.css). */
 
