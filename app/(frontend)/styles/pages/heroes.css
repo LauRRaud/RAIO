@@ -87,7 +87,7 @@
     border-bottom-left-radius: 0;
     overflow: hidden;
     /* Normal, even, contained shadow — matches the band images. */
-    box-shadow: 0 16px 34px -10px rgba(12, 8, 4, 0.5);
+    box-shadow: 0 18px 34px -8px rgba(12, 8, 4, 0.5);
   }
 
   /* No full-bleed scrim on desktop: the photo stands in a frame, the panel
@@ -211,7 +211,6 @@
   }
 
   :is(
-    .lookbook-hero,
     .events-hero-redesign,
     .journal-hero-redesign,
     .tools-hero-redesign,

@@ -106,8 +106,8 @@
     aspect-ratio: 3 / 2;
     max-height: min(78vh, 700px);
     box-shadow:
-      0 20px 40px rgba(15, 11, 6, 0.52),
-      0 5px 13px rgba(15, 11, 6, 0.36);
+      0 22px 42px rgba(15, 11, 6, 0.56),
+      0 6px 15px rgba(15, 11, 6, 0.4);
   }
 
   /* Philosophy: framed photo on the left, copy on the right */
@@ -123,8 +123,8 @@
     aspect-ratio: 3 / 2;
     max-height: min(76vh, 660px);
     box-shadow:
-      0 20px 40px rgba(21, 26, 13, 0.46),
-      0 5px 13px rgba(21, 26, 13, 0.32);
+      0 22px 42px rgba(21, 26, 13, 0.5),
+      0 6px 15px rgba(21, 26, 13, 0.36);
   }
 
   .home-split-philosophy .home-split-copy {
@@ -147,8 +147,8 @@
     aspect-ratio: 3 / 2;
     max-height: min(76vh, 660px);
     box-shadow:
-      0 20px 40px rgba(46, 17, 6, 0.48),
-      0 5px 13px rgba(46, 17, 6, 0.34);
+      0 22px 42px rgba(46, 17, 6, 0.52),
+      0 6px 15px rgba(46, 17, 6, 0.38);
   }
 
   .home-split-tools .home-split-copy {
@@ -224,12 +224,6 @@
   to {
     opacity: 1;
     transform: none;
-  }
-}
-
-@keyframes home-curtain {
-  to {
-    transform: scaleY(0);
   }
 }
 
@@ -567,10 +561,13 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    /* Lift the copy off the bottom edge so the body text has room to grow
+       (owner 2026-07-09: "tekstid veidi üles poole, et saaks väikest teksti
+       suuremaks panna"). */
+    justify-content: center;
     min-height: max(560px, calc(100svh - 72px));
     max-width: none;
-    padding: clamp(96px, 18vh, 168px) 26px 54px;
+    padding: clamp(84px, 14vh, 132px) 26px clamp(72px, 12vh, 110px);
   }
 
   .home-split-copy .home-hero-title,
@@ -631,6 +628,9 @@
   .home-split-lede,
   .home-split-body {
     max-width: 36ch;
+    /* Larger small text on the home sections (owner 2026-07-09). */
+    font-size: clamp(1.34rem, 5vw, 1.6rem);
+    line-height: 1.55;
   }
 
   .home-world-card {

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { EventsCardsCarousel } from "@/components/EventsCardsCarousel";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -13,7 +12,6 @@ export async function EventsPage({ locale = "et" }) {
   const t = messages.events;
   const events = await getEventItems(locale, t.events);
   const path = (href) => getLocalizedPath(locale, href);
-  const aboutHref = path("/meist");
   const contactHref = path("/meist#kontakt");
 
   return (
@@ -53,19 +51,14 @@ export async function EventsPage({ locale = "et" }) {
           aria-labelledby="events-upcoming-title"
         >
           <div className="events-scroll-band">
-            <div className="events-section-top">
-              <h2 id="events-upcoming-title">{t.upcomingTitle}</h2>
-              <Link href={aboutHref} className="events-all-link">
-                {t.allLink}
-                <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
-              </Link>
-            </div>
-
             <EventsCardsCarousel
               events={events}
               cta={t.cardCta}
               modalClose={t.modalClose}
               labels={messages.carousel.events}
+              title={t.upcomingTitle}
+              titleId="events-upcoming-title"
+              allLabel={t.allLink}
             />
           </div>
 

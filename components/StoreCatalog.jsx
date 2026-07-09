@@ -18,6 +18,7 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
   const [activeCategory, setActiveCategory] = useState("all");
   const [sortKey, setSortKey] = useState("popularity");
   const productTrackRef = useRef(null);
+  const touchStartX = useRef(null);
   const [canScroll, setCanScroll] = useState(false);
   const sortOptions = [
     { value: "popularity", label: labels.sort.popularity },
@@ -29,6 +30,28 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
     label: category.label,
   }));
 
+  // Preselect a category when the shop is opened with a ?kategooria=<id> link
+  // (e.g. from the tools page category cards). Read after mount to avoid a
+  // hydration mismatch — the server always renders the "all" default.
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("kategooria");
+
+    if (requested && categories.some((category) => category.id === requested)) {
+      setActiveCategory(requested);
+
+      // Land on the product carousel, not the hero, when arriving via a
+      // category deep-link.
+      requestAnimationFrame(() => {
+        const section = document.querySelector(".store-products-section");
+
+        if (section) {
+          const top = section.getBoundingClientRect().top + window.scrollY - 24;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      });
+    }
+  }, [categories]);
+
   const visibleProducts = useMemo(() => {
     const filtered =
       activeCategory === "all"
@@ -38,40 +61,68 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
     return (sorters[sortKey] || sorters.popularity)(filtered, locale);
   }, [activeCategory, products, sortKey, locale]);
 
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
+  const [isFading, setIsFading] = useState(false);
+
   useEffect(() => {
-    const track = productTrackRef.current;
-
-    if (!track) return undefined;
-
-    const updateCanScroll = () => {
-      setCanScroll(track.scrollWidth > track.clientWidth + 1);
+    const updateItemsPerPage = () => {
+      setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
     };
-    const observer = new ResizeObserver(updateCanScroll);
 
-    track.scrollTo({ left: 0, behavior: "smooth" });
-    updateCanScroll();
-    observer.observe(track);
-    window.addEventListener("resize", updateCanScroll);
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", updateCanScroll);
+      window.removeEventListener("resize", updateItemsPerPage);
     };
-  }, [activeCategory, sortKey, visibleProducts.length]);
+  }, []);
 
-  function scrollProducts(direction) {
-    const track = productTrackRef.current;
+  const totalPages = Math.ceil(visibleProducts.length / itemsPerPage);
 
-    if (!track) return;
+  useEffect(() => {
+    if (currentPage >= totalPages && totalPages > 0) {
+      setCurrentPage(totalPages - 1);
+    }
+  }, [totalPages, currentPage]);
 
-    const card = track.querySelector(".store-product-card");
-    const trackStyles = window.getComputedStyle(track);
-    const gap = parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
-    const distance = card
-      ? card.getBoundingClientRect().width + gap
-      : track.clientWidth * 0.82;
+  // Reset to first page when category/sort changes
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [activeCategory, sortKey]);
 
-    track.scrollBy({ left: direction * distance, behavior: "smooth" });
+  function changePage(direction) {
+    if (isFading || totalPages <= 1) return;
+
+    let newPage = currentPage + direction;
+    if (newPage >= totalPages) newPage = 0;
+    if (newPage < 0) newPage = totalPages - 1;
+
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentPage(newPage);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsFading(false);
+        });
+      });
+    }, 150);
+  }
+
+  const paginatedProducts = visibleProducts.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
+
+  function handleTouchStart(event) {
+    touchStartX.current = event.touches[0].clientX;
+  }
+
+  function handleTouchEnd(event) {
+    if (touchStartX.current == null) return;
+    const deltaX = event.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(deltaX) > 45) changePage(deltaX < 0 ? 1 : -1);
   }
 
   return (
@@ -118,12 +169,12 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
       </div>
 
       <div className="store-product-carousel">
-        {canScroll ? (
+        {totalPages > 1 ? (
           <>
             <button
               className="store-product-arrow store-product-arrow-left"
               type="button"
-              onClick={() => scrollProducts(-1)}
+              onClick={() => changePage(-1)}
               aria-label={labels.carousel.previous}
             >
               <ChevronLeft size={28} strokeWidth={1.7} aria-hidden="true" />
@@ -131,7 +182,7 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
             <button
               className="store-product-arrow store-product-arrow-right"
               type="button"
-              onClick={() => scrollProducts(1)}
+              onClick={() => changePage(1)}
               aria-label={labels.carousel.next}
             >
               <ChevronRight size={28} strokeWidth={1.7} aria-hidden="true" />
@@ -139,8 +190,8 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
           </>
         ) : null}
 
-        <div className="store-product-grid" ref={productTrackRef}>
-          {visibleProducts.map((product) => (
+        <div className={`store-product-grid fade-transition ${isFading ? 'fade-out' : ''}`} ref={productTrackRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+          {paginatedProducts.map((product) => (
             <article
               className="store-product-card"
               data-product={product.slug}
@@ -174,6 +225,28 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
                 >
                   {labels.orderCta}
                 </Link>
+                {totalPages > 1 ? (
+                  <div className="card-swipe-nav" aria-hidden="true">
+                    <button
+                      className="card-swipe-arrow"
+                      type="button"
+                      onClick={() => changePage(-1)}
+                      aria-label={labels.carousel.previous}
+                      tabIndex={-1}
+                    >
+                      <ChevronLeft size={24} strokeWidth={1.7} aria-hidden="true" />
+                    </button>
+                    <button
+                      className="card-swipe-arrow"
+                      type="button"
+                      onClick={() => changePage(1)}
+                      aria-label={labels.carousel.next}
+                      tabIndex={-1}
+                    >
+                      <ChevronRight size={24} strokeWidth={1.7} aria-hidden="true" />
+                    </button>
+                  </div>
+                ) : null}
               </div>
             </article>
           ))}

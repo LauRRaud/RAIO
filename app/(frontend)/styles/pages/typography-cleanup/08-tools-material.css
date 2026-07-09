@@ -1,0 +1,123 @@
+.tools-page-redesign .tools-material-panel {
+  --material-panel-bg: #d4d0c4;
+  --material-panel-ink: #221c14;
+  --material-panel-muted: rgba(34, 28, 20, 0.74);
+  --material-panel-line: rgba(34, 28, 20, 0.16);
+  border: 0;
+  border-radius: 0;
+  background: var(--material-panel-bg);
+  color: var(--material-panel-ink);
+  overflow: hidden;
+}
+
+.tools-page-redesign .tools-material-copy {
+  background: transparent;
+  color: var(--material-panel-ink);
+  border-radius: 0;
+}
+
+.tools-page-redesign .tools-material-copy h2 {
+  color: var(--material-panel-ink);
+  font-size: clamp(2.7rem, 4.15vw, 4.85rem);
+  line-height: 1;
+}
+
+.tools-page-redesign .tools-material-copy > p {
+  color: var(--material-panel-muted);
+  font-size: clamp(1.32rem, 1.35vw, 1.54rem);
+  line-height: 1.68;
+}
+
+.tools-page-redesign .tools-material-image {
+  border-radius: var(--tools-inner-box-radius);
+  background: #2b241b;
+  overflow: hidden;
+}
+
+.tools-page-redesign .tools-material-proof-row .tools-proof-item span {
+  color: var(--material-panel-ink);
+}
+
+.tools-page-redesign .tools-material-proof-row {
+  gap: clamp(14px, 1.4vw, 22px);
+  background: transparent;
+}
+
+.tools-page-redesign .tools-care-copy p {
+  color: rgba(248, 243, 236, 0.88);
+  font-size: clamp(1.32rem, 1.35vw, 1.54rem);
+  line-height: 1.66;
+}
+
+.tools-page-redesign .tools-material-proof-row .tools-proof-item {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.tools-page-redesign
+  :is(.tools-proof-item, .tools-care-copy)
+  svg,
+.training-page-redesign .training-line-icon {
+  color: #9fb16c;
+}
+
+/* Location marker matches the card's cream text — the green pin read poorly
+   against it (owner 2026-07-08: "asukoha marker tekstiga võrreldes liiga halb"). */
+.events-page-redesign .events-location svg {
+  color: #f4efe4;
+}
+
+/* MIKS proof + quality-list icons = a dark brown accent on the rust band, NOT
+   green (owner 2026-07-08: "ikoonide värv pane tumedam pruun"). Card-meta / other
+   line icons stay green. */
+.tools-page-redesign .tools-material-proof-row .tools-proof-item svg,
+.training-page-redesign .training-quality-item .training-line-icon {
+  color: #45301e;
+}
+
+.tools-page-redesign :is(.tools-care-copy) > svg {
+  width: 66px;
+  height: 66px;
+}
+
+@media (max-width: 620px) {
+  .tools-page-redesign .tools-material-copy > p {
+    font-size: 1.04rem;
+    line-height: 1.68;
+  }
+
+  .tools-page-redesign .tools-care-copy p {
+    font-size: 1.02rem;
+    line-height: 1.66;
+  }
+
+  .tools-page-redesign .tools-care-copy {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: 12px;
+    padding: 34px 24px 36px;
+  }
+
+  .tools-page-redesign :is(.tools-care-copy) > svg {
+    grid-column: 1;
+    grid-row: 1;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+  }
+
+  .tools-page-redesign :is(.tools-care-copy) h2 {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    text-align: left;
+  }
+
+  .tools-page-redesign :is(.tools-care-copy) p {
+    grid-column: 1 / -1;
+  }
+}
+

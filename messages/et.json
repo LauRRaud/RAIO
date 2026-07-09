@@ -295,25 +295,25 @@
         "title": "Puidust vahendid",
         "description": "Sauad, nuiad ja muud puidust treeningvahendid.",
         "image": "/Pictures/Vahendid/jalutuskepp.png",
-        "href": "/pood"
+        "href": "/pood?kategooria=puidust-vahendid"
       },
       {
         "title": "Sangpommid",
         "description": "Kivisangpommid ja puu & kivi sangpommid.",
         "image": "/Pictures/Vahendid/Puu ja kivi sangpomm.png",
-        "href": "/pood"
+        "href": "/pood?kategooria=sangpommid"
       },
       {
         "title": "Hantlid",
         "description": "Kivist hantlid puidust käepidemega jõu ja vastupidavuse treeninguks.",
         "image": "/Pictures/Vahendid/hantlid.png",
-        "href": "/pood"
+        "href": "/pood?kategooria=hantlid"
       },
       {
         "title": "Lastele",
         "description": "Lastele loodud turvalised ja looduslikud treeningvahendid.",
         "image": "/Pictures/Vahendid/laste treeningvahendid.png",
-        "href": "/pood"
+        "href": "/pood?kategooria=lastele"
       },
       {
         "title": "Muud vahendid",

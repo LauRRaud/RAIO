@@ -1,35 +1,41 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, MapPin, X } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, MapPin, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-export function EventsCardsCarousel({ events, cta, modalClose, labels }) {
+export function EventsCardsCarousel({ events, cta, modalClose, labels, title, titleId, allLabel }) {
   const eventTrackRef = useRef(null);
   const closeButtonRef = useRef(null);
-  const [canScroll, setCanScroll] = useState(false);
+  const touchStartX = useRef(null);
   const [activeEvent, setActiveEvent] = useState(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
+  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
-    const track = eventTrackRef.current;
-
-    if (!track) return undefined;
-
-    const updateCanScroll = () => {
-      setCanScroll(track.scrollWidth > track.clientWidth + 1);
+    const updateItemsPerPage = () => {
+      setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
     };
-    const observer = new ResizeObserver(updateCanScroll);
 
-    updateCanScroll();
-    observer.observe(track);
-    window.addEventListener("resize", updateCanScroll);
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", updateCanScroll);
+      window.removeEventListener("resize", updateItemsPerPage);
     };
-  }, [events.length]);
+  }, []);
+
+  const totalPages = Math.ceil(events.length / itemsPerPage);
+
+  useEffect(() => {
+    if (currentPage >= totalPages && totalPages > 0) {
+      setCurrentPage(totalPages - 1);
+    }
+  }, [totalPages, currentPage]);
 
   useEffect(() => {
     if (!activeEvent) return undefined;
@@ -53,46 +59,88 @@ export function EventsCardsCarousel({ events, cta, modalClose, labels }) {
     };
   }, [activeEvent]);
 
-  function scrollEvents(direction) {
-    const track = eventTrackRef.current;
+  function changePage(direction) {
+    if (isFading || totalPages <= 1) return;
 
-    if (!track) return;
+    let newPage = currentPage + direction;
+    if (newPage >= totalPages) newPage = 0;
+    if (newPage < 0) newPage = totalPages - 1;
 
-    const card = track.querySelector(".events-event-card");
-    const trackStyles = window.getComputedStyle(track);
-    const gap = parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
-    const distance = card
-      ? card.getBoundingClientRect().width + gap
-      : track.clientWidth * 0.82;
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentPage(newPage);
+      // Wait a tick for the DOM to update with new items before fading back in
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsFading(false);
+        });
+      });
+    }, 150);
+  }
 
-    track.scrollBy({ left: direction * distance, behavior: "smooth" });
+  const visibleEvents = showAll
+    ? events
+    : events.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
+  const showArrows = !showAll && totalPages > 1;
+
+  function handleTouchStart(event) {
+    touchStartX.current = event.touches[0].clientX;
+  }
+
+  function handleTouchEnd(event) {
+    if (touchStartX.current == null) return;
+    const deltaX = event.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (!showAll && Math.abs(deltaX) > 45) changePage(deltaX < 0 ? 1 : -1);
   }
 
   return (
-    <div className="events-event-carousel">
-      {canScroll ? (
-        <>
-          <button
-            className="events-event-arrow events-event-arrow-left"
-            type="button"
-            onClick={() => scrollEvents(-1)}
-            aria-label={labels.previous}
-          >
-            <ChevronLeft size={28} strokeWidth={1.7} aria-hidden="true" />
-          </button>
-          <button
-            className="events-event-arrow events-event-arrow-right"
-            type="button"
-            onClick={() => scrollEvents(1)}
-            aria-label={labels.next}
-          >
-            <ChevronRight size={28} strokeWidth={1.7} aria-hidden="true" />
-          </button>
-        </>
+    <>
+      {title ? (
+        <div className="events-section-top">
+          <h2 id={titleId}>{title}</h2>
+          {!showAll && totalPages > 1 ? (
+            <button
+              type="button"
+              className="events-all-link"
+              onClick={() => setShowAll(true)}
+            >
+              {allLabel}
+              <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
+            </button>
+          ) : null}
+        </div>
       ) : null}
 
-      <div className="events-grid-redesign" ref={eventTrackRef}>
-        {events.map((event) => (
+      <div className="events-event-carousel">
+        {showArrows ? (
+          <>
+            <button
+              className="events-event-arrow events-event-arrow-left"
+              type="button"
+              onClick={() => changePage(-1)}
+              aria-label={labels.previous}
+            >
+              <ChevronLeft size={28} strokeWidth={1.7} aria-hidden="true" />
+            </button>
+            <button
+              className="events-event-arrow events-event-arrow-right"
+              type="button"
+              onClick={() => changePage(1)}
+              aria-label={labels.next}
+            >
+              <ChevronRight size={28} strokeWidth={1.7} aria-hidden="true" />
+            </button>
+          </>
+        ) : null}
+
+        <div
+          className={`events-grid-redesign fade-transition ${isFading ? "fade-out" : ""} ${showAll ? "is-expanded" : ""}`}
+          ref={eventTrackRef}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {visibleEvents.map((event) => (
           <article className="events-event-card" key={event.title}>
             <div className="events-event-image">
               <Image
@@ -119,6 +167,28 @@ export function EventsCardsCarousel({ events, cta, modalClose, labels }) {
               >
                 {cta}
               </button>
+              {showArrows ? (
+                <div className="card-swipe-nav" aria-hidden="true">
+                  <button
+                    className="card-swipe-arrow"
+                    type="button"
+                    onClick={() => changePage(-1)}
+                    aria-label={labels.previous}
+                    tabIndex={-1}
+                  >
+                    <ChevronLeft size={24} strokeWidth={1.7} aria-hidden="true" />
+                  </button>
+                  <button
+                    className="card-swipe-arrow"
+                    type="button"
+                    onClick={() => changePage(1)}
+                    aria-label={labels.next}
+                    tabIndex={-1}
+                  >
+                    <ChevronRight size={24} strokeWidth={1.7} aria-hidden="true" />
+                  </button>
+                </div>
+              ) : null}
             </div>
           </article>
         ))}
@@ -170,6 +240,7 @@ export function EventsCardsCarousel({ events, cta, modalClose, labels }) {
         </div>,
         document.body
       ) : null}
-    </div>
+      </div>
+    </>
   );
 }

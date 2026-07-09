@@ -50,7 +50,6 @@ export async function JournalPage({ locale = "et" }) {
                 className="journal-category-row"
                 aria-label={t.categoryNavLabel}
               >
-                <span>{t.categoriesLabel}</span>
                 {t.categories.map((category, index) => (
                   <button
                     className={index === 0 ? "is-active" : undefined}

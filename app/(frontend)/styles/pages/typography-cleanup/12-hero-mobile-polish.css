@@ -1,0 +1,299 @@
+@media (min-width: 621px) {
+  :is(
+      .events-hero-redesign,
+      .journal-hero-redesign,
+      .tools-hero-redesign,
+      .training-hero-redesign,
+      .store-hero,
+      .about-hero
+    )::before {
+    background: none;
+  }
+
+    :is(
+      .events-hero-image img,
+      .journal-hero-image img,
+      .tools-hero-image img,
+      .training-hero-image img,
+      .store-hero-image img,
+      .about-hero-image img
+    ) {
+    filter: saturate(0.96) contrast(1.04) brightness(1);
+  }
+}
+
+/* Hide subpixel seams where image blocks meet dark copy panels. */
+:is(
+    .events-event-image,
+    .journal-story-image,
+    .store-product-image,
+    .tools-category-image,
+    .training-card-image
+  ) {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+:is(
+    .events-event-body,
+    .journal-story-body,
+    .store-product-body,
+    .tools-category-body,
+    .training-card-body
+  ) {
+  border-top: 0;
+}
+
+:is(
+    .tools-care-image,
+    .training-lasting-image,
+    .journal-signup-image,
+    .events-host-image
+  ) {
+  margin-top: -1px;
+  border-top: 0;
+}
+
+/* Owner 2026-07-09: "nupu asukoht veidi kõrgemale" — the CTA sits closer to
+   the paragraph instead of floating between text and the quality list. */
+.training-page-redesign .training-lasting-copy .training-solid-button {
+  margin-top: clamp(8px, 0.8vw, 12px);
+}
+
+@media (max-width: 620px) {
+  .training-page-redesign .training-lasting-copy .training-solid-button {
+    margin-top: 18px;
+  }
+}
+
+/* "Vaata kõiki" read as a tiny caption next to the large section heading on
+   desktop (owner 2026-07-09: "vaata kõiki on liiga väike link"). Bump it and its
+   arrow so it carries comparable weight. */
+@media (min-width: 621px) {
+  .events-page-redesign .events-all-link {
+    font-size: clamp(1.15rem, 1.15vw, 1.4rem);
+    letter-spacing: 0.05em;
+  }
+
+  .events-page-redesign .events-all-link svg {
+    width: 26px;
+    height: 26px;
+    stroke-width: 1.8;
+  }
+}
+
+@media (max-width: 620px) {
+  /* Page heroes: more vertical breathing room and a larger lede. */
+  :is(
+    .events-hero-text,
+    .training-hero-text,
+    .tools-hero-text,
+    .journal-hero-text,
+    .about-hero-text
+  ) {
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  :is(
+    .events-hero-text p,
+    .training-hero-text p,
+    .tools-hero-text p,
+    .journal-hero-text p,
+    .about-hero-text p,
+    .store-hero-copy .store-hero-text p
+  ) {
+    /* Considerably larger hero lede (owner 2026-07-09: "header sektsioonide
+       väiksed tekstid tunduvalt suuremaks"; shop hero was missed). */
+    font-size: clamp(1.55rem, 6.8vw, 2rem);
+    line-height: 1.6;
+  }
+
+  :is(
+    .events-short-rule,
+    .training-short-rule,
+    .tools-short-rule,
+    .journal-short-rule,
+    .about-short-rule
+  ) {
+    margin: 42px 0 32px;
+  }
+
+  /* Lasting band on mobile: a clean left-aligned stack — copy left, one quality
+     per row, no cramped 2×2 grid (owner 2026-07-09: "mega kole mobiilis"). */
+  .training-page-redesign .training-lasting-copy {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .training-page-redesign .training-lasting-copy > p {
+    width: 100%;
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  /* Button centred (owner 2026-07-09: "kõik nupud keskjoondusesse mobiilis"). */
+  .training-page-redesign .training-lasting-copy .training-solid-button {
+    align-self: center;
+    margin-inline: auto;
+  }
+
+  .training-page-redesign .training-quality-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .training-page-redesign .training-quality-list::after {
+    content: none !important;
+  }
+
+  /* Icon rows centred (owner 2026-07-09: "ikoonirida tekstiga keskele"). */
+  .training-page-redesign .training-quality-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+
+  :is(
+    .events-section-top h2,
+    .events-host-copy h2,
+    .journal-section-top h2,
+    .journal-signup-copy h2,
+    .store-products-header h2,
+    .tools-section-top h2,
+    .tools-material-copy h2,
+    .tools-care-copy h2,
+    .training-section-intro h2,
+    .about-story-copy h2,
+    .about-trainers-heading h2,
+    .about-closing-copy h2,
+    .about-contact-panel h3,
+    .product-related-heading h2,
+    .cart-summary h2
+  ) {
+    max-width: none;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .training-page-redesign .training-workshop-copy h2 {
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  /* Left-aligned, smaller lasting-band heading with breathing room below the
+     photo — it sat right against the image before (owner 2026-07-09: "pealkiri
+     liiga pildi all"). */
+  .training-page-redesign .training-lasting-copy h2 {
+    margin-inline: 0;
+    margin-top: clamp(28px, 7vw, 40px);
+    text-align: left;
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+    line-height: 1.05;
+  }
+
+  /* Workshop lede reads left-aligned on mobile (owner 2026-07-09: "pakume
+     võimalust ... vasakule joondusesse ja hea kui osa tekste nii oleks"). */
+  .training-page-redesign .training-workshop-copy p {
+    justify-self: stretch;
+    max-width: none;
+    text-align: left;
+  }
+
+  /* Every band CTA is centred on mobile (owner 2026-07-09: "kõik nupud
+     alalehe sektsioonides keskjoondusesse"). */
+  .journal-page-redesign .journal-signup-copy .journal-solid-button,
+  .events-page-redesign .events-host-copy .events-solid-button,
+  .store-page .store-custom-copy .store-solid-button {
+    align-self: center;
+    margin-inline: auto;
+  }
+
+  .about-page-redesign .about-closing-copy h2 {
+    font-size: clamp(2.2rem, 9.5vw, 2.7rem);
+    line-height: 1.06;
+  }
+}
+
+/* Consistent heading→body spacing and a slightly larger body across every
+   content band on mobile (owner 2026-07-09: "pealkirjade all ühtlasemad vahed
+   ja veidi suuremalt; hooldus sektsioonis on ilus vahe"). The tools bands ran
+   small (16px) and the gaps varied (about-story 42px, store-custom 20px). */
+@media (max-width: 620px) {
+  :is(
+    .tools-page-redesign .tools-material-copy,
+    .tools-page-redesign .tools-care-copy,
+    .store-page .store-custom-copy,
+    .about-page-redesign .about-story-copy,
+    .about-page-redesign .about-trainer-copy,
+    .journal-page-redesign .journal-signup-copy,
+    .events-page-redesign .events-host-copy
+  ) :is(h2, h3) {
+    margin-bottom: 0;
+  }
+
+  :is(
+    .tools-page-redesign .tools-material-copy,
+    .tools-page-redesign .tools-care-copy,
+    .store-page .store-custom-copy,
+    .about-page-redesign .about-story-copy,
+    .about-page-redesign .about-trainer-copy,
+    .journal-page-redesign .journal-signup-copy,
+    .events-page-redesign .events-host-copy
+  ) p {
+    margin-top: 24px;
+    font-size: clamp(1.36rem, 5vw, 1.48rem);
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 620px) {
+  .store-page .store-products-header > :first-child {
+    width: 100%;
+  }
+
+  .store-page .store-products-header h2 {
+    align-self: center;
+    width: 100%;
+    margin-bottom: 14px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .store-page .store-product-carousel .store-product-image {
+    z-index: 1;
+    margin-bottom: -2px;
+    transform: translateZ(0);
+  }
+
+    .store-page .store-product-carousel .store-product-body {
+    position: relative;
+    z-index: 2;
+    margin-top: -2px;
+    padding-top: 30px;
+  }
+
+  .store-page .store-product-carousel .store-product-arrow-left,
+  .store-page .store-product-carousel .store-product-arrow-right {
+    top: clamp(465px, 122vw, 515px);
+  }
+}
+
+/* Carousel section titles stay on one line so the arrows sit right beneath them
+   (owner 2026-07-09: "pealkiri ühele joonele"). */
+@media (max-width: 620px) {
+  :is(
+    .events-section-top,
+    .journal-section-top,
+    .tools-section-top,
+    .training-section-intro,
+    .store-products-header
+  ) h2 {
+    white-space: nowrap;
+    font-size: clamp(1rem, 4.6vw, 1.28rem);
+    letter-spacing: 0.02em;
+  }
+}
+

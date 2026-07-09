@@ -1,0 +1,181 @@
+:is(
+    .events-event-body,
+    .journal-story-body,
+    .tools-category-body,
+    .training-card-body,
+    .training-lasting-copy,
+    .training-workshop-copy,
+    .store-product-body,
+    .related-card
+  )
+  h3,
+.store-product-body h3,
+.related-card strong,
+.cart-item-top h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: var(--type-card);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: var(--track-card);
+  text-transform: none;
+}
+
+:is(
+    .training-lasting-copy,
+    .training-workshop-copy,
+    .journal-signup-copy,
+    .tools-material-copy,
+    .tools-care-copy
+  )
+  h2 {
+  text-transform: none;
+}
+
+:is(
+    .store-page,
+    .events-page-redesign,
+    .journal-page-redesign,
+    .tools-page-redesign,
+    .training-page-redesign,
+    .about-page-redesign,
+    .product-page,
+    .cart-empty,
+    .cart-section
+  )
+  p {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  line-height: 1.66;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+:is(
+  .store-kicker,
+  .store-product-category,
+  .store-price span,
+  .events-date,
+  .events-location,
+  .journal-story-meta,
+  .tools-proof-item span,
+  .training-meta span,
+  .training-quality-item span,
+  .product-related-heading .eyebrow,
+  .product-meta span
+) {
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: var(--type-label);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: var(--track-label);
+}
+
+:is(
+  .button,
+  .store-page .add-to-cart,
+  .events-solid-button,
+  .events-outline-button,
+  .journal-solid-button,
+  .training-solid-button,
+  .cart-text-action,
+  .cart-quiet-action,
+  .cart-solid-action,
+  .events-all-link,
+  .journal-text-link,
+  .tools-text-link,
+  .training-text-link,
+  .store-category-nav button,
+  .journal-category-row button,
+  .ui-select-trigger,
+  .ui-select-option
+) {
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: var(--type-small);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.035em;
+  text-transform: none;
+  -webkit-text-stroke: 0 transparent;
+  text-shadow: none;
+}
+
+:is(.store-category-nav, .journal-category-row) {
+  font-size: var(--type-small);
+  letter-spacing: var(--track-soft);
+  text-transform: none;
+}
+
+:is(.store-category-nav, .journal-category-row) button {
+  font-size: inherit;
+  line-height: 1.2;
+  letter-spacing: inherit;
+  text-transform: none;
+}
+
+.store-product-category,
+.journal-story-meta,
+.training-meta span {
+  font-size: 0.84rem;
+}
+
+.training-page-redesign .training-quality-item span {
+  font-size: clamp(1.12rem, 1.12vw, 1.32rem);
+  line-height: 1.2;
+}
+
+.training-card-body p,
+.training-lasting-copy p,
+.journal-story-body > p:not(.journal-story-meta) {
+  font-family: var(--font-body);
+  font-size: clamp(1.18rem, 1.2vw, 1.36rem);
+  line-height: 1.62;
+  letter-spacing: 0.01em;
+}
+
+:is(
+  .product-copy p,
+  .product-meta strong,
+  .cart-item-top p,
+  .cart-summary p,
+  .about-closing-values p
+) {
+  font-family: var(--font-body);
+  letter-spacing: 0.01em;
+}
+
+/* Coloured-band body copy was still reading small next to the big headings
+   (owner 2026-07-08: "leidsin ikka väikseid tekste veel"). One winning bump for
+   every band paragraph — this layer loads last, so it beats the page files. */
+.events-host-copy p,
+.journal-signup-copy p,
+.store-custom-copy p,
+.about-story-copy p,
+.about-closing-copy p,
+.about-closing-values p,
+.about-trainer-copy p {
+  font-size: clamp(1.32rem, 1.35vw, 1.54rem);
+  line-height: 1.6;
+}
+
+:is(.tools-category-body p, .tools-care-copy p) {
+  font-family: var(--font-body);
+}
+
+.related-card span:not(.related-card-media),
+.product-lede,
+.product-meta strong {
+  color: var(--ui-box-muted);
+}
+
+.product-hero .product-meta strong {
+  color: var(--text);
+}
+
+.product-hero .product-meta span {
+  color: var(--accent-2);
+}
+
+.store-product-body {
+  min-height: 0;
+}
+

@@ -14,28 +14,33 @@ export function TrainingCardsCarousel({
 }) {
   const trainingTrackRef = useRef(null);
   const closeButtonRef = useRef(null);
-  const [canScroll, setCanScroll] = useState(false);
+  const touchStartX = useRef(null);
   const [activeTraining, setActiveTraining] = useState(null);
 
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
+  const [isFading, setIsFading] = useState(false);
+
   useEffect(() => {
-    const track = trainingTrackRef.current;
-
-    if (!track) return undefined;
-
-    const updateCanScroll = () => {
-      setCanScroll(track.scrollWidth > track.clientWidth + 1);
+    const updateItemsPerPage = () => {
+      setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
     };
-    const observer = new ResizeObserver(updateCanScroll);
 
-    updateCanScroll();
-    observer.observe(track);
-    window.addEventListener("resize", updateCanScroll);
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", updateCanScroll);
+      window.removeEventListener("resize", updateItemsPerPage);
     };
-  }, [trainings.length]);
+  }, []);
+
+  const totalPages = Math.ceil(trainings.length / itemsPerPage);
+
+  useEffect(() => {
+    if (currentPage >= totalPages && totalPages > 0) {
+      setCurrentPage(totalPages - 1);
+    }
+  }, [totalPages, currentPage]);
 
   useEffect(() => {
     if (!activeTraining) return undefined;
@@ -59,29 +64,48 @@ export function TrainingCardsCarousel({
     };
   }, [activeTraining]);
 
-  function scrollTrainings(direction) {
-    const track = trainingTrackRef.current;
+  function changePage(direction) {
+    if (isFading || totalPages <= 1) return;
 
-    if (!track) return;
+    let newPage = currentPage + direction;
+    if (newPage >= totalPages) newPage = 0;
+    if (newPage < 0) newPage = totalPages - 1;
 
-    const card = track.querySelector(".training-card");
-    const trackStyles = window.getComputedStyle(track);
-    const gap = parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
-    const distance = card
-      ? card.getBoundingClientRect().width + gap
-      : track.clientWidth * 0.82;
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentPage(newPage);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsFading(false);
+        });
+      });
+    }, 150);
+  }
 
-    track.scrollBy({ left: direction * distance, behavior: "smooth" });
+  const visibleTrainings = trainings.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
+
+  function handleTouchStart(event) {
+    touchStartX.current = event.touches[0].clientX;
+  }
+
+  function handleTouchEnd(event) {
+    if (touchStartX.current == null) return;
+    const deltaX = event.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(deltaX) > 45) changePage(deltaX < 0 ? 1 : -1);
   }
 
   return (
     <div className="training-card-carousel">
-      {canScroll ? (
+      {totalPages > 1 ? (
         <>
           <button
             className="training-card-arrow training-card-arrow-left"
             type="button"
-            onClick={() => scrollTrainings(-1)}
+            onClick={() => changePage(-1)}
             aria-label={labels.previous}
           >
             <ChevronLeft size={28} strokeWidth={1.7} aria-hidden="true" />
@@ -89,7 +113,7 @@ export function TrainingCardsCarousel({
           <button
             className="training-card-arrow training-card-arrow-right"
             type="button"
-            onClick={() => scrollTrainings(1)}
+            onClick={() => changePage(1)}
             aria-label={labels.next}
           >
             <ChevronRight size={28} strokeWidth={1.7} aria-hidden="true" />
@@ -97,8 +121,8 @@ export function TrainingCardsCarousel({
         </>
       ) : null}
 
-      <div className="training-card-grid" ref={trainingTrackRef}>
-        {trainings.map((training) => (
+      <div className={`training-card-grid fade-transition ${isFading ? 'fade-out' : ''}`} ref={trainingTrackRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+        {visibleTrainings.map((training) => (
           <article className="training-card" key={training.title}>
             <div className="training-card-image">
               <Image
@@ -130,6 +154,28 @@ export function TrainingCardsCarousel({
               >
                 {cta}
               </button>
+              {totalPages > 1 ? (
+                <div className="card-swipe-nav" aria-hidden="true">
+                  <button
+                    className="card-swipe-arrow"
+                    type="button"
+                    onClick={() => changePage(-1)}
+                    aria-label={labels.previous}
+                    tabIndex={-1}
+                  >
+                    <ChevronLeft size={24} strokeWidth={1.7} aria-hidden="true" />
+                  </button>
+                  <button
+                    className="card-swipe-arrow"
+                    type="button"
+                    onClick={() => changePage(1)}
+                    aria-label={labels.next}
+                    tabIndex={-1}
+                  >
+                    <ChevronRight size={24} strokeWidth={1.7} aria-hidden="true" />
+                  </button>
+                </div>
+              ) : null}
             </div>
           </article>
         ))}

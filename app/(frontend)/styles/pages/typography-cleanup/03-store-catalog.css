@@ -1,0 +1,251 @@
+.store-price strong {
+  font-size: clamp(1.5rem, 1.65vw, 1.95rem);
+}
+
+/* Tighter header so the products band isn't much taller than the events/journal
+   scroll sections (owner 2026-07-09: "tooted sektsioon vertikaalselt liiga
+   kõrge"). The category-nav row is unique to the shop, so trim its margins. */
+.store-products-header {
+  align-items: flex-end;
+  margin-bottom: 18px;
+}
+
+.store-products-header h2 {
+  margin-bottom: 10px;
+}
+
+.store-page .store-category-nav {
+  gap: 16px 42px;
+  font-size: clamp(1.34rem, 1.25vw, 1.55rem);
+}
+
+.store-page .store-category-nav button {
+  min-height: 34px;
+  font-size: inherit;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* Sort/category dropdowns adopt the cream ghost-button language instead of a
+   dark filled box, so they sit with the other buttons on the terracotta band
+   (owner 2026-07-09: "dropdown nupp ei lähe teiste nuppude stiili ja värviga
+   kokku"). */
+/* The .ui-select root carries a dark box fill from polarity.css — clear it so
+   the cream ghost trigger sits over the terracotta band, not a dark box. */
+.store-products-section .store-filter-controls .ui-select {
+  background: transparent;
+}
+
+.store-products-section .store-filter-controls .ui-select-trigger {
+  border: 2px solid rgba(248, 243, 236, 0.7);
+  border-radius: 0;
+  background: rgba(248, 243, 236, 0.12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
+  color: #f8f3ec;
+}
+
+.store-products-section .store-filter-controls .ui-select[data-select-theme="dark"] .ui-select-trigger:hover,
+.store-products-section .store-filter-controls .ui-select[data-select-theme="dark"] .ui-select-trigger:focus-visible,
+.store-products-section .store-filter-controls .ui-select[data-select-theme="dark"][data-open="true"] .ui-select-trigger {
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-box-button-hover-bg);
+  color: #2b241b;
+}
+
+/* Open menu: one clean cream panel with dark text instead of the mixed
+   light-row-on-dark look (owner 2026-07-09: "drop menüü kujundus ei meeldi").
+   The selected and hovered rows read as gentle darker-cream tints. */
+.store-products-section .store-filter-controls .ui-select[data-select-theme="dark"] {
+  --select-bg: #f2ebdf;
+  --select-ink: #2b241b;
+  --select-hover-bg: #e4d9c4;
+  --select-hover-ink: #2b241b;
+  --select-active-bg: #d8c9af;
+  --select-active-ink: #2b241b;
+}
+
+.store-products-section .store-filter-controls .ui-select-menu {
+  margin-top: 4px;
+  border: 1px solid rgba(43, 36, 27, 0.18);
+  box-shadow: 0 14px 30px rgba(17, 16, 13, 0.24);
+}
+
+.store-product-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.store-page .store-product-card {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ui-box-ink);
+  overflow: hidden;
+}
+
+.store-page .store-product-card :is(h3, p, span, strong, li, a) {
+  color: var(--ui-box-ink);
+}
+
+.store-product-image {
+  aspect-ratio: 1.12 / 1;
+  background: #d8cdbc;
+}
+
+.store-product-image img {
+  filter: saturate(0.9) contrast(1.02) brightness(0.94);
+}
+
+.store-product-card[data-product="kivisangpomm"] .store-product-image img {
+  filter: saturate(0.72) contrast(1.08) brightness(0.84);
+}
+
+.store-page .store-product-body {
+  min-height: 0;
+  align-items: center;
+  background: var(--ui-box-bg);
+  padding: 20px 18px 22px;
+  text-align: center;
+}
+
+.store-page .store-product-card .store-product-category {
+  margin-bottom: 12px;
+  color: #f8f3ec;
+  font-size: clamp(1rem, 0.98vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  text-transform: none;
+}
+
+.store-product-body h3 {
+  max-width: none;
+  min-height: 0;
+  font-size: clamp(1.38rem, 1.36vw, 1.68rem);
+  line-height: 1.16;
+}
+
+.store-price {
+  justify-content: center;
+  margin-top: clamp(10px, 0.9vw, 14px);
+}
+
+.store-page .store-price span {
+  color: #f8f3ec;
+  font-size: clamp(1rem, 0.98vw, 1.08rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.store-page .store-price strong {
+  color: var(--ui-box-ink);
+  font-size: clamp(1.62rem, 1.75vw, 2rem);
+}
+
+.store-page .store-product-card .add-to-cart,
+.store-page .store-product-card .button {
+  width: min(100%, 220px);
+  min-height: 44px;
+  margin-top: 16px;
+  align-self: center;
+  gap: 10px;
+  border: 2px solid rgba(248, 243, 236, 0.7);
+  border-radius: 0;
+  /* Subtle frosted-glass fill instead of fully transparent (owner 2026-07-09:
+     "kerge klaasjas efekt"). */
+  background: rgba(248, 243, 236, 0.12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
+  color: #f4efe4;
+  font-size: 1.16rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: none;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.store-page .store-product-card .add-to-cart:hover,
+.store-page .store-product-card .add-to-cart:focus-visible,
+.store-page .store-product-card .button:hover,
+.store-page .store-product-card .button:focus-visible {
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-box-button-hover-bg);
+  color: #2b241b;
+}
+
+/* Solid band CTAs ("Võta ühendust" etc.) as transparent + border, matching the
+   card CTAs — fill with the primitive cream on hover (owner 2026-07-08:
+   "proovime primitiivnuppe ka läbipaistvatena ja raamiga"). */
+body :is(
+  .events-host-cta .events-solid-button,
+  .journal-signup-banner .journal-solid-button,
+  .training-lasting-panel .training-solid-button,
+  .training-workshop-panel .training-solid-button,
+  .store-custom-band .store-solid-button
+) {
+  width: fit-content;
+  min-width: 0;
+  padding-inline: clamp(26px, 2.6vw, 36px);
+  border: 2px solid rgba(248, 243, 236, 0.7);
+  /* Subtle frosted-glass fill instead of fully transparent (owner 2026-07-09:
+     "kerge klaasjas efekt"). */
+  background: rgba(248, 243, 236, 0.12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
+  color: #f4efe4;
+  font-size: clamp(1.16rem, 1.1vw, 1.3rem);
+}
+
+body :is(
+  .events-host-cta .events-solid-button,
+  .journal-signup-banner .journal-solid-button,
+  .training-lasting-panel .training-solid-button,
+  .training-workshop-panel .training-solid-button,
+  .store-custom-band .store-solid-button
+):hover,
+body :is(
+  .events-host-cta .events-solid-button,
+  .journal-signup-banner .journal-solid-button,
+  .training-lasting-panel .training-solid-button,
+  .training-workshop-panel .training-solid-button,
+  .store-custom-band .store-solid-button
+):focus-visible {
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-box-button-hover-bg);
+  color: #2b241b;
+}
+
+/* The lasting band is light "nature gray", so cream text washes out — its CTA
+   is a DARK ghost with dark text/border like the band copy, filling dark on
+   hover (owner 2026-07-09: "nupu sees tekst tumedaks, nagu tekst seal"). */
+body .training-lasting-panel .training-solid-button {
+  border-color: rgba(34, 28, 20, 0.55);
+  color: #221c14;
+}
+
+body .training-lasting-panel .training-solid-button:hover,
+body .training-lasting-panel .training-solid-button:focus-visible {
+  border-color: #221c14;
+  background: #221c14;
+  color: #f4efe4;
+}
+
+@media (max-width: 1480px) {
+  .store-product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .store-product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .store-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+

@@ -53,25 +53,17 @@
   padding-top: clamp(26px, 4vw, 70px);
 }
 
-.tools-label,
 .tools-section-top h2,
 .tools-category-body h3,
 .tools-text-link,
 .tools-proof-item span,
 .tools-material-copy h2,
-.tools-material-values h3,
-.tools-care-copy h2,
-.tools-custom-copy h2,
-.tools-solid-button {
+.tools-care-copy h2 {
   font-size: 0.78rem;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-}
-
-.tools-label {
-  margin: 0 0 30px;
 }
 
 .tools-hero-panel h1 {
@@ -102,9 +94,7 @@
 .tools-hero-text p,
 .tools-category-body p,
 .tools-material-copy > p,
-.tools-material-values p,
-.tools-care-copy p,
-.tools-custom-copy p {
+.tools-care-copy p {
   margin: 0;
   color: var(--tools-ink);
   font-size: clamp(0.92rem, 0.98vw, 1.06rem);
@@ -150,7 +140,7 @@
 .tools-category-band {
   width: 100vw;
   margin-inline: calc(50% - 50vw);
-  padding: clamp(48px, 5vw, 82px) var(--band-pad) clamp(48px, 5.5vw, 78px);
+  padding: clamp(24px, 3vw, 42px) var(--band-pad) clamp(48px, 5.5vw, 78px);
   background:
     radial-gradient(72% 60% at 50% 0%, rgba(242, 217, 182, 0.1) 0%, rgba(242, 217, 182, 0) 60%),
     linear-gradient(180deg, #a4664e 0%, #9a5c44 100%);
@@ -160,10 +150,9 @@
   margin-bottom: 28px;
 }
 
-/* Dark text on terracotta (owner 2026-07-09: "vahendite kategooriad ka tume
-   tekst, terrakota peal peab igal lehel tume tekst olema"). */
+/* Light text on terracotta (reverted per owner request) */
 .tools-category-band .tools-section-top h2 {
-  color: #241610;
+  color: #f8f3ec;
 }
 
 .tools-section-top h2 {
@@ -261,7 +250,6 @@
 
 .tools-category-image img,
 .tools-care-image img,
-.tools-custom-image img,
 .tools-material-image img {
   object-fit: cover;
   filter: saturate(0.9) contrast(1.04);
@@ -324,8 +312,7 @@
 }
 
 .tools-page-redesign .tools-material-copy h2,
-.tools-care-copy h2,
-.tools-custom-copy h2 {
+.tools-care-copy h2 {
   margin: 0;
   color: var(--tools-ink);
 }
@@ -397,79 +384,7 @@
   object-position: center center;
 }
 
-.tools-material-values {
-  grid-area: values;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(14px, 1.4vw, 22px);
-  background: transparent;
-}
-
-.tools-material-values article {
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border: 1px solid var(--tools-inner-box-line);
-  border-radius: var(--tools-inner-box-radius);
-  padding: clamp(22px, 2.2vw, 34px);
-  background: var(--tools-inner-box-bg);
-}
-
-.tools-material-values h3 {
-  max-width: 13ch;
-  margin: auto 0 16px;
-  color: var(--material-panel-ink);
-  font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(1.55rem, 2vw, 2.4rem);
-  font-weight: 400;
-  line-height: 1.02;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.tools-material-values span {
-  color: #7c2632;
-  font-family: var(--font-ui), system-ui, sans-serif;
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-}
-
-.tools-page-redesign .tools-material-values p {
-  color: var(--material-panel-muted);
-  font-size: clamp(0.94rem, 0.96vw, 1.08rem);
-  line-height: 1.6;
-}
-
-.tools-bottom-grid {
-  display: grid;
-  /* Two equal halves → four equal strips with the cards' inner 50/50 splits. */
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 24px;
-  margin-top: 24px;
-}
-
-.tools-care-card,
-.tools-custom-card {
-  min-height: 320px;
-  display: grid;
-  border: 1px solid var(--tools-inner-box-line);
-  border-radius: var(--tools-inner-box-radius);
-  background: var(--tools-inner-box-bg);
-  overflow: hidden;
-}
-
-.tools-care-card {
-  grid-template-columns: minmax(0, 0.5fr) minmax(0, 0.5fr);
-}
-
-.tools-custom-card {
-  grid-template-columns: minmax(0, 0.5fr) minmax(0, 0.5fr);
-}
-
-.tools-care-copy,
-.tools-custom-copy {
+.tools-care-copy {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -477,67 +392,23 @@
   padding: clamp(28px, 3vw, 42px);
 }
 
-.tools-care-copy svg,
-.tools-custom-copy svg {
+.tools-care-copy svg {
   margin-bottom: 24px;
   color: var(--tools-icon-green);
 }
 
-.tools-care-copy p:first-of-type,
-.tools-custom-copy p:first-of-type {
-  margin-top: 18px;
+.tools-care-copy p:first-of-type {
+  margin-top: clamp(24px, 2.5vw, 34px);
 }
 
-.tools-care-copy p,
-.tools-custom-copy p {
+.tools-care-copy p {
   max-width: 34ch;
 }
 
-.tools-custom-copy h2 {
-  max-width: none;
-  font-size: clamp(1.45rem, 1.65vw, 1.95rem);
-  line-height: 1.14;
-}
-
-.tools-care-image,
-.tools-custom-image {
+.tools-care-image {
   position: relative;
   min-height: 320px;
   overflow: hidden;
-}
-
-.tools-custom-image::before {
-  content: "";
-  display: none;
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: none;
-  pointer-events: none;
-}
-
-.tools-solid-button {
-  min-height: 48px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 24px;
-  border: 1px solid var(--tools-ink);
-  border-radius: 0;
-  background: var(--tools-ink);
-  color: #f8f3ec;
-  padding: 0 22px;
-  transition:
-    background 160ms ease,
-    color 160ms ease,
-    border-color 160ms ease;
-}
-
-.tools-solid-button:hover,
-.tools-solid-button:focus-visible {
-  background: #3a342a;
-  border-color: #3a342a;
-  color: #f8f3ec;
 }
 
 .tools-hero-redesign {
@@ -561,10 +432,7 @@
 }
 
 @media (max-width: 1180px) {
-  .tools-bottom-grid {
-    grid-template-columns: 1fr;
   }
-}
 
 @media (max-width: 980px) {
   .tools-hero-panel {
@@ -589,11 +457,6 @@
 
 @media (max-width: 980px) {
 
-.tools-care-card,
-.tools-custom-card {
-    grid-template-columns: 1fr;
-  }
-
   .tools-material-panel {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -604,16 +467,12 @@
 }
 
 @media (max-width: 1180px) {
-  .tools-material-values {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-}
 
 @media (max-width: 980px) {
 
   .tools-material-image,
-.tools-care-image,
-.tools-custom-image {
+  .tools-care-image {
     min-height: 52vw;
   }
 }
@@ -633,16 +492,10 @@
 
 @media (max-width: 720px) {
 
-  .tools-material-values {
-    grid-template-columns: 1fr;
   }
-}
 
 @media (max-width: 720px) {
-  .tools-material-values article {
-    min-height: 190px;
   }
-}
 
 @media (max-width: 720px) {
   .tools-material-proof-row {
@@ -686,16 +539,11 @@
 
 @media (max-width: 620px) {
 
-  .tools-label,
-.tools-section-top h2,
-.tools-category-body h3,
-.tools-text-link,
-.tools-proof-item span,
-.tools-material-copy h2,
-.tools-material-values h3,
-.tools-care-card h2,
-.tools-custom-card h2,
-.tools-solid-button {
+  .tools-section-top h2,
+  .tools-category-body h3,
+  .tools-text-link,
+  .tools-proof-item span,
+  .tools-material-copy h2 {
     font-size: 0.7rem;
   }
 }
@@ -738,39 +586,51 @@
   }
 
   .tools-material-proof-row {
-    grid-template-columns: 1fr;
+    /* One centred column track sized to its widest row, so the whole icon+label
+       block sits in the middle with the icons aligned (owner 2026-07-09:
+       "keskjoondusesse"). A per-item justify-content couldn't centre because the
+       items still spanned the full 1fr width. */
+    grid-template-columns: max-content;
+    justify-content: center;
     gap: 16px;
     margin: 28px 0 0;
   }
 
   .tools-material-proof-row .tools-proof-item {
     min-height: 0;
-    grid-template-columns: 40px minmax(0, 1fr);
-    justify-items: start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     gap: 14px;
     text-align: left;
   }
 
   .tools-material-proof-row .tools-proof-item span {
-    font-size: 1.02rem;
+    /* Keep labels on two tidy lines and larger (owner 2026-07-09: "liiga väike
+       tekst on"). */
+    max-width: 14ch;
+    font-size: 1.18rem;
     line-height: 1.25;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
   }
 
   .tools-page-redesign .tools-material-copy h2 {
-    font-size: clamp(2.7rem, 13vw, 4.45rem);
+    /* Fit "MIKS PUU JA KIVI?" on one line (owner 2026-07-09: "ühele reale
+       mahuta pealkiri"). At 390px only ~39px fits one line, so cap the growth. */
+    font-size: clamp(2rem, 9.4vw, 3.5rem);
+    white-space: nowrap;
   }
 
-  .tools-page-redesign .tools-material-values h3 {
-    font-size: clamp(1.55rem, 7vw, 2.25rem);
   }
-}
 
 @media (max-width: 620px) {
 
   .tools-category-section {
     width: min(calc(100% - 32px), 1680px);
-    padding-top: 42px;
+    /* No top padding — it exposed the cream page background as a light strip
+       between the hero and the terracotta band (owner 2026-07-09). The band's
+       own top padding already gives the title breathing room. */
+    padding-top: 0;
   }
 }
 
@@ -790,8 +650,7 @@
 
 @media (max-width: 620px) {
 
-  .tools-care-copy,
-.tools-custom-copy {
+  .tools-care-copy {
     padding: 28px 22px 32px;
   }
 }
@@ -799,8 +658,7 @@
 @media (max-width: 620px) {
 
   .tools-material-image,
-.tools-care-image,
-.tools-custom-image {
+  .tools-care-image {
     min-height: 72vw;
   }
 }
@@ -810,35 +668,30 @@
    cells so images run all the way to the screen edge, like the hero. Only the
    category carousel keeps its own breathing room. --- */
 .tools-page-redesign {
-  overflow-x: clip;
   --band-pad: max(clamp(24px, 5vw, 76px), calc((100vw - 1560px) / 2));
+  overflow-x: clip;
 }
 
 /* Break the bands out to the full viewport width. */
 .tools-page-redesign .tools-material-panel,
-.tools-page-redesign .tools-bottom-grid {
+.tools-page-redesign .tools-care-panel,
+.tools-page-redesign .tools-support-band,
+.tools-page-redesign .tools-video-band {
   width: 100vw;
   margin-inline: calc(50% - 50vw);
   padding-inline: 0;
 }
 
 /* Square, borderless bands and images. */
-.tools-page-redesign :is(.tools-material-panel, .tools-care-card, .tools-custom-card) {
+.tools-page-redesign .tools-material-panel {
   --ui-card-radius: 0;
   border: 0 !important;
   border-radius: 0 !important;
 }
-.tools-page-redesign :is(.tools-material-image, .tools-care-image, .tools-custom-image) {
+.tools-page-redesign :is(.tools-material-image, .tools-care-image) {
   border-radius: 0 !important;
 }
 
-/* Seamless stacking: the band group touches the footer. -1px overlap hides
-   the fractional-DPR hairline between the stacked bands. */
-.tools-page-redesign .tools-bottom-grid {
-  margin-top: -1px;
-  gap: 0;
-  grid-template-columns: 1fr;
-}
 .tools-page-redesign .tools-category-section {
   padding-bottom: 0;
 }
@@ -885,11 +738,10 @@
    right — the shared framed-band composition (photo side alternates the rust
    material band above). */
 .tools-page-redesign .tools-support-band {
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
   margin-top: -1px;
   display: grid;
   grid-template-columns: minmax(480px, 740px) minmax(0, 1fr);
+  grid-template-areas: "image copy";
   column-gap: clamp(40px, 5.5vw, 100px);
   align-items: center;
   padding: clamp(56px, 6vw, 88px) var(--band-pad);
@@ -901,18 +753,20 @@
 }
 
 .tools-page-redesign .tools-support-band .tools-care-image {
+  grid-area: image;
   width: 100%;
   min-height: 0;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 3 / 2;
   border-radius: 0 !important;
   background: #2b241b;
-  filter: drop-shadow(0 16px 28px rgba(12, 8, 4, 0.5));
+  filter: none;
 }
 .tools-page-redesign .tools-support-band .tools-care-image img {
   object-fit: cover;
 }
 
 .tools-page-redesign .tools-care-copy {
+  grid-area: copy;
   padding: 0;
   align-items: flex-start;
   text-align: left;
@@ -950,6 +804,12 @@
 
   .tools-page-redesign .tools-support-band {
     grid-template-columns: 1fr;
+    /* Reset the areas too, or the "image copy" template keeps a 2nd column and
+       the photo column collapses to 0 → image vanishes (owner 2026-07-09:
+       "pilt on kadunud vahendite lehel"). */
+    grid-template-areas:
+      "image"
+      "copy";
   }
 
   .tools-page-redesign .tools-support-band .tools-care-image {

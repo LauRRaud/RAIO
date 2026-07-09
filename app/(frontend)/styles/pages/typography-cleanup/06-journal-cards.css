@@ -1,0 +1,142 @@
+.journal-card-grid {
+  gap: 24px;
+}
+
+.journal-story-card {
+  min-height: clamp(500px, 32vw, 610px);
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  background: #2b241b;
+}
+
+.journal-story-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(17, 16, 13, 0.08) 0%,
+      rgba(17, 16, 13, 0.24) 34%,
+      rgba(17, 16, 13, 0.9) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(17, 16, 13, 0.6) 0%,
+      rgba(17, 16, 13, 0.18) 48%,
+      rgba(17, 16, 13, 0.42) 100%
+    );
+}
+
+.journal-story-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  aspect-ratio: auto;
+}
+
+.journal-story-image img {
+  filter: saturate(0.88) contrast(1.04) brightness(0.82);
+  transform: scale(1.01);
+}
+
+.journal-story-body {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding: clamp(20px, 1.65vw, 28px);
+  text-align: center;
+}
+
+.journal-story-meta {
+  display: inline-grid;
+  justify-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin: 0 0 34px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(248, 243, 236, 0.72);
+  color: #f8f3ec;
+  font-family: var(--font-body);
+  font-size: clamp(1.16rem, 1.18vw, 1.34rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.journal-story-body h3 {
+  max-width: 16ch;
+  margin-inline: auto;
+  color: #f8f3ec;
+  font-size: clamp(1.5rem, 1.58vw, 1.95rem);
+  line-height: 1.16;
+  letter-spacing: var(--track-card);
+}
+
+.journal-story-body > p:not(.journal-story-meta) {
+  max-width: 30ch;
+  /* Small title→text gap so a 3-line title doesn't crowd the excerpt against
+     the pinned button (owner 2026-07-09). The button stays put. */
+  margin: 13px auto 0;
+  color: #f8f3ec;
+  font-size: clamp(1.12rem, 1.12vw, 1.28rem);
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+}
+
+.journal-story-card .journal-text-link {
+  position: relative;
+  flex: 0 0 auto;
+  width: fit-content;
+  min-width: min(100%, 210px);
+  min-height: 50px;
+  justify-content: center;
+  gap: 10px;
+  margin: 34px auto 0;
+  padding: 0 40px;
+  border: 2px solid rgba(248, 243, 236, 0.7);
+  border-radius: 0;
+  /* Subtle frosted-glass fill, matching the shop card CTA (owner 2026-07-09:
+     "klaasjas efekt igal pool"). */
+  background: rgba(248, 243, 236, 0.12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
+  color: #f4efe4;
+  font-size: clamp(1.08rem, 1vw, 1.2rem);
+  line-height: 1.1;
+  text-align: center;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.journal-story-card .journal-text-link:hover,
+.journal-story-card .journal-text-link:focus-visible {
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-box-button-hover-bg);
+  color: #2b241b;
+}
+
+/* Scroll-band category filters match the shop catalog nav size (owner
+   2026-07-09: "journal kategooriad suuremaks, ühtlusta poe lehega"). Mirrors
+   `.store-page .store-category-nav` in 03-store-catalog.css. */
+.journal-page-redesign .journal-category-row {
+  gap: 16px 42px;
+  font-size: clamp(1.34rem, 1.25vw, 1.55rem);
+}
+
+.journal-page-redesign .journal-category-row button {
+  min-height: 42px;
+  font-size: inherit;
+  font-weight: 700;
+  line-height: 1.25;
+}
+

@@ -1,0 +1,89 @@
+/* Remove remaining outer hairlines from framed content boxes. */
+:is(
+    .events-event-card,
+    .events-host-cta,
+    .journal-story-card,
+    .journal-signup-banner,
+    .tools-category-card,
+    .tools-material-panel,
+    .training-card,
+    .training-lasting-panel,
+    .training-workshop-panel,
+    .about-story-panel,
+    .about-closing-panel,
+    .store-page .store-product-card,
+    .related-card
+  ) {
+  border: 0 !important;
+  outline: 0;
+  box-shadow: none !important;
+}
+
+/* ...but the scroll/carousel cards DO keep a soft lift shadow (owner 2026-07-09:
+   "pane kõikide alalehtede scroll kaartidele vari") — must beat the reset above.
+   The reset :is() is (0,2,0) via `.store-page .store-product-card`, so EVERY
+   selector here needs ≥(0,2,0) — bare `.events-event-card` (0,1,0) lost, leaving
+   events/journal cards shadowless until the page-root prefix was added. */
+.events-page-redesign .events-event-card,
+.journal-page-redesign .journal-story-card,
+.tools-page-redesign .tools-category-card,
+.training-page-redesign .training-card,
+.store-page .store-product-card {
+  /* Tighter, denser lift (owner 2026-07-09: vari "ei ole nii hajutatud ja alt
+     servast ka näha") — small blur so the edge stays crisp on the terracotta band.
+     The carousel scroll container reserves bottom room for this (10-carousel-system). */
+  box-shadow: 0 10px 20px -6px rgba(0, 0, 0, 0.5) !important;
+}
+
+:is(
+    .events-event-image,
+    .events-event-body,
+    .events-host-image,
+    .events-host-copy,
+    .journal-story-image,
+    .journal-story-body,
+    .journal-signup-image,
+    .journal-signup-copy,
+    .tools-category-image,
+    .tools-category-body,
+    .tools-material-image,
+    .tools-material-copy,
+    .tools-care-image,
+    .tools-care-copy,
+    .training-card-image,
+    .training-card-body,
+    .training-lasting-image,
+    .training-lasting-copy,
+    .training-workshop-copy,
+    .about-story-image,
+    .about-story-copy,
+    .about-closing-copy,
+    .store-page .store-product-image,
+    .store-page .store-product-body,
+    .related-card-media
+  ) {
+  border: 0 !important;
+  outline: 0;
+  box-shadow: none !important;
+}
+
+/* Framed band photos get a NORMAL, even box-shadow (owner 2026-07-09: the old
+   drop-shadow "ujub ringi ja ebakorrapärase kujuga" — irregular, floaty). The
+   reset above nukes box-shadow with !important, so re-apply it here with equal
+   (0,2,0) specificity + !important, placed later so it wins. clip-path would
+   clip a box-shadow, so make sure it's off on these frames. */
+.about-page-redesign .about-story-image,
+.events-page-redesign .events-host-image,
+.journal-page-redesign .journal-signup-image,
+.training-page-redesign .training-lasting-image,
+.tools-page-redesign .tools-material-image,
+.tools-page-redesign .tools-care-image,
+.about-page-redesign .about-trainer-image {
+  clip-path: none !important;
+  /* Bottom-directional drop only — a wide blur used to spill onto the top and
+     sides, reading as a framed "edge" around the photo (owner 2026-07-09:
+     "piltidel on mingid servad, võta ära"). Large negative spread keeps it to
+     a soft shadow under the image. */
+  box-shadow: 0 22px 30px -22px rgba(12, 8, 4, 0.55) !important;
+}
+

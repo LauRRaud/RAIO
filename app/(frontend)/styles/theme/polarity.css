@@ -25,8 +25,6 @@
 .journal-signup-banner,
 .tools-category-card,
 .tools-material-panel,
-.tools-care-card,
-.tools-custom-card,
 .training-card,
 .training-lasting-panel,
 .training-workshop-panel,
@@ -36,7 +34,6 @@
 .about-closing-panel,
 .cart-item,
 .cart-summary,
-.product-warning,
 .related-card {
   border: 0;
   border-color: var(--ui-box-line);
@@ -53,8 +50,6 @@
 .journal-signup-banner :is(h2, p, span, strong, a, svg),
 .tools-category-card :is(h3, p, span, strong, a, svg),
 .tools-material-panel :is(h2, h3, p, span, strong, a, svg),
-.tools-care-card :is(h2, h3, p, span, strong, a, svg),
-.tools-custom-card :is(h2, h3, p, span, strong, a, svg),
 .training-card :is(h3, p, span, strong, a, svg),
 .training-lasting-panel :is(h2, h3, p, span, strong, a, svg),
 .training-workshop-panel :is(h2, h3, p, span, strong, a, svg),
@@ -65,7 +60,6 @@
 .about-closing-panel :is(h2, p, span, strong, a, svg),
 .cart-item :is(h3, p, span, strong, button, svg),
 .cart-summary :is(h2, p, span, strong, a, button, svg),
-.product-warning :is(p, span, strong, a, svg),
 .related-card :is(strong, span, a, svg) {
   color: var(--ui-box-ink);
 }
@@ -73,7 +67,6 @@
 .events-event-card :is(.events-location, .events-date),
 .journal-story-card .journal-story-meta,
 .store-product-card .store-product-category,
-.store-product-card .store-product-meta,
 .cart-item .remove-item,
 .cart-summary .summary-row span {
   color: var(--ui-box-muted);
@@ -85,7 +78,6 @@
 .tools-category-image,
 .tools-material-image,
 .tools-care-image,
-.tools-custom-image,
 .training-card-image,
 .training-lasting-image,
 .store-product-image,
@@ -98,7 +90,6 @@
 }
 
 .events-host-copy,
-.tools-material-values article + article,
 .training-quality-list,
 .training-quality-item,
 .summary-row,
@@ -106,7 +97,6 @@
   border-color: transparent;
 }
 
-.tools-material-values article + article,
 .training-quality-item,
 .events-host-copy,
 .summary-row,
@@ -120,8 +110,6 @@
 .training-card,
 .store-product-card,
 .tools-material-panel,
-.tools-care-card,
-.tools-custom-card,
 .about-story-panel,
 .events-host-cta,
 .training-lasting-panel {
@@ -203,14 +191,12 @@
   border-radius: 0;
 }
 
-.tools-care-copy,
-.tools-custom-copy {
+.tools-care-copy {
   background: var(--ui-box-bg);
   border-radius: var(--ui-card-radius) 0 0 var(--ui-card-radius);
 }
 
-.tools-care-image,
-.tools-custom-image {
+.tools-care-image {
   border-radius: 0 var(--ui-card-radius) var(--ui-card-radius) 0;
   background: transparent;
   overflow: hidden;
@@ -238,13 +224,11 @@
     border-radius: 0 0 var(--ui-card-radius) var(--ui-card-radius);
   }
 
-  .tools-care-copy,
-  .tools-custom-copy {
+  .tools-care-copy {
     border-radius: var(--ui-card-radius) var(--ui-card-radius) 0 0;
   }
 
-  .tools-care-image,
-  .tools-custom-image {
+  .tools-care-image {
     border-radius: 0 0 var(--ui-card-radius) var(--ui-card-radius);
   }
 }
@@ -257,8 +241,6 @@
 .events-outline-button,
 .journal-solid-button,
 .training-solid-button,
-.tools-solid-button,
-.about-solid-button,
 .cart-solid-action {
   border-color: var(--ui-surface-button-bg);
   background: var(--ui-surface-button-bg);
@@ -271,9 +253,6 @@ body .events-host-cta .events-solid-button,
 body .journal-signup-banner .journal-solid-button,
 body .training-lasting-panel .training-solid-button,
 body .training-workshop-panel .training-solid-button,
-body .tools-custom-card .tools-solid-button,
-body .about-story-panel .about-solid-button,
-body .about-closing-panel .about-solid-button,
 body .cart-item .cart-solid-action,
 body .cart-summary .cart-solid-action,
 body .cart-summary .button,
@@ -294,8 +273,6 @@ body .events-solid-button,
 body .events-outline-button,
 body .journal-solid-button,
 body .training-solid-button,
-body .tools-solid-button,
-body .about-solid-button,
 body .cart-solid-action {
   border-color: var(--ui-surface-button-bg);
   background: var(--ui-surface-button-bg);
@@ -308,9 +285,6 @@ body .cart-solid-action {
 .journal-signup-banner .journal-solid-button,
 .training-lasting-panel .training-solid-button,
 .training-workshop-panel .training-solid-button,
-.tools-custom-card .tools-solid-button,
-.about-story-panel .about-solid-button,
-.about-closing-panel .about-solid-button,
 .cart-item .cart-solid-action,
 .cart-summary .cart-solid-action,
 .cart-summary .button,
@@ -335,10 +309,6 @@ body .cart-solid-action {
 .journal-solid-button:focus-visible,
 .training-solid-button:hover,
 .training-solid-button:focus-visible,
-.tools-solid-button:hover,
-.tools-solid-button:focus-visible,
-.about-solid-button:hover,
-.about-solid-button:focus-visible,
 .cart-solid-action:hover,
 .cart-solid-action:focus-visible {
   border-color: var(--ui-surface-button-hover-bg);
@@ -356,12 +326,6 @@ body .training-lasting-panel .training-solid-button:hover,
 body .training-lasting-panel .training-solid-button:focus-visible,
 body .training-workshop-panel .training-solid-button:hover,
 body .training-workshop-panel .training-solid-button:focus-visible,
-body .tools-custom-card .tools-solid-button:hover,
-body .tools-custom-card .tools-solid-button:focus-visible,
-body .about-story-panel .about-solid-button:hover,
-body .about-story-panel .about-solid-button:focus-visible,
-body .about-closing-panel .about-solid-button:hover,
-body .about-closing-panel .about-solid-button:focus-visible,
 body .cart-item .cart-solid-action:hover,
 body .cart-item .cart-solid-action:focus-visible,
 body .cart-summary .cart-solid-action:hover,
@@ -427,9 +391,7 @@ body .store-page .store-product-card .add-to-cart.is-added {
 ) :is(
   .events-solid-button,
   .journal-solid-button,
-  .tools-solid-button,
-  .training-solid-button,
-  .about-solid-button
+  .training-solid-button
 ) {
   border-color: var(--ui-box-button-bg);
   background: var(--ui-box-button-bg);
@@ -445,9 +407,7 @@ body .store-page .store-product-card .add-to-cart.is-added {
 ) :is(
   .events-solid-button,
   .journal-solid-button,
-  .tools-solid-button,
-  .training-solid-button,
-  .about-solid-button
+  .training-solid-button
 ):hover,
 :is(
   .events-hero-redesign,
@@ -458,9 +418,7 @@ body .store-page .store-product-card .add-to-cart.is-added {
 ) :is(
   .events-solid-button,
   .journal-solid-button,
-  .tools-solid-button,
-  .training-solid-button,
-  .about-solid-button
+  .training-solid-button
 ):focus-visible {
   border-color: var(--ui-box-button-hover-bg);
   background: var(--ui-box-button-hover-bg);
@@ -486,8 +444,7 @@ body .store-page .store-product-card .add-to-cart.is-added {
   .about-story-image,
   .events-host-image,
   .tools-material-image,
-  .tools-care-image,
-  .tools-custom-image {
+  .tools-care-image {
     position: relative;
   }
 
@@ -495,8 +452,7 @@ body .store-page .store-product-card .add-to-cart.is-added {
   .about-story-image::after,
   .events-host-image::after,
   .tools-material-image::after,
-  .tools-care-image::after,
-  .tools-custom-image::after {
+  .tools-care-image::after {
     content: none;
   }
 }

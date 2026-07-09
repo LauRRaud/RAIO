@@ -1,0 +1,158 @@
+.events-event-card .events-outline-button {
+  flex: 0 0 auto;
+  width: fit-content;
+  min-width: min(100%, 210px);
+  min-height: 50px;
+  margin-top: 0;
+  padding-inline: 24px;
+  font-size: 0.94rem;
+}
+
+.events-grid-redesign {
+  gap: 24px;
+}
+
+/* "Vaata kõiki" expands the carousel: the single scrollable row becomes a
+   wrapping grid so every event card is visible at once (owner 2026-07-09). */
+.events-event-carousel .events-grid-redesign.is-expanded {
+  flex-wrap: wrap;
+  row-gap: var(--raio-carousel-gap, 24px);
+}
+
+.events-event-carousel .events-grid-redesign.is-expanded .events-event-card {
+  flex: 0 0 calc((100% - (var(--raio-carousel-gap, 24px) * 2)) / 3);
+}
+
+/* On a phone the expanded grid stacks one card per row — the 1/3 basis would
+   crush them into slivers (owner 2026-07-09: "vajutades teeb lehe katki"). */
+@media (max-width: 620px) {
+  .events-event-carousel .events-grid-redesign.is-expanded {
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  .events-event-carousel .events-grid-redesign.is-expanded .events-event-card {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+.events-event-card {
+  min-height: clamp(500px, 32vw, 610px);
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  background: #2b241b;
+}
+
+.events-event-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(17, 16, 13, 0.04) 0%,
+      rgba(17, 16, 13, 0.22) 34%,
+      rgba(17, 16, 13, 0.9) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(17, 16, 13, 0.62) 0%,
+      rgba(17, 16, 13, 0.16) 48%,
+      rgba(17, 16, 13, 0.42) 100%
+    );
+}
+
+.events-event-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  aspect-ratio: auto;
+}
+
+.events-event-image img {
+  filter: saturate(0.88) contrast(1.04) brightness(0.82);
+  transform: scale(1.01);
+}
+
+.events-event-body {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  padding: clamp(20px, 1.65vw, 28px);
+  text-align: center;
+}
+
+.events-date {
+  width: fit-content;
+  margin: 0 0 16px;
+  color: #f8f3ec;
+  font-size: clamp(0.86rem, 0.86vw, 0.98rem);
+  letter-spacing: 0.04em;
+  /* Keep the date on a single line (owner 2026-07-09). */
+  white-space: nowrap;
+}
+
+.events-event-body h3 {
+  max-width: 13ch;
+  margin-inline: auto;
+  font-size: clamp(1.5rem, 1.58vw, 1.95rem);
+  line-height: 1.16;
+  letter-spacing: var(--track-card);
+}
+
+.events-event-body h3 + p {
+  max-width: 28ch;
+  margin: 20px auto 0;
+  color: #f8f3ec;
+  font-size: clamp(1.16rem, 1.16vw, 1.32rem);
+  line-height: 1.48;
+  letter-spacing: 0.01em;
+}
+
+.events-location {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: start;
+  justify-content: center;
+  gap: 9px;
+  margin: 18px 0 18px;
+  color: #f8f3ec;
+  font-size: clamp(0.88rem, 0.9vw, 1rem);
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+}
+
+.events-location svg {
+  margin-top: 1px;
+}
+
+body .events-event-card .events-outline-button {
+  margin-inline: auto;
+  border: 2px solid rgba(248, 243, 236, 0.7);
+  border-radius: 0;
+  /* Subtle frosted-glass fill, matching the shop card CTA (owner 2026-07-09:
+     "klaasjas efekt igal pool" — the card CTAs were missed). */
+  background: rgba(248, 243, 236, 0.12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
+  color: #f4efe4;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+body .events-event-card .events-outline-button:hover,
+body .events-event-card .events-outline-button:focus-visible {
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-box-button-hover-bg);
+  color: #2b241b;
+}
+

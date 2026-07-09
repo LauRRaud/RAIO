@@ -295,25 +295,25 @@
         "title": "Wooden tools",
         "description": "Staffs, clubs, and other wooden training tools.",
         "image": "/Pictures/Vahendid/jalutuskepp.png",
-        "href": "/pood"
+        "href": "/pood?kategooria=puidust-vahendid"
       },
       {
         "title": "Kettlebells",
         "description": "Stone kettlebells and wood & stone kettlebells.",
         "image": "/Pictures/Vahendid/Puu ja kivi sangpomm.png",
-        "href": "/pood"
+        "href": "/pood?kategooria=sangpommid"
       },
       {
         "title": "Dumbbells",
         "description": "Stone dumbbells with wooden handles for strength and endurance training.",
         "image": "/Pictures/Vahendid/hantlid.png",
-        "href": "/pood"
+        "href": "/pood?kategooria=hantlid"
       },
       {
         "title": "For children",
         "description": "Safe, natural training tools made for children.",
         "image": "/Pictures/Vahendid/laste treeningvahendid.png",
-        "href": "/pood"
+        "href": "/pood?kategooria=lastele"
       },
       {
         "title": "Other tools",

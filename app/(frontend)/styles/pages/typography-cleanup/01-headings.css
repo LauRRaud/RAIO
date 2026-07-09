@@ -1,0 +1,199 @@
+.store-hero-copy p:not(.store-kicker) {
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: 1.68;
+  letter-spacing: var(--track-body);
+  text-transform: none;
+}
+
+.store-hero-copy p:not(.store-kicker) {
+  color: #f8f3ec;
+  font-family: var(--font-body);
+  font-size: clamp(1.3rem, 1.28vw, 1.48rem);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.store-short-rule {
+  background: #f8f3ec;
+}
+
+:is(
+  .store-product-card,
+  .events-event-card,
+  .journal-story-card,
+  .related-card,
+  .product-hero
+) {
+  background: var(--ui-box-bg);
+}
+
+:is(
+    .store-product-body,
+    .events-event-body,
+    .journal-story-body,
+    .product-copy,
+    .related-card
+  )
+  :is(h1, h2, h3, p, span, strong, li, svg) {
+  color: var(--ui-box-ink);
+}
+
+:is(
+    .store-hero-copy,
+    .events-hero-panel,
+    .journal-hero-panel,
+    .tools-hero-panel,
+    .training-hero-panel,
+    .about-hero-panel
+  )
+  h1 {
+  /* Subpage heroes share the homepage hero's display face, tight leading and
+     letter-spacing — just a touch smaller so the longest single Estonian words
+     (ETTETELLIMINE, INSPIRATSIOONI) still fit the narrower hero text column. */
+  font-size: clamp(2.9rem, 4.55vw, 5.3rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* Pages whose hero has a 13–14-char single word need a slightly gentler cap so
+   it never overflows the panel on one line. */
+.journal-hero-panel h1 {
+  font-size: clamp(2.6rem, 3.75vw, 4.5rem);
+}
+
+/* Shop hero read noticeably smaller than the other subpage heroes (owner
+   2026-07-09: "poe header sektsioonis on fondid väiksemad?"). "ETTETELLIMINE"
+   is 12 chars, so only a hair below the shared 4.55vw is needed to keep it on
+   one line — close the gap. */
+.store-hero-copy h1 {
+  font-size: clamp(2.8rem, 4.4vw, 5.1rem);
+}
+
+.tools-hero-panel h1 {
+  max-width: 10.5ch;
+  font-size: clamp(2.7rem, 4.15vw, 4.9rem);
+  line-height: 1.04;
+}
+
+/* The removed short-rule (kriips) used to create the h1→body gap via its own
+   margin; deleting it with display:none collapsed that space to zero (owner
+   2026-07-09: "suurem osa headerite pealkirjade alt kadus vahe ära, lisa
+   tagasi"). Restore the gap directly on h1. */
+:is(
+    .events-hero-panel,
+    .journal-hero-panel,
+    .tools-hero-panel,
+    .training-hero-panel,
+    .about-hero-panel,
+    .store-hero-copy
+  )
+  h1 {
+  margin-bottom: clamp(28px, 3vw, 40px);
+}
+
+:is(.tools-material-copy, .tools-care-copy) h2 {
+  font-size: clamp(1.55rem, 2.15vw, 2.7rem);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+:is(.product-copy, .cart-empty-heading) h1 {
+  font-size: var(--type-page-hero);
+  line-height: 0.96;
+  letter-spacing: var(--track-heading);
+}
+
+:is(.section, .product-related-heading) h2,
+:is(
+    .events-host-copy,
+    .tools-material-copy
+  )
+  h2,
+:is(.about-story-copy, .about-closing-copy, .cart-summary) h2 {
+  font-size: var(--type-section);
+  line-height: 1.02;
+  letter-spacing: var(--track-heading);
+  text-transform: none;
+}
+
+/* Content-band headings adopt the hero header's tight display treatment —
+   bigger, leading at 1, minimal tracking (owner: "tekstid pane nagu headeris"). */
+.about-page-redesign .about-story-copy h2,
+.about-page-redesign .about-trainer-copy h3,
+.about-page-redesign .about-closing-copy h2,
+.events-page-redesign .events-host-copy h2,
+.journal-page-redesign .journal-signup-copy h2,
+.training-page-redesign .training-lasting-copy h2 {
+  font-size: clamp(2.7rem, 4.15vw, 4.85rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* The workshop heading is a long centred question — same treatment, gentler cap
+   so it stays to a line or two. */
+.training-page-redesign .training-workshop-copy h2 {
+  font-size: clamp(2.1rem, 3.05vw, 3.75rem);
+  line-height: 1.04;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* Owner 2026-07-09: "võta need kriipsud ära" — ALL heading accent lines removed
+   (band-heading kriips, workshop rule, trainers rule, quality-grid centre line,
+   and the hero short-rules). Reverses the earlier "pane kriips pealkirja alla". */
+.store-custom-copy h2::after,
+.tools-page-redesign .tools-material-copy h2::after,
+.tools-page-redesign .tools-care-copy h2::after,
+.about-page-redesign .about-story-copy h2::after,
+.training-page-redesign .training-lasting-copy h2::after,
+.journal-page-redesign .journal-signup-copy h2::after,
+.training-page-redesign .training-workshop-copy h2::after,
+.about-trainers-heading h2::before,
+.training-page-redesign .training-quality-list::after {
+  content: none !important;
+}
+
+:is(
+  .events-short-rule,
+  .journal-short-rule,
+  .tools-short-rule,
+  .training-short-rule,
+  .store-short-rule,
+  .about-short-rule
+) {
+  display: none !important;
+}
+
+:is(
+    .events-section-top,
+    .journal-section-top,
+    .tools-section-top,
+    .training-section-intro,
+    .store-products-header
+  )
+  h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.65rem, 2.4vw, 2.7rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: var(--track-heading);
+  text-transform: none;
+}
+
+/* Section-heading accent line removed too (owner 2026-07-09: "võta need
+   kriipsud ära"). */
+:is(
+    .events-section-top,
+    .journal-section-top,
+    .tools-section-top,
+    .training-section-intro,
+    .store-products-header
+  )
+  h2::before {
+  content: none;
+}
+

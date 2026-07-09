@@ -25,9 +25,11 @@ export async function ShopPage({ locale = "et" }) {
         <section className="store-hero" aria-labelledby="store-hero-title">
           <div className="store-hero-copy">
             <h1 id="store-hero-title">{t.heroTitle}</h1>
-            <p>{t.heroText}</p>
             <span className="store-short-rule" aria-hidden="true" />
-            <p>{t.heroNote}</p>
+            <div className="store-hero-text">
+              <p>{t.heroText}</p>
+              <p>{t.heroNote}</p>
+            </div>
           </div>
           <div className="store-hero-image" style={{ "--hero-image-position": t.heroImagePosition }} aria-hidden="true">
             <HeroMedia desktop={t.heroImage} mobile={t.heroImageMobile} />

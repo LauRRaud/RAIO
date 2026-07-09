@@ -8,28 +8,33 @@ import { createPortal } from "react-dom";
 export function JournalCardsCarousel({ articles, readMore, modalClose, labels }) {
   const journalTrackRef = useRef(null);
   const closeButtonRef = useRef(null);
-  const [canScroll, setCanScroll] = useState(false);
+  const touchStartX = useRef(null);
   const [activeArticle, setActiveArticle] = useState(null);
+  
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
+  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
-    const track = journalTrackRef.current;
-
-    if (!track) return undefined;
-
-    const updateCanScroll = () => {
-      setCanScroll(track.scrollWidth > track.clientWidth + 1);
+    const updateItemsPerPage = () => {
+      setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
     };
-    const observer = new ResizeObserver(updateCanScroll);
 
-    updateCanScroll();
-    observer.observe(track);
-    window.addEventListener("resize", updateCanScroll);
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", updateCanScroll);
+      window.removeEventListener("resize", updateItemsPerPage);
     };
-  }, [articles.length]);
+  }, []);
+
+  const totalPages = Math.ceil(articles.length / itemsPerPage);
+
+  useEffect(() => {
+    if (currentPage >= totalPages && totalPages > 0) {
+      setCurrentPage(totalPages - 1);
+    }
+  }, [totalPages, currentPage]);
 
   useEffect(() => {
     if (!activeArticle) return undefined;
@@ -53,29 +58,48 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
     };
   }, [activeArticle]);
 
-  function scrollStories(direction) {
-    const track = journalTrackRef.current;
+  function changePage(direction) {
+    if (isFading || totalPages <= 1) return;
 
-    if (!track) return;
+    let newPage = currentPage + direction;
+    if (newPage >= totalPages) newPage = 0;
+    if (newPage < 0) newPage = totalPages - 1;
 
-    const card = track.querySelector(".journal-story-card");
-    const trackStyles = window.getComputedStyle(track);
-    const gap = parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
-    const distance = card
-      ? card.getBoundingClientRect().width + gap
-      : track.clientWidth * 0.82;
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentPage(newPage);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsFading(false);
+        });
+      });
+    }, 150);
+  }
 
-    track.scrollBy({ left: direction * distance, behavior: "smooth" });
+  const visibleArticles = articles.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
+
+  function handleTouchStart(event) {
+    touchStartX.current = event.touches[0].clientX;
+  }
+
+  function handleTouchEnd(event) {
+    if (touchStartX.current == null) return;
+    const deltaX = event.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(deltaX) > 45) changePage(deltaX < 0 ? 1 : -1);
   }
 
   return (
     <div className="journal-story-carousel">
-      {canScroll ? (
+      {totalPages > 1 ? (
         <>
           <button
             className="journal-story-arrow journal-story-arrow-left"
             type="button"
-            onClick={() => scrollStories(-1)}
+            onClick={() => changePage(-1)}
             aria-label={labels.previous}
           >
             <ChevronLeft size={28} strokeWidth={1.7} aria-hidden="true" />
@@ -83,7 +107,7 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
           <button
             className="journal-story-arrow journal-story-arrow-right"
             type="button"
-            onClick={() => scrollStories(1)}
+            onClick={() => changePage(1)}
             aria-label={labels.next}
           >
             <ChevronRight size={28} strokeWidth={1.7} aria-hidden="true" />
@@ -91,8 +115,8 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
         </>
       ) : null}
 
-      <div className="journal-card-grid" ref={journalTrackRef}>
-        {articles.map((article) => (
+      <div className={`journal-card-grid fade-transition ${isFading ? 'fade-out' : ''}`} ref={journalTrackRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+        {visibleArticles.map((article) => (
           <article className="journal-story-card" key={article.title}>
             <div className="journal-story-image">
               <Image
@@ -119,6 +143,28 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
               >
                 {readMore}
               </button>
+              {totalPages > 1 ? (
+                <div className="card-swipe-nav" aria-hidden="true">
+                  <button
+                    className="card-swipe-arrow"
+                    type="button"
+                    onClick={() => changePage(-1)}
+                    aria-label={labels.previous}
+                    tabIndex={-1}
+                  >
+                    <ChevronLeft size={24} strokeWidth={1.7} aria-hidden="true" />
+                  </button>
+                  <button
+                    className="card-swipe-arrow"
+                    type="button"
+                    onClick={() => changePage(1)}
+                    aria-label={labels.next}
+                    tabIndex={-1}
+                  >
+                    <ChevronRight size={24} strokeWidth={1.7} aria-hidden="true" />
+                  </button>
+                </div>
+              ) : null}
             </div>
           </article>
         ))}
