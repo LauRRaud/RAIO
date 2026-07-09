@@ -9,6 +9,10 @@ import Image from "next/image";
 export function HeroMedia({ desktop, mobile }) {
   return (
     <>
+      {/* Each variant is display:none on the other breakpoint, so its `sizes`
+          drops to 1px there — the hidden image fetches only the smallest
+          candidate instead of a full-size file (and Next.js stops warning that
+          a "100vw" image isn't rendered at viewport width). */}
       <Image
         className="hero-media hero-media-desktop"
         src={desktop}
@@ -16,7 +20,7 @@ export function HeroMedia({ desktop, mobile }) {
         fill
         priority
         quality={92}
-        sizes="(max-width: 980px) 100vw, 44vw"
+        sizes="(max-width: 980px) 1px, 44vw"
       />
       <Image
         className="hero-media hero-media-mobile"
@@ -25,7 +29,7 @@ export function HeroMedia({ desktop, mobile }) {
         fill
         priority
         quality={92}
-        sizes="100vw"
+        sizes="(max-width: 980px) 100vw, 1px"
       />
     </>
   );
