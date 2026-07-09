@@ -614,12 +614,8 @@
     letter-spacing: 0.08em;
   }
 
-  .tools-page-redesign .tools-material-copy h2 {
-    /* Fit "MIKS PUU JA KIVI?" on one line (owner 2026-07-09: "ühele reale
-       mahuta pealkiri"). At 390px only ~39px fits one line, so cap the growth. */
-    font-size: clamp(2rem, 9.4vw, 3.5rem);
-    white-space: nowrap;
-  }
+  /* "Miks puu ja kivi?" one-line sizing lives in 08-tools-material.css (that
+     file's non-media h2 rule wins the cascade over this page file). */
 
   }
 

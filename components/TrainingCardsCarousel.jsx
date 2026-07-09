@@ -19,7 +19,6 @@ export function TrainingCardsCarousel({
 
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
-  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -65,21 +64,13 @@ export function TrainingCardsCarousel({
   }, [activeTraining]);
 
   function changePage(direction) {
-    if (isFading || totalPages <= 1) return;
+    if (totalPages <= 1) return;
 
     let newPage = currentPage + direction;
     if (newPage >= totalPages) newPage = 0;
     if (newPage < 0) newPage = totalPages - 1;
 
-    setIsFading(true);
-    setTimeout(() => {
-      setCurrentPage(newPage);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setIsFading(false);
-        });
-      });
-    }, 150);
+    setCurrentPage(newPage);
   }
 
   const visibleTrainings = trainings.slice(
@@ -121,7 +112,7 @@ export function TrainingCardsCarousel({
         </>
       ) : null}
 
-      <div className={`training-card-grid fade-transition ${isFading ? 'fade-out' : ''}`} ref={trainingTrackRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+      <div className="training-card-grid" ref={trainingTrackRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         {visibleTrainings.map((training) => (
           <article className="training-card" key={training.title}>
             <div className="training-card-image">

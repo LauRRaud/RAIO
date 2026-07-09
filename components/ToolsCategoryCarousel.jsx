@@ -11,7 +11,6 @@ export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }
   const touchStartX = useRef(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
-  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -35,21 +34,13 @@ export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }
   }, [totalPages, currentPage]);
 
   function changePage(direction) {
-    if (isFading || totalPages <= 1) return;
+    if (totalPages <= 1) return;
 
     let newPage = currentPage + direction;
     if (newPage >= totalPages) newPage = 0;
     if (newPage < 0) newPage = totalPages - 1;
 
-    setIsFading(true);
-    setTimeout(() => {
-      setCurrentPage(newPage);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setIsFading(false);
-        });
-      });
-    }, 150);
+    setCurrentPage(newPage);
   }
 
   const visibleCategories = categories.slice(
@@ -91,7 +82,7 @@ export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }
         </>
       ) : null}
 
-      <div className={`tools-category-grid fade-transition ${isFading ? 'fade-out' : ''}`} ref={categoryTrackRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+      <div className="tools-category-grid" ref={categoryTrackRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         {visibleCategories.map((category) => (
           <article className="tools-category-card" key={category.title}>
             <Link

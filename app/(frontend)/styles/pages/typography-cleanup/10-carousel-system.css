@@ -65,14 +65,6 @@
      allows shadows to bleed naturally, no padding hack needed anymore! */
 }
 
-.fade-transition {
-  transition: opacity 150ms ease-in-out;
-}
-
-.fade-out {
-  opacity: 0;
-}
-
 :is(
   .events-event-carousel .events-grid-redesign,
   .journal-story-carousel .journal-card-grid,
@@ -203,9 +195,9 @@
     .training-section-intro
   ) {
     width: 100%;
-    /* Pull the arrow row up tight under the title (owner 2026-07-09: "nooled
-       tihedalt pealkirja alla"); the carousel row-gap gives the space below. */
-    margin-bottom: 14px;
+    /* Breathing room below the (now larger) section title before the card
+       (owner 2026-07-09: "pealkirja alla ka veidi tühja ruumi"). */
+    margin-bottom: 28px;
   }
 
   :is(

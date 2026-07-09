@@ -14,7 +14,6 @@ export function EventsCardsCarousel({ events, cta, modalClose, labels, title, ti
 
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
-  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -60,22 +59,13 @@ export function EventsCardsCarousel({ events, cta, modalClose, labels, title, ti
   }, [activeEvent]);
 
   function changePage(direction) {
-    if (isFading || totalPages <= 1) return;
+    if (totalPages <= 1) return;
 
     let newPage = currentPage + direction;
     if (newPage >= totalPages) newPage = 0;
     if (newPage < 0) newPage = totalPages - 1;
 
-    setIsFading(true);
-    setTimeout(() => {
-      setCurrentPage(newPage);
-      // Wait a tick for the DOM to update with new items before fading back in
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setIsFading(false);
-        });
-      });
-    }, 150);
+    setCurrentPage(newPage);
   }
 
   const visibleEvents = showAll
@@ -135,7 +125,7 @@ export function EventsCardsCarousel({ events, cta, modalClose, labels, title, ti
         ) : null}
 
         <div
-          className={`events-grid-redesign fade-transition ${isFading ? "fade-out" : ""} ${showAll ? "is-expanded" : ""}`}
+          className={`events-grid-redesign ${showAll ? "is-expanded" : ""}`}
           ref={eventTrackRef}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}

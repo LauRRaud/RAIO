@@ -83,6 +83,20 @@
 }
 
 @media (max-width: 620px) {
+  /* "Miks puu ja kivi?" on one line without running off-screen (owner
+     2026-07-09: "ei mahu mobiilis ühele reale ja ekraanist väljas"). The base
+     h2 rule floors at 2.7rem (~43px) which overflows narrow phones; ~9.6vw
+     tracks the widest single-line fit from 320–414px. No `nowrap` — if a
+     longer localized title ever exceeds the width it wraps instead of
+     clipping. */
+  .tools-page-redesign .tools-material-copy h2 {
+    font-size: clamp(1.85rem, 9.6vw, 3.4rem);
+    line-height: 1.04;
+    /* The base rule caps this at 9.5ch, which forced "Miks puu ja kivi?" onto
+       two lines — give it the full band width so it stays on one line. */
+    max-width: none;
+  }
+
   .tools-page-redesign .tools-material-copy > p {
     font-size: 1.04rem;
     line-height: 1.68;

@@ -63,7 +63,6 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
 
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
-  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -92,21 +91,13 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
   }, [activeCategory, sortKey]);
 
   function changePage(direction) {
-    if (isFading || totalPages <= 1) return;
+    if (totalPages <= 1) return;
 
     let newPage = currentPage + direction;
     if (newPage >= totalPages) newPage = 0;
     if (newPage < 0) newPage = totalPages - 1;
 
-    setIsFading(true);
-    setTimeout(() => {
-      setCurrentPage(newPage);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setIsFading(false);
-        });
-      });
-    }, 150);
+    setCurrentPage(newPage);
   }
 
   const paginatedProducts = visibleProducts.slice(
@@ -190,7 +181,7 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
           </>
         ) : null}
 
-        <div className={`store-product-grid fade-transition ${isFading ? 'fade-out' : ''}`} ref={productTrackRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+        <div className="store-product-grid" ref={productTrackRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           {paginatedProducts.map((product) => (
             <article
               className="store-product-card"

@@ -281,8 +281,12 @@
   }
 }
 
-/* Carousel section titles stay on one line so the arrows sit right beneath them
-   (owner 2026-07-09: "pealkiri ühele joonele"). */
+/* Carousel section titles read as real section headings on mobile (owner
+   2026-07-09: "need pealkirjad tunduvalt suuremaks ... ei saa aru, et uus
+   sektsioon on see"). They were shrunk to ~18px so the arrows could sit on the
+   same row; the arrows now live inside the cards, so give the heading its full
+   weight in the display face. No nowrap — a long title (e.g. "Treeningud meie
+   looduses") wraps to two lines instead of clipping. */
 @media (max-width: 620px) {
   :is(
     .events-section-top,
@@ -291,9 +295,9 @@
     .training-section-intro,
     .store-products-header
   ) h2 {
-    white-space: nowrap;
-    font-size: clamp(1rem, 4.6vw, 1.28rem);
-    letter-spacing: 0.02em;
+    font-size: clamp(1.9rem, 7.8vw, 2.5rem);
+    line-height: 1.12;
+    letter-spacing: 0.01em;
   }
 }
 
