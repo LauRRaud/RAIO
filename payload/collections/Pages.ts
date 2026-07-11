@@ -16,6 +16,7 @@ export const Pages: CollectionConfig = {
     delete: authenticated
   },
   admin: {
+    hidden: true,
     useAsTitle: "title",
     defaultColumns: ["title", "slug"],
     group: "Sisu"
