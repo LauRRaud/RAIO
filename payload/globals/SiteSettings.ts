@@ -10,6 +10,7 @@ export const SiteSettings: GlobalConfig = {
     update: authenticated
   },
   admin: {
+    hidden: true,
     group: "Seaded"
   },
   fields: [

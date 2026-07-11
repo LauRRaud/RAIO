@@ -15,6 +15,7 @@ export const Orders: CollectionConfig = {
     delete: authenticated
   },
   admin: {
+    hidden: true,
     useAsTitle: "orderNumber",
     defaultColumns: ["orderNumber", "customerName", "status", "paymentStatus", "priority", "followUpAt"],
     group: "Pood",

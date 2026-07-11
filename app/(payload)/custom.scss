@@ -69,6 +69,24 @@ body {
   color: #f8f3ec;
 }
 
+/* Payload muudab aktiivse lingi teksti vaikimisi tumedaks. Admini nav on aga
+   alati must, seega hoiame valitud rea loetava ja anname sellele selge marker'i. */
+.nav .nav__link--active,
+.nav .nav__link--active *,
+.nav .nav__link[aria-current="page"],
+.nav .nav__link[aria-current="page"] *,
+.nav [data-active="true"],
+.nav [data-active="true"] * {
+  color: #fff8ed !important;
+}
+
+.nav .nav__link--active,
+.nav .nav__link[aria-current="page"],
+.nav [data-active="true"] {
+  background: rgba(255, 248, 237, 0.09);
+  box-shadow: inset 3px 0 0 #c67a55;
+}
+
 .dashboard__wrap,
 .collection-list__wrap,
 .doc__wrap {

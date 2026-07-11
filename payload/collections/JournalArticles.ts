@@ -17,7 +17,7 @@ export const JournalArticles: CollectionConfig = {
   admin: {
     useAsTitle: "title",
     defaultColumns: ["title", "category", "publishedAt", "featured", "visible"],
-    group: "Journal",
+    group: "02 · KAARDID JA POOD",
     description: "Journal artiklid, kaanepildid, avaldamise ajad ja esiletõstmised."
   },
   fields: [
