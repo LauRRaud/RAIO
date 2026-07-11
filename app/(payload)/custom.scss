@@ -76,13 +76,16 @@ body {
 .nav .nav__link[aria-current="page"],
 .nav .nav__link[aria-current="page"] *,
 .nav [data-active="true"],
-.nav [data-active="true"] * {
+.nav [data-active="true"] *,
+.nav div.nav__link,
+.nav div.nav__link * {
   color: #fff8ed !important;
 }
 
 .nav .nav__link--active,
 .nav .nav__link[aria-current="page"],
-.nav [data-active="true"] {
+.nav [data-active="true"],
+.nav div.nav__link {
   background: rgba(255, 248, 237, 0.09);
   box-shadow: inset 3px 0 0 #c67a55;
 }
