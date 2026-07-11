@@ -6,6 +6,7 @@ import * as migration_20260621_211609_trainings_and_event_modal_content from './
 import * as migration_20260711_183641_page_editor_and_tool_cards from './20260711_183641_page_editor_and_tool_cards';
 import * as migration_20260711_183834_expanded_page_editor_content from './20260711_183834_expanded_page_editor_content';
 import * as migration_20260711_192702_admin_guide from './20260711_192702_admin_guide';
+import * as migration_20260711_225500_expanded_font_options from './20260711_225500_expanded_font_options';
 
 export const migrations = [
   {
@@ -47,5 +48,10 @@ export const migrations = [
     up: migration_20260711_192702_admin_guide.up,
     down: migration_20260711_192702_admin_guide.down,
     name: '20260711_192702_admin_guide'
+  },
+  {
+    up: migration_20260711_225500_expanded_font_options.up,
+    down: migration_20260711_225500_expanded_font_options.down,
+    name: '20260711_225500_expanded_font_options'
   },
 ];

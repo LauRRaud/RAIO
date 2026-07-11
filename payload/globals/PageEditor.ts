@@ -5,9 +5,19 @@ import { anyone, authenticated } from "@/payload/access";
 const fontOptions = [
   { label: "Lehe vaikimisi font", value: "inherit" },
   { label: "RAIO / Posterama", value: "posterama" },
-  { label: "Puhas sans-serif", value: "sans" },
-  { label: "Klassikaline serif", value: "serif" },
-  { label: "Tehniline monospace", value: "mono" }
+  { label: "Moodne süsteemifont", value: "system" },
+  { label: "Arial · puhas ja neutraalne", value: "arial" },
+  { label: "Helvetica · minimalistlik", value: "helvetica" },
+  { label: "Verdana · hästi loetav", value: "verdana" },
+  { label: "Trebuchet · pehme ja inimlik", value: "trebuchet" },
+  { label: "Tahoma · kompaktne", value: "tahoma" },
+  { label: "Georgia · ajakirjalik serif", value: "georgia" },
+  { label: "Times · klassikaline serif", value: "times" },
+  { label: "Garamond · elegantne serif", value: "garamond" },
+  { label: "Palatino · soe serif", value: "palatino" },
+  { label: "Courier New · kirjutusmasin", value: "courier" },
+  { label: "Lucida Console · tehniline", value: "lucida" },
+  { label: "Impact · tugev aktsent", value: "impact" }
 ];
 
 function appearanceFields(prefix: string): Field[] {
