@@ -15,6 +15,7 @@ export const Media: CollectionConfig = {
     delete: authenticated
   },
   admin: {
+    hidden: true,
     useAsTitle: "alt",
     group: "Sisu"
   },

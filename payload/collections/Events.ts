@@ -5,8 +5,8 @@ import { anyone, authenticated } from "@/payload/access";
 export const Events: CollectionConfig = {
   slug: "events",
   labels: {
-    singular: "Sündmus",
-    plural: "Sündmused"
+    singular: "Sündmusekaart",
+    plural: "Sündmusekaardid"
   },
   access: {
     read: anyone,
@@ -17,7 +17,7 @@ export const Events: CollectionConfig = {
   admin: {
     useAsTitle: "title",
     defaultColumns: ["title", "date", "eventType", "registrationStatus", "visible"],
-    group: "Sisu",
+    group: "02 · KAARDID JA POOD",
     description: "Treeningud, töötoad ja kogukonna sündmused, mida saab avalikul lehel kuvada."
   },
   fields: [

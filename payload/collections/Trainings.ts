@@ -5,8 +5,8 @@ import { anyone, authenticated } from "@/payload/access";
 export const Trainings: CollectionConfig = {
   slug: "trainings",
   labels: {
-    singular: "Treening",
-    plural: "Treeningud"
+    singular: "Treeningukaart",
+    plural: "Treeningukaardid"
   },
   access: {
     read: anyone,
@@ -17,7 +17,7 @@ export const Trainings: CollectionConfig = {
   admin: {
     useAsTitle: "title",
     defaultColumns: ["title", "duration", "level", "visible"],
-    group: "Sisu",
+    group: "02 · KAARDID JA POOD",
     description: "Treeningute lehe keritava menüü kaardid ja modaali detailne sisu."
   },
   fields: [

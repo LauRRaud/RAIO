@@ -9,7 +9,7 @@ export const ToolCards: CollectionConfig = {
   admin: {
     useAsTitle: "title",
     defaultColumns: ["title", "category", "sortOrder", "visible"],
-    group: "Veebilehe haldus",
+    group: "02 · KAARDID JA POOD",
     description: "Vahendite lehe keritava karusselli kaardid. Lisa uus kaart, pilt ja tekst või muuda nende järjekorda."
   },
   fields: [

@@ -97,7 +97,7 @@ export const PageEditor: GlobalConfig = {
   label: "Lehtede sisu ja kujundus",
   access: { read: anyone, update: authenticated },
   admin: {
-    group: "01 · LEHTEDE MUUTMINE",
+    group: "01 · MUUDA VEEBILEHTE",
     description: "Siin muudad lehti sektsioonide kaupa. Kõik väljad näitavad praegu avalikul lehel kasutatavat sisu. Alusta juhendist „Alusta siit · kasutusjuhend”."
   },
   fields: [
