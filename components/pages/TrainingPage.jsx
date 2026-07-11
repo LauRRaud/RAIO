@@ -7,7 +7,7 @@ import { HeroMedia } from "@/components/HeroMedia";
 import { LineIcon } from "@/components/Icons";
 import { TrainingCardsCarousel } from "@/components/TrainingCardsCarousel";
 import { getLocalizedPath } from "@/lib/i18n";
-import { getMessagesWithAdminImages, getTrainingItems } from "@/lib/payloadContent";
+import { getCmsSectionProps, getMessagesWithAdminImages, getTrainingItems } from "@/lib/payloadContent";
 
 const qualityIconComponents = {
   leaf: Leaf,
@@ -32,6 +32,7 @@ export async function TrainingPage({ locale = "et" }) {
         <section
           className="training-hero-redesign"
           aria-labelledby="training-hero-title"
+          {...getCmsSectionProps(messages, "trainingHero")}
         >
           <div className="training-hero-panel">
             <h1 id="training-hero-title">{t.heroTitle}</h1>
@@ -57,7 +58,7 @@ export async function TrainingPage({ locale = "et" }) {
           id="treeningud"
           aria-labelledby="training-list-title"
         >
-          <div className="training-scroll-band">
+          <div className="training-scroll-band" {...getCmsSectionProps(messages, "trainingCarousel")}>
             <div className="training-section-intro">
               <h2 id="training-list-title">{t.listTitle}</h2>
             </div>
@@ -73,6 +74,7 @@ export async function TrainingPage({ locale = "et" }) {
           <section
             className="training-lasting-panel"
             aria-labelledby="training-lasting-title"
+            {...getCmsSectionProps(messages, "trainingLasting")}
           >
             <div className="training-lasting-image">
               <Image
@@ -117,6 +119,7 @@ export async function TrainingPage({ locale = "et" }) {
           <section
             className="training-workshop-panel"
             aria-labelledby="training-workshop-title"
+            {...getCmsSectionProps(messages, "trainingWorkshop")}
           >
             <div className="training-workshop-copy">
               <h2 id="training-workshop-title">{t.workshop.title}</h2>

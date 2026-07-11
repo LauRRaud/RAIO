@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "ci": "payload migrate && next build",
     "start": "next start",
     "payload": "payload",
     "payload:types": "payload generate:types",

@@ -20,3 +20,18 @@
 @import "./styles/theme/polarity.css";
 @import "./styles/primitives/select.css";
 @import "./styles/pages/typography-cleanup.css";
+
+/* Payloadi sektsiooniredaktori kujundusmuutujad. Väärtused lisatakse ainult
+   siis, kui haldur on vastava valiku adminis teinud. */
+[data-cms-section] {
+  font-family: var(--cms-body-font, inherit);
+}
+
+[data-cms-section] :is(h1, h2, h3, h4, h5, h6, strong) {
+  color: var(--cms-color, inherit);
+  font-family: var(--cms-heading-font, inherit);
+}
+
+[data-cms-section] :is(p, a, button, span, dt, dd) {
+  font-family: var(--cms-body-font, inherit);
+}

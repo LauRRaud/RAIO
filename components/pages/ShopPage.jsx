@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { HeroMedia } from "@/components/HeroMedia";
 import { StoreCatalog } from "@/components/StoreCatalog";
 import { getLocalizedPath } from "@/lib/i18n";
-import { getMessagesWithAdminImages, getPayloadProducts } from "@/lib/payloadContent";
+import { getCmsSectionProps, getMessagesWithAdminImages, getPayloadProducts } from "@/lib/payloadContent";
 
 export async function ShopPage({ locale = "et" }) {
   const messages = await getMessagesWithAdminImages(locale);
@@ -22,7 +22,7 @@ export async function ShopPage({ locale = "et" }) {
       <Header locale={locale} currentPath="/pood" labels={messages.header} brandName={messages.brand.name} />
 
       <main id="main" className="store-page">
-        <section className="store-hero" aria-labelledby="store-hero-title">
+        <section className="store-hero" aria-labelledby="store-hero-title" {...getCmsSectionProps(messages, "shopHero")}>
           <div className="store-hero-copy">
             <h1 id="store-hero-title">{t.heroTitle}</h1>
             <span className="store-short-rule" aria-hidden="true" />
@@ -36,11 +36,11 @@ export async function ShopPage({ locale = "et" }) {
           </div>
         </section>
 
-        <section className="store-products-section" aria-labelledby="store-products-title">
+        <section className="store-products-section" aria-labelledby="store-products-title" {...getCmsSectionProps(messages, "shopProducts")}>
           <StoreCatalog categories={t.categories} products={products} locale={locale} labels={t} />
         </section>
 
-        <section className="store-custom-band" aria-labelledby="store-custom-title">
+        <section className="store-custom-band" aria-labelledby="store-custom-title" {...getCmsSectionProps(messages, "shopCustom")}>
           <div className="store-custom-copy">
             <h2 id="store-custom-title">{custom.title}</h2>
             {custom.lines.map((line) => (

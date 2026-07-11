@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { HeroMedia } from "@/components/HeroMedia";
 import { getLocalizedPath } from "@/lib/i18n";
-import { getEventItems, getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { getCmsSectionProps, getEventItems, getMessagesWithAdminImages } from "@/lib/payloadContent";
 
 export async function EventsPage({ locale = "et" }) {
   const messages = await getMessagesWithAdminImages(locale);
@@ -25,6 +25,7 @@ export async function EventsPage({ locale = "et" }) {
         <section
           className="events-hero-redesign"
           aria-labelledby="events-hero-title"
+          {...getCmsSectionProps(messages, "eventsHero")}
         >
           <div className="events-hero-panel">
             <h1 id="events-hero-title">{t.heroTitle}</h1>
@@ -50,7 +51,7 @@ export async function EventsPage({ locale = "et" }) {
           id="lahitulevad"
           aria-labelledby="events-upcoming-title"
         >
-          <div className="events-scroll-band">
+          <div className="events-scroll-band" {...getCmsSectionProps(messages, "eventsCarousel")}>
             <EventsCardsCarousel
               events={events}
               cta={t.cardCta}
@@ -65,6 +66,7 @@ export async function EventsPage({ locale = "et" }) {
           <section
             className="events-host-cta"
             aria-labelledby="events-host-title"
+            {...getCmsSectionProps(messages, "eventsHost")}
           >
             <div className="events-host-image">
               <Image

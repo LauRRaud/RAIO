@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { HeroMedia } from "@/components/HeroMedia";
-import { getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { getCmsSectionProps, getMessagesWithAdminImages } from "@/lib/payloadContent";
 
 function InstagramIcon(props) {
   return (
@@ -34,7 +34,7 @@ export async function AboutPage({ locale = "et" }) {
       <Header locale={locale} currentPath="/meist" labels={messages.header} brandName={messages.brand.name} />
 
       <main id="main" className="about-page-redesign">
-        <section className="about-hero" aria-labelledby="about-hero-title">
+        <section className="about-hero" aria-labelledby="about-hero-title" {...getCmsSectionProps(messages, "aboutHero")}>
           <div className="about-hero-image" aria-hidden="true">
             <HeroMedia desktop={t.heroImage} mobile={t.heroImageMobile} />
           </div>
@@ -50,7 +50,7 @@ export async function AboutPage({ locale = "et" }) {
         </section>
 
         <div className="about-content-section">
-          <section className="about-story-panel" aria-labelledby="about-story-title">
+          <section className="about-story-panel" aria-labelledby="about-story-title" {...getCmsSectionProps(messages, "aboutStory")}>
             <div className="about-story-image">
               <Image
                 src={t.storyImage}
@@ -67,7 +67,7 @@ export async function AboutPage({ locale = "et" }) {
             </div>
           </section>
 
-          <section className="about-trainers-section" id="treenerid" aria-labelledby="about-trainers-title">
+          <section className="about-trainers-section" id="treenerid" aria-labelledby="about-trainers-title" {...getCmsSectionProps(messages, "aboutTrainers")}>
             <div className="about-trainers-heading">
               <h2 id="about-trainers-title">{t.trainersTitle}</h2>
             </div>
@@ -92,7 +92,7 @@ export async function AboutPage({ locale = "et" }) {
             </div>
           </section>
 
-          <section className="about-closing-panel" aria-labelledby="about-closing-title">
+          <section className="about-closing-panel" aria-labelledby="about-closing-title" {...getCmsSectionProps(messages, "aboutClosing")}>
             <div className="about-closing-copy">
               <h2 id="about-closing-title">{t.closingTitle}</h2>
               <div className="about-closing-values" aria-label={t.storyTitle}>

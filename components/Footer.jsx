@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getMessages } from "@/lib/messages";
+import { getCmsSectionProps, getMessagesWithAdminImages } from "@/lib/payloadContent";
 
 function InstagramIcon(props) {
   return (
@@ -11,16 +11,16 @@ function InstagramIcon(props) {
   );
 }
 
-export function Footer({ locale = "et" }) {
-  const messages = getMessages(locale);
+export async function Footer({ locale = "et" }) {
+  const messages = await getMessagesWithAdminImages(locale);
   const brand = messages.brand;
   const t = messages.footer;
   const homeHref = locale === "en" ? "/en" : "/";
-  const instagramHref = "https://www.instagram.com/ra.ioworld";
+  const instagramHref = t.instagramUrl || "https://www.instagram.com/ra.ioworld";
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer">
+    <footer className="footer" {...getCmsSectionProps(messages, "footer")}>
       <div className="footer-shell">
         <Link href={homeHref} className="footer-logo-link" aria-label={brand.name}>
           <img
