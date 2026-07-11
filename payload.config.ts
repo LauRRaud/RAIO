@@ -15,6 +15,7 @@ import { Trainings } from "@/payload/collections/Trainings";
 import { ToolCards } from "@/payload/collections/ToolCards";
 import { Users } from "@/payload/collections/Users";
 import { HomePage } from "@/payload/globals/HomePage";
+import { AdminGuide } from "@/payload/globals/AdminGuide";
 import { PageImages } from "@/payload/globals/PageImages";
 import { PageEditor } from "@/payload/globals/PageEditor";
 import { SiteSettings } from "@/payload/globals/SiteSettings";
@@ -35,7 +36,7 @@ export default buildConfig({
     }
   },
   collections: [Users, Media, Pages, ToolCards, Products, Orders, Events, Trainings, JournalArticles],
-  globals: [PageEditor, SiteSettings, HomePage, PageImages],
+  globals: [AdminGuide, PageEditor, SiteSettings, HomePage, PageImages],
   editor: lexicalEditor(),
   localization: {
     locales: [

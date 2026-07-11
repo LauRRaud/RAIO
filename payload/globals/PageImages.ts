@@ -19,6 +19,7 @@ export const PageImages: GlobalConfig = {
     update: authenticated
   },
   admin: {
+    hidden: true,
     group: "Sisu",
     description: "Avalike lehtede pildid, mida saab arvutist ules laaditud failidega asendada."
   },

@@ -11,7 +11,8 @@
     "payload": "payload",
     "payload:types": "payload generate:types",
     "payload:importmap": "payload generate:importmap",
-    "audit:ui": "node scripts/ui-audit.mjs"
+    "audit:ui": "node scripts/ui-audit.mjs",
+    "seed:admin": "tsx scripts/seed-admin-content.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.85.1",

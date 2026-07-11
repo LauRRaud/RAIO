@@ -10,6 +10,7 @@ export const HomePage: GlobalConfig = {
     update: authenticated
   },
   admin: {
+    hidden: true,
     group: "Sisu"
   },
   fields: [
