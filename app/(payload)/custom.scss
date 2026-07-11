@@ -88,3 +88,34 @@ body {
 button {
   border-radius: 8px;
 }
+
+/* Leheredaktori sektsioonid loevad nagu päris leheplokid, mitte pikk tehniline vorm. */
+.group-field {
+  margin-block: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(17, 16, 13, 0.14);
+  border-left: 5px solid #7c2632;
+  background: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 12px 32px rgba(17, 16, 13, 0.05);
+}
+
+.group-field > header,
+.group-field__header {
+  padding-block: 1rem;
+  border-bottom: 1px solid rgba(17, 16, 13, 0.1);
+  background: rgba(17, 16, 13, 0.045);
+}
+
+.tabs-field__tab-button {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.tabs-field__tab-button[aria-selected="true"] {
+  color: #7c2632;
+}
+
+.upload-field {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.28);
+}

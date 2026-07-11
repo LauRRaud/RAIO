@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { HomeMotion } from "@/components/HomeMotion";
 import { getLocalizedPath } from "@/lib/i18n";
-import { getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { getCmsSectionProps, getMessagesWithAdminImages } from "@/lib/payloadContent";
 
 function SplitMedia({ src, alt, position, priority = false }) {
   return (
@@ -36,7 +36,7 @@ export async function HomePage({ locale = "et" }) {
       <Header locale={locale} currentPath="/" labels={messages.header} brandName={messages.brand.name} />
       <HomeMotion />
       <main id="main" className="home-page" data-locale={locale}>
-        <section className="home-split home-split-hero" data-motion="hero">
+        <section className="home-split home-split-hero" data-motion="hero" {...getCmsSectionProps(messages, "homeHero")}>
           <div className="home-split-copy">
             <p className="home-split-eyebrow">{hero.eyebrow}</p>
             <h1 className="home-hero-title">
@@ -48,7 +48,7 @@ export async function HomePage({ locale = "et" }) {
           <SplitMedia src={hero.image} alt={hero.imageAlt} position="50% 38%" priority />
         </section>
 
-        <section className="home-split home-split-philosophy" data-motion="side">
+        <section className="home-split home-split-philosophy" data-motion="side" {...getCmsSectionProps(messages, "homePhilosophy")}>
           <SplitMedia src={philosophy.image} alt={philosophy.imageAlt} position="48% center" />
           <div className="home-split-copy">
             <p className="home-split-eyebrow">{philosophy.eyebrow}</p>
@@ -59,7 +59,7 @@ export async function HomePage({ locale = "et" }) {
           </div>
         </section>
 
-        <section className="home-split home-split-tools" data-motion="rise">
+        <section className="home-split home-split-tools" data-motion="rise" {...getCmsSectionProps(messages, "homeTools")}>
           <div className="home-split-copy">
             <p className="home-split-eyebrow">{tools.eyebrow}</p>
             <h2 className="home-split-title">
@@ -70,7 +70,7 @@ export async function HomePage({ locale = "et" }) {
           <SplitMedia src={tools.image} alt={tools.imageAlt} position="50% 42%" />
         </section>
 
-        <section className="home-world" aria-label={categoryWorld.ariaLabel}>
+        <section className="home-world" aria-label={categoryWorld.ariaLabel} {...getCmsSectionProps(messages, "homeCards")}>
           {categoryWorld.cards.map((card) => (
             <Link
               key={card.key}

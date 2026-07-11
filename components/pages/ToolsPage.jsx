@@ -6,13 +6,14 @@ import { Header } from "@/components/Header";
 import { HeroMedia } from "@/components/HeroMedia";
 import { ToolsCategoryCarousel } from "@/components/ToolsCategoryCarousel";
 import { getLocalizedPath } from "@/lib/i18n";
-import { getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { getCmsSectionProps, getMessagesWithAdminImages, getToolItems } from "@/lib/payloadContent";
 
 const proofIcons = { leaf: Leaf, hand: Hand, clock: Clock3 };
 
 export async function ToolsPage({ locale = "et" }) {
   const messages = await getMessagesWithAdminImages(locale);
   const t = messages.tools;
+  const categories = await getToolItems(locale, t.categories);
 
   return (
     <>
@@ -22,7 +23,7 @@ export async function ToolsPage({ locale = "et" }) {
       <Header locale={locale} currentPath="/vahendid" labels={messages.header} brandName={messages.brand.name} />
 
       <main id="main" className="tools-page-redesign">
-        <section className="tools-hero-redesign" aria-labelledby="tools-hero-title">
+        <section className="tools-hero-redesign" aria-labelledby="tools-hero-title" {...getCmsSectionProps(messages, "toolsHero")}>
           <div className="tools-hero-panel">
             <h1 id="tools-hero-title">{t.heroTitle}</h1>
             <span className="tools-short-rule" aria-hidden="true" />
@@ -40,15 +41,15 @@ export async function ToolsPage({ locale = "et" }) {
         </section>
 
         <section className="tools-category-section" aria-labelledby="tools-category-title">
-          <div className="tools-category-band">
+          <div className="tools-category-band" {...getCmsSectionProps(messages, "toolsCarousel")}>
             <div className="tools-section-top">
               <h2 id="tools-category-title">{t.categoriesTitle}</h2>
             </div>
 
-            <ToolsCategoryCarousel categories={t.categories} cta={t.categoryCta} locale={locale} labels={messages.carousel.tools} />
+            <ToolsCategoryCarousel categories={categories} cta={t.categoryCta} locale={locale} labels={messages.carousel.tools} />
           </div>
 
-          <section className="tools-material-panel" aria-labelledby="tools-material-title">
+          <section className="tools-material-panel" aria-labelledby="tools-material-title" {...getCmsSectionProps(messages, "toolsMaterial")}>
             <div className="tools-material-copy">
               <h2 id="tools-material-title">{t.material.title}</h2>
               <p>{t.material.text}</p>
@@ -78,7 +79,7 @@ export async function ToolsPage({ locale = "et" }) {
             </div>
           </section>
 
-          <section className="tools-support-band" aria-labelledby="tools-care-title">
+          <section className="tools-support-band" aria-labelledby="tools-care-title" {...getCmsSectionProps(messages, "toolsCare")}>
             <div className="tools-care-image">
               <Image
                 src={t.care.image}

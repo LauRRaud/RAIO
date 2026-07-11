@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { HeroMedia } from "@/components/HeroMedia";
 import { JournalCardsCarousel } from "@/components/JournalCardsCarousel";
-import { getJournalArticles, getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { getCmsSectionProps, getJournalArticles, getMessagesWithAdminImages } from "@/lib/payloadContent";
 
 export async function JournalPage({ locale = "et" }) {
   const messages = await getMessagesWithAdminImages(locale);
@@ -22,6 +22,7 @@ export async function JournalPage({ locale = "et" }) {
         <section
           className="journal-hero-redesign"
           aria-labelledby="journal-hero-title"
+          {...getCmsSectionProps(messages, "journalHero")}
         >
           <div className="journal-hero-panel">
             <h1 id="journal-hero-title">{t.heroTitle}</h1>
@@ -43,7 +44,7 @@ export async function JournalPage({ locale = "et" }) {
           id="lood"
           aria-labelledby="journal-stories-title"
         >
-          <div className="journal-scroll-band">
+          <div className="journal-scroll-band" {...getCmsSectionProps(messages, "journalCarousel")}>
             <div className="journal-section-top">
               <h2 id="journal-stories-title">{t.storiesTitle}</h2>
               <div
@@ -73,6 +74,7 @@ export async function JournalPage({ locale = "et" }) {
           <section
             className="journal-signup-banner"
             aria-labelledby="journal-signup-title"
+            {...getCmsSectionProps(messages, "journalSignup")}
           >
             <div className="journal-signup-copy">
               <h2 id="journal-signup-title">{t.signup.title}</h2>
