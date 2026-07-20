@@ -83,6 +83,15 @@
   padding: clamp(40px, 5vw, 70px) 0;
 }
 
+/* Hero-tekst veidi allapoole, et see ei istuks liiga üleval (omanik
+   2026-07-20: "veidi alla poole"). Ainult töölaual — mobiilis paigutub hero
+   ülalt (padding-top), seal jäetakse puutumata. Suurem arv = madalamal. */
+@media (min-width: 981px) {
+  .about-hero-panel {
+    transform: translateY(clamp(20px, 4vh, 48px));
+  }
+}
+
 .about-hero-panel h1 {
   max-width: 16ch;
   margin: 0;
