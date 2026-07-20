@@ -129,6 +129,8 @@
 .tools-page-redesign .tools-material-proof-row .tools-proof-item span,
 .training-page-redesign .training-quality-item span {
   font-size: calc(clamp(1.24rem, 1.26vw, 1.46rem) * var(--cms-text-scale, 1));
+  /* 700 → 600 (omanik 2026-07-20: "veidi väiksemaks see teksti paksus"). */
+  font-weight: 600;
   line-height: 1.24;
   /* 0.1em → 0.09em: laiem foto (48%) kitsendas veerge; pikim sõna
      ("VASTUPIDAVAD") peab suurel ekraanil veel veergu mahtuma. */
