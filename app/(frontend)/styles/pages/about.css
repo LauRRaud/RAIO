@@ -40,10 +40,12 @@
 .about-hero-logo-mark {
   width: 100%;
   height: auto;
-  /* Logo oli algul liiga valge, siis brightness(0.85) tegi liiga halliks
-     (omanik 2026-07-20: "beezikam ja heledam"). Nüüd soe, hele beež:
-     kerge tuhmus + sepia/saturate annab kreemja tooni, mitte jaheda halli. */
-  filter: brightness(0.9) sepia(0.5) saturate(1.75)
+  /* Logo tooni peenhäälestus (omanik 2026-07-20): valge → hall → liiga
+     kollane. Siht: peaaegu valge, ainult õrn pruunikas-hall soojus, mitte
+     kollane. Madal saturate (<1) summutab kollase halliks; väike sepia hoiab
+     tooni soe, mitte jahe. Muutmiseks: saturate ↓ = hallim, sepia ↑ = pruunim,
+     brightness ↑ = valgem. */
+  filter: brightness(0.94) sepia(0.2) saturate(0.55)
     drop-shadow(0 14px 34px rgba(10, 7, 4, 0.45));
 }
 
