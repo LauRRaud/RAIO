@@ -1,0 +1,112 @@
+/* Payment result page (/makse) — sama hall kivipaber mis ostukorbil. */
+.payment-result {
+  --pay-paper: #d4d0c4;
+  --pay-ink: #221c14;
+  --pay-muted: #4b4438;
+  min-height: min(680px, calc(100svh - 78px));
+  display: flex;
+  align-items: center;
+  padding-block: clamp(64px, 8vw, 120px);
+  background: var(--pay-paper);
+  color: var(--pay-ink);
+}
+
+.payment-result-inner {
+  width: min(calc(100% - 48px), 640px);
+  margin-inline: auto;
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.payment-result-icon {
+  color: var(--pay-ink);
+}
+
+.payment-result-icon-ok {
+  color: #3f6b3a;
+}
+
+.payment-result-icon-failed,
+.payment-result-icon-error {
+  color: #9a3b2a;
+}
+
+.payment-result-icon-pending {
+  color: #8a6a2a;
+}
+
+.payment-result h1 {
+  margin: 0;
+  color: var(--pay-ink);
+  font-family: var(--font-display), Georgia, serif;
+  font-size: calc(clamp(2.4rem, 4vw, 3.8rem) * var(--cms-text-scale, 1));
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.payment-result p {
+  max-width: 46ch;
+  margin: 0;
+  color: var(--pay-ink);
+  font-size: calc(clamp(1rem, 1vw, 1.12rem) * var(--cms-text-scale, 1));
+  line-height: 1.7;
+}
+
+.payment-result-order {
+  color: var(--pay-muted);
+  font-size: calc(0.9rem * var(--cms-text-scale, 1));
+  letter-spacing: 0.04em;
+}
+
+.payment-result-order strong {
+  color: var(--pay-ink);
+}
+
+.payment-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+/* .cart-solid-action baasstiil on cart.css-is scope'itud .cart-section alla,
+   seega siin stiilime nupu täies mahus ise. */
+.payment-result .cart-solid-action {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--pay-ink);
+  border-radius: 0;
+  background: var(--pay-ink);
+  color: #f4eee4;
+  padding: 0 30px;
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: calc(0.74rem * var(--cms-text-scale, 1));
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.payment-result .cart-solid-action:hover,
+.payment-result .cart-solid-action:focus-visible {
+  background: transparent;
+  color: var(--pay-ink);
+}
+
+.payment-result .cart-quiet-action {
+  color: var(--pay-muted);
+}
+
+.payment-result .cart-quiet-action:hover,
+.payment-result .cart-quiet-action:focus-visible {
+  color: var(--pay-ink);
+}

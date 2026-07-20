@@ -337,10 +337,16 @@
 
 .tools-material-proof-row {
   max-width: none;
-  /* Allow the columns to shrink so the three items never collide (owner
-     2026-07-09: "katki läks ikooni ja teksti sektsioon, tee väiksemaks"). */
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(10px, 1vw, 16px);
+  /* minmax(0, 1fr) lubas veerul kokku kukkuda ALLA sildi pikima sõna, mille
+     peale tekst jooksis naabri ikoonile otsa (omanik 2026-07-20: "midagi on
+     siin väga katki"). auto-fit + 200px alammõõt paneb rea selle asemel 2 või
+     1 veerule, kui kolm enam ei mahu; min(100%, ...) hoiab ka ühe veeru rea
+     terve. Koos span'i overflow-wrap'iga ei saa sildid enam kunagi kattuda. */
+  /* 190px → 175px: foto laienes 48%-ni ja tekstiveerg kitsenes — 190px alammõõt
+     lükkas kolmanda sildi teisele reale (2+1). Sildi pikim sõna mahub praeguse
+     kirjamõõduga ~160px sisse, 175px hoiab kolm veergu koos. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 175px), 1fr));
+  gap: clamp(10px, 1vw, 16px) clamp(14px, 1.6vw, 24px);
   margin: clamp(24px, 2.6vw, 38px) 0 0;
   background: transparent;
 }
@@ -697,7 +703,14 @@
 
 /* Material band: copy + proof icons left, wide framed photo right. */
 .tools-page-redesign .tools-material-panel {
-  grid-template-columns: minmax(0, 1fr) minmax(480px, 740px);
+  /* Foto oli varem minmax(480px, 740px) — fikseeritud alammõõt võttis 1280px
+     ekraanil 740px ja jättis tekstiveerule ainult ~340px, mille peale kolm
+     ikoonisilti kukkusid üksteise otsa (omanik 2026-07-20: "midagi on siin
+     väga katki"). min(740px, 46%) hoiab foto laial ekraanil endise 740px
+     juures, aga laseb tal kitsamal ekraanil koos veeruga kahaneda. */
+  /* min(740px, 46%) → min(800px, 48%): foto veidi suuremaks (omanik
+     2026-07-20: "pilt võiks ka veidi suurem olla"). */
+  grid-template-columns: minmax(0, 1fr) minmax(0, min(800px, 48%));
   grid-template-areas: "copy image";
   column-gap: clamp(40px, 5.5vw, 100px);
   row-gap: 0;

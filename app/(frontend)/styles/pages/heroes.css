@@ -83,10 +83,15 @@
   .about-hero-image {
     inset: 50% clamp(40px, 5vw, 96px) auto auto;
     transform: translateY(-50%);
-    width: min(48vw, 820px);
+    /* Sama efektiivne mõõt kui avalehe hero-fotol: mõõdetuna on
+       .home-split-hero .home-split-media ≈ 48vw (1440px: 691px), lagi 860px.
+       47vw on maksimum, mis 48vw tekstiveeru ja 5vw parema serva kõrvale
+       mahub (omanik 2026-07-20: "header sektsioonide pildid on väiksemad
+       kui avalehe omad, tee suuremaks"). */
+    width: min(47vw, 860px);
     height: auto;
     aspect-ratio: 3 / 2;
-    max-height: min(78vh, 660px);
+    max-height: min(78vh, 700px);
     border-bottom-left-radius: 0;
     overflow: hidden;
     /* Normal, even, contained shadow — matches the band images. */
@@ -110,7 +115,10 @@
   .training-hero-redesign,
   .store-hero,
   .about-hero {
-    height: clamp(640px, calc(100vh - 98px), 820px);
+    /* Täpselt avalehe hero kõrgus (.home-split-hero: 100svh − 78px) — vana
+       820px lagi ja 98px lahutis jätsid alalehe sisu ~25px kõrgemale kui
+       avalehel (omanik 2026-07-20: "terve sektsioon nihkes"). */
+    height: max(640px, calc(100svh - 78px));
     min-height: 0;
   }
 
@@ -121,14 +129,40 @@
   .store-hero-copy,
   .about-hero-panel {
     /* The text panel gets a real column: wide enough that the display face
-       never collides with the photo, vertically centred, generous padding. */
-    width: clamp(440px, 44vw, 700px);
+       never collides with the photo, vertically centred, generous padding.
+       Veerg on laiem ja parem sisepadi kitsam (omanik 2026-07-20: "pane header
+       sektsiooni tekstile rohkem ruumi, liiga kokku pressitud") — varem 44vw /
+       max 700px, mille sees pealkirjad murdusid nelja lühikesse ritta. Foto
+       kitsenes vastukaaluks 48vw → 43vw. */
+    width: clamp(460px, 48vw, 860px);
     max-width: none;
     flex-shrink: 0;
     margin-inline: 0;
     padding-top: 0;
-    padding-inline: clamp(48px, 6vw, 116px) clamp(28px, 3vw, 56px);
+    /* Vasak padi 6vw → 9vw: tekstiplokk fotole lähemale (omanik 2026-07-20:
+       "headerites teksti sektsioon pildile veidi lähemale"). Nihe tuleb
+       padist, mitte margin'ist — nii ei saa tekst kunagi foto alla joosta. */
+    padding-inline: clamp(64px, 9vw, 176px) clamp(20px, 2vw, 44px);
+    /* Tekstiplokk on lihtsalt püstsuunas keskel, nagu enne (omanik 2026-07-20:
+       "enne oli nagu keskjoonduses vertikaalselt"). Ühine miinimumkõrgus +
+       nihe said proovitud ja tõstsid ploki liiga kõrgele. Lehtede vahelise
+       joonduse hoiab nüüd ühtne pealkirjamõõt, mitte sundkõrgus. */
     transform: none;
+  }
+
+  /* ÜKS reamurdmise piir kõigile alalehtede headeritele. Lehefailides olid
+     eri lühikesed katted (7.2ch sündmused, 8ch treeningud, 9ch pood, 10.5ch
+     vahendid, 11.4ch meist/päevik), mis murdsid pealkirjad ridadesse ammu enne
+     veeru serva — /en/journal jooksis nelja ritta. 14ch on lai kui kitsaim
+     tekstiveerg (981px viewport), nii et kate ei aja teksti kunagi üle serva.
+     Siin, mitte lehefailides: heroes.css laetakse pärast neid. */
+  .events-hero-panel h1,
+  .journal-hero-panel h1,
+  .tools-hero-panel h1,
+  .training-hero-panel h1,
+  .store-hero-copy h1,
+  .about-hero-panel h1 {
+    max-width: 14ch;
   }
 
   .events-hero-image img,

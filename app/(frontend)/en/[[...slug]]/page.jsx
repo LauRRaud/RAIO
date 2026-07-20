@@ -4,6 +4,7 @@ import { CartPage } from "@/components/pages/CartPage";
 import { EventsPage } from "@/components/pages/EventsPage";
 import { HomePage } from "@/components/HomePage";
 import { JournalPage } from "@/components/pages/JournalPage";
+import { PaymentResultPage } from "@/components/pages/PaymentResultPage";
 import { ProductPage } from "@/components/pages/ProductPage";
 import { ShopPage } from "@/components/pages/ShopPage";
 import { ToolsPage } from "@/components/pages/ToolsPage";
@@ -19,6 +20,7 @@ const routePages = {
   journal: { page: "journal", Component: JournalPage },
   pood: { page: "shop", Component: ShopPage },
   ostukorv: { page: "cart", Component: CartPage },
+  makse: { page: "payment", Component: PaymentResultPage },
   meist: { page: "about", Component: AboutPage }
 };
 
@@ -50,12 +52,19 @@ export async function generateMetadata({ params }) {
   return { title: messages.metadata.title };
 }
 
-export default async function EnglishSitePage({ params }) {
+export default async function EnglishSitePage({ params, searchParams }) {
   const { slug } = await params;
   const route = getRouteKey(slug);
 
   if (!route || route === "en") {
     return <HomePage locale="en" />;
+  }
+
+  // Makse tulemusleht vajab query-parameetreid (status, order), mille üldine
+  // routePages-haru muidu maha jätaks.
+  if (route === "makse") {
+    const sp = (await searchParams) || {};
+    return <PaymentResultPage locale="en" status={sp.status} orderNumber={sp.order} />;
   }
 
   if (routePages[route]) {

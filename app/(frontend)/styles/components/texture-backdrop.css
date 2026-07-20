@@ -42,13 +42,30 @@
   background: rgba(18, 14, 9, 0.45);
 }
 
-.texture-backdrop--terracotta .texture-backdrop-tint,
-.texture-backdrop--green .texture-backdrop-tint {
+.texture-backdrop--terracotta .texture-backdrop-tint {
   background: rgba(18, 14, 9, 0.38);
+}
+
+/* Roheline bänd kordub peaaegu igal lehel ja selle metsafotod on ise heledad
+   (päikeseloojang, sammal) — tekst jäi neil kirjuks. Seetõttu tugevam tumendus
+   kui teistel bändidel (omanik 2026-07-20). */
+.texture-backdrop--green .texture-backdrop-tint {
+  background: rgba(18, 14, 9, 0.58);
 }
 
 .texture-backdrop--gray .texture-backdrop-tint {
   background: rgba(255, 251, 243, 0.45);
+}
+
+/* Kolm halli sektsiooni — treeningu "jääb sinuga" bänd, treenerite bänd ja
+   vahendite "Miks puu ja kivi?" bänd — läksid tumeda teksti pealt heleda teksti
+   peale (omanik 2026-07-20: "võta valge filter ära, tekstid ja ikoonid valgeks —
+   must ei paista hallilt välja"; sama soov materjalibändile). Seetõttu saavad
+   nemad heleneva kihi asemel TUMENDAVA, nagu tumedad bändid. */
+.training-lasting-panel .texture-backdrop--gray .texture-backdrop-tint,
+.about-trainers-section .texture-backdrop--gray .texture-backdrop-tint,
+.tools-material-panel .texture-backdrop--gray .texture-backdrop-tint {
+  background: rgba(18, 14, 9, 0.55);
 }
 
 .texture-backdrop--beige .texture-backdrop-tint,

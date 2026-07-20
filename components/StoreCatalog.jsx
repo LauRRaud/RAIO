@@ -87,8 +87,12 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
   return (
     <>
       <div className="store-products-header">
-        <div>
-          <h2 id="store-products-title">{labels.productsTitle}</h2>
+        <h2 id="store-products-title">{labels.productsTitle}</h2>
+        {/* Filtrid, sortimine ja "Vaata kõiki" ühes paremas grupis, nagu
+            ajakirja päises — varem seisis kategooriariba pealkirja all vasakul
+            ja ainult dropdown paremal (omanik 2026-07-20: "pealkiri ja menüü nii
+            erineva kujundusega ... osadel lehtedel väga halb"). */}
+        <div className="store-section-actions">
           <nav
             className="store-category-nav"
             aria-label={labels.categoryNavLabel}
@@ -106,34 +110,34 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
               </button>
             ))}
           </nav>
-        </div>
-        <div className="store-filter-controls">
-          <SelectPrimitive
-            aria-label={labels.categoryNavLabel}
-            className="store-category-select"
-            options={categoryOptions}
-            theme="dark"
-            value={activeCategory}
-            onChange={setActiveCategory}
-          />
-          <SelectPrimitive
-            aria-label={labels.sortLabel}
-            className="store-sort"
-            options={sortOptions}
-            theme="dark"
-            value={sortKey}
-            onChange={setSortKey}
-          />
-          {canExpand ? (
-            <button
-              type="button"
-              className="carousel-all-link"
-              onClick={() => setShowAll((open) => !open)}
-            >
-              {showAll ? labels.carousel.showLess : labels.allLink}
-              <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
-            </button>
-          ) : null}
+          <div className="store-filter-controls">
+            <SelectPrimitive
+              aria-label={labels.categoryNavLabel}
+              className="store-category-select"
+              options={categoryOptions}
+              theme="dark"
+              value={activeCategory}
+              onChange={setActiveCategory}
+            />
+            <SelectPrimitive
+              aria-label={labels.sortLabel}
+              className="store-sort"
+              options={sortOptions}
+              theme="dark"
+              value={sortKey}
+              onChange={setSortKey}
+            />
+            {canExpand ? (
+              <button
+                type="button"
+                className="carousel-all-link"
+                onClick={() => setShowAll((open) => !open)}
+              >
+                {showAll ? labels.carousel.showLess : labels.allLink}
+                <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
+              </button>
+            ) : null}
+          </div>
         </div>
       </div>
 

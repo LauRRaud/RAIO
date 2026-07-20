@@ -125,8 +125,16 @@
 }
 
 .training-page-redesign .training-card .training-meta {
-  margin-top: 12px;
+  margin-top: 6px;
   gap: 8px;
+}
+
+/* Title + description + meta read as one tight group, with a little more air
+   before the CTA so it isn't crowded against it (owner 2026-07-20: "rohkem
+   kokku, veidi liiga lähedal nupule"). Training only — tools cards stay as is.
+   `body` prefix so this wins over the shared tools+training rule further down. */
+body .training-page-redesign .training-card .training-text-link {
+  margin-top: clamp(24px, 2.2vw, 32px);
 }
 
 /* Card CTAs read as outline arrow-buttons that fill on hover, not plain text

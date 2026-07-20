@@ -185,6 +185,61 @@ export const Orders: CollectionConfig = {
     },
     {
       type: "collapsible",
+      label: "Maksekeskus",
+      admin: {
+        description:
+          "Täidetakse automaatselt, kui klient maksab veebis. Käsitsi sisestatud tellimustel jääb tühjaks."
+      },
+      fields: [
+        {
+          name: "maksekeskusTransactionId",
+          label: "Tehingu ID",
+          type: "text",
+          admin: {
+            readOnly: true,
+            description: "Maksekeskuse tehingu tunnus. Selle järgi leiab makse Maksekeskuse portaalist."
+          }
+        },
+        {
+          name: "maksekeskusStatus",
+          label: "Maksekeskuse staatus",
+          type: "text",
+          admin: {
+            readOnly: true,
+            description: "Viimane Maksekeskuselt saadud staatus (COMPLETED, PENDING, CANCELLED, EXPIRED, ...)."
+          }
+        },
+        {
+          name: "paymentMethod",
+          label: "Makseviis",
+          type: "text",
+          admin: {
+            readOnly: true,
+            description: "Pank või kaardimakse kanal, mille klient valis."
+          }
+        },
+        {
+          name: "paidAt",
+          label: "Makse laekus",
+          type: "date",
+          admin: {
+            readOnly: true,
+            date: { pickerAppearance: "dayAndTime" }
+          }
+        },
+        {
+          name: "paidAmount",
+          label: "Laekunud summa",
+          type: "number",
+          min: 0,
+          admin: {
+            readOnly: true
+          }
+        }
+      ]
+    },
+    {
+      type: "collapsible",
       label: "Suhtlus ja märkmed",
       fields: [
         {

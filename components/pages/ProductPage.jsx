@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getHeaderTextures } from "@/lib/payloadContent";
 import { ProductGallery } from "@/components/ProductGallery";
+import { TextureSlideshow } from "@/components/TextureSlideshow";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getMessagesWithAdminImages, getPayloadProduct, getPayloadProducts } from "@/lib/payloadContent";
 import { formatCurrency } from "@/lib/shop";
@@ -33,6 +34,7 @@ export async function ProductPage({ locale = "et", slug }) {
       <Header locale={locale} currentPath={`/pood/${slug}`} labels={messages.header} brandName={messages.brand.name} textures={await getHeaderTextures()} />
       <main id="main" className="product-page">
         <section className="product-hero section">
+          <TextureSlideshow set="green" />
           <div className="container product-grid">
             <ProductGallery
               images={product.images}
@@ -42,9 +44,11 @@ export async function ProductPage({ locale = "et", slug }) {
 
             <div className="product-copy">
               <h1>{product.name}</h1>
-              <div className="product-status-row">
-                <strong>{formatCurrency(product.price)}</strong>
-              </div>
+              <p className="product-price">
+                <span>{shop.priceFrom}</span>
+                <strong>{product.price}</strong>
+                <span>€</span>
+              </p>
               <p className="lede product-lede">{product.description}</p>
 
               <div className="product-actions">
@@ -57,14 +61,6 @@ export async function ProductPage({ locale = "et", slug }) {
               </div>
 
               <div className="product-meta">
-                <div>
-                  <span>{t.metaCategory}</span>
-                  <strong>{product.categoryLabel || product.category}</strong>
-                </div>
-                <div>
-                  <span>{shop.metaPreorder}</span>
-                  <strong>{shop.statusLabels[product.status]}</strong>
-                </div>
                 <div>
                   <span>{t.metaProduction}</span>
                   <strong>

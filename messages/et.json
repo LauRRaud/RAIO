@@ -59,7 +59,8 @@
   "footer": {
     "slogan": "Trenn on tunne.",
     "socialLabel": "Sotsiaalmeedia",
-    "instagramLabel": "Sotsiaalmeedia: Instagram"
+    "instagramLabel": "Sotsiaalmeedia: Instagram",
+    "credit": "Design by L.Raudsoo"
   },
   "carousel": {
     "training": {
@@ -705,7 +706,47 @@
     "emailNoteLabel": "Hoiatus",
     "emailSubject": "RAIO tellimus",
     "production": "Mõned tooted valmivad käsitööna tellimuse alusel. Täpsem tarneaeg kinnitatakse pärast tellimuse esitamist.",
-    "productionWarning": "See toode valmib käsitööna tellimuse alusel. Eeldatav valmimisaeg on {time}. Täpsem tarneaeg kinnitatakse pärast tellimuse esitamist."
+    "productionWarning": "See toode valmib käsitööna tellimuse alusel. Eeldatav valmimisaeg on {time}. Täpsem tarneaeg kinnitatakse pärast tellimuse esitamist.",
+    "checkoutForm": {
+      "title": "Sinu andmed",
+      "name": "Nimi",
+      "email": "E-post",
+      "phone": "Telefon (vabatahtlik)",
+      "note": "Lisainfo (vabatahtlik)",
+      "submit": "Maksma",
+      "submitting": "Suuname maksele…",
+      "back": "Tagasi",
+      "required": "Palun täida nimi ja e-post.",
+      "invalidEmail": "Kontrolli e-posti aadressi.",
+      "error": "Makse alustamine ebaõnnestus. Proovi uuesti või võta meiega ühendust.",
+      "secure": "Turvaline makse Maksekeskuse kaudu — vali pangalink või kaardimakse."
+    }
+  },
+  "payment": {
+    "metadata": {
+      "title": "Makse | RA•IO",
+      "description": "Makse staatus"
+    },
+    "orderLabel": "Tellimus",
+    "continueShopping": "Tagasi poodi",
+    "backToCart": "Tagasi ostukorvi",
+    "backHome": "Avalehele",
+    "ok": {
+      "title": "Aitäh! Makse õnnestus.",
+      "body": "Saatsime kinnituse sinu e-postile ja võtame peagi ühendust tarne ning valmimisaja täpsustamiseks."
+    },
+    "pending": {
+      "title": "Makse on ootel.",
+      "body": "Kui sooritasid makse, jõuab kinnitus meieni peagi. Küsimuste korral võta julgelt ühendust."
+    },
+    "failed": {
+      "title": "Makse jäi pooleli.",
+      "body": "Makse katkes või jäi kinnitamata. Sinu ostukorv on alles — võid uuesti proovida."
+    },
+    "error": {
+      "title": "Makset ei õnnestunud kinnitada.",
+      "body": "Makse turvakontroll ebaõnnestus. Kui summa võeti kontolt maha, võta palun meiega ühendust."
+    }
   },
   "about": {
     "metadata": {

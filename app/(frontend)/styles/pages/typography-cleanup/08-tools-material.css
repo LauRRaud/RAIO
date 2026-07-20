@@ -1,13 +1,16 @@
+/* Bänd sai tumendava filtri (texture-backdrop.css) nagu treenerite sektsioon
+   meist-lehel — tekstid heledaks (omanik 2026-07-20: "kõik tekstid ja ikoonid
+   valged, väljaarvatud pealkiri … sarnane nagu treenerid sektsioon"). Fallback-
+   gradient on sama hall kui treenerite bändil. */
 .tools-page-redesign .tools-material-panel {
-  --material-panel-bg: #d4d0c4;
-  --material-panel-ink: #221c14;
-  /* 0.74 → 0.9: tekstuurifoto peal upub poolläbipaistev tekst mustrisse
-     (omanik 2026-07-20: "läbipaistvad tekstid nähtavamaks"). */
-  --material-panel-muted: #342e26;
-  --material-panel-line: rgba(34, 28, 20, 0.16);
+  --material-panel-ink: #fdf8ee;
+  --material-panel-muted: color-mix(in srgb, #f4efe4 86%, transparent);
+  --material-panel-line: rgba(245, 239, 229, 0.28);
   border: 0;
   border-radius: 0;
-  background: var(--material-panel-bg);
+  background:
+    radial-gradient(72% 60% at 26% 18%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(135deg, #aaa694 0%, #97927f 100%);
   color: var(--material-panel-ink);
   overflow: hidden;
 }
@@ -24,7 +27,9 @@
 }
 
 .tools-page-redesign .tools-material-copy h2 {
-  color: var(--material-panel-ink);
+  /* Sektsioonipealkirjade kreem, mitte puhas valge — sama toon kui treenerite
+     bändi pealkirjal. */
+  color: #f4efe4;
   /* Mahub ühele reale (omanik 2026-07-20: "siin saaks ühele reale panna
      pealkirja"). 9.5ch piirang murdis pealkirja kaheks ka siis, kui veerus oli
      ruumi; cqw-lagi hoiab selle ühel real igal laiusel, sest veeru laius ei
@@ -73,6 +78,20 @@
   padding: 0;
 }
 
+/* Ikoon sildi KOHALE, mitte kõrvale (omanik 2026-07-20: "ikka on kole, isegi
+   suurel ekraanil"). Arvutus: tekstiveerg on 1600px ekraanil 694px ja sildi
+   pikim sõna ("VASTUPIDAVAD") nõuab 20px paksus kirjas 0.1em vahega 177px.
+   Kõrvuti paigutus küsis iga tulba kohta 52px ikooni + 10px vahe + 177px =
+   239px, kolm tükki 761px — ei mahtunud, mistõttu sildid jooksid naabri
+   ikoonile otsa või murdusid keset sõna. Ikoon oma real võtab tulba laiuseks
+   ainult sildi enda min-laiuse, nii et kolm mahub mugavalt. */
+.tools-page-redesign .tools-material-proof-row .tools-proof-item {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: start;
+  align-items: start;
+  gap: 12px;
+}
+
 .tools-page-redesign
   :is(.tools-proof-item, .tools-care-copy)
   svg,
@@ -92,9 +111,16 @@
    sama, mis tekstil"). */
 .tools-page-redesign .tools-material-proof-row .tools-proof-item svg,
 .training-page-redesign .training-quality-item .training-line-icon {
-  width: 52px;
-  height: 52px;
+  /* 52px → 44px (omanik 2026-07-20: "need ikoonid veidi väiksemaks") —
+     mõõt jääb mõlemal real ühine, nagu varem kokku lepitud. */
+  width: 44px;
+  height: 44px;
   color: #221c14;
+}
+
+/* Tumendatud bändil valged ikoonid nagu tekstidki. */
+.tools-page-redesign .tools-material-proof-row .tools-proof-item svg {
+  color: #fdf8ee;
 }
 
 /* Sildid olid kahes kohas eri suurusega (15,7px vs 17,9px) — üks ühine mõõt,
@@ -104,7 +130,9 @@
 .training-page-redesign .training-quality-item span {
   font-size: calc(clamp(1.24rem, 1.26vw, 1.46rem) * var(--cms-text-scale, 1));
   line-height: 1.24;
-  letter-spacing: 0.1em;
+  /* 0.1em → 0.09em: laiem foto (48%) kitsendas veerge; pikim sõna
+     ("VASTUPIDAVAD") peab suurel ekraanil veel veergu mahtuma. */
+  letter-spacing: 0.09em;
 }
 
 .tools-page-redesign :is(.tools-care-copy) > svg {

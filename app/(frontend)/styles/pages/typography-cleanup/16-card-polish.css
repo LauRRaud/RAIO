@@ -1,0 +1,273 @@
+/* ---------- Keritavate kaartide viimistlus ----------
+   Kõik viis karusselli jagavad sama kaardikeret, seega käivad ka need
+   parandused ühe komplektina (omanik 2026-07-20). */
+
+/* 1. Kaart pikeneb alt ja tekstiploki jalus saab õhku, et nupp ei istuks vastu
+      kaardi serva ("kaardid alt pikemad, et nupud ei oleks liiga servas").
+      Kõrgus kasvab ~8%; sisu on põhjas ankurdatud, nii et lisandunud ruum läheb
+      täies mahus nupu alla. */
+:is(
+  .events-event-card,
+  .journal-story-card,
+  .tools-page-redesign .tools-category-card,
+  .training-page-redesign .training-card,
+  .store-page .store-product-card
+) {
+  min-height: calc(clamp(540px, 34vw, 660px) * var(--cms-text-scale, 1));
+}
+
+/* Kaks eri mehhanismi, üks tulemus.
+
+   Vahendite, treeningute ja poe kaardil on nupp tavavoos, seega määrab jaluse
+   tekstiploki `padding-bottom`. Sündmuste ja lugude kaardil on nupp (ja
+   sündmustel ka asukoht) hoopis absoluutselt positsioneeritud `bottom`-väärtusega
+   ning `padding-bottom` üksnes broneerib neile ruumi — seega ei liigutanud
+   ühine padding neid üldse ja nende nupp jäi 34px kaugusele, kui teised said
+   51px (omanik 2026-07-20: "mingi erinevus ikkagi on ... see alumine serv ja
+   nupu alune").
+
+   Voos olevad kaardid saavad jaluse otse; absoluutsed saavad sama vahe
+   tõstena, mis liigub läbi kõigi kolme seotud mõõdu korraga, et broneeritud
+   ruum, asukohariba ja nupp püsiksid omavahelises rütmis. */
+:is(
+  .tools-page-redesign .tools-category-card .tools-category-body,
+  .training-page-redesign .training-card .training-card-body,
+  .store-page .store-product-card .store-product-body
+) {
+  padding-bottom: clamp(38px, 3.2vw, 56px);
+}
+
+/* Tõste = uus jalus (clamp(38px, 3.2vw, 56px)) miinus vana (clamp(24px, 2.1vw,
+   34px)); kirjutatud omaette clamp'ina, et see loeks korraga nii siin kui
+   allpool mobiilivaates. */
+.events-event-carousel .events-event-card,
+.journal-story-carousel .journal-story-card {
+  --raio-card-foot-lift: clamp(14px, 1.1vw, 22px);
+}
+
+:is(
+  .events-event-carousel .events-outline-button,
+  .journal-story-carousel .journal-text-link
+) {
+  bottom: calc(
+    clamp(24px, 2.1vw, 34px) * var(--cms-text-scale, 1) +
+      var(--raio-card-foot-lift, 0px)
+  );
+}
+
+/* Broneeritud ruum kasvab sama palju, muidu kolib grid'i sisu nupu peale. */
+.events-event-carousel .events-event-body,
+.journal-story-carousel .journal-story-body {
+  padding-bottom: calc(
+    clamp(96px, 6vw, 118px) * var(--cms-text-scale, 1) +
+      var(--raio-card-foot-lift, 0px)
+  );
+}
+
+.events-event-carousel .events-event-card .events-location {
+  bottom: calc(
+    clamp(114px, 7.1vw, 132px) * var(--cms-text-scale, 1) +
+      var(--raio-card-foot-lift, 0px)
+  );
+}
+
+/* 2. Kuupäev jääb ühele reale ("kuupäev ühes reas olla"). Sündmuste kaardil oli
+      `nowrap` juba olemas; ajakirja meta-plokis mitte, mistõttu "9. aprill 2024"
+      murdus kitsamal ekraanil kaheks reaks. Mõlemad kaetud, et need kaks
+      eeltiitlit käituksid ühtemoodi. */
+:is(.events-event-card .events-date, .journal-story-card .journal-story-meta) {
+  white-space: nowrap;
+}
+
+/* 2b. Kuupäevad ühele joonele.
+
+   Sündmuste kaardi tekstiplokk on grid `align-content: center` peal, mistõttu
+   kogu sisu — kuupäev kaasa arvatud — nihkus vastavalt sellele, kas pealkiri on
+   üks, kaks või kolm rida. Kolm kõrvutist kaarti näitasid kuupäeva kolmel eri
+   kõrgusel (omanik 2026-07-20: "kuupäevad ühele joonele").
+
+   Lugude kaart lahendas selle juba ammu: eeltiiter on absoluutselt kinnitatud
+   fikseeritud `top`-i külge ja tekst algab ülalt, kasvades allapoole. Sama muster
+   siia. Broneering tuleb samast muutujast, nii et kuupäev ja pealkirja algus ei
+   saa teineteisest lahku joosta. */
+.events-event-carousel .events-event-card {
+  /* Raised so the date + top-anchored copy drop toward the pinned location/CTA,
+     closing the void the owner flagged (2026-07-20: "siin ka sisu allapoole,
+     nupule lähemale"). This one variable feeds both the date `top` and the body
+     `padding-top`, so the eyebrow and the title start move down together. */
+  --raio-event-eyebrow-top: clamp(96px, 7.2vw, 110px);
+}
+
+.events-event-carousel .events-event-card .events-date {
+  position: absolute;
+  top: var(--raio-event-eyebrow-top);
+  left: 50%;
+  max-width: calc(100% - 56px);
+  margin: 0;
+  /* translateX tsentreerib, translateY hoiab varasema optilise nihke alles. */
+  transform: translate(-50%, -16px);
+}
+
+.events-event-carousel .events-event-card .events-event-body {
+  /* Ülalt ankurdatud: pikem pealkiri kasvab allapoole, mitte ei tõsta kuupäeva.
+     `grid-auto-rows` asendab fikseeritud raja-loendi — kuupäev, asukoht ja nupp
+     on nüüd voost väljas, seega tekitaks jäik loend lihtsalt tühje radu. */
+  grid-template-rows: none;
+  grid-auto-rows: auto;
+  align-content: start;
+  padding-top: calc(var(--raio-event-eyebrow-top) + clamp(58px, 3.8vw, 68px));
+}
+
+/* 3. Poe kaardi kategooria ja hind: suuremad, aga õhemad. Vana lahendus ajas
+      mõõtu paksusega (600 kaalu ~1rem juures) — nüüd ütleb mõõdu suurus ise ja
+      kiri jääb rahulikuks ("suurem aga nt font weight väiksem"). */
+body .store-page .store-product-card .store-product-category {
+  font-size: calc(clamp(1.44rem, 1.55vw, 1.68rem) * var(--cms-text-scale, 1));
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+body .store-page .store-product-card .store-price span {
+  font-size: calc(clamp(1.34rem, 1.4vw, 1.52rem) * var(--cms-text-scale, 1));
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+body .store-page .store-product-card .store-price strong {
+  font-size: calc(clamp(1.9rem, 2.05vw, 2.4rem) * var(--cms-text-scale, 1));
+  font-weight: 400;
+}
+
+/* 4. Kaartide väikesed tekstid kasvavad loetavale mõõdule ("osad tekstid veidi
+      väiksed"). Kolm kohta: vahendite/treeningute kaardi kirjeldus pealkirja
+      all, sündmuste kaardi kirjeldus + koht + kuupäev ning treeningukaardi
+      kestus/tase. Treeningu meta istus 0.84rem peal — kaardi kõige väiksem
+      tekst oli seal, kus lugeja otsib fakti. */
+/* Kaardi kirjeldus on kõigil neljal perel üks ja sama roll, seega ka üks mõõt
+   (omanik 2026-07-20: "need tekstid suuremaks"). Hinnad jäävad puutumata
+   ("hindu ei ole vaja").
+
+   Kaks lõksu, mille tõttu varasem tõste osal kaartidel ei jõudnud kohale:
+   lugude kirjeldust see reegel varem ei katnudki, ja sündmuste oma on
+   11-carousel-type's `!important` all, mistõttu tavaline reegel kaotab
+   sõltumata järjekorrast. Mõlemad siin kaetud. */
+:is(
+  .tools-page-redesign .tools-category-card .tools-category-body > p,
+  .training-page-redesign .training-card .training-card-body > p
+) {
+  max-width: 32ch;
+  font-size: calc(clamp(1.28rem, 1.33vw, 1.44rem) * var(--cms-text-scale, 1));
+  line-height: 1.5;
+}
+
+body
+  .journal-story-carousel
+  .journal-story-card
+  .journal-story-body
+  > p:not(.journal-story-meta) {
+  max-width: 30ch;
+  font-size: calc(clamp(1.28rem, 1.33vw, 1.44rem) * var(--cms-text-scale, 1));
+  line-height: 1.5;
+}
+
+/* Sündmuste kirjeldus on 11-carousel-type's kahe selektoriga `!important` all,
+   millest teine — `> p:not(.events-date):not(.events-location)` — jõuab (0,5,1)-ni.
+   Kahe `!important`-i vahel otsustab spetsiifilisus, mitte järjekord, seega peab
+   siinne reegel sama kuju kandma; `body` viib selle (0,5,2)-ni. */
+body
+  .events-event-carousel
+  .events-event-card
+  .events-event-body
+  > p:not(.events-date):not(.events-location) {
+  max-width: 30ch;
+  font-size: calc(
+    clamp(1.28rem, 1.33vw, 1.44rem) * var(--cms-text-scale, 1)
+  ) !important;
+  line-height: 1.5 !important;
+}
+
+:is(
+  .events-event-card .events-date,
+  .events-event-card .events-location,
+  .training-page-redesign .training-card .training-meta span
+) {
+  font-size: calc(clamp(1.04rem, 1.04vw, 1.18rem) * var(--cms-text-scale, 1));
+}
+
+/* Treeningukaardi meta (kestus + tase) veidi suuremaks — see istus 1.04rem peal
+   ja oli kaardi kõige väiksem tekst (omanik 2026-07-20: "need ka veidi
+   suuremaks"). Eraldi reegel, et sündmuste kuupäev ja koht üleval samas grupis
+   kaasa ei kasvaks. */
+.training-page-redesign .training-card .training-meta span {
+  font-size: calc(clamp(1.16rem, 1.18vw, 1.32rem) * var(--cms-text-scale, 1));
+}
+
+/* Asukoha ikooniveerg kasvab koos tekstiga, muidu jääb nööpnõel rea alla. */
+.events-event-card .events-location {
+  grid-template-columns: 21px minmax(0, 1fr);
+}
+
+/* Sündmuse asukoht veidi suuremaks ja alati ühel real (omanik 2026-07-20:
+   "asukoht ka suuremaks ... need tekstid peavad ühel joonel olema"). Pikk nimi
+   ("Peipsi järv, Kallaste") murdus varem kaheks reaks ja tõusis teistest
+   kõrgemale — nowrap hoiab kõik kolm koha silti samal joonel. Neli klassi, et
+   võita ülalt jagatud :is()-grupi (0,3,1) mõõt. */
+.events-event-carousel .events-event-card .events-event-body .events-location {
+  width: max-content;
+  max-width: calc(100% - 24px);
+  white-space: nowrap;
+  font-size: calc(clamp(1.16rem, 1.18vw, 1.32rem) * var(--cms-text-scale, 1));
+}
+
+/* Pealkirjale kolme rea jagu kõrgust, et selle all olev kirjeldus algaks igal
+   kaardil samalt joonelt, olenemata sellest, kas pealkiri on kaks või kolm rida
+   (omanik 2026-07-20: "pealkirja all need tekstid peavad ühel joonel olema").
+   Kolm on praeguse sisu pikima pealkirja reaarv; lühem pealkiri jätab lihtsalt
+   alla ühe tühja rea. lh = üks reakõrgus, seega skaleerub kirjasuurusega kaasa. */
+.events-event-carousel .events-event-card .events-event-body > h3 {
+  min-height: 3lh;
+}
+
+@media (max-width: 620px) {
+  /* Telefonis on kaardi kõrgus fikseeritud 560px (14-overlay-cards) — sama
+     võrra pikemaks, et alumine varu ka seal alles jääks. */
+  :is(
+    .events-event-card,
+    .journal-story-card,
+    .tools-page-redesign .tools-category-card,
+    .training-page-redesign .training-card,
+    .store-page .store-product-card
+  ) {
+    min-height: 610px;
+  }
+
+  :is(
+    .tools-page-redesign .tools-category-card .tools-category-body,
+    .training-page-redesign .training-card .training-card-body,
+    .store-page .store-product-card .store-product-body
+  ) {
+    padding-bottom: 34px;
+  }
+
+  /* Telefonis on nupu jalus 24px ja broneering 94px (11-carousel-type); sama
+     10px tõste hoiab needki teiste kolmega ühel joonel. */
+  .events-event-carousel .events-event-card,
+  .journal-story-carousel .journal-story-card {
+    --raio-card-foot-lift: 10px;
+  }
+
+  /* Telefonis on kaardil üks kaart korraga, aga kerides peab kuupäev püsima
+     paigal — sama ankur, väiksemas mõõdus (vrd lugude 54px). */
+  .events-event-carousel .events-event-card {
+    --raio-event-eyebrow-top: 46px;
+  }
+
+  .events-event-carousel .events-event-card .events-date {
+    max-width: calc(100% - 44px);
+    transform: translate(-50%, -20px);
+  }
+
+  .events-event-carousel .events-event-card .events-event-body {
+    padding-top: 104px;
+  }
+}

@@ -4,9 +4,16 @@
   color: var(--text);
 }
 
+/* Roheline tekstuuribänd nagu poe tootekarussellil — TextureSlideshow set="green"
+   istub selle gradiendi peal (z-index -3), gradient on fallback enne fotode
+   laadimist. Host vajab positsiooni + isolation'it nagu teised bändid. */
 .product-hero {
+  position: relative;
+  isolation: isolate;
   padding: clamp(56px, 6vw, 86px) 0 clamp(54px, 6vw, 82px);
-  background: var(--ui-box-bg);
+  background:
+    radial-gradient(70% 62% at 28% 24%, rgba(232, 224, 170, 0.1) 0%, rgba(232, 224, 170, 0) 62%),
+    linear-gradient(150deg, #55613c 0%, #48542f 100%);
 }
 
 .product-grid {
@@ -102,30 +109,43 @@
   pointer-events: none;
 }
 
+/* Sama keel kui karusselli nooltel (10-carousel-system.css): paks hele serv,
+   tume klaasjas täide, nool 66% nupust. */
 .product-gallery-arrow {
-  width: clamp(44px, 3.5vw, 56px);
-  height: clamp(44px, 3.5vw, 56px);
+  --product-arrow-size: clamp(44px, 3.5vw, 56px);
+  width: var(--product-arrow-size);
+  height: var(--product-arrow-size);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 0;
+  border: 2px solid rgba(248, 243, 236, 0.72);
   border-radius: 999px;
-  background: rgba(17, 16, 13, 0.58);
+  background: rgba(17, 16, 13, 0.68);
   color: #f8f3ec;
   cursor: pointer;
   pointer-events: auto;
   backdrop-filter: blur(10px);
-  transition: background 160ms ease;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
 }
 
-.product-gallery-arrow:hover,
+.product-gallery-arrow svg {
+  width: calc(var(--product-arrow-size) * 0.66);
+  height: calc(var(--product-arrow-size) * 0.66);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-gallery-arrow:hover {
+    background: rgba(17, 16, 13, 0.84);
+    outline: none;
+    transform: scale(1.04);
+  }
+}
+
 .product-gallery-arrow:focus-visible {
-  background: rgba(17, 16, 13, 0.78);
   outline: none;
-}
-
-.product-gallery-arrow:focus-visible {
-  box-shadow: 0 0 0 2px rgba(248, 243, 236, 0.32);
+  box-shadow: 0 0 0 2px rgba(248, 243, 236, 0.34);
 }
 
 .product-copy {
@@ -155,17 +175,26 @@
   white-space: nowrap;
 }
 
-.product-status-row {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 24px;
+/* Hind poe kaardi keeles: "Alates" + number + € (03-store-catalog.css). */
+.product-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 24px 0 0;
 }
 
-.product-status-row strong {
+.product-price span {
+  color: #f8f3ec;
+  font-size: calc(clamp(1.08rem, 1.05vw, 1.2rem) * var(--cms-text-scale, 1));
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Tootelehel on hind põhiinfo — kaardist suurem number, et "Alates" ei
+   mõjuks suurema kui hind ise (omanik 2026-07-20). */
+.product-price strong {
   color: var(--ui-box-ink);
-  font-size: calc(clamp(1.35rem, 1.6vw, 1.85rem) * var(--cms-text-scale, 1));
+  font-size: calc(clamp(2.2rem, 2.4vw, 3rem) * var(--cms-text-scale, 1));
   line-height: 1;
 }
 
@@ -191,49 +220,68 @@
   font-size: calc(1.15rem * var(--cms-text-scale, 1));
 }
 
+/* Sama klaasjas ghost-CTA nagu poe kaartidel ja bändinuppudel
+   (03-store-catalog.css: "kerge klaasjas efekt"). */
 .product-hero .product-actions .button {
-  border-color: var(--ui-box-button-bg);
-  background: var(--ui-box-button-bg);
-  color: var(--ui-box-button-ink);
+  width: fit-content;
+  min-width: 0;
+  padding-inline: clamp(26px, 2.6vw, 36px);
+  border: 2px solid rgba(248, 243, 236, 0.7);
+  background: rgba(248, 243, 236, 0.12);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
+  color: #f4efe4;
+  font-size: calc(clamp(1.16rem, 1.1vw, 1.3rem) * var(--cms-text-scale, 1));
+  font-weight: 600;
+  letter-spacing: 0.025em;
 }
 
 .product-hero .product-actions .button:hover,
 .product-hero .product-actions .button:focus-visible {
   border-color: var(--ui-box-button-hover-bg);
   background: var(--ui-box-button-hover-bg);
-  color: var(--ui-box-button-hover-ink);
+  color: #2b241b;
 }
 
-.add-to-cart.is-added {
-  border-color: #3f4c29;
-  background: #3f4c29;
-  color: #f8f3ec;
+/* Klaasnupu peal peab "lisatud" olek täituma kreemjaks — tume roheline
+   sulaks rohelisse bändi ära. */
+.add-to-cart.is-added,
+.product-hero .product-actions .add-to-cart.is-added {
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-box-button-hover-bg);
+  color: #2b241b;
 }
 
+/* Üks vaikne kast (kategooria ja "ette tellimine" käisid ära — esimene on
+   liigne info, teist ütleb juba nupp). */
 .product-meta {
-  max-width: 680px;
+  max-width: 560px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
   margin-top: 26px;
 }
 
+/* Klaasjad kastid rohelisel tekstuuril — sama keel kui kaardi-CTA-del,
+   mitte lame beež kast. */
 .product-meta div {
   min-width: 0;
   padding: 18px 18px 20px;
-  background: var(--bg);
-  border-radius: var(--ui-card-radius);
-  color: var(--text);
+  background: rgba(17, 16, 13, 0.34);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(248, 243, 236, 0.22);
+  border-radius: 0;
+  color: #f5efe5;
 }
 
 .product-hero .product-meta span {
-  color: var(--accent-2);
+  color: rgba(248, 243, 236, 0.92);
 }
 
 .product-meta strong {
   display: block;
   margin-top: 8px;
-  color: var(--text);
+  color: #fdf8ee;
   font-size: calc(0.96rem * var(--cms-text-scale, 1));
   line-height: 1.45;
 }

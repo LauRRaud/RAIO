@@ -192,7 +192,10 @@
      excerpt never collides with the absolutely-pinned "Loe edasi" button
      (owner 2026-07-09: "pealkiri ei tohi üles, nupp ei tohi alla"). */
   justify-content: flex-start;
-  padding-top: clamp(142px, 9vw, 170px);
+  /* Content sits lower, nearer the pinned button — the old top anchor left a big
+     void above "Loe edasi" (owner 2026-07-20: "sisu koos, nupust ülalpool sisu
+     allapoole"). Still top-anchored so a long title grows down safely. */
+  padding-top: clamp(186px, 11.5vw, 214px);
   padding-bottom: clamp(96px, 8vw, 112px);
 }
 

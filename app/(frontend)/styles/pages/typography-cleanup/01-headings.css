@@ -48,35 +48,29 @@
     .about-hero-panel
   )
   h1 {
-  /* Subpage heroes share the homepage hero's display face, tight leading and
-     letter-spacing — just a touch smaller so the longest single Estonian words
-     (ETTETELLIMINE, INSPIRATSIOONI) still fit the narrower hero text column. */
-  font-size: calc(clamp(2.9rem, 4.55vw, 5.3rem) * var(--cms-text-scale, 1));
+  /* ÜKS mõõt kõigile alalehtede headeritele (omanik 2026-07-20: "pane sama
+     pealkiri, mis journal lehel"). Varem oli neli eri suurust — 4.55vw
+     (meist, sündmused, treeningud), 4.4vw (pood), 4.15vw (vahendid),
+     3.75vw (päevik) — ja lehed lugesid eri kaaluga. Võitis päeviku mõõt: see
+     oli grupi väikseim ja ainus, mille juures pikim eestikeelne sõna
+     (INSPIRATSIOONI.) tekstiveergu ära mahub. Suurus muutub siin, mitte
+     lehefailides — lehepõhised erandid on meelega kadunud. */
+  /* Ridade vahe tunduvalt avaram ja kiri selle võrra väiksem (omanik
+     2026-07-20: "pealkirjadele tunduvalt suuremad reavahed, vajadusel teksti
+     suurust selle võrra väiksemaks"). Varem 3.75vw / line-height 1 — kahe- ja
+     kolmerealised pealkirjad jooksid ridade vahelt kokku. 3.45vw × 1.24 hoiab
+     ploki umbes sama kõrge kui enne, nii et headeri kompositsioon ei nihku. */
+  font-size: calc(clamp(2.4rem, 3.45vw, 4.15rem) * var(--cms-text-scale, 1));
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.24;
   letter-spacing: 0.01em;
   text-transform: none;
 }
 
-/* Pages whose hero has a 13–14-char single word need a slightly gentler cap so
-   it never overflows the panel on one line. */
-.journal-hero-panel h1 {
-  font-size: calc(clamp(2.6rem, 3.75vw, 4.5rem) * var(--cms-text-scale, 1));
-}
-
-/* Shop hero read noticeably smaller than the other subpage heroes (owner
-   2026-07-09: "poe header sektsioonis on fondid väiksemad?"). "ETTETELLIMINE"
-   is 12 chars, so only a hair below the shared 4.55vw is needed to keep it on
-   one line — close the gap. */
-.store-hero-copy h1 {
-  font-size: calc(clamp(2.8rem, 4.4vw, 5.1rem) * var(--cms-text-scale, 1));
-}
-
-.tools-hero-panel h1 {
-  max-width: 10.5ch;
-  font-size: calc(clamp(2.7rem, 4.15vw, 4.9rem) * var(--cms-text-scale, 1));
-  line-height: 1.04;
-}
+/* Reamurdmise koht ei ole enam lehepõhine: ühine 14ch kate elab heroes.css-i
+   desktop-plokis, tekstiveeru enda kõrval (omanik 2026-07-20: "rohkem ruumi,
+   liiga kokku pressitud"). Siinne 10.5ch kate oli sellest kitsam ja võitis
+   cascade'i, sest typography-cleanup laetakse viimasena. */
 
 /* The removed short-rule (kriips) used to create the h1→body gap via its own
    margin; deleting it with display:none collapsed that space to zero (owner
@@ -97,12 +91,12 @@
 :is(.tools-material-copy, .tools-care-copy) h2 {
   font-size: calc(clamp(1.55rem, 2.15vw, 2.7rem) * var(--cms-text-scale, 1));
   font-weight: 400;
-  line-height: 1.12;
+  line-height: 1.24;
 }
 
 :is(.product-copy, .cart-empty-heading) h1 {
   font-size: calc(var(--type-page-hero) * var(--cms-text-scale, 1));
-  line-height: 0.96;
+  line-height: 1.24;
   letter-spacing: var(--track-heading);
 }
 
@@ -113,8 +107,10 @@
   )
   h2,
 :is(.about-story-copy, .about-closing-copy, .cart-summary) h2 {
+  /* Sektsioonipealkirjad said sama avara reavahe (omanik 2026-07-20) — enamik
+     on üherealised, seepärast jääb mõõt samaks ja muutub ainult leading. */
   font-size: calc(var(--type-section) * var(--cms-text-scale, 1));
-  line-height: 1.02;
+  line-height: 1.24;
   letter-spacing: var(--track-heading);
   text-transform: none;
 }
@@ -131,9 +127,12 @@
   /* Bändi pealkiri veidi väiksem (omanik 2026-07-20: "liiga suur pealkiri").
      Treenerid-pealkiri toodud siia samasse mõõtu (omanik 2026-07-20:
      "treenerid pealkiri liiga väike võrreldes teiste pealkirjadega") — varem
-     jäi see rea 184 väiksemasse about.css mõõtu, sest polnud selles loendis. */
-  font-size: calc(clamp(2.35rem, 3.5vw, 4.05rem) * var(--cms-text-scale, 1));
-  line-height: 1;
+     jäi see rea 184 väiksemasse about.css mõõtu, sest polnud selles loendis.
+     Reavahe sama avar kui headeris, kiri selle võrra väiksem (omanik
+     2026-07-20) — bändipealkirjad on "nagu headeris", nii et nad liiguvad
+     koos: varem 3.5vw / line-height 1. */
+  font-size: calc(clamp(2.2rem, 3.25vw, 3.75rem) * var(--cms-text-scale, 1));
+  line-height: 1.24;
   letter-spacing: 0.01em;
   text-transform: none;
 }
@@ -142,7 +141,11 @@
    so it stays to a line or two. */
 .training-page-redesign .training-workshop-copy h2 {
   font-size: calc(clamp(2.1rem, 3.05vw, 3.75rem) * var(--cms-text-scale, 1));
-  line-height: 1.04;
+  /* 1.04 andis 39px kirjale 40.6px reakõrguse — kaherealine küsimus jooksis
+     ridade vahelt kokku (omanik 2026-07-20: "siin peaks kindlasti kahe rea
+     vahel suurem tühjus olema"). Ülejäänud bändipealkirjad on üherealised,
+     seepärast muutub ainult see üks. */
+  line-height: 1.24;
   letter-spacing: 0.01em;
   text-transform: none;
 }

@@ -3,15 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Minus, Plus, Trash2 } from "lucide-react";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useCart } from "@/components/CartProvider";
 import { TextureSlideshowClient } from "@/components/TextureSlideshowClient";
-import { createCheckoutMailto, formatCurrency, isProductionProduct } from "@/lib/shop";
+import { formatCurrency, isProductionProduct } from "@/lib/shop";
 import { getLocalizedProducts } from "@/lib/messages";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function CartView({
   locale = "et",
-  recipientEmail,
   shopHref = "/pood",
   labels,
   textures
@@ -35,8 +36,66 @@ export function CartView({
     [items, localizedProductBySlug]
   );
   const subtotal = localizedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const checkoutHref = createCheckoutMailto(localizedItems, recipientEmail, labels);
   const hasProductionItems = localizedItems.some((item) => isProductionProduct(item.status));
+
+  const form = labels.checkoutForm;
+  const [stage, setStage] = useState("cart");
+  const [fields, setFields] = useState({ name: "", email: "", phone: "", note: "" });
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  function updateField(key, value) {
+    setFields((current) => ({ ...current, [key]: value }));
+  }
+
+  async function handleCheckout(event) {
+    event.preventDefault();
+    setError("");
+
+    if (!fields.name.trim() || !fields.email.trim()) {
+      setError(form.required);
+      return;
+    }
+
+    if (!EMAIL_RE.test(fields.email.trim())) {
+      setError(form.invalidEmail);
+      return;
+    }
+
+    setSubmitting(true);
+
+    try {
+      const response = await fetch("/api/payment/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          locale,
+          items: items.map((item) => ({ slug: item.slug, quantity: item.quantity })),
+          customer: {
+            name: fields.name.trim(),
+            email: fields.email.trim(),
+            phone: fields.phone.trim(),
+            note: fields.note.trim()
+          }
+        })
+      });
+
+      const data = await response.json().catch(() => null);
+
+      if (!response.ok || !data?.redirectUrl) {
+        setError(form.error);
+        setSubmitting(false);
+        return;
+      }
+
+      // Suuname Maksekeskuse hostitud maksevalikute lehele. Ostukorv jääb
+      // alles seniks, kuni makse õnnestub (tühjendame tulemuslehel).
+      window.location.href = data.redirectUrl;
+    } catch {
+      setError(form.error);
+      setSubmitting(false);
+    }
+  }
 
   if (items.length === 0) {
     return (
@@ -144,14 +203,99 @@ export function CartView({
             <strong>{labels.shippingLabel}</strong>
           </div>
           {hasProductionItems ? <div className="summary-warning">{labels.production}</div> : null}
-          <div className="summary-actions">
-            <a href={checkoutHref} className="cart-solid-action">
-              {labels.checkout}
-            </a>
-            <button type="button" className="cart-quiet-action" onClick={clearCart}>
-              {labels.clear}
-            </button>
-          </div>
+
+          {stage === "cart" ? (
+            <div className="summary-actions">
+              <button
+                type="button"
+                className="cart-solid-action"
+                onClick={() => {
+                  setError("");
+                  setStage("form");
+                }}
+              >
+                {labels.checkout}
+              </button>
+              <button type="button" className="cart-quiet-action" onClick={clearCart}>
+                {labels.clear}
+              </button>
+            </div>
+          ) : (
+            <form className="cart-checkout-form" onSubmit={handleCheckout} noValidate>
+              <p className="cart-checkout-title">{form.title}</p>
+
+              <label className="cart-field">
+                <span>{form.name}</span>
+                <input
+                  type="text"
+                  name="name"
+                  autoComplete="name"
+                  required
+                  value={fields.name}
+                  onChange={(event) => updateField("name", event.target.value)}
+                  disabled={submitting}
+                />
+              </label>
+
+              <label className="cart-field">
+                <span>{form.email}</span>
+                <input
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  required
+                  value={fields.email}
+                  onChange={(event) => updateField("email", event.target.value)}
+                  disabled={submitting}
+                />
+              </label>
+
+              <label className="cart-field">
+                <span>{form.phone}</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  autoComplete="tel"
+                  value={fields.phone}
+                  onChange={(event) => updateField("phone", event.target.value)}
+                  disabled={submitting}
+                />
+              </label>
+
+              <label className="cart-field">
+                <span>{form.note}</span>
+                <textarea
+                  name="note"
+                  rows={3}
+                  value={fields.note}
+                  onChange={(event) => updateField("note", event.target.value)}
+                  disabled={submitting}
+                />
+              </label>
+
+              {error ? (
+                <p className="cart-checkout-error" role="alert">
+                  {error}
+                </p>
+              ) : null}
+
+              <div className="summary-actions">
+                <button type="submit" className="cart-solid-action" disabled={submitting}>
+                  {submitting ? form.submitting : form.submit}
+                </button>
+                <button
+                  type="button"
+                  className="cart-quiet-action"
+                  onClick={() => setStage("cart")}
+                  disabled={submitting}
+                >
+                  {form.back}
+                </button>
+              </div>
+
+              <p className="cart-checkout-secure">{form.secure}</p>
+            </form>
+          )}
         </aside>
       </div>
     </section>

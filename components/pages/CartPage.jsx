@@ -17,7 +17,6 @@ export async function CartPage({ locale = "et" }) {
       <main id="main">
         <CartView
           locale={locale}
-          recipientEmail={messages.brand.email}
           shopHref={getLocalizedPath(locale, "/pood")}
           labels={messages.cart}
           /* Halli kivi tekstuur ka ostukorvi sektsioonile (omanik 2026-07-20).

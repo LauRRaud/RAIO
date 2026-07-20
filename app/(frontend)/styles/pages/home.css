@@ -92,7 +92,10 @@
 
   .home-split-hero .home-split-copy {
     max-width: 660px;
-    padding-inline: clamp(48px, 6vw, 116px) clamp(24px, 3vw, 56px);
+    /* Vasak padi 6vw → 9vw: tekst rohkem oma ekraanipoole keskele
+       (omanik 2026-07-20: "avalehel ka tekstid rohkem oma ekraanipoole
+       keskpaika"). Sama nihe kõigil kolmel split-sektsioonil. */
+    padding-inline: clamp(72px, 9vw, 176px) clamp(24px, 3vw, 56px);
   }
 
   .home-split-hero .home-hero-title {
@@ -101,7 +104,11 @@
 
   .home-split-hero .home-split-media {
     align-self: center;
-    justify-self: center;
+    /* Sama servakaugus kui alalehtede hero-fotodel (heroes.css: 5vw) —
+       veerus tsentreerituna jäi foto ~36px servast, alalehtedel 72px
+       (omanik 2026-07-20: "avalehel on pildid veidi liiga servas"). */
+    justify-self: end;
+    margin-right: clamp(40px, 5vw, 96px);
     width: min(calc(100% - clamp(48px, 5vw, 104px)), 860px);
     aspect-ratio: 3 / 2;
     max-height: min(78vh, 700px);
@@ -118,7 +125,9 @@
 
   .home-split-philosophy .home-split-media {
     align-self: center;
-    justify-self: center;
+    /* Foto vasakul — sama 5vw servakaugus kui hero'l ja alalehtedel. */
+    justify-self: start;
+    margin-left: clamp(40px, 5vw, 96px);
     width: min(calc(100% - clamp(48px, 5vw, 104px)), 800px);
     aspect-ratio: 3 / 2;
     max-height: min(76vh, 660px);
@@ -129,7 +138,9 @@
 
   .home-split-philosophy .home-split-copy {
     max-width: 640px;
-    padding-inline: clamp(24px, 3vw, 56px) clamp(48px, 6vw, 116px);
+    /* Tekst paremal poolel — vasak padi suuremaks, et plokk istuks oma
+       poole keskel, mitte foto vastas servas. */
+    padding-inline: clamp(48px, 5vw, 96px) clamp(48px, 6vw, 116px);
   }
 
   /* Tools: copy left, and a portrait frame that matches the kettlebell
@@ -142,7 +153,9 @@
 
   .home-split-tools .home-split-media {
     align-self: center;
-    justify-self: center;
+    /* Foto paremal — sama 5vw servakaugus kui hero'l ja alalehtedel. */
+    justify-self: end;
+    margin-right: clamp(40px, 5vw, 96px);
     width: min(calc(100% - clamp(48px, 5vw, 104px)), 800px);
     aspect-ratio: 3 / 2;
     max-height: min(76vh, 660px);
@@ -153,7 +166,8 @@
 
   .home-split-tools .home-split-copy {
     max-width: 660px;
-    padding-inline: clamp(48px, 6vw, 116px) clamp(24px, 3vw, 56px);
+    /* Sama keskpaiga-nihe kui hero'l. */
+    padding-inline: clamp(72px, 9vw, 176px) clamp(24px, 3vw, 56px);
   }
 
   /* Scroll-linked curtain reveal: HomeMotion drives --reveal from 0 → 1 as

@@ -42,6 +42,11 @@
   max-width: none;
   image-rendering: auto;
   shape-rendering: auto;
+  /* Lähtefail on puhas must, mis soojal tekstuuril loeb liiga karmilt (omanik
+     2026-07-20: "jaluses raio logo ka veidi liiga musta värvi"). invert()
+     tõstab musta halli tasemele — suurem arv = heledam — ja sepia+saturate
+     annavad sama sooja pruuni tooni, mis jaluse tekstil (#40342a). */
+  filter: invert(0.19) sepia(1) saturate(1.3);
 }
 
 .footer-social-link {
@@ -96,11 +101,42 @@
   letter-spacing: 0.06em;
 }
 
+/* Kujundaja allkiri päris jaluse parempoolses alanurgas (omanik 2026-07-20:
+   "paremasse täiesti nurka alla"). Nurgas seistes ei kuulu see visuaalselt
+   keskel oleva © rea juurde — see oli kogu mure algus. Vaiksem kaal ja
+   madalam kontrast hoiavad selle allkirjaks. */
+.footer-credit {
+  position: absolute;
+  right: clamp(12px, 1.2vw, 20px);
+  bottom: clamp(10px, 1vw, 16px);
+  margin: 0;
+  color: #322820;
+  font-size: calc(1.06rem * var(--cms-text-scale, 1));
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+}
+
+@media (max-width: 880px) {
+  /* Alla ~880px jookseb keskel olev © rida nurgas olevale allkirjale otsa
+     (mõõdetud: 700px juures kattusid). Kitsamal ekraanil laotakse nad
+     üksteise alla — © rida tõuseb, allkiri jääb ikka paremasse nurka. */
+  .footer {
+    padding-bottom: 98px;
+  }
+
+  .footer-fineprint {
+    bottom: 52px;
+  }
+}
+
 @media (max-width: 620px) {
 
   .footer {
     min-height: 260px;
-    padding: 20px 22px 62px;
+    /* Ruumi kahele reale: © rida ja selle all allkiri. */
+    padding: 20px 22px 98px;
   }
 
 }

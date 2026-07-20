@@ -216,19 +216,18 @@ body :is(
   color: #2b241b;
 }
 
-/* The lasting band is light "nature gray", so cream text washes out — its CTA
-   is a DARK ghost with dark text/border like the band copy, filling dark on
-   hover (owner 2026-07-09: "nupu sees tekst tumedaks, nagu tekst seal"). */
+/* Band flipped to dark 2026-07-20: the CTA is now a LIGHT ghost (light text +
+   border over the frosted fill) that fills light on hover with dark text. */
 body .training-lasting-panel .training-solid-button {
-  border-color: rgba(34, 28, 20, 0.55);
-  color: #221c14;
+  border-color: rgba(245, 239, 229, 0.6);
+  color: #f4efe4;
 }
 
 body .training-lasting-panel .training-solid-button:hover,
 body .training-lasting-panel .training-solid-button:focus-visible {
-  border-color: #221c14;
-  background: #221c14;
-  color: #f4efe4;
+  border-color: #f4efe4;
+  background: #f4efe4;
+  color: #221c14;
 }
 
 @media (max-width: 1480px) {

@@ -193,7 +193,7 @@
     margin-top: clamp(28px, 7vw, 40px);
     text-align: left;
     font-size: calc(clamp(2rem, 8.5vw, 2.5rem) * var(--cms-text-scale, 1));
-    line-height: 1.05;
+    line-height: 1.24;
   }
 
   /* Workshop lede reads left-aligned on mobile (owner 2026-07-09: "pakume
@@ -215,7 +215,7 @@
 
   .about-page-redesign .about-closing-copy h2 {
     font-size: calc(clamp(2.2rem, 9.5vw, 2.7rem) * var(--cms-text-scale, 1));
-    line-height: 1.06;
+    line-height: 1.24;
   }
 }
 

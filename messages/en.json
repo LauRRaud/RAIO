@@ -59,7 +59,8 @@
   "footer": {
     "slogan": "Training is a feeling.",
     "socialLabel": "Social media",
-    "instagramLabel": "Social media: Instagram"
+    "instagramLabel": "Social media: Instagram",
+    "credit": "Design by L.Raudsoo"
   },
   "carousel": {
     "training": {
@@ -171,7 +172,7 @@
       "description": "RA•IO training brings together strength, endurance, and mindful movement with the rhythm of nature."
     },
     "label": "Training",
-    "heroTitle": "Movement. In nature.",
+    "heroTitle": "Movement. In nature.",
     "heroText": [
       "RA•IO training brings together strength, endurance, and mindful movement with the rhythm of nature.",
       "All of nature is your training ground."
@@ -459,7 +460,7 @@
       "description": "RA•IO+ and articles"
     },
     "label": "RA•IO+",
-    "heroTitle": "Thoughts, experiences, and inspiration.",
+    "heroTitle": "Thoughts, experiences, inspiration.",
     "heroText": [
       "Here you'll find stories about training, nature, the craft of making, and everyday movement."
     ],
@@ -705,7 +706,47 @@
     "emailNoteLabel": "Note",
     "emailSubject": "RAIO order",
     "production": "Some items are handmade to order. A more exact delivery time is confirmed after the order is placed.",
-    "productionWarning": "This product is handmade to order. Estimated production time is {time}. A more exact delivery time is confirmed after the order is placed."
+    "productionWarning": "This product is handmade to order. Estimated production time is {time}. A more exact delivery time is confirmed after the order is placed.",
+    "checkoutForm": {
+      "title": "Your details",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "note": "Additional info (optional)",
+      "submit": "Pay",
+      "submitting": "Redirecting to payment…",
+      "back": "Back",
+      "required": "Please fill in your name and email.",
+      "invalidEmail": "Please check your email address.",
+      "error": "Could not start the payment. Please try again or contact us.",
+      "secure": "Secure payment via Maksekeskus — choose a bank link or card."
+    }
+  },
+  "payment": {
+    "metadata": {
+      "title": "Payment | RA•IO",
+      "description": "Payment status"
+    },
+    "orderLabel": "Order",
+    "continueShopping": "Back to shop",
+    "backToCart": "Back to cart",
+    "backHome": "Home",
+    "ok": {
+      "title": "Thank you! Payment successful.",
+      "body": "We've sent a confirmation to your email and will be in touch shortly to confirm delivery and production time."
+    },
+    "pending": {
+      "title": "Payment pending.",
+      "body": "If you completed the payment, the confirmation will reach us shortly. Contact us with any questions."
+    },
+    "failed": {
+      "title": "Payment not completed.",
+      "body": "The payment was cancelled or not confirmed. Your cart is still here — feel free to try again."
+    },
+    "error": {
+      "title": "Could not confirm the payment.",
+      "body": "The payment security check failed. If your account was charged, please contact us."
+    }
   },
   "about": {
     "metadata": {

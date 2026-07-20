@@ -380,6 +380,92 @@
   color: var(--cart-card-muted);
 }
 
+/* Checkout-vorm (nimi, e-post, telefon, lisainfo) avaneb kokkuvõtte kaardil
+   "Esita tellimus" järel, enne Maksekeskusesse suunamist. */
+.cart-checkout-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.cart-checkout-title {
+  margin: 0;
+  color: var(--cart-card-ink);
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: calc(0.74rem * var(--cms-text-scale, 1));
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.cart-field {
+  display: grid;
+  gap: 7px;
+}
+
+.cart-field span {
+  color: var(--cart-card-muted);
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: calc(0.72rem * var(--cms-text-scale, 1));
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cart-field input,
+.cart-field textarea {
+  width: 100%;
+  appearance: none;
+  border: 1px solid rgba(245, 239, 229, 0.28);
+  border-radius: 0;
+  background: rgba(245, 239, 229, 0.06);
+  color: var(--cart-card-ink);
+  padding: 12px 14px;
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: calc(0.95rem * var(--cms-text-scale, 1));
+  line-height: 1.4;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.cart-field textarea {
+  min-height: 84px;
+  resize: vertical;
+}
+
+.cart-field input:focus-visible,
+.cart-field textarea:focus-visible {
+  outline: none;
+  border-color: var(--cart-button);
+  background: rgba(245, 239, 229, 0.12);
+}
+
+.cart-field input:disabled,
+.cart-field textarea:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.cart-section .cart-solid-action:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.cart-checkout-error {
+  margin: 0;
+  color: #ffd9c9;
+  font-size: calc(0.9rem * var(--cms-text-scale, 1));
+  line-height: 1.5;
+}
+
+.cart-checkout-secure {
+  margin: 4px 0 0;
+  color: var(--cart-card-muted);
+  font-size: calc(0.82rem * var(--cms-text-scale, 1));
+  line-height: 1.5;
+}
+
 @media (max-width: 1100px) {
   .cart-shell,
   .cart-layout {

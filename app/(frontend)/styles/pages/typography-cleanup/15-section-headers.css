@@ -1,0 +1,346 @@
+/* ---------- Keritavate sektsioonide ühtne päis ----------
+   Viis bändi — sündmused, lood, tooted, vahendid, treeningud — kandsid päises
+   igaüks oma keelt: poe filtririba oli paks segaläbi tekst pealkirja ALL,
+   ajakirja oma paremal, "Populaarsed" oli raamitud varjuga kast ja ainult
+   "Vaata kõiki" rääkis vaikset versaali (omanik 2026-07-20: "pealkiri ja menüü
+   nii erineva kujundusega ja osadel lehtedel väga halb").
+
+   Pealkiri jääb muutmata (omanik: "pealkiri las jääb sinna ja selliseks").
+   Kõik selle kõrval olev — kategooriafiltrid, sortimise valik, "Vaata kõiki" —
+   räägib nüüd üht keelt: --font-ui, versaal, 0.14em vahe, sama clamp mis lingil
+   juba oli, ning istub pealkirjast paremal ühel alusjoonel. Nii jääb serif-
+   pealkiri sektsiooni ainsaks valjuks häälaks ja meta-rida selle vaikseks
+   saatjaks.
+
+   Selle kihi ühine mõõt elab --raio-section-meta-* muutujates, et filter, valik
+   ja link ei saaks enam üksteisest lahku triivida. */
+
+:is(
+  .events-section-top,
+  .journal-section-top,
+  .store-page .store-products-header,
+  .tools-section-top,
+  .training-section-intro
+) {
+  --raio-section-meta-size: calc(
+    clamp(1.15rem, 1.08vw, 1.34rem) * var(--cms-text-scale, 1)
+  );
+  --raio-section-meta-track: 0.14em;
+  --raio-section-meta-ink: #f8f3ec;
+  --raio-section-meta-ink-quiet: rgba(248, 243, 236, 0.62);
+  /* Ühine allserva varu hoiab teksti alusjooned koos ka siis, kui aktiivsel
+     filtril on allkriips ja lingil mitte. */
+  --raio-section-meta-pad: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px clamp(28px, 3vw, 52px);
+}
+
+/* Ühel real olles istub kogu meta-rida pealkirja tähtede jalal. */
+@media (min-width: 621px) {
+  :is(
+    .events-section-top,
+    .journal-section-top,
+    .store-page .store-products-header,
+    .tools-section-top,
+    .training-section-intro
+  ) {
+    align-items: baseline;
+  }
+}
+
+/* Poe pealkiri kandis 10-24px allservavaru ajast, mil filtririba oli tema all;
+   nüüd on ta kõrvutine paindeelement ja varu ainult venitaks rida. */
+.store-page .store-products-header h2 {
+  margin: 0;
+}
+
+/* Filtrite grupp (pood ja lood) saab ALATI oma täislaiuse rea pealkirja all,
+   vasakule joondatud.
+
+   Varem ta lihtsalt murdus, kui ruumi ei jätkunud — ja see tegi kuju sõltuvaks
+   sildi pikkusest, seega keelest: eesti keeles mahtus rida pealkirja kõrvale,
+   inglise keeles ("Kettlebells", "Training staffs") mitte, ja sama leht nägi
+   kahes keeles eri moodi välja (omanik 2026-07-20: "imelik, et eesti keeles ühel
+   real, inglise keeles kahes reas"). Fikseeritud rida annab mõlemas keeles —
+   ja iga tulevase sildi puhul — sama kuju.
+
+   Reegel jääb ainult filtreid kandvatele päistele. Sündmustel, vahenditel ja
+   treeningutel on päises üksainus "Vaata kõiki", mis istub pealkirja kõrval
+   paremal; see mahub alati ega sõltu keelest. */
+:is(.journal-section-actions, .store-section-actions) {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 12px clamp(24px, 2.4vw, 42px);
+}
+
+:is(.store-page .store-category-nav, .journal-page-redesign .journal-category-row) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 10px clamp(20px, 2vw, 36px);
+  font-size: var(--raio-section-meta-size);
+  letter-spacing: var(--raio-section-meta-track);
+  text-transform: uppercase;
+}
+
+/* Filtrinupud. `body` + bändiklass viib selektori (0,3,2)-ni, sest varasemad
+   kihid nõuavad neid nuppe juba (0,3,1)-ga (journal.css bändi värvireeglid) ja
+   (0,2,1)-ga (03-store-catalog suurus). Ilma selleta jääks paks 700 ja täisheledus
+   kehtima. */
+body
+  :is(
+    .store-products-section .store-category-nav,
+    .journal-page-redesign .journal-scroll-band .journal-category-row
+  )
+  button {
+  min-height: 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  padding: 0 0 var(--raio-section-meta-pad, 6px);
+  color: var(--raio-section-meta-ink-quiet, rgba(248, 243, 236, 0.62));
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: var(--raio-section-meta-size);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: var(--raio-section-meta-track);
+  text-transform: uppercase;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+/* Poe vana animeeritud ::after-kriips langeb ära — allkriips tuleb nüüd
+   border-bottom'ist, sama mis ajakirjal, muidu oleks poel kaks joont. */
+.store-category-nav button::after {
+  content: none;
+}
+
+body
+  :is(
+    .store-products-section .store-category-nav,
+    .journal-page-redesign .journal-scroll-band .journal-category-row
+  )
+  button.is-active {
+  border-bottom-color: currentColor;
+  color: var(--raio-section-meta-ink, #f8f3ec);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body
+    :is(
+      .store-products-section .store-category-nav,
+      .journal-page-redesign .journal-scroll-band .journal-category-row
+    )
+    button:hover {
+    color: var(--raio-section-meta-ink, #f8f3ec);
+  }
+}
+
+body
+  :is(
+    .store-products-section .store-category-nav,
+    .journal-page-redesign .journal-scroll-band .journal-category-row
+  )
+  button:focus-visible {
+  outline: 2px solid rgba(248, 243, 236, 0.55);
+  outline-offset: 4px;
+  color: var(--raio-section-meta-ink, #f8f3ec);
+}
+
+/* ---------- Sortimise valik ----------
+   Oli raamitud, varjuga, klaasja täitega kast — päise kõige valjem objekt, kuigi
+   sisult kõige väiksem valik. Nüüd sama versaaltekst nagu filtritel, õrn
+   allkriips ainsa raamina. Menüü ise (kreemjas paneel) jääb 03-store-catalog'i
+   kujundusse. */
+.store-products-section .store-filter-controls .ui-select-trigger {
+  min-height: 0;
+  grid-template-columns: minmax(0, auto) 1em;
+  column-gap: 10px;
+  justify-content: start;
+  border: 0;
+  border-bottom: 1px solid rgba(248, 243, 236, 0.34);
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  padding: 0 0 var(--raio-section-meta-pad, 6px);
+  color: var(--raio-section-meta-ink, #f8f3ec);
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: var(--raio-section-meta-size);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: var(--raio-section-meta-track);
+  text-transform: uppercase;
+}
+
+.store-products-section .store-filter-controls .ui-select-trigger::before {
+  content: none;
+}
+
+.store-products-section .store-filter-controls .ui-select-value {
+  grid-column: 1;
+  text-align: left;
+}
+
+.store-products-section .store-filter-controls .ui-select-icon {
+  grid-column: 2;
+  width: 1em;
+  height: 1em;
+}
+
+/* Hover/avatud olek täitis kasti kreemiga ja pööras teksti tumedaks — tekstina
+   pole enam midagi täita, joon lihtsalt tugevneb. */
+.store-products-section
+  .store-filter-controls
+  .ui-select[data-select-theme="dark"]
+  .ui-select-trigger:hover,
+.store-products-section
+  .store-filter-controls
+  .ui-select[data-select-theme="dark"]
+  .ui-select-trigger:focus-visible,
+.store-products-section
+  .store-filter-controls
+  .ui-select[data-select-theme="dark"][data-open="true"]
+  .ui-select-trigger {
+  border-color: var(--raio-section-meta-ink, #f8f3ec);
+  background: transparent;
+  color: var(--raio-section-meta-ink, #f8f3ec);
+}
+
+/* Avanev menüü. Kreemjas ümarnurkne kast tumeda keskjoondatud segaläbi kirjaga
+   oli viimane tükk vana keelt päises alles (omanik 2026-07-20: "drop menüü on
+   kole") — ta ei kuulunud ei bändi ega meta-rea juurde. Nüüd on ta lihtsalt
+   selle sama rea pikendus allapoole: tume klaas, kreemjas versaal, vasakule
+   joondatud, valitud rida täisheledusega ja ülejäänud vaiksed — täpselt nagu
+   kategooriafiltrid kõrval. */
+.store-products-section
+  .store-filter-controls
+  .ui-select[data-select-theme="dark"] {
+  --select-bg: transparent;
+  --select-ink: var(--raio-section-meta-ink, #f8f3ec);
+  --select-hover-bg: rgba(248, 243, 236, 0.12);
+  --select-hover-ink: var(--raio-section-meta-ink, #f8f3ec);
+  --select-active-bg: transparent;
+  --select-active-ink: var(--raio-section-meta-ink, #f8f3ec);
+}
+
+.store-products-section .store-filter-controls .ui-select-menu {
+  left: 0;
+  right: auto;
+  min-width: 100%;
+  width: max-content;
+  margin-top: 10px;
+  border: 1px solid rgba(248, 243, 236, 0.22);
+  border-radius: 0;
+  background: rgba(24, 22, 18, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 34px rgba(17, 16, 13, 0.34);
+}
+
+.store-products-section .store-filter-controls .ui-select-option {
+  min-height: 0;
+  justify-content: flex-start;
+  background: transparent;
+  padding: 12px 22px;
+  color: rgba(248, 243, 236, 0.62);
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: var(--raio-section-meta-size);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: var(--raio-section-meta-track);
+  text-align: left;
+  text-transform: uppercase;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+/* Valitud rida on lihtsalt hele, ilma täiteta — sama vahe mis aktiivsel
+   kategoorial kõrval real. Baaskihi `[data-selected]`-reegel jääb siin alla
+   (0,2,0 vs 0,4,0), seega kordame olekud üle. */
+.store-products-section
+  .store-filter-controls
+  .ui-select-option[data-selected="true"] {
+  background: transparent;
+  color: var(--raio-section-meta-ink, #f8f3ec);
+}
+
+/* Hiire all / klaviatuuriga liikudes märgib rea õrn kreemine pesu. `data-active`
+   katab ka klahvidega sirvimise, mida :hover ei näe. */
+.store-products-section
+  .store-filter-controls
+  .ui-select-option[data-active="true"],
+.store-products-section .store-filter-controls .ui-select-option:hover,
+.store-products-section
+  .store-filter-controls
+  .ui-select-option:focus-visible {
+  outline: none;
+  background: rgba(248, 243, 236, 0.12);
+  color: var(--raio-section-meta-ink, #f8f3ec);
+}
+
+/* ---------- "Vaata kõiki" ----------
+   Suurus/vahe/versaal olid juba paigas (10-carousel-system); siin saab link
+   filtritega sama alusjoone ja mõõdu ühisest muutujast, et need kolm ei triiviks
+   enam lahku. */
+body
+  :is(
+    .events-page-redesign,
+    .journal-page-redesign,
+    .tools-page-redesign,
+    .training-page-redesign,
+    .store-page
+  )
+  :is(.carousel-all-link, .events-all-link) {
+  gap: 10px;
+  padding: 0 0 var(--raio-section-meta-pad, 6px);
+  font-size: var(--raio-section-meta-size);
+  letter-spacing: var(--raio-section-meta-track);
+}
+
+/* ---------- Kitsad ekraanid ----------
+   Ainsa lingiga päised (sündmused, vahendid, treeningud) lasevad lingil kitsalt
+   ekraanilt pealkirja alla kukkuda; siis joondub see vasakule, mitte ei jää
+   üksi paremale rippuma. Filtripäised on juba niikuinii kaherealised. */
+@media (max-width: 980px) {
+  :is(
+    .events-section-top,
+    .journal-section-top,
+    .store-page .store-products-header,
+    .tools-section-top,
+    .training-section-intro
+  ) {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 620px) {
+  /* Telefonis vahetab pood tekstifiltrid kahe valiku vastu (shop.css) — selle
+     `display: none` on (0,1,0) ja jääks siinse paindereegli (0,2,0) alla, mistõttu
+     ilmuksid mõlemad korraga. Kordame peitmise sama kaaluga üle. */
+  .store-page .store-category-nav {
+    display: none;
+  }
+
+  /* Poe pealkiri oli mobiilis ainsana keskjoondatud — ülejäänud neli seisavad
+     vasakul, mis oli osa samast ebakõlast. */
+  .store-page .store-products-header h2 {
+    align-self: flex-start;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .store-products-section .store-filter-controls .ui-select-trigger {
+    padding-bottom: 8px;
+    font-size: calc(0.92rem * var(--cms-text-scale, 1));
+    letter-spacing: 0.12em;
+  }
+}

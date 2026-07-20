@@ -183,12 +183,16 @@
   color: var(--ui-box-muted);
 }
 
+/* Rohelisel tekstuuribändil (product.css klaasjad kastid) kreemjad toonid —
+   var(--text)/var(--accent-2) jäid tumeda kasti aegadest. */
 .product-hero .product-meta strong {
-  color: var(--text);
+  color: #fdf8ee;
 }
 
 .product-hero .product-meta span {
-  color: var(--accent-2);
+  /* 0.68 jäi rohelisel tekstuuril liiga tumedaks (omanik 2026-07-20:
+     "kastides on pealkirjad liiga tumedad"). */
+  color: rgba(248, 243, 236, 0.92);
 }
 
 .store-product-body {

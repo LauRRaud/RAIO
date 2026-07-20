@@ -52,6 +52,10 @@ export async function Footer({ locale = "et" }) {
           &copy; {currentYear} {"\u00b7"} {brand.company}
         </p>
       </div>
+
+      {/* Kujundaja allkiri seisab jaluse nurgas, keskel olevast \u00a9 reast eraldi
+          \u2014 nii ei loe seda firmanime pikendusena (omanik 2026-07-20). */}
+      {t.credit ? <p className="footer-credit">{t.credit}</p> : null}
     </footer>
   );
 }

@@ -9,6 +9,7 @@ import * as migration_20260711_192702_admin_guide from './20260711_192702_admin_
 import * as migration_20260711_225500_expanded_font_options from './20260711_225500_expanded_font_options';
 import * as migration_20260720_140000_section_text_scale from './20260720_140000_section_text_scale';
 import * as migration_20260720_180000_texture_backdrops from './20260720_180000_texture_backdrops';
+import * as migration_20260720_200000_maksekeskus_payment_fields from './20260720_200000_maksekeskus_payment_fields';
 
 export const migrations = [
   {
@@ -65,5 +66,10 @@ export const migrations = [
     up: migration_20260720_180000_texture_backdrops.up,
     down: migration_20260720_180000_texture_backdrops.down,
     name: '20260720_180000_texture_backdrops'
+  },
+  {
+    up: migration_20260720_200000_maksekeskus_payment_fields.up,
+    down: migration_20260720_200000_maksekeskus_payment_fields.down,
+    name: '20260720_200000_maksekeskus_payment_fields'
   },
 ];

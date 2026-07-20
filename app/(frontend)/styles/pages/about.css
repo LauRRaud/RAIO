@@ -12,10 +12,12 @@
   color: var(--about-ink);
 }
 
+/* Sama kõrgusvalem nagu päeviku/sündmuste headeril — töölaual kirjutab
+   heroes.css selle niikuinii üle, aga 621–980px vahemikus luges /meist varem
+   omaenda mõõduga (fikseeritud 680–820px). */
 .about-hero {
   position: relative;
-  min-height: 0;
-  height: clamp(680px, calc(100vh - 96px), 820px);
+  min-height: clamp(620px, calc(100vh - 78px), 860px);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -43,15 +45,19 @@
 .about-hero-logo-mark {
   width: 100%;
   height: auto;
-  /* Logo tooni peenhäälestus (omanik 2026-07-20): valge → hall → liiga
-     kollane. Siht: peaaegu valge, ainult õrn pruunikas-hall soojus, mitte
-     kollane. Madal saturate (<1) summutab kollase halliks; väike sepia hoiab
-     tooni soe, mitte jahe. Muutmiseks: saturate ↓ = hallim, sepia ↑ = pruunim,
-     brightness ↑ = valgem. */
-  filter: brightness(0.94) sepia(0.2) saturate(0.55)
-    drop-shadow(0 14px 34px rgba(10, 7, 4, 0.45));
-  /* Veidi läbipaistev, et kivi tekstuur kumaks läbi ja logo istuks taustale
-     (omanik 2026-07-20: "veidi läbipaistvam"). Väiksem arv = läbipaistvam. */
+  /* Logo tooni peenhäälestus (omanik 2026-07-20): valge → beež → tumehall →
+     tagasi valge. Lähtefail RAIO_horizontal_white_transparent.svg ON juba
+     valge, seega ühtki filtrit pole vaja — varasem brightness(0) invert(x)
+     ainult tumendas seda. Ainus reguleeritav number on allpool opacity;
+     drop-shadow'd teadlikult ei ole, vari muudaks logo mudaseks. */
+  /* Beež toon (omanik 2026-07-20). Valge SVG-d ei saa lihtsalt "beežiks
+     värvida" — sepia() üksi jätaks valge peaaegu puutumata (kanalid lööksid
+     lakke), seepärast brightness() kõigepealt tumendab, alles siis sepia
+     soojendab. saturate(<1) hoiab tulemuse beeži, mitte kollase — täpselt see
+     viga oli varem (vt commit "Retune /meist logo tint from yellow").
+     Tulemus ≈ #fceed6. Beežimaks: sepia ↑. Kollasust maha: saturate ↓. */
+  filter: brightness(0.9) sepia(0.35) saturate(0.85);
+  /* Läbipaistvus: väiksem arv = läbipaistvam. */
   opacity: 0.5;
 }
 
@@ -76,30 +82,23 @@
   pointer-events: none;
 }
 
+/* Sama mõõdustik nagu päeviku headeril (omanik 2026-07-20: "ikka on tekstid
+   eri kohtades"). Vana `padding: ... 0` andis paneelile 70px alumist polstrit,
+   mida ükski teine header ei kandnud — tsentreeritud paneelis tõstis see
+   /meist teksti ~35px teistest kõrgemale. Ainult padding-top, nagu mujal. */
 .about-hero-panel {
   position: relative;
   width: min(46vw, 560px);
   margin-left: clamp(24px, 3.4vw, 64px);
-  padding: clamp(40px, 5vw, 70px) 0;
-}
-
-/* Hero-tekst veidi allapoole, et see ei istuks liiga üleval (omanik
-   2026-07-20: "veidi alla poole"). Ainult töölaual — mobiilis paigutub hero
-   ülalt (padding-top), seal jäetakse puutumata. Suurem arv = madalamal. */
-@media (min-width: 981px) {
-  .about-hero-panel {
-    transform: translateY(clamp(20px, 4vh, 48px));
-  }
+  padding-top: clamp(14px, 2vw, 34px);
 }
 
 .about-hero-panel h1 {
-  max-width: 16ch;
+  max-width: 11.4ch;
   margin: 0;
   color: var(--about-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: calc(clamp(2.8rem, 4.4vw, 4.6rem) * var(--cms-text-scale, 1));
   font-weight: 400;
-  line-height: 0.96;
   letter-spacing: 0;
 }
 
@@ -111,11 +110,12 @@
   background: rgba(17, 16, 13, 0.55);
 }
 
+/* Lede-ploki mõõdud = päeviku omad, et lõik murduks ja lõppeks samas rütmis. */
 .about-hero-text {
-  max-width: 440px;
+  max-width: 390px;
   display: grid;
-  gap: 12px;
-  margin-bottom: 30px;
+  gap: 10px;
+  margin-bottom: 26px;
 }
 
 .about-hero-text p {
@@ -367,7 +367,11 @@
 
 .about-contact-row dt {
   color: #f8f3ec;
-  font-size: calc(1.14rem * var(--cms-text-scale, 1));
+  /* Silt oli 18px, aga selle all olev väärtus 21px — pealkiri luges oma
+     sisust väiksemana (omanik 2026-07-20: "alapealkirjad võiks siin terves
+     sektsioonis suuremad olla"). Sama mõõt, mis kõrvalveeru LIIKUMINE/
+     KÄSITÖÖ/KOGEMUS siltidel, et kogu sektsioonis oleks üks alapealkirja tase. */
+  font-size: calc(clamp(1.55rem, 1.6vw, 1.85rem) * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.08em;
@@ -459,8 +463,10 @@
 .about-closing-values span {
   color: #eeddb4;
   /* Alapealkirjad ja nende tekstid suuremaks (omanik 2026-07-20) — suuri
-     pealkirju ei puudutata. */
-  font-size: calc(clamp(1.26rem, 1.3vw, 1.48rem) * var(--cms-text-scale, 1));
+     pealkirju ei puudutata. Teine ring: silt oli 20px, aga lõik selle all
+     22.7px, nii et pealkiri jäi oma tekstist väiksemaks. Nüüd selgelt üle
+     lõigu; sama mõõt on ka kontaktiveeru dt-siltidel. */
+  font-size: calc(clamp(1.55rem, 1.6vw, 1.85rem) * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: 0.14em;
@@ -704,6 +710,22 @@
 .about-page-redesign .about-trainers-section,
 .about-page-redesign .about-closing-panel {
   margin-top: -1px;
+}
+
+/* Trainers band flipped to a DARK gray backdrop (texture-backdrop.css darkening
+   tint), so the ink goes LIGHT (owner 2026-07-20: "siin ka tekst heledaks —
+   pealkirjade värvid ei ole valged"). Direct colours rather than --cms-color,
+   because this band carries a dark admin "Teksti värv" that must not keep it dark
+   now — clear/whiten that in admin if you want to steer it from there again. */
+.about-page-redesign .about-trainers-heading h2,
+.about-page-redesign .about-trainer-copy h3 {
+  color: #f4efe4;
+}
+.about-page-redesign .about-trainer-copy p {
+  color: color-mix(in srgb, #f4efe4 84%, transparent);
+}
+.about-page-redesign .about-trainers-heading h2::before {
+  background: rgba(245, 239, 229, 0.5);
 }
 
 /* Story band: framed gallery photo on the left, copy on the right — the same

@@ -11,6 +11,7 @@
 @import "./styles/pages/home.css";
 @import "./styles/pages/product.css";
 @import "./styles/pages/cart.css";
+@import "./styles/pages/payment.css";
 @import "./styles/pages/events.css";
 @import "./styles/pages/journal.css";
 @import "./styles/pages/tools.css";
@@ -21,6 +22,78 @@
 @import "./styles/theme/polarity.css";
 @import "./styles/primitives/select.css";
 @import "./styles/pages/typography-cleanup.css";
+
+/* Fotobändide tekst heledamaks (omanik 2026-07-20). Need bändid korduvad
+   peaaegu igal lehel ja iga leht värvis oma teksti eraldi — :has(> ...) tabab
+   hosti, mille otsene laps on vastav taustaslaid, nii et üks koht juhib neid
+   kõiki. Ainult TUMEDAD bändid (dark = herod, green, terracotta); gray/beige/
+   light jäävad välja, sest neil on tume kiri heledal pinnal. !important, sest
+   lehepõhised reeglid (nt .home-split-philosophy .home-split-title) on
+   spetsiifilisemad. Nupud ja sildid on nimekirjast VÄLJAS — neil on samuti oma
+   tume kiri heledal pinnal. */
+:has(> :is(
+  .texture-backdrop--dark,
+  .texture-backdrop--green,
+  .texture-backdrop--terracotta
+)) :is(p, li) {
+  color: #fffaf2 !important;
+}
+
+/* Pealkirjad kannavad /meist logo beeži tooni (omanik 2026-07-20: "hea värv,
+   paneme … pealkirjadele ka selle tooni"). #fef5e3 pole silma järgi valitud —
+   see on täpselt see, mis tuleb valgest logost filtriga brightness(.9)
+   sepia(.35) saturate(.85), mõõdetud canvasega.
+
+   Erandid tulevad tasuta: "TREENERID" (.about-trainers-section) ja "MIKS PUU
+   JA KIVI?" (.tools-material-panel) kasutavad HALLI tekstuuritausta, mis pole
+   selle selektori nimekirjas — nende mustad pealkirjad jäävad puutumata
+   (omanik: "välja arvatud treenerid ja miks puu ja kivi sektsioonile").
+
+   Kehatekst jääb neutraalsemale #fffaf2-le, nii et pealkiri saab soojema
+   tooni ja hierarhia säilib. */
+:has(> :is(
+  .texture-backdrop--dark,
+  .texture-backdrop--green,
+  .texture-backdrop--terracotta
+)) :is(h1, h2, h3) {
+  color: #fef5e3 !important;
+}
+
+/* Kivist nooleotsa kursor (public/cursor/). Klõpsupunkt on nooletipus (1 0);
+   PNG on varuks Safarile, mis SVG-kursoreid ei toeta. */
+html {
+  cursor:
+    url("/cursor/arrow_cursor.svg") 1 0,
+    url("/cursor/arrow_cursor_24.png") 1 0,
+    auto;
+}
+
+/* Süsteemi käsi (pointer) maha — kivinool kehtib ka klikitavatel.
+   Saidi CSS seab cursor: pointer ~25 kohas klassiselektoritega, seepärast
+   universaalne inherit koos !important-iga. */
+body,
+body * {
+  cursor: inherit !important;
+}
+
+/* Tekstiväljad hoiavad I-kursori, keelatud nupud oma märgi. */
+body textarea,
+body [contenteditable]:not([contenteditable="false"]),
+body input[type="text"],
+body input[type="search"],
+body input[type="email"],
+body input[type="password"],
+body input[type="tel"],
+body input[type="url"],
+body input[type="number"],
+body input:not([type]) {
+  cursor: text !important;
+}
+
+body [disabled],
+body [aria-disabled="true"] {
+  cursor: not-allowed !important;
+}
 
 /* Payloadi sektsiooniredaktori kujundusmuutujad. Väärtused lisatakse ainult
    siis, kui haldur on vastava valiku adminis teinud. */
