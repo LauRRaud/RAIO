@@ -609,17 +609,27 @@
     radial-gradient(72% 60% at 26% 18%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 60%),
     linear-gradient(135deg, #aaa694 0%, #97927f 100%) !important;
 }
+/* These three flip the band's hardcoded cream ink to dark, because the trainers
+   band is light. They sit at (0,2,1) and so outrank the section-editor rule
+   `[data-cms-section] :is(h1…h6, strong)` (0,1,1) — which left the admin's
+   "Teksti värv" with no effect on this one band (owner 2026-07-20). Routing them
+   through --cms-color keeps the dark default while letting the admin choice win
+   when one is set. The paragraph is included so the copy doesn't stay dark while
+   the heading above it changes colour. */
 .about-page-redesign .about-trainers-heading h2 {
-  color: #221c14;
+  color: var(--cms-color, #221c14);
 }
 .about-page-redesign .about-trainers-heading h2::before {
   background: rgba(34, 28, 20, 0.4);
 }
 .about-page-redesign .about-trainer-copy h3 {
-  color: #221c14;
+  color: var(--cms-color, #221c14);
 }
+/* color-mix rather than var(--cms-color, rgba(…)) so the bio copy keeps its 74%
+   muting against the heading whatever ink is in play — a plain fallback would
+   snap it to full strength the moment an admin colour exists. */
 .about-page-redesign .about-trainer-copy p {
-  color: rgba(34, 28, 20, 0.74);
+  color: color-mix(in srgb, var(--cms-color, #221c14) 74%, transparent);
 }
 .about-page-redesign .about-trainers-heading {
   padding-inline-start: 0;
