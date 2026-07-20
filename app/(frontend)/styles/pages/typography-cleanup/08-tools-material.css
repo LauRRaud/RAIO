@@ -118,8 +118,12 @@
   color: #221c14;
 }
 
-/* Tumendatud bändil valged ikoonid nagu tekstidki. */
+/* Tumendatud bändil valged ikoonid nagu tekstidki. MIKS-real ikoonid veidi
+   suuremad kui treeningu 2×2 reas (omanik 2026-07-21: "pigem ainult ikoone
+   [suuremaks]" — tekstid jäävad samaks). */
 .tools-page-redesign .tools-material-proof-row .tools-proof-item svg {
+  width: 50px;
+  height: 50px;
   color: #fdf8ee;
 }
 
