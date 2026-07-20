@@ -175,6 +175,7 @@
     "heroImage": "/Pictures/Treeningud/header.png",
     "heroImagePosition": "center center",
     "listTitle": "Treeningud meie looduses",
+    "allLink": "Vaata kõiki",
     "listIntro": "Pakume erinevaid treeninguid, mis toetavad nii keha kui vaimu. Vali endale sobiv formaat ja tule liikumise kaudu ühendusse - iseenda, looduse ja kogukonnaga.",
     "cardCta": "Vaata",
     "modalClose": "Sulge treening",
@@ -289,6 +290,7 @@
       }
     ],
     "categoriesTitle": "Vahendite kategooriad",
+    "allLink": "Vaata kõiki",
     "categoryCta": "Vaata",
     "categories": [
       {
@@ -459,6 +461,7 @@
     "heroCta": "Vaata kõiki artikleid",
     "heroImage": "/Pictures/Journal/header vasakule.png",
     "storiesTitle": "Viimased lood",
+    "allLink": "Vaata kõiki",
     "categoriesLabel": "Kategooriad:",
     "categoryNavLabel": "Kategooriad",
     "categories": [
@@ -563,6 +566,7 @@
     "heroImage": "/Pictures/Pood/header pood.png",
     "heroImagePosition": "94% center",
     "productsTitle": "Tooted",
+    "allLink": "Vaata kõiki",
     "categoryNavLabel": "Poe kategooriad",
     "sortLabel": "Järjesta tooted",
     "sort": {

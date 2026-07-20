@@ -18,13 +18,13 @@
 
 .tools-page-redesign .tools-material-copy h2 {
   color: var(--material-panel-ink);
-  font-size: clamp(2.7rem, 4.15vw, 4.85rem);
+  font-size: calc(clamp(2.7rem, 4.15vw, 4.85rem) * var(--cms-text-scale, 1));
   line-height: 1;
 }
 
 .tools-page-redesign .tools-material-copy > p {
   color: var(--material-panel-muted);
-  font-size: clamp(1.32rem, 1.35vw, 1.54rem);
+  font-size: calc(clamp(1.32rem, 1.35vw, 1.54rem) * var(--cms-text-scale, 1));
   line-height: 1.68;
 }
 
@@ -45,7 +45,7 @@
 
 .tools-page-redesign .tools-care-copy p {
   color: rgba(248, 243, 236, 0.88);
-  font-size: clamp(1.32rem, 1.35vw, 1.54rem);
+  font-size: calc(clamp(1.32rem, 1.35vw, 1.54rem) * var(--cms-text-scale, 1));
   line-height: 1.66;
 }
 
@@ -90,7 +90,7 @@
      longer localized title ever exceeds the width it wraps instead of
      clipping. */
   .tools-page-redesign .tools-material-copy h2 {
-    font-size: clamp(1.85rem, 9.6vw, 3.4rem);
+    font-size: calc(clamp(1.85rem, 9.6vw, 3.4rem) * var(--cms-text-scale, 1));
     line-height: 1.04;
     /* The base rule caps this at 9.5ch, which forced "Miks puu ja kivi?" onto
        two lines — give it the full band width so it stays on one line. */
@@ -98,12 +98,12 @@
   }
 
   .tools-page-redesign .tools-material-copy > p {
-    font-size: 1.04rem;
+    font-size: calc(1.04rem * var(--cms-text-scale, 1));
     line-height: 1.68;
   }
 
   .tools-page-redesign .tools-care-copy p {
-    font-size: 1.02rem;
+    font-size: calc(1.02rem * var(--cms-text-scale, 1));
     line-height: 1.66;
   }
 

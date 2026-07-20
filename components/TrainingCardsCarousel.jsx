@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { LineIcon } from "@/components/Icons";
@@ -12,11 +12,15 @@ export function TrainingCardsCarousel({
   cta,
   modalClose,
   labels,
+  title,
+  titleId,
+  allLabel,
 }) {
   const trainingTrackRef = useRef(null);
   const closeButtonRef = useRef(null);
   const [activeTraining, setActiveTraining] = useState(null);
   const [itemsPerPage, setItemsPerPage] = useState(3);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const update = () => setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
@@ -51,10 +55,27 @@ export function TrainingCardsCarousel({
     scrollCarouselByCards(trainingTrackRef.current, direction);
   }
 
-  const showArrows = trainings.length > itemsPerPage;
+  const showArrows = !showAll && trainings.length > itemsPerPage;
 
   return (
-    <div className="training-card-carousel">
+    <>
+      {title ? (
+        <div className="training-section-intro">
+          <h2 id={titleId}>{title}</h2>
+          {showArrows ? (
+            <button
+              type="button"
+              className="carousel-all-link"
+              onClick={() => setShowAll(true)}
+            >
+              {allLabel}
+              <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
+            </button>
+          ) : null}
+        </div>
+      ) : null}
+
+      <div className="training-card-carousel">
       {showArrows ? (
         <>
           <button
@@ -76,7 +97,10 @@ export function TrainingCardsCarousel({
         </>
       ) : null}
 
-      <div className="training-card-grid" ref={trainingTrackRef}>
+      <div
+        className={`training-card-grid ${showAll ? "is-expanded" : ""}`}
+        ref={trainingTrackRef}
+      >
         {trainings.map((training) => (
           <article className="training-card" key={training.title}>
             <div className="training-card-image">
@@ -185,6 +209,7 @@ export function TrainingCardsCarousel({
         </div>,
         document.body
       ) : null}
-    </div>
+      </div>
+    </>
   );
 }

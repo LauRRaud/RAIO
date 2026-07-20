@@ -102,7 +102,8 @@ function pageStyle(kind: "dark" | "light" | "footer" = "light") {
     styleBackgroundColor: colors.background,
     styleTextColor: colors.text,
     styleHeadingFont: "inherit",
-    styleBodyFont: "inherit"
+    styleBodyFont: "inherit",
+    styleTextScale: "1"
   };
 }
 

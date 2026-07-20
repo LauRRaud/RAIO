@@ -7,7 +7,7 @@
 .training-page-redesign .training-card,
 .store-page .store-product-card {
   position: relative;
-  min-height: clamp(500px, 32vw, 610px);
+  min-height: calc(clamp(500px, 32vw, 610px) * var(--cms-text-scale, 1));
   isolation: isolate;
   display: flex;
   align-items: stretch;
@@ -112,7 +112,7 @@
 .training-page-redesign .training-card-body h3 {
   max-width: 16ch;
   margin: 0 auto;
-  font-size: clamp(1.5rem, 1.58vw, 1.95rem);
+  font-size: calc(clamp(1.5rem, 1.58vw, 1.95rem) * var(--cms-text-scale, 1));
   line-height: 1.16;
 }
 
@@ -120,7 +120,7 @@
 .training-page-redesign .training-card-body > p {
   max-width: 30ch;
   margin: 10px auto 0;
-  font-size: clamp(1.08rem, 1.1vw, 1.24rem);
+  font-size: calc(clamp(1.08rem, 1.1vw, 1.24rem) * var(--cms-text-scale, 1));
   line-height: 1.5;
 }
 

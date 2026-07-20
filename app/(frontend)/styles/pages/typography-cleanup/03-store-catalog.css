@@ -1,5 +1,5 @@
 .store-price strong {
-  font-size: clamp(1.5rem, 1.65vw, 1.95rem);
+  font-size: calc(clamp(1.5rem, 1.65vw, 1.95rem) * var(--cms-text-scale, 1));
 }
 
 /* Tighter header so the products band isn't much taller than the events/journal
@@ -16,7 +16,7 @@
 
 .store-page .store-category-nav {
   gap: 16px 42px;
-  font-size: clamp(1.34rem, 1.25vw, 1.55rem);
+  font-size: calc(clamp(1.34rem, 1.25vw, 1.55rem) * var(--cms-text-scale, 1));
 }
 
 .store-page .store-category-nav button {
@@ -112,7 +112,7 @@
 .store-page .store-product-card .store-product-category {
   margin-bottom: 12px;
   color: #f8f3ec;
-  font-size: clamp(1rem, 0.98vw, 1.1rem);
+  font-size: calc(clamp(1rem, 0.98vw, 1.1rem) * var(--cms-text-scale, 1));
   font-weight: 600;
   letter-spacing: 0.045em;
   text-transform: none;
@@ -121,7 +121,7 @@
 .store-product-body h3 {
   max-width: none;
   min-height: 0;
-  font-size: clamp(1.38rem, 1.36vw, 1.68rem);
+  font-size: calc(clamp(1.38rem, 1.36vw, 1.68rem) * var(--cms-text-scale, 1));
   line-height: 1.16;
 }
 
@@ -132,7 +132,7 @@
 
 .store-page .store-price span {
   color: #f8f3ec;
-  font-size: clamp(1rem, 0.98vw, 1.08rem);
+  font-size: calc(clamp(1rem, 0.98vw, 1.08rem) * var(--cms-text-scale, 1));
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: none;
@@ -140,7 +140,7 @@
 
 .store-page .store-price strong {
   color: var(--ui-box-ink);
-  font-size: clamp(1.62rem, 1.75vw, 2rem);
+  font-size: calc(clamp(1.62rem, 1.75vw, 2rem) * var(--cms-text-scale, 1));
 }
 
 .store-page .store-product-card .add-to-cart,
@@ -158,7 +158,7 @@
   backdrop-filter: blur(6px);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
   color: #f4efe4;
-  font-size: 1.16rem;
+  font-size: calc(1.16rem * var(--cms-text-scale, 1));
   font-weight: 600;
   letter-spacing: 0.025em;
   text-transform: none;
@@ -194,7 +194,7 @@ body :is(
   backdrop-filter: blur(6px);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
   color: #f4efe4;
-  font-size: clamp(1.16rem, 1.1vw, 1.3rem);
+  font-size: calc(clamp(1.16rem, 1.1vw, 1.3rem) * var(--cms-text-scale, 1));
 }
 
 body :is(

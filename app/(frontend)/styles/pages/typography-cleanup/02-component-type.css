@@ -13,7 +13,7 @@
 .related-card strong,
 .cart-item-top h3 {
   font-family: var(--font-display), Georgia, serif;
-  font-size: var(--type-card);
+  font-size: calc(var(--type-card) * var(--cms-text-scale, 1));
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: var(--track-card);
@@ -44,7 +44,7 @@
   )
   p {
   font-family: var(--font-body);
-  font-size: var(--type-body);
+  font-size: calc(var(--type-body) * var(--cms-text-scale, 1));
   line-height: 1.66;
   letter-spacing: 0.01em;
   text-transform: none;
@@ -64,7 +64,7 @@
   .product-meta span
 ) {
   font-family: var(--font-ui), system-ui, sans-serif;
-  font-size: var(--type-label);
+  font-size: calc(var(--type-label) * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.22;
   letter-spacing: var(--track-label);
@@ -81,6 +81,7 @@
   .cart-quiet-action,
   .cart-solid-action,
   .events-all-link,
+  .carousel-all-link,
   .journal-text-link,
   .tools-text-link,
   .training-text-link,
@@ -90,7 +91,7 @@
   .ui-select-option
 ) {
   font-family: var(--font-ui), system-ui, sans-serif;
-  font-size: var(--type-small);
+  font-size: calc(var(--type-small) * var(--cms-text-scale, 1));
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: 0.035em;
@@ -100,7 +101,7 @@
 }
 
 :is(.store-category-nav, .journal-category-row) {
-  font-size: var(--type-small);
+  font-size: calc(var(--type-small) * var(--cms-text-scale, 1));
   letter-spacing: var(--track-soft);
   text-transform: none;
 }
@@ -115,11 +116,11 @@
 .store-product-category,
 .journal-story-meta,
 .training-meta span {
-  font-size: 0.84rem;
+  font-size: calc(0.84rem * var(--cms-text-scale, 1));
 }
 
 .training-page-redesign .training-quality-item span {
-  font-size: clamp(1.12rem, 1.12vw, 1.32rem);
+  font-size: calc(clamp(1.12rem, 1.12vw, 1.32rem) * var(--cms-text-scale, 1));
   line-height: 1.2;
 }
 
@@ -127,7 +128,7 @@
 .training-lasting-copy p,
 .journal-story-body > p:not(.journal-story-meta) {
   font-family: var(--font-body);
-  font-size: clamp(1.18rem, 1.2vw, 1.36rem);
+  font-size: calc(clamp(1.18rem, 1.2vw, 1.36rem) * var(--cms-text-scale, 1));
   line-height: 1.62;
   letter-spacing: 0.01em;
 }
@@ -153,7 +154,7 @@
 .about-closing-copy p,
 .about-closing-values p,
 .about-trainer-copy p {
-  font-size: clamp(1.32rem, 1.35vw, 1.54rem);
+  font-size: calc(clamp(1.32rem, 1.35vw, 1.54rem) * var(--cms-text-scale, 1));
   line-height: 1.6;
 }
 

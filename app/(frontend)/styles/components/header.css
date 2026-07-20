@@ -11,7 +11,7 @@
   border-radius: 999px;
   background: var(--accent);
   color: var(--accent-text);
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--cms-text-scale, 1));
   font-weight: 700;
 }
 
@@ -114,7 +114,7 @@
 .language-switch-link,
 .mobile-menu-panel a {
   font-family: var(--font-display), Georgia, serif;
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--cms-text-scale, 1));
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0.18em;
@@ -132,7 +132,7 @@
 
 .desktop-nav a {
   position: relative;
-  font-size: 1.24rem;
+  font-size: calc(1.24rem * var(--cms-text-scale, 1));
   line-height: 1.05;
   letter-spacing: 0.14em;
   color: var(--raio-ink);
@@ -180,7 +180,7 @@
   margin-right: 4px;
   padding: 6px 0;
   padding-right: 16px;
-  font-size: 1.24rem;
+  font-size: calc(1.24rem * var(--cms-text-scale, 1));
   letter-spacing: 0.14em;
   line-height: 1;
   color: var(--raio-ink);
@@ -297,7 +297,7 @@
   display: flex;
   align-items: center;
   min-height: 26px;
-  font-size: 1.04rem;
+  font-size: calc(1.04rem * var(--cms-text-scale, 1));
   color: #2b241b;
   white-space: nowrap;
 }
@@ -318,7 +318,7 @@
 @media (max-width: 1180px) {
 
   .desktop-nav a {
-    font-size: 1.1rem;
+    font-size: calc(1.1rem * var(--cms-text-scale, 1));
     letter-spacing: 0.1em;
   }
 }
@@ -326,7 +326,7 @@
 @media (max-width: 1180px) {
 
   .language-switch-link {
-    font-size: 1.05rem;
+    font-size: calc(1.05rem * var(--cms-text-scale, 1));
     letter-spacing: 0.12em;
   }
 }
@@ -352,7 +352,7 @@
     margin-right: 0;
     padding: 8px 0;
     padding-right: 12px;
-    font-size: 1rem;
+    font-size: calc(1rem * var(--cms-text-scale, 1));
     letter-spacing: 0.12em;
   }
 }
@@ -384,7 +384,7 @@
   .language-switch-link {
     min-width: 44px;
     padding-right: 10px;
-    font-size: 1.08rem;
+    font-size: calc(1.08rem * var(--cms-text-scale, 1));
     letter-spacing: 0.12em;
   }
 

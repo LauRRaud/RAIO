@@ -42,7 +42,7 @@
 
 .cart-empty-heading h1 {
   max-width: 7.6ch;
-  font-size: clamp(4.2rem, 7.4vw, 8.8rem);
+  font-size: calc(clamp(4.2rem, 7.4vw, 8.8rem) * var(--cms-text-scale, 1));
   line-height: 0.88;
 }
 
@@ -57,7 +57,7 @@
   max-width: 38ch;
   margin: 0;
   color: var(--cart-ink);
-  font-size: clamp(0.96rem, 1vw, 1.08rem);
+  font-size: calc(clamp(0.96rem, 1vw, 1.08rem) * var(--cms-text-scale, 1));
   line-height: 1.75;
 }
 
@@ -75,7 +75,7 @@
   color: currentColor;
   padding: 0 0 8px;
   font-family: var(--font-ui), system-ui, sans-serif;
-  font-size: 0.76rem;
+  font-size: calc(0.76rem * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.18em;
@@ -84,7 +84,7 @@
 }
 
 .cart-text-action span {
-  font-size: 1rem;
+  font-size: calc(1rem * var(--cms-text-scale, 1));
   line-height: 1;
   transform: translateY(-1px);
 }
@@ -114,7 +114,7 @@
 }
 
 .cart-heading h1 {
-  font-size: clamp(2.7rem, 4.2vw, 4.8rem);
+  font-size: calc(clamp(2.7rem, 4.2vw, 4.8rem) * var(--cms-text-scale, 1));
   line-height: 0.96;
 }
 
@@ -188,7 +188,7 @@
   margin: 0;
   color: var(--cart-card-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(1.65rem, 2.1vw, 2.7rem);
+  font-size: calc(clamp(1.65rem, 2.1vw, 2.7rem) * var(--cms-text-scale, 1));
   font-weight: 500;
   line-height: 1.02;
   letter-spacing: 0;
@@ -203,7 +203,7 @@
   max-width: 68ch;
   margin: 18px 0 0;
   color: var(--cart-card-ink);
-  font-size: clamp(1.08rem, 1vw, 1.2rem);
+  font-size: calc(clamp(1.08rem, 1vw, 1.2rem) * var(--cms-text-scale, 1));
   line-height: 1.6;
 }
 
@@ -216,7 +216,7 @@
 }
 
 .cart-item-price strong {
-  font-size: clamp(1.45rem, 1.85vw, 2.2rem);
+  font-size: calc(clamp(1.45rem, 1.85vw, 2.2rem) * var(--cms-text-scale, 1));
   line-height: 1;
 }
 
@@ -226,7 +226,7 @@
   border-left: 0;
   padding: 0;
   color: var(--cart-card-muted);
-  font-size: clamp(1rem, 0.95vw, 1.1rem);
+  font-size: calc(clamp(1rem, 0.95vw, 1.1rem) * var(--cms-text-scale, 1));
   line-height: 1.55;
 }
 
@@ -276,7 +276,7 @@
   min-width: 28px;
   color: inherit;
   text-align: center;
-  font-size: 0.82rem;
+  font-size: calc(0.82rem * var(--cms-text-scale, 1));
   font-weight: 700;
 }
 
@@ -286,7 +286,7 @@
   gap: 10px;
   padding: 0;
   color: var(--cart-card-muted);
-  font-size: 0.88rem;
+  font-size: calc(0.88rem * var(--cms-text-scale, 1));
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -309,7 +309,7 @@
   margin: 0 0 28px;
   color: var(--cart-card-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(2rem, 3vw, 3.2rem);
+  font-size: calc(clamp(2rem, 3vw, 3.2rem) * var(--cms-text-scale, 1));
   font-weight: 500;
   line-height: 0.98;
   letter-spacing: 0;
@@ -354,7 +354,7 @@
   color: var(--cart-ink);
   padding: 0 26px;
   font-family: var(--font-ui), system-ui, sans-serif;
-  font-size: 0.74rem;
+  font-size: calc(0.74rem * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.18em;
@@ -419,7 +419,7 @@
   }
 
   .cart-empty-heading h1 {
-    font-size: clamp(3.5rem, 17vw, 5.8rem);
+    font-size: calc(clamp(3.5rem, 17vw, 5.8rem) * var(--cms-text-scale, 1));
   }
 
   .cart-section {
@@ -432,7 +432,7 @@
   }
 
   .cart-heading h1 {
-    font-size: clamp(2.5rem, 11vw, 3.8rem);
+    font-size: calc(clamp(2.5rem, 11vw, 3.8rem) * var(--cms-text-scale, 1));
   }
 
   .cart-item-copy {
@@ -449,7 +449,7 @@
   }
 
   .cart-item-top h3 {
-    font-size: clamp(1.9rem, 9vw, 3rem);
+    font-size: calc(clamp(1.9rem, 9vw, 3rem) * var(--cms-text-scale, 1));
   }
 
   .quantity-control {

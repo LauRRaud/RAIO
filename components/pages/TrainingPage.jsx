@@ -59,15 +59,14 @@ export async function TrainingPage({ locale = "et" }) {
           aria-labelledby="training-list-title"
         >
           <div className="training-scroll-band" {...getCmsSectionProps(messages, "trainingCarousel")}>
-            <div className="training-section-intro">
-              <h2 id="training-list-title">{t.listTitle}</h2>
-            </div>
-
             <TrainingCardsCarousel
               trainings={trainings}
               cta={t.cardCta}
               modalClose={t.modalClose}
               labels={messages.carousel.training}
+              title={t.listTitle}
+              titleId="training-list-title"
+              allLabel={t.allLink}
             />
           </div>
 

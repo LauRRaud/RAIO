@@ -16,7 +16,7 @@
 }
 
 .section h2 {
-  font-size: clamp(3.5rem, 6.5vw, 8.2rem);
+  font-size: calc(clamp(3.5rem, 6.5vw, 8.2rem) * var(--cms-text-scale, 1));
   line-height: 0.94;
 }
 
@@ -40,6 +40,6 @@
 @media (max-width: 720px) {
 
   .section h2 {
-    font-size: clamp(3.4rem, 15vw, 5.5rem);
+    font-size: calc(clamp(3.4rem, 15vw, 5.5rem) * var(--cms-text-scale, 1));
   }
 }

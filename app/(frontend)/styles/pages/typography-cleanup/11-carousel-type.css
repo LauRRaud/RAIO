@@ -14,7 +14,7 @@
     .training-page-redesign .training-card-carousel .training-card-body h3
   ) {
   font-family: var(--font-display), Georgia, serif;
-  font-size: var(--raio-card-display-title);
+  font-size: calc(var(--raio-card-display-title) * var(--cms-text-scale, 1));
   font-weight: 400;
   line-height: 1.16;
   letter-spacing: var(--track-card);
@@ -44,7 +44,7 @@
     .training-page-redesign .training-card-carousel .training-meta span
   ) {
   font-family: var(--font-ui), system-ui, sans-serif;
-  font-size: var(--raio-card-label);
+  font-size: calc(var(--raio-card-label) * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.24;
   letter-spacing: 0.045em;
@@ -58,7 +58,7 @@
     .training-page-redesign .training-card-carousel .training-card-body > p
   ) {
   font-family: var(--font-body);
-  font-size: var(--raio-card-body);
+  font-size: calc(var(--raio-card-body) * var(--cms-text-scale, 1));
   line-height: 1.56;
   letter-spacing: 0.01em;
   text-transform: none;
@@ -73,7 +73,7 @@
     .training-page-redesign .training-card-carousel .training-text-link
   ) {
   font-family: var(--font-ui), system-ui, sans-serif;
-  font-size: var(--raio-card-cta);
+  font-size: calc(var(--raio-card-cta) * var(--cms-text-scale, 1));
   font-weight: 600;
   line-height: 1.12;
   letter-spacing: 0.015em;
@@ -81,7 +81,7 @@
 }
 
 .store-page .store-product-carousel .store-price strong {
-  font-size: clamp(1.82rem, 1.9vw, 2.22rem);
+  font-size: calc(clamp(1.82rem, 1.9vw, 2.22rem) * var(--cms-text-scale, 1));
   line-height: 1;
 }
 
@@ -99,14 +99,14 @@
 }
 
 .product-page .product-lede {
-  font-size: clamp(1.16rem, 1.16vw, 1.34rem);
+  font-size: calc(clamp(1.16rem, 1.16vw, 1.34rem) * var(--cms-text-scale, 1));
   line-height: 1.64;
 }
 
 .product-page .product-hero .product-actions .button {
   min-height: 60px;
   padding-inline: 42px;
-  font-size: clamp(1.18rem, 1.1vw, 1.34rem);
+  font-size: calc(clamp(1.18rem, 1.1vw, 1.34rem) * var(--cms-text-scale, 1));
   font-weight: 600;
   letter-spacing: 0.015em;
 }
@@ -116,14 +116,14 @@
 }
 
 .product-page .product-hero .product-meta span {
-  font-size: clamp(1.14rem, 1.06vw, 1.24rem);
+  font-size: calc(clamp(1.14rem, 1.06vw, 1.24rem) * var(--cms-text-scale, 1));
   line-height: 1.2;
   letter-spacing: 0.13em;
 }
 
 .product-page .product-hero .product-meta strong {
   margin-top: 14px;
-  font-size: clamp(1.24rem, 1.14vw, 1.38rem);
+  font-size: calc(clamp(1.24rem, 1.14vw, 1.38rem) * var(--cms-text-scale, 1));
   line-height: 1.38;
 }
 
@@ -131,7 +131,7 @@
     .events-event-carousel .events-date,
     .journal-story-carousel .journal-story-meta
   ) {
-  font-size: clamp(1.38rem, 1.34vw, 1.62rem) !important;
+  font-size: calc(clamp(1.38rem, 1.34vw, 1.62rem) * var(--cms-text-scale, 1)) !important;
   line-height: 1.16;
   letter-spacing: 0.035em;
 }
@@ -150,7 +150,7 @@
   ) {
   position: absolute;
   left: 50%;
-  bottom: clamp(24px, 2.1vw, 34px);
+  bottom: calc(clamp(24px, 2.1vw, 34px) * var(--cms-text-scale, 1));
   width: fit-content;
   max-width: calc(100% - 48px);
   min-width: 0;
@@ -174,7 +174,7 @@
       .events-event-carousel .events-date,
       .journal-story-carousel .journal-story-meta
     ) {
-    font-size: clamp(1.2rem, 5.8vw, 1.42rem) !important;
+    font-size: calc(clamp(1.2rem, 5.8vw, 1.42rem) * var(--cms-text-scale, 1)) !important;
   }
 
   .events-event-carousel .events-date {
@@ -201,7 +201,7 @@
   > p:not(.events-date):not(.events-location) {
   max-width: 25ch;
   color: #f8f3ec;
-  font-size: clamp(1.32rem, 1.28vw, 1.5rem) !important;
+  font-size: calc(clamp(1.32rem, 1.28vw, 1.5rem) * var(--cms-text-scale, 1)) !important;
   line-height: 1.42 !important;
   letter-spacing: 0.005em;
 }
@@ -212,14 +212,14 @@
     .events-event-card
     .events-event-body
     > p:not(.events-date):not(.events-location) {
-    font-size: clamp(1.16rem, 5.6vw, 1.3rem) !important;
+    font-size: calc(clamp(1.16rem, 5.6vw, 1.3rem) * var(--cms-text-scale, 1)) !important;
     line-height: 1.42 !important;
   }
 }
 
 .events-event-carousel .events-event-body,
 .journal-story-carousel .journal-story-body {
-  padding-bottom: clamp(96px, 6vw, 118px);
+  padding-bottom: calc(clamp(96px, 6vw, 118px) * var(--cms-text-scale, 1));
 }
 
 .events-event-carousel .events-event-card .events-event-body {
@@ -231,7 +231,7 @@
 .events-event-carousel .events-event-card .events-location {
   position: absolute;
   left: 50%;
-  bottom: clamp(114px, 7.1vw, 132px);
+  bottom: calc(clamp(114px, 7.1vw, 132px) * var(--cms-text-scale, 1));
   margin: 0;
   transform: translateX(-50%);
 }
@@ -239,23 +239,23 @@
 @media (max-width: 620px) {
   .events-event-carousel .events-event-body,
   .journal-story-carousel .journal-story-body {
-    padding-bottom: 94px;
+    padding-bottom: calc(94px * var(--cms-text-scale, 1));
   }
 
   :is(
       .events-event-carousel .events-outline-button,
       .journal-story-carousel .journal-text-link
     ) {
-    bottom: 24px;
+    bottom: calc(24px * var(--cms-text-scale, 1));
   }
 
   .events-event-carousel .events-event-card .events-location {
-    bottom: 102px;
+    bottom: calc(102px * var(--cms-text-scale, 1));
   }
 }
 
 .journal-story-carousel .journal-text-link {
-  bottom: clamp(42px, 3.2vw, 58px);
+  bottom: calc(clamp(42px, 3.2vw, 58px) * var(--cms-text-scale, 1));
   width: min(100% - 72px, 190px);
 }
 
@@ -265,7 +265,7 @@
 
 @media (max-width: 620px) {
   .journal-story-carousel .journal-text-link {
-    bottom: 44px;
+    bottom: calc(44px * var(--cms-text-scale, 1));
     width: min(calc(100% - 88px), 190px);
   }
 }

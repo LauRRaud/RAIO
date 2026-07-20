@@ -20,6 +20,17 @@ const fontOptions = [
   { label: "Impact · tugev aktsent", value: "impact" }
 ];
 
+/* Multiplier applied to every font-size in the section (see --cms-text-scale in
+   the stylesheets). Kept to named steps rather than a free number so a stray
+   value can't blow the layout apart. */
+const textScaleOptions = [
+  { label: "Väiksem (90%)", value: "0.9" },
+  { label: "Vaikimisi (100%)", value: "1" },
+  { label: "Veidi suurem (110%)", value: "1.1" },
+  { label: "Suurem (125%)", value: "1.25" },
+  { label: "Kõige suurem (150%)", value: "1.5" }
+];
+
 function appearanceFields(prefix: string): Field[] {
   return [
     {
@@ -57,6 +68,18 @@ function appearanceFields(prefix: string): Field[] {
       defaultValue: "inherit",
       options: fontOptions,
       admin: { width: "50%" }
+    },
+    {
+      name: `${prefix}TextScale`,
+      label: "Tekstide suurus",
+      type: "select",
+      defaultValue: "1",
+      options: textScaleOptions,
+      admin: {
+        description:
+          "Suurendab või vähendab kogu selle sektsiooni teksti korraga — pealkirjad, lõigud, kaardid ja nupud jäävad omavahel õigesse suhtesse.",
+        width: "50%"
+      }
     }
   ];
 }

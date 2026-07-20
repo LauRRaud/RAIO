@@ -42,11 +42,15 @@ export async function ToolsPage({ locale = "et" }) {
 
         <section className="tools-category-section" aria-labelledby="tools-category-title">
           <div className="tools-category-band" {...getCmsSectionProps(messages, "toolsCarousel")}>
-            <div className="tools-section-top">
-              <h2 id="tools-category-title">{t.categoriesTitle}</h2>
-            </div>
-
-            <ToolsCategoryCarousel categories={categories} cta={t.categoryCta} locale={locale} labels={messages.carousel.tools} />
+            <ToolsCategoryCarousel
+              categories={categories}
+              cta={t.categoryCta}
+              locale={locale}
+              labels={messages.carousel.tools}
+              title={t.categoriesTitle}
+              titleId="tools-category-title"
+              allLabel={t.allLink}
+            />
           </div>
 
           <section className="tools-material-panel" aria-labelledby="tools-material-title" {...getCmsSectionProps(messages, "toolsMaterial")}>

@@ -1,16 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { scrollCarouselByCards } from "@/lib/carouselScroll";
 
-export function JournalCardsCarousel({ articles, readMore, modalClose, labels }) {
+export function JournalCardsCarousel({
+  articles,
+  readMore,
+  modalClose,
+  labels,
+  title,
+  titleId,
+  allLabel,
+  categories,
+  categoryNavLabel,
+}) {
   const journalTrackRef = useRef(null);
   const closeButtonRef = useRef(null);
   const [activeArticle, setActiveArticle] = useState(null);
   const [itemsPerPage, setItemsPerPage] = useState(3);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const update = () => setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
@@ -45,10 +56,42 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
     scrollCarouselByCards(journalTrackRef.current, direction);
   }
 
-  const showArrows = articles.length > itemsPerPage;
+  const showArrows = !showAll && articles.length > itemsPerPage;
 
   return (
-    <div className="journal-story-carousel">
+    <>
+      {title ? (
+        <div className="journal-section-top">
+          <h2 id={titleId}>{title}</h2>
+          <div className="journal-section-actions">
+            {categories?.length ? (
+              <div className="journal-category-row" aria-label={categoryNavLabel}>
+                {categories.map((category, index) => (
+                  <button
+                    className={index === 0 ? "is-active" : undefined}
+                    type="button"
+                    key={category}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            ) : null}
+            {showArrows ? (
+              <button
+                type="button"
+                className="carousel-all-link"
+                onClick={() => setShowAll(true)}
+              >
+                {allLabel}
+                <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
+              </button>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
+
+      <div className="journal-story-carousel">
       {showArrows ? (
         <>
           <button
@@ -70,7 +113,10 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
         </>
       ) : null}
 
-      <div className="journal-card-grid" ref={journalTrackRef}>
+      <div
+        className={`journal-card-grid ${showAll ? "is-expanded" : ""}`}
+        ref={journalTrackRef}
+      >
         {articles.map((article) => (
           <article className="journal-story-card" key={article.title}>
             <div className="journal-story-image">
@@ -170,6 +216,7 @@ export function JournalCardsCarousel({ articles, readMore, modalClose, labels })
         </div>,
         document.body
       ) : null}
-    </div>
+      </div>
+    </>
   );
 }

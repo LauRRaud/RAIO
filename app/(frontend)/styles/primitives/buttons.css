@@ -11,7 +11,7 @@
   color: var(--accent);
   background: transparent;
   font-family: var(--font-display), Georgia, serif;
-  font-size: 1.25rem;
+  font-size: calc(1.25rem * var(--cms-text-scale, 1));
   font-weight: 600;
   line-height: 1;
   transition:
@@ -60,7 +60,7 @@
 }
 
 .store-page .add-to-cart {
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.18em;
@@ -79,7 +79,7 @@
   color: #f8f3ec;
   padding: 0 34px;
   font-family: var(--font-ui), system-ui, sans-serif;
-  font-size: 0.7rem;
+  font-size: calc(0.7rem * var(--cms-text-scale, 1));
   line-height: 1;
   text-align: center;
 }
@@ -102,6 +102,6 @@
 @media (max-width: 620px) {
 
   .store-page .add-to-cart {
-    font-size: 0.7rem;
+    font-size: calc(0.7rem * var(--cms-text-scale, 1));
   }
 }

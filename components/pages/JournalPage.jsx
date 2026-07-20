@@ -45,29 +45,16 @@ export async function JournalPage({ locale = "et" }) {
           aria-labelledby="journal-stories-title"
         >
           <div className="journal-scroll-band" {...getCmsSectionProps(messages, "journalCarousel")}>
-            <div className="journal-section-top">
-              <h2 id="journal-stories-title">{t.storiesTitle}</h2>
-              <div
-                className="journal-category-row"
-                aria-label={t.categoryNavLabel}
-              >
-                {t.categories.map((category, index) => (
-                  <button
-                    className={index === 0 ? "is-active" : undefined}
-                    type="button"
-                    key={category}
-                  >
-                    {category}
-                  </button>
-                ))}
-              </div>
-            </div>
-
             <JournalCardsCarousel
               articles={articles}
               readMore={t.readMore}
               modalClose={t.modalClose}
               labels={messages.carousel.journal}
+              title={t.storiesTitle}
+              titleId="journal-stories-title"
+              allLabel={t.allLink}
+              categories={t.categories}
+              categoryNavLabel={t.categoryNavLabel}
             />
           </div>
 

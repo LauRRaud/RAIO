@@ -58,7 +58,7 @@
 .store-sort,
 .store-product-category,
 .store-product-meta {
-  font-size: 0.72rem;
+  font-size: calc(0.72rem * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.18em;
@@ -74,7 +74,7 @@
   margin: 0;
   color: var(--store-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(3.4rem, 4.2vw, 5.4rem);
+  font-size: calc(clamp(3.4rem, 4.2vw, 5.4rem) * var(--cms-text-scale, 1));
   font-weight: 500;
   line-height: 0.98;
   letter-spacing: 0;
@@ -94,7 +94,7 @@
   max-width: 455px;
   margin: 0;
   color: rgba(245, 239, 229, 0.78);
-  font-size: clamp(0.92rem, 0.98vw, 1.06rem);
+  font-size: calc(clamp(0.92rem, 0.98vw, 1.06rem) * var(--cms-text-scale, 1));
   line-height: 1.72;
 }
 
@@ -145,7 +145,7 @@
   margin: 0 0 24px;
   color: var(--store-ink);
   font-family: var(--font-ui), system-ui, sans-serif;
-  font-size: clamp(1rem, 1.16vw, 1.3rem);
+  font-size: calc(clamp(1rem, 1.16vw, 1.3rem) * var(--cms-text-scale, 1));
 }
 
 .store-category-nav {
@@ -312,7 +312,7 @@
 .store-product-category {
   margin: 0 0 20px;
   color: var(--store-ink);
-  font-size: 0.62rem;
+  font-size: calc(0.62rem * var(--cms-text-scale, 1));
 }
 
 .store-product-body h3 {
@@ -321,7 +321,7 @@
   margin: 0;
   color: var(--store-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(1.36rem, 1.6vw, 2rem);
+  font-size: calc(clamp(1.36rem, 1.6vw, 2rem) * var(--cms-text-scale, 1));
   font-weight: 500;
   line-height: 1.18;
 }
@@ -336,14 +336,14 @@
 }
 
 .store-price span {
-  font-size: 0.74rem;
+  font-size: calc(0.74rem * var(--cms-text-scale, 1));
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .store-price strong {
-  font-size: clamp(1.45rem, 1.8vw, 2.1rem);
+  font-size: calc(clamp(1.45rem, 1.8vw, 2.1rem) * var(--cms-text-scale, 1));
   line-height: 1;
 }
 
@@ -361,7 +361,7 @@
   position: relative;
   padding-left: 22px;
   color: var(--store-ink);
-  font-size: 0.62rem;
+  font-size: calc(0.62rem * var(--cms-text-scale, 1));
 }
 
 .store-product-meta li::before {
@@ -369,7 +369,7 @@
   position: absolute;
   left: 0;
   top: -1px;
-  font-size: 0.82rem;
+  font-size: calc(0.82rem * var(--cms-text-scale, 1));
   line-height: 1;
 }
 
@@ -443,21 +443,21 @@
 .store-sort,
 .store-product-category,
 .store-product-meta {
-    font-size: 0.7rem;
+    font-size: calc(0.7rem * var(--cms-text-scale, 1));
   }
 }
 
 @media (max-width: 620px) {
 
   .store-hero-copy h1 {
-    font-size: clamp(3rem, 12.5vw, 4.4rem);
+    font-size: calc(clamp(3rem, 12.5vw, 4.4rem) * var(--cms-text-scale, 1));
   }
 }
 
 @media (max-width: 620px) {
 
   .store-hero-copy p:not(.store-kicker) {
-    font-size: 0.72rem;
+    font-size: calc(0.72rem * var(--cms-text-scale, 1));
     letter-spacing: 0.16em;
   }
 }
@@ -530,7 +530,7 @@
     grid-template-columns: minmax(0, 1fr) 22px;
     justify-content: start;
     padding-inline: 18px 14px;
-    font-size: 0.92rem;
+    font-size: calc(0.92rem * var(--cms-text-scale, 1));
     letter-spacing: 0.03em;
   }
 
@@ -557,7 +557,7 @@
     min-height: 44px;
     justify-content: flex-start;
     padding-inline: 18px;
-    font-size: 0.92rem;
+    font-size: calc(0.92rem * var(--cms-text-scale, 1));
     letter-spacing: 0.03em;
     text-align: left;
   }
@@ -636,7 +636,7 @@
   margin: 0;
   color: #f7efe1;
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(2.7rem, 4.15vw, 4.85rem);
+  font-size: calc(clamp(2.7rem, 4.15vw, 4.85rem) * var(--cms-text-scale, 1));
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.01em;
@@ -647,7 +647,7 @@
   margin: clamp(20px, 2vw, 28px) 0 0;
   max-width: 42ch;
   color: rgba(247, 239, 225, 0.86);
-  font-size: clamp(1.22rem, 1.22vw, 1.44rem);
+  font-size: calc(clamp(1.22rem, 1.22vw, 1.44rem) * var(--cms-text-scale, 1));
   line-height: 1.62;
 }
 
@@ -677,7 +677,7 @@
   background: var(--ui-box-button-bg);
   color: var(--ui-box-button-ink);
   font-family: var(--font-ui), system-ui, sans-serif;
-  font-size: clamp(1.14rem, 1.08vw, 1.28rem);
+  font-size: calc(clamp(1.14rem, 1.08vw, 1.28rem) * var(--cms-text-scale, 1));
   font-weight: 600;
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
 }

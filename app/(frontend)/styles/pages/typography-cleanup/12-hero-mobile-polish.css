@@ -71,7 +71,7 @@
    arrow so it carries comparable weight. */
 @media (min-width: 621px) {
   .events-page-redesign .events-all-link {
-    font-size: clamp(1.15rem, 1.15vw, 1.4rem);
+    font-size: calc(clamp(1.15rem, 1.15vw, 1.4rem) * var(--cms-text-scale, 1));
     letter-spacing: 0.05em;
   }
 
@@ -105,7 +105,7 @@
   ) {
     /* Considerably larger hero lede (owner 2026-07-09: "header sektsioonide
        väiksed tekstid tunduvalt suuremaks"; shop hero was missed). */
-    font-size: clamp(1.55rem, 6.8vw, 2rem);
+    font-size: calc(clamp(1.55rem, 6.8vw, 2rem) * var(--cms-text-scale, 1));
     line-height: 1.6;
   }
 
@@ -190,7 +190,7 @@
     margin-inline: 0;
     margin-top: clamp(28px, 7vw, 40px);
     text-align: left;
-    font-size: clamp(2rem, 8.5vw, 2.5rem);
+    font-size: calc(clamp(2rem, 8.5vw, 2.5rem) * var(--cms-text-scale, 1));
     line-height: 1.05;
   }
 
@@ -212,7 +212,7 @@
   }
 
   .about-page-redesign .about-closing-copy h2 {
-    font-size: clamp(2.2rem, 9.5vw, 2.7rem);
+    font-size: calc(clamp(2.2rem, 9.5vw, 2.7rem) * var(--cms-text-scale, 1));
     line-height: 1.06;
   }
 }
@@ -244,7 +244,7 @@
     .events-page-redesign .events-host-copy
   ) p {
     margin-top: 24px;
-    font-size: clamp(1.36rem, 5vw, 1.48rem);
+    font-size: calc(clamp(1.36rem, 5vw, 1.48rem) * var(--cms-text-scale, 1));
     line-height: 1.6;
   }
 }
@@ -295,7 +295,7 @@
     .training-section-intro,
     .store-products-header
   ) h2 {
-    font-size: clamp(1.9rem, 7.8vw, 2.5rem);
+    font-size: calc(clamp(1.9rem, 7.8vw, 2.5rem) * var(--cms-text-scale, 1));
     line-height: 1.12;
     letter-spacing: 0.01em;
   }

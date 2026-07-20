@@ -175,6 +175,7 @@
     "heroImage": "/Pictures/Treeningud/header.png",
     "heroImagePosition": "center center",
     "listTitle": "Training in our nature",
+    "allLink": "View all",
     "listIntro": "We offer a range of trainings that support both body and mind. Choose the format that suits you and connect through movement - with yourself, nature, and community.",
     "cardCta": "View",
     "modalClose": "Close training",
@@ -289,6 +290,7 @@
       }
     ],
     "categoriesTitle": "Tool categories",
+    "allLink": "View all",
     "categoryCta": "View",
     "categories": [
       {
@@ -459,6 +461,7 @@
     "heroCta": "See all articles",
     "heroImage": "/Pictures/Journal/header vasakule.png",
     "storiesTitle": "Latest stories",
+    "allLink": "View all",
     "categoriesLabel": "Categories:",
     "categoryNavLabel": "Categories",
     "categories": [
@@ -563,6 +566,7 @@
     "heroImage": "/Pictures/Pood/header pood.png",
     "heroImagePosition": "94% center",
     "productsTitle": "Products",
+    "allLink": "View all",
     "categoryNavLabel": "Shop categories",
     "sortLabel": "Sort products",
     "sort": {

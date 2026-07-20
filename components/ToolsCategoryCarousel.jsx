@@ -2,14 +2,23 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { getLocalizedPath } from "@/lib/i18n";
 import { scrollCarouselByCards } from "@/lib/carouselScroll";
 
-export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }) {
+export function ToolsCategoryCarousel({
+  categories,
+  cta,
+  locale = "et",
+  labels,
+  title,
+  titleId,
+  allLabel,
+}) {
   const categoryTrackRef = useRef(null);
   const [itemsPerPage, setItemsPerPage] = useState(3);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const update = () => setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
@@ -18,14 +27,31 @@ export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  const showNav = categories.length > itemsPerPage;
+  const showNav = !showAll && categories.length > itemsPerPage;
 
   function scrollByCards(direction) {
     scrollCarouselByCards(categoryTrackRef.current, direction);
   }
 
   return (
-    <div className="tools-category-carousel">
+    <>
+      {title ? (
+        <div className="tools-section-top">
+          <h2 id={titleId}>{title}</h2>
+          {showNav ? (
+            <button
+              type="button"
+              className="carousel-all-link"
+              onClick={() => setShowAll(true)}
+            >
+              {allLabel}
+              <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
+            </button>
+          ) : null}
+        </div>
+      ) : null}
+
+      <div className="tools-category-carousel">
       {showNav ? (
         <>
           <button
@@ -47,7 +73,10 @@ export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }
         </>
       ) : null}
 
-      <div className="tools-category-grid" ref={categoryTrackRef}>
+      <div
+        className={`tools-category-grid ${showAll ? "is-expanded" : ""}`}
+        ref={categoryTrackRef}
+      >
         {categories.map((category) => (
           <article className="tools-category-card" key={category.title}>
             <Link
@@ -97,7 +126,8 @@ export function ToolsCategoryCarousel({ categories, cta, locale = "et", labels }
             </div>
           </article>
         ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

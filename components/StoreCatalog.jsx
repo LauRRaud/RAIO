@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SelectPrimitive } from "@/components/SelectPrimitive";
 import { getLocalizedPath } from "@/lib/i18n";
@@ -20,6 +20,7 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
   const [sortKey, setSortKey] = useState("popularity");
   const productTrackRef = useRef(null);
   const [itemsPerPage, setItemsPerPage] = useState(3);
+  const [showAll, setShowAll] = useState(false);
   const sortOptions = [
     { value: "popularity", label: labels.sort.popularity },
     { value: "price", label: labels.sort.price },
@@ -77,7 +78,7 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
     scrollCarouselByCards(productTrackRef.current, direction);
   }
 
-  const showArrows = visibleProducts.length > itemsPerPage;
+  const showArrows = !showAll && visibleProducts.length > itemsPerPage;
 
   return (
     <>
@@ -119,6 +120,16 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
             value={sortKey}
             onChange={setSortKey}
           />
+          {showArrows ? (
+            <button
+              type="button"
+              className="carousel-all-link"
+              onClick={() => setShowAll(true)}
+            >
+              {labels.allLink}
+              <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
+            </button>
+          ) : null}
         </div>
       </div>
 
@@ -144,7 +155,10 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
           </>
         ) : null}
 
-        <div className="store-product-grid" ref={productTrackRef}>
+        <div
+          className={`store-product-grid ${showAll ? "is-expanded" : ""}`}
+          ref={productTrackRef}
+        >
           {visibleProducts.map((product) => (
             <article
               className="store-product-card"

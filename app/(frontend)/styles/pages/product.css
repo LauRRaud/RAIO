@@ -136,7 +136,7 @@
 .product-related-heading .eyebrow,
 .product-meta span {
   color: var(--accent-2);
-  font-size: 0.74rem;
+  font-size: calc(0.74rem * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.18em;
@@ -148,7 +148,7 @@
   margin: 0;
   color: var(--ui-box-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(3.7rem, 4.6vw, 5.8rem);
+  font-size: calc(clamp(3.7rem, 4.6vw, 5.8rem) * var(--cms-text-scale, 1));
   font-weight: 500;
   line-height: 0.94;
   letter-spacing: 0;
@@ -165,7 +165,7 @@
 
 .product-status-row strong {
   color: var(--ui-box-ink);
-  font-size: clamp(1.35rem, 1.6vw, 1.85rem);
+  font-size: calc(clamp(1.35rem, 1.6vw, 1.85rem) * var(--cms-text-scale, 1));
   line-height: 1;
 }
 
@@ -173,7 +173,7 @@
   max-width: 650px;
   margin: 28px 0 0;
   color: rgba(245, 239, 229, 0.86);
-  font-size: clamp(1rem, 1.1vw, 1.18rem);
+  font-size: calc(clamp(1rem, 1.1vw, 1.18rem) * var(--cms-text-scale, 1));
   line-height: 1.72;
 }
 
@@ -188,7 +188,7 @@
   min-height: 48px;
   border-radius: var(--ui-button-radius);
   font-family: var(--font-display), Georgia, serif;
-  font-size: 1.15rem;
+  font-size: calc(1.15rem * var(--cms-text-scale, 1));
 }
 
 .product-hero .product-actions .button {
@@ -234,7 +234,7 @@
   display: block;
   margin-top: 8px;
   color: var(--text);
-  font-size: 0.96rem;
+  font-size: calc(0.96rem * var(--cms-text-scale, 1));
   line-height: 1.45;
 }
 
@@ -254,7 +254,7 @@
   margin: 0;
   color: var(--text);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(2.35rem, 3.2vw, 4rem);
+  font-size: calc(clamp(2.35rem, 3.2vw, 4rem) * var(--cms-text-scale, 1));
   font-weight: 500;
   line-height: 0.94;
 }
@@ -302,7 +302,7 @@
   padding: 22px 22px 0;
   color: var(--ui-box-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(1.25rem, 1.35vw, 1.65rem);
+  font-size: calc(clamp(1.25rem, 1.35vw, 1.65rem) * var(--cms-text-scale, 1));
   font-weight: 500;
   line-height: 1.08;
 }
@@ -347,7 +347,7 @@
   }
 
   .product-copy h1 {
-    font-size: clamp(3.7rem, 16vw, 5.7rem);
+    font-size: calc(clamp(3.7rem, 16vw, 5.7rem) * var(--cms-text-scale, 1));
     white-space: normal;
   }
 

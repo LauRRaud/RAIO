@@ -5,40 +5,18 @@
   min-height: 50px;
   margin-top: 0;
   padding-inline: 24px;
-  font-size: 0.94rem;
+  font-size: calc(0.94rem * var(--cms-text-scale, 1));
 }
 
 .events-grid-redesign {
   gap: 24px;
 }
 
-/* "Vaata kõiki" expands the carousel: the single scrollable row becomes a
-   wrapping grid so every event card is visible at once (owner 2026-07-09). */
-.events-event-carousel .events-grid-redesign.is-expanded {
-  flex-wrap: wrap;
-  row-gap: var(--raio-carousel-gap, 24px);
-}
-
-.events-event-carousel .events-grid-redesign.is-expanded .events-event-card {
-  flex: 0 0 calc((100% - (var(--raio-carousel-gap, 24px) * 2)) / 3);
-}
-
-/* On a phone the expanded grid stacks one card per row — the 1/3 basis would
-   crush them into slivers (owner 2026-07-09: "vajutades teeb lehe katki"). */
-@media (max-width: 620px) {
-  .events-event-carousel .events-grid-redesign.is-expanded {
-    flex-direction: column;
-    row-gap: 16px;
-  }
-
-  .events-event-carousel .events-grid-redesign.is-expanded .events-event-card {
-    flex: 0 0 auto;
-    width: 100%;
-  }
-}
+/* The "Vaata kõiki" expanded-grid rules used to live here, events-only. They are
+   now shared by every carousel in 10-carousel-system.css. */
 
 .events-event-card {
-  min-height: clamp(500px, 32vw, 610px);
+  min-height: calc(clamp(500px, 32vw, 610px) * var(--cms-text-scale, 1));
   isolation: isolate;
   display: flex;
   align-items: flex-end;
@@ -95,7 +73,7 @@
   width: fit-content;
   margin: 0 0 16px;
   color: #f8f3ec;
-  font-size: clamp(0.86rem, 0.86vw, 0.98rem);
+  font-size: calc(clamp(0.86rem, 0.86vw, 0.98rem) * var(--cms-text-scale, 1));
   letter-spacing: 0.04em;
   /* Keep the date on a single line (owner 2026-07-09). */
   white-space: nowrap;
@@ -104,7 +82,7 @@
 .events-event-body h3 {
   max-width: 13ch;
   margin-inline: auto;
-  font-size: clamp(1.5rem, 1.58vw, 1.95rem);
+  font-size: calc(clamp(1.5rem, 1.58vw, 1.95rem) * var(--cms-text-scale, 1));
   line-height: 1.16;
   letter-spacing: var(--track-card);
 }
@@ -113,7 +91,7 @@
   max-width: 28ch;
   margin: 20px auto 0;
   color: #f8f3ec;
-  font-size: clamp(1.16rem, 1.16vw, 1.32rem);
+  font-size: calc(clamp(1.16rem, 1.16vw, 1.32rem) * var(--cms-text-scale, 1));
   line-height: 1.48;
   letter-spacing: 0.01em;
 }
@@ -127,7 +105,7 @@
   gap: 9px;
   margin: 18px 0 18px;
   color: #f8f3ec;
-  font-size: clamp(0.88rem, 0.9vw, 1rem);
+  font-size: calc(clamp(0.88rem, 0.9vw, 1rem) * var(--cms-text-scale, 1));
   line-height: 1.35;
   letter-spacing: 0.06em;
 }

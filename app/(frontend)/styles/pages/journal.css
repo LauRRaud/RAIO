@@ -55,7 +55,7 @@
 .journal-story-meta,
 .journal-text-link,
 .journal-signup-copy h2 {
-  font-size: 0.78rem;
+  font-size: calc(0.78rem * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.18em;
@@ -67,7 +67,7 @@
   margin: 0;
   color: var(--journal-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(3rem, 4.05vw, 4.95rem);
+  font-size: calc(clamp(3rem, 4.05vw, 4.95rem) * var(--cms-text-scale, 1));
   font-weight: 400;
   line-height: 1.04;
   letter-spacing: 0;
@@ -93,7 +93,7 @@
 .journal-signup-copy p {
   margin: 0;
   color: var(--journal-ink);
-  font-size: clamp(1.2rem, 1.22vw, 1.4rem);
+  font-size: calc(clamp(1.2rem, 1.22vw, 1.4rem) * var(--cms-text-scale, 1));
   line-height: 1.68;
 }
 
@@ -206,7 +206,7 @@
   gap: 8px;
   margin: 0 0 12px;
   color: var(--journal-ink);
-  font-size: 0.76rem;
+  font-size: calc(0.76rem * var(--cms-text-scale, 1));
   line-height: 1.25;
   text-align: center;
 }
@@ -215,7 +215,7 @@
   margin: 0;
   color: var(--journal-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(1.45rem, 1.75vw, 2.1rem);
+  font-size: calc(clamp(1.45rem, 1.75vw, 2.1rem) * var(--cms-text-scale, 1));
   font-weight: 400;
   line-height: 1.14;
   letter-spacing: 0;
@@ -223,7 +223,7 @@
 
 .journal-story-body > p:not(.journal-story-meta) {
   margin-top: 18px;
-  font-size: clamp(0.92rem, 0.94vw, 1rem);
+  font-size: calc(clamp(0.92rem, 0.94vw, 1rem) * var(--cms-text-scale, 1));
   line-height: 1.58;
 }
 
@@ -305,12 +305,12 @@ button.journal-text-link {
   justify-items: start;
   text-align: left;
   margin-bottom: 20px;
-  font-size: clamp(0.98rem, 1.05vw, 1.12rem);
+  font-size: calc(clamp(0.98rem, 1.05vw, 1.12rem) * var(--cms-text-scale, 1));
   line-height: 1.35;
 }
 
 body .journal-article-content .journal-story-meta {
-  font-size: clamp(1.02rem, 1.12vw, 1.2rem);
+  font-size: calc(clamp(1.02rem, 1.12vw, 1.2rem) * var(--cms-text-scale, 1));
   line-height: 1.35;
 }
 
@@ -319,7 +319,7 @@ body .journal-article-content .journal-story-meta {
   margin: 0;
   color: var(--journal-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(2.2rem, 4vw, 4.8rem);
+  font-size: calc(clamp(2.2rem, 4vw, 4.8rem) * var(--cms-text-scale, 1));
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: 0;
@@ -329,7 +329,7 @@ body .journal-article-content .journal-story-meta {
   max-width: 560px;
   margin: 24px 0 0;
   color: var(--journal-ink);
-  font-size: clamp(1.18rem, 1.34vw, 1.42rem);
+  font-size: calc(clamp(1.18rem, 1.34vw, 1.42rem) * var(--cms-text-scale, 1));
   line-height: 1.62;
 }
 
@@ -343,7 +343,7 @@ body .journal-article-content .journal-story-meta {
 .journal-article-copy p {
   margin: 0;
   color: var(--journal-ink);
-  font-size: clamp(1.1rem, 1.16vw, 1.24rem);
+  font-size: calc(clamp(1.1rem, 1.16vw, 1.24rem) * var(--cms-text-scale, 1));
   line-height: 1.68;
 }
 
@@ -365,7 +365,7 @@ body .journal-article-content .journal-story-meta {
 .journal-signup-copy h2 {
   margin: 0;
   color: var(--journal-ink);
-  font-size: clamp(1rem, 1.3vw, 1.4rem);
+  font-size: calc(clamp(1rem, 1.3vw, 1.4rem) * var(--cms-text-scale, 1));
 }
 
 .journal-signup-copy p {
@@ -502,7 +502,7 @@ body .journal-article-content .journal-story-meta {
   .journal-story-meta,
   .journal-text-link,
   .journal-signup-copy h2 {
-    font-size: 0.7rem;
+    font-size: calc(0.7rem * var(--cms-text-scale, 1));
   }
 
 }
@@ -510,7 +510,7 @@ body .journal-article-content .journal-story-meta {
 @media (max-width: 620px) {
 
   .journal-hero-panel h1 {
-    font-size: clamp(2.7rem, 12vw, 4.35rem);
+    font-size: calc(clamp(2.7rem, 12vw, 4.35rem) * var(--cms-text-scale, 1));
     line-height: 1.05;
   }
 
@@ -592,7 +592,7 @@ body .journal-article-content .journal-story-meta {
 
   .journal-article-content h2 {
     max-width: 12ch;
-    font-size: clamp(2rem, 11vw, 3.15rem);
+    font-size: calc(clamp(2rem, 11vw, 3.15rem) * var(--cms-text-scale, 1));
   }
 }
 
@@ -637,7 +637,7 @@ body .journal-article-content .journal-story-meta {
 
 /* Band-scale heading and a left-set button (base centres it). */
 .journal-page-redesign .journal-signup-copy h2 {
-  font-size: clamp(1.55rem, 2.15vw, 2.7rem);
+  font-size: calc(clamp(1.55rem, 2.15vw, 2.7rem) * var(--cms-text-scale, 1));
   line-height: 1.12;
 }
 .journal-page-redesign .journal-signup-copy .journal-solid-button {

@@ -64,6 +64,45 @@
   color: var(--ui-box-ink);
 }
 
+/* These surfaces are dark by design — photo overlays and dark panels — so their
+   headings keep box ink and are NOT admin-editable.
+
+   This mirrors the section-editor rule in globals.css,
+   `[data-cms-section] :is(h1…h6, strong)`, element for element. Without it the
+   admin's "Teksti värv" paints card titles dark on a dark photo (owner
+   2026-07-20: "kaartidel tekstid tumedaks") while the paragraphs stay light —
+   the editor rule only lists headings.
+
+   Two things are load-bearing:
+   - the `body` prefix, which breaks the 0,1,1 specificity tie with the editor
+     rule (that rule sits after every @import, so on a tie it wins on order);
+   - listing every heading level, not just the one each surface happens to use.
+     The lists above grew per component and are uneven — `.about-closing-panel`
+     covered h2 but not the h3 "Kontakt", which then went dark on its own.
+
+   The admin colour still governs ordinary section copy; it just stops at the
+   edge of a dark surface. */
+body :is(
+    .events-event-card,
+    .events-host-cta,
+    .journal-story-card,
+    .journal-signup-banner,
+    .tools-category-card,
+    .tools-material-panel,
+    .training-card,
+    .training-lasting-panel,
+    .training-workshop-panel,
+    .store-product-card,
+    .about-story-panel,
+    .about-closing-panel,
+    .cart-item,
+    .cart-summary,
+    .related-card
+  )
+  :is(h1, h2, h3, h4, h5, h6, strong) {
+  color: var(--ui-box-ink);
+}
+
 .events-event-card :is(.events-location, .events-date),
 .journal-story-card .journal-story-meta,
 .store-product-card .store-product-category,

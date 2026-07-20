@@ -1,5 +1,5 @@
 .store-hero-copy p:not(.store-kicker) {
-  font-size: var(--type-body);
+  font-size: calc(var(--type-body) * var(--cms-text-scale, 1));
   font-weight: 400;
   line-height: 1.68;
   letter-spacing: var(--track-body);
@@ -9,7 +9,7 @@
 .store-hero-copy p:not(.store-kicker) {
   color: #f8f3ec;
   font-family: var(--font-body);
-  font-size: clamp(1.3rem, 1.28vw, 1.48rem);
+  font-size: calc(clamp(1.3rem, 1.28vw, 1.48rem) * var(--cms-text-scale, 1));
   line-height: 1.6;
   letter-spacing: 0.01em;
 }
@@ -51,7 +51,7 @@
   /* Subpage heroes share the homepage hero's display face, tight leading and
      letter-spacing — just a touch smaller so the longest single Estonian words
      (ETTETELLIMINE, INSPIRATSIOONI) still fit the narrower hero text column. */
-  font-size: clamp(2.9rem, 4.55vw, 5.3rem);
+  font-size: calc(clamp(2.9rem, 4.55vw, 5.3rem) * var(--cms-text-scale, 1));
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.01em;
@@ -61,7 +61,7 @@
 /* Pages whose hero has a 13–14-char single word need a slightly gentler cap so
    it never overflows the panel on one line. */
 .journal-hero-panel h1 {
-  font-size: clamp(2.6rem, 3.75vw, 4.5rem);
+  font-size: calc(clamp(2.6rem, 3.75vw, 4.5rem) * var(--cms-text-scale, 1));
 }
 
 /* Shop hero read noticeably smaller than the other subpage heroes (owner
@@ -69,12 +69,12 @@
    is 12 chars, so only a hair below the shared 4.55vw is needed to keep it on
    one line — close the gap. */
 .store-hero-copy h1 {
-  font-size: clamp(2.8rem, 4.4vw, 5.1rem);
+  font-size: calc(clamp(2.8rem, 4.4vw, 5.1rem) * var(--cms-text-scale, 1));
 }
 
 .tools-hero-panel h1 {
   max-width: 10.5ch;
-  font-size: clamp(2.7rem, 4.15vw, 4.9rem);
+  font-size: calc(clamp(2.7rem, 4.15vw, 4.9rem) * var(--cms-text-scale, 1));
   line-height: 1.04;
 }
 
@@ -95,13 +95,13 @@
 }
 
 :is(.tools-material-copy, .tools-care-copy) h2 {
-  font-size: clamp(1.55rem, 2.15vw, 2.7rem);
+  font-size: calc(clamp(1.55rem, 2.15vw, 2.7rem) * var(--cms-text-scale, 1));
   font-weight: 400;
   line-height: 1.12;
 }
 
 :is(.product-copy, .cart-empty-heading) h1 {
-  font-size: var(--type-page-hero);
+  font-size: calc(var(--type-page-hero) * var(--cms-text-scale, 1));
   line-height: 0.96;
   letter-spacing: var(--track-heading);
 }
@@ -113,7 +113,7 @@
   )
   h2,
 :is(.about-story-copy, .about-closing-copy, .cart-summary) h2 {
-  font-size: var(--type-section);
+  font-size: calc(var(--type-section) * var(--cms-text-scale, 1));
   line-height: 1.02;
   letter-spacing: var(--track-heading);
   text-transform: none;
@@ -127,7 +127,7 @@
 .events-page-redesign .events-host-copy h2,
 .journal-page-redesign .journal-signup-copy h2,
 .training-page-redesign .training-lasting-copy h2 {
-  font-size: clamp(2.7rem, 4.15vw, 4.85rem);
+  font-size: calc(clamp(2.7rem, 4.15vw, 4.85rem) * var(--cms-text-scale, 1));
   line-height: 1;
   letter-spacing: 0.01em;
   text-transform: none;
@@ -136,7 +136,7 @@
 /* The workshop heading is a long centred question — same treatment, gentler cap
    so it stays to a line or two. */
 .training-page-redesign .training-workshop-copy h2 {
-  font-size: clamp(2.1rem, 3.05vw, 3.75rem);
+  font-size: calc(clamp(2.1rem, 3.05vw, 3.75rem) * var(--cms-text-scale, 1));
   line-height: 1.04;
   letter-spacing: 0.01em;
   text-transform: none;
@@ -177,7 +177,7 @@
   )
   h2 {
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(1.65rem, 2.4vw, 2.7rem);
+  font-size: calc(clamp(1.65rem, 2.4vw, 2.7rem) * var(--cms-text-scale, 1));
   font-weight: 400;
   line-height: 1.08;
   letter-spacing: var(--track-heading);
