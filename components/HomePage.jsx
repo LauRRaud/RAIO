@@ -3,9 +3,11 @@ import Link from "next/link";
 import { DocumentLang } from "@/components/DocumentLang";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { getHeaderTextures } from "@/lib/payloadContent";
 import { HomeMotion } from "@/components/HomeMotion";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getCmsSectionProps, getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { TextureSlideshow } from "@/components/TextureSlideshow";
 
 function SplitMedia({ src, alt, position, priority = false }) {
   return (
@@ -33,10 +35,11 @@ export async function HomePage({ locale = "et" }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath="/" labels={messages.header} brandName={messages.brand.name} />
+      <Header locale={locale} currentPath="/" labels={messages.header} brandName={messages.brand.name} textures={await getHeaderTextures()} />
       <HomeMotion />
       <main id="main" className="home-page" data-locale={locale}>
         <section className="home-split home-split-hero" data-motion="hero" {...getCmsSectionProps(messages, "homeHero")}>
+          <TextureSlideshow set="dark" />
           <div className="home-split-copy">
             <p className="home-split-eyebrow">{hero.eyebrow}</p>
             <h1 className="home-hero-title">
@@ -49,6 +52,7 @@ export async function HomePage({ locale = "et" }) {
         </section>
 
         <section className="home-split home-split-philosophy" data-motion="side" {...getCmsSectionProps(messages, "homePhilosophy")}>
+          <TextureSlideshow set="green" />
           <SplitMedia src={philosophy.image} alt={philosophy.imageAlt} position="48% center" />
           <div className="home-split-copy">
             <p className="home-split-eyebrow">{philosophy.eyebrow}</p>
@@ -60,6 +64,7 @@ export async function HomePage({ locale = "et" }) {
         </section>
 
         <section className="home-split home-split-tools" data-motion="rise" {...getCmsSectionProps(messages, "homeTools")}>
+          <TextureSlideshow set="terracotta" />
           <div className="home-split-copy">
             <p className="home-split-eyebrow">{tools.eyebrow}</p>
             <h2 className="home-split-title">

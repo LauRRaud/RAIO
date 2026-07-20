@@ -51,13 +51,14 @@
   gap: 10px;
   min-height: 44px;
   margin-top: clamp(2px, 0.55vw, 10px);
-  color: rgba(64, 52, 42, 0.82);
+  color: #40342a;
   transition: color 160ms ease, transform 160ms ease;
 }
 
 .footer-social-handle {
-  font-size: calc(1.16rem * var(--cms-text-scale, 1));
-  font-weight: 600;
+  /* Suurem ja tumedam — tekstuuri peal luges halvasti (omanik 2026-07-20). */
+  font-size: calc(1.52rem * var(--cms-text-scale, 1));
+  font-weight: 700;
   letter-spacing: 0.08em;
 }
 
@@ -86,11 +87,11 @@
   transform: translateX(-50%);
   width: min(calc(100% - 44px), 720px);
   margin: 0;
-  border-top: 1px solid rgba(64, 52, 42, 0.14);
+  /* Eraldusjoon eemaldatud (omanik 2026-07-20: "võta need kaks kriipsu ära"). */
   padding-top: 14px;
-  color: rgba(64, 52, 42, 0.66);
-  font-size: calc(1.05rem * var(--cms-text-scale, 1));
-  font-weight: 600;
+  color: #322820;
+  font-size: calc(1.3rem * var(--cms-text-scale, 1));
+  font-weight: 700;
   line-height: 1.4;
   letter-spacing: 0.06em;
 }

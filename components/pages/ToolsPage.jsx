@@ -1,14 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Clock3, Hand, Leaf } from "lucide-react";
+import { Clock3, Leaf } from "lucide-react";
+import { LineIcon } from "@/components/Icons";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { getHeaderTextures } from "@/lib/payloadContent";
 import { HeroMedia } from "@/components/HeroMedia";
 import { ToolsCategoryCarousel } from "@/components/ToolsCategoryCarousel";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getCmsSectionProps, getMessagesWithAdminImages, getToolItems } from "@/lib/payloadContent";
+import { TextureSlideshow } from "@/components/TextureSlideshow";
 
-const proofIcons = { leaf: Leaf, hand: Hand, clock: Clock3 };
+/* "Käsitööna valmistatud" kannab joonistatud kätt treeningute lehelt (omanik
+   2026-07-20) — lucide `Hand` oli sama pere, aga jämedam ja lamedam. */
+const proofIcons = { leaf: Leaf, hand: HandLineIcon, clock: Clock3 };
+
+function HandLineIcon(props) {
+  return <LineIcon type="hand" {...props} />;
+}
 
 export async function ToolsPage({ locale = "et" }) {
   const messages = await getMessagesWithAdminImages(locale);
@@ -20,10 +29,11 @@ export async function ToolsPage({ locale = "et" }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath="/vahendid" labels={messages.header} brandName={messages.brand.name} />
+      <Header locale={locale} currentPath="/vahendid" labels={messages.header} brandName={messages.brand.name} textures={await getHeaderTextures()} />
 
       <main id="main" className="tools-page-redesign">
         <section className="tools-hero-redesign" aria-labelledby="tools-hero-title" {...getCmsSectionProps(messages, "toolsHero")}>
+          <TextureSlideshow set="dark" />
           <div className="tools-hero-panel">
             <h1 id="tools-hero-title">{t.heroTitle}</h1>
             <span className="tools-short-rule" aria-hidden="true" />
@@ -42,6 +52,7 @@ export async function ToolsPage({ locale = "et" }) {
 
         <section className="tools-category-section" aria-labelledby="tools-category-title">
           <div className="tools-category-band" {...getCmsSectionProps(messages, "toolsCarousel")}>
+            <TextureSlideshow set="green" />
             <ToolsCategoryCarousel
               categories={categories}
               cta={t.categoryCta}
@@ -54,6 +65,7 @@ export async function ToolsPage({ locale = "et" }) {
           </div>
 
           <section className="tools-material-panel" aria-labelledby="tools-material-title" {...getCmsSectionProps(messages, "toolsMaterial")}>
+            <TextureSlideshow set="gray" />
             <div className="tools-material-copy">
               <h2 id="tools-material-title">{t.material.title}</h2>
               <p>{t.material.text}</p>
@@ -84,6 +96,7 @@ export async function ToolsPage({ locale = "et" }) {
           </section>
 
           <section className="tools-support-band" aria-labelledby="tools-care-title" {...getCmsSectionProps(messages, "toolsCare")}>
+            <TextureSlideshow set="terracotta" />
             <div className="tools-care-image">
               <Image
                 src={t.care.image}

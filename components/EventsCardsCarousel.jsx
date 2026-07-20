@@ -47,19 +47,23 @@ export function EventsCardsCarousel({ events, cta, modalClose, labels, title, ti
   }
 
   const showArrows = !showAll && events.length > itemsPerPage;
+  /* Link jääb püsima ka avatud vaates ja kerib tagasi karusselli
+     (omanik 2026-07-20: "vaata kõiki kaob ära, ei saa keritava menüü peale
+     tagasi"). */
+  const canExpand = events.length > itemsPerPage;
 
   return (
     <>
       {title ? (
         <div className="events-section-top">
           <h2 id={titleId}>{title}</h2>
-          {showArrows ? (
+          {canExpand ? (
             <button
               type="button"
               className="events-all-link"
-              onClick={() => setShowAll(true)}
+              onClick={() => setShowAll((open) => !open)}
             >
-              {allLabel}
+              {showAll ? labels.showLess : allLabel}
               <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
             </button>
           ) : null}

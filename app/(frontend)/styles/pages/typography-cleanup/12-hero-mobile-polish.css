@@ -56,13 +56,15 @@
 
 /* Owner 2026-07-09: "nupu asukoht veidi kõrgemale" — the CTA sits closer to
    the paragraph instead of floating between text and the quality list. */
+/* Nupp hingab tekstist selgemalt lahku (omanik 2026-07-20: "nupuga vahe veidi
+   suuremaks") — varasem 8–12px istus lõigu küljes kinni. */
 .training-page-redesign .training-lasting-copy .training-solid-button {
-  margin-top: clamp(8px, 0.8vw, 12px);
+  margin-top: clamp(16px, 1.5vw, 22px);
 }
 
 @media (max-width: 620px) {
   .training-page-redesign .training-lasting-copy .training-solid-button {
-    margin-top: 18px;
+    margin-top: 26px;
   }
 }
 

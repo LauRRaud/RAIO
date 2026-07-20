@@ -1,15 +1,18 @@
 /* Cart page */
 .cart-empty,
 .cart-section {
-  --cart-paper: #f2ddc2;
-  --cart-ink: #11100d;
-  --cart-muted: rgba(17, 16, 13, 0.68);
-  --cart-line: rgba(17, 16, 13, 0.18);
+  /* Hall kivi, sama toon mis "Miks puu ja kivi?" ja treeningute bändil
+     (omanik 2026-07-20: "pane sinna hall taust, see sektsioon kus on hall kivi
+     taust"). Tekstuurislaid tuleb CartView'st, taustavärv jääb selle alla. */
+  --cart-paper: #d4d0c4;
+  --cart-ink: #221c14;
+  --cart-muted: #4b4438;
+  --cart-line: rgba(34, 28, 20, 0.22);
   --cart-card: #332a1e;
   --cart-card-ink: #f5efe5;
-  --cart-card-muted: rgba(245, 239, 229, 0.72);
+  --cart-card-muted: #bfb8ad;
   --cart-button: #f0e9dd;
-  --cart-button-hover: #fffaf1;
+  --cart-button-hover: #f1f1ec;
   background: var(--cart-paper);
   color: var(--cart-ink);
 }

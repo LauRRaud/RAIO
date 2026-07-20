@@ -131,6 +131,23 @@
   letter-spacing: 0.01em;
 }
 
+/* Bänditekst pealkirja all kasvab teiste bändidega samale mõõdule
+   (omanik 2026-07-20: "veidi suuremaks tekst selle all"). */
+.training-page-redesign .training-lasting-copy p {
+  font-size: calc(clamp(1.42rem, 1.48vw, 1.7rem) * var(--cms-text-scale, 1));
+  line-height: 1.6;
+  /* Tekst pealkirjale lähemale (omanik 2026-07-20: "tekst pealkirja all üles
+     poole") — vahe nupuni kasvab allpool samas mahus. */
+  margin-top: clamp(14px, 1.4vw, 20px);
+}
+
+/* Töötoa bändis luges lõik pealkirja kõrval pisikesena (omanik 2026-07-20:
+   "pealkirja all pane tekst suuremaks tunduvalt"). */
+.training-page-redesign .training-workshop-copy p {
+  font-size: calc(clamp(1.5rem, 1.6vw, 1.9rem) * var(--cms-text-scale, 1));
+  line-height: 1.58;
+}
+
 :is(
   .product-copy p,
   .product-meta strong,
@@ -152,7 +169,7 @@
 .about-closing-copy p,
 .about-closing-values p,
 .about-trainer-copy p {
-  font-size: calc(clamp(1.32rem, 1.35vw, 1.54rem) * var(--cms-text-scale, 1));
+  font-size: calc(clamp(1.42rem, 1.48vw, 1.7rem) * var(--cms-text-scale, 1));
   line-height: 1.6;
 }
 

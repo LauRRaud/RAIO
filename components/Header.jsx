@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu } from "lucide-react";
 import { CartButton } from "@/components/CartButton";
 import { getLocalizedPath } from "@/lib/i18n";
+import { TextureSlideshowClient } from "@/components/TextureSlideshowClient";
 
 function localizedItems(locale, items) {
   return items.map((item) => ({
@@ -17,7 +18,7 @@ function isActivePath(currentPath, href) {
   return currentPath === href || currentPath.startsWith(`${href}/`);
 }
 
-export function Header({ locale = "et", currentPath = "/", labels, brandName }) {
+export function Header({ locale = "et", currentPath = "/", labels, brandName, textures = null }) {
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const lastScrollYRef = useRef(0);
   const frameRef = useRef(null);
@@ -76,6 +77,9 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName }) 
 
   return (
     <header className={`site-header${isHeaderHidden ? " is-hidden" : ""}`}>
+      {textures?.images?.length ? (
+        <TextureSlideshowClient set="beige" images={textures.images} interval={textures.interval} />
+      ) : null}
       <div className="header-shell">
         <Link href={homeHref} className="header-logo" aria-label={t.homeLabel}>
           <img

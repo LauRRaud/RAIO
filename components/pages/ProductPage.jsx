@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { getHeaderTextures } from "@/lib/payloadContent";
 import { ProductGallery } from "@/components/ProductGallery";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getMessagesWithAdminImages, getPayloadProduct, getPayloadProducts } from "@/lib/payloadContent";
@@ -29,7 +30,7 @@ export async function ProductPage({ locale = "et", slug }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath={`/pood/${slug}`} labels={messages.header} brandName={messages.brand.name} />
+      <Header locale={locale} currentPath={`/pood/${slug}`} labels={messages.header} brandName={messages.brand.name} textures={await getHeaderTextures()} />
       <main id="main" className="product-page">
         <section className="product-hero section">
           <div className="container product-grid">

@@ -7,6 +7,7 @@
 @import "./styles/primitives/buttons.css";
 @import "./styles/components/header.css";
 @import "./styles/components/footer.css";
+@import "./styles/components/texture-backdrop.css";
 @import "./styles/pages/home.css";
 @import "./styles/pages/product.css";
 @import "./styles/pages/cart.css";
@@ -29,9 +30,17 @@
 
 [data-cms-section] :is(h1, h2, h3, h4, h5, h6, strong) {
   color: var(--cms-color, inherit);
-  font-family: var(--cms-heading-font, inherit);
 }
 
-[data-cms-section] :is(p, a, button, span, dt, dd) {
-  font-family: var(--cms-body-font, inherit);
+/* Font-perekonna ülekirjutus käivitub AINULT siis, kui haldur on adminis fondi
+   päriselt valinud — muutuja on siis inline-stiilis olemas. Varem kehtisid need
+   reeglid alati ja `inherit` viis pealkirjad sektsiooni kereFondile, mistõttu
+   Posterama kadus (omanik 2026-07-20: "miks puu ja kivi on õiges fondis, mujal
+   ei ole"). */
+[data-cms-section][style*="--cms-heading-font"] :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--cms-heading-font);
+}
+
+[data-cms-section][style*="--cms-body-font"] :is(p, a, button, span, dt, dd) {
+  font-family: var(--cms-body-font);
 }

@@ -172,7 +172,7 @@
 .product-lede {
   max-width: 650px;
   margin: 28px 0 0;
-  color: rgba(245, 239, 229, 0.86);
+  color: #f5efe5;
   font-size: calc(clamp(1rem, 1.1vw, 1.18rem) * var(--cms-text-scale, 1));
   line-height: 1.72;
 }

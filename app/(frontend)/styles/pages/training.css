@@ -3,7 +3,7 @@
   --training-paper: #f2ddc2;
   --training-paper-soft: #f2ddc2;
   --training-ink: #11100d;
-  --training-muted: rgba(17, 16, 13, 0.72);
+  --training-muted: #504940;
   --training-line: rgba(17, 16, 13, 0.18);
   --training-icon-green: #9fb16c;
   background: var(--training-paper-soft);
@@ -291,7 +291,7 @@
 .training-line-icon circle {
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.55;
+  stroke-width: 1.35;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -785,7 +785,7 @@ body .training-modal-content .training-meta span {
   color: #f8f3ec;
 }
 .training-page-redesign .training-scroll-band .training-section-intro p {
-  color: rgba(248, 243, 236, 0.82);
+  color: #f8f3ec;
   border-top-color: rgba(248, 243, 236, 0.28);
 }
 /* Bands stack seamlessly — no cream gaps between scroll/lasting/workshop. */
@@ -928,7 +928,7 @@ body .training-modal-content .training-meta span {
 .training-page-redesign .training-lasting-panel {
   --ui-box-bg: #c9c6b7;
   --ui-box-ink: #221c14;
-  --ui-box-muted: rgba(34, 28, 20, 0.72);
+  --ui-box-muted: #4a443a;
   --ui-box-line: rgba(34, 28, 20, 0.16);
   --training-line: rgba(34, 28, 20, 0.16);
   --training-ink: #221c14;

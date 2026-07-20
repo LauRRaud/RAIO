@@ -3,7 +3,7 @@
   --store-paper: #f2ddc2;
   --store-paper-soft: #f2ddc2;
   --store-ink: #11100d;
-  --store-muted: rgba(17, 16, 13, 0.68);
+  --store-muted: #595247;
   --store-line: rgba(17, 16, 13, 0.18);
   --band-pad: max(clamp(24px, 5vw, 76px), calc((100vw - 1560px) / 2));
   overflow-x: clip;
@@ -93,7 +93,7 @@
 .store-hero-copy p {
   max-width: 455px;
   margin: 0;
-  color: rgba(245, 239, 229, 0.78);
+  color: #f5efe5;
   font-size: calc(clamp(0.92rem, 0.98vw, 1.06rem) * var(--cms-text-scale, 1));
   line-height: 1.72;
 }
@@ -127,7 +127,7 @@
   color: #f8f3ec;
 }
 .store-products-section .store-category-nav button {
-  color: rgba(248, 243, 236, 0.64);
+  color: #f8f3ec;
 }
 .store-products-section .store-category-nav button.is-active {
   color: #f8f3ec;
@@ -646,7 +646,7 @@
 .store-custom-copy p {
   margin: clamp(20px, 2vw, 28px) 0 0;
   max-width: 42ch;
-  color: rgba(247, 239, 225, 0.86);
+  color: #f7efe1;
   font-size: calc(clamp(1.22rem, 1.22vw, 1.44rem) * var(--cms-text-scale, 1));
   line-height: 1.62;
 }

@@ -3,7 +3,7 @@
   --tools-paper: #f2ddc2;
   --tools-paper-soft: #f2ddc2;
   --tools-ink: #11100d;
-  --tools-muted: rgba(17, 16, 13, 0.72);
+  --tools-muted: #504940;
   --tools-line: rgba(17, 16, 13, 0.18);
   --tools-inner-box-bg: rgba(245, 239, 229, 0.035);
   --tools-inner-box-line: rgba(245, 239, 229, 0.14);
@@ -284,7 +284,7 @@
 .tools-material-panel {
   --material-panel-bg: #e7dccb;
   --material-panel-ink: #17130f;
-  --material-panel-muted: rgba(23, 19, 15, 0.7);
+  --material-panel-muted: #554f47;
   --material-panel-line: rgba(23, 19, 15, 0.14);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

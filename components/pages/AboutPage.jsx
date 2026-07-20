@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { HeroMedia } from "@/components/HeroMedia";
+import { getHeaderTextures } from "@/lib/payloadContent";
 import { getCmsSectionProps, getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { TextureSlideshow } from "@/components/TextureSlideshow";
 
 function InstagramIcon(props) {
   return (
@@ -19,6 +20,7 @@ export async function AboutPage({ locale = "et" }) {
   const t = messages.about;
   const emailHref = `mailto:${messages.brand.email}`;
   const instagramHref = "https://www.instagram.com/ra.ioworld";
+  const instagramHandle = instagramHref.replace(/\/+$/, "").split("/").pop();
   const contactLabels = t.contactPanel;
   const contactItems = [
     { label: contactLabels.company, value: messages.brand.company },
@@ -31,12 +33,23 @@ export async function AboutPage({ locale = "et" }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath="/meist" labels={messages.header} brandName={messages.brand.name} />
+      <Header locale={locale} currentPath="/meist" labels={messages.header} brandName={messages.brand.name} textures={await getHeaderTextures()} />
 
       <main id="main" className="about-page-redesign">
         <section className="about-hero" aria-labelledby="about-hero-title" {...getCmsSectionProps(messages, "aboutHero")}>
-          <div className="about-hero-image" aria-hidden="true">
-            <HeroMedia desktop={t.heroImage} mobile={t.heroImageMobile} />
+          <TextureSlideshow set="dark" />
+          {/* Meist-headeris kannab paremat veergu foto asemel suur logo
+              (omanik 2026-07-20: "siia selle kivi pildi asemele pane logo
+              suurelt") — taustaks jääb sektsiooni tekstuurislaid. */}
+          <div className="about-hero-logo" aria-hidden="true">
+            <img
+              className="about-hero-logo-mark"
+              src="/Logo/RAIO_horizontal_white_transparent.svg"
+              alt=""
+              width={3073}
+              height={805}
+              decoding="async"
+            />
           </div>
           <div className="about-hero-panel">
             <h1 id="about-hero-title">{t.heroTitle}</h1>
@@ -51,6 +64,7 @@ export async function AboutPage({ locale = "et" }) {
 
         <div className="about-content-section">
           <section className="about-story-panel" aria-labelledby="about-story-title" {...getCmsSectionProps(messages, "aboutStory")}>
+            <TextureSlideshow set="green" />
             <div className="about-story-image">
               <Image
                 src={t.storyImage}
@@ -68,6 +82,7 @@ export async function AboutPage({ locale = "et" }) {
           </section>
 
           <section className="about-trainers-section" id="treenerid" aria-labelledby="about-trainers-title" {...getCmsSectionProps(messages, "aboutTrainers")}>
+            <TextureSlideshow set="gray" />
             <div className="about-trainers-heading">
               <h2 id="about-trainers-title">{t.trainersTitle}</h2>
             </div>
@@ -93,6 +108,7 @@ export async function AboutPage({ locale = "et" }) {
           </section>
 
           <section className="about-closing-panel" aria-labelledby="about-closing-title" {...getCmsSectionProps(messages, "aboutClosing")}>
+            <TextureSlideshow set="terracotta" />
             <div className="about-closing-copy">
               <h2 id="about-closing-title">{t.closingTitle}</h2>
               <div className="about-closing-values" aria-label={t.storyTitle}>
@@ -125,7 +141,10 @@ export async function AboutPage({ locale = "et" }) {
                   aria-label={contactLabels.instagram}
                 >
                   <InstagramIcon className="about-social-icon" aria-hidden="true" />
-                  <span>{contactLabels.instagram}</span>
+                  {/* Sama tekst, mis jaluses — konto nimi, mitte sõna
+                      "Instagram" (omanik 2026-07-20). Tuletatud lingist, et
+                      kaks kohta ei saaks lahku minna. */}
+                  <span>{instagramHandle}</span>
                 </a>
               </div>
             </aside>

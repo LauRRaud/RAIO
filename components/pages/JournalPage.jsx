@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { getHeaderTextures } from "@/lib/payloadContent";
 import { HeroMedia } from "@/components/HeroMedia";
 import { JournalCardsCarousel } from "@/components/JournalCardsCarousel";
 import { getCmsSectionProps, getJournalArticles, getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { TextureSlideshow } from "@/components/TextureSlideshow";
 
 export async function JournalPage({ locale = "et" }) {
   const messages = await getMessagesWithAdminImages(locale);
@@ -16,7 +18,7 @@ export async function JournalPage({ locale = "et" }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath="/journal" labels={messages.header} brandName={messages.brand.name} />
+      <Header locale={locale} currentPath="/journal" labels={messages.header} brandName={messages.brand.name} textures={await getHeaderTextures()} />
 
       <main id="main" className="journal-page-redesign">
         <section
@@ -24,6 +26,7 @@ export async function JournalPage({ locale = "et" }) {
           aria-labelledby="journal-hero-title"
           {...getCmsSectionProps(messages, "journalHero")}
         >
+          <TextureSlideshow set="dark" />
           <div className="journal-hero-panel">
             <h1 id="journal-hero-title">{t.heroTitle}</h1>
             <span className="journal-short-rule" aria-hidden="true" />
@@ -45,6 +48,7 @@ export async function JournalPage({ locale = "et" }) {
           aria-labelledby="journal-stories-title"
         >
           <div className="journal-scroll-band" {...getCmsSectionProps(messages, "journalCarousel")}>
+            <TextureSlideshow set="green" />
             <JournalCardsCarousel
               articles={articles}
               readMore={t.readMore}
@@ -63,6 +67,7 @@ export async function JournalPage({ locale = "et" }) {
             aria-labelledby="journal-signup-title"
             {...getCmsSectionProps(messages, "journalSignup")}
           >
+            <TextureSlideshow set="terracotta" />
             <div className="journal-signup-copy">
               <h2 id="journal-signup-title">{t.signup.title}</h2>
               <p>{t.signup.text}</p>

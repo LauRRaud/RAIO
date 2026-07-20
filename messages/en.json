@@ -64,23 +64,28 @@
   "carousel": {
     "training": {
       "previous": "Previous trainings",
-      "next": "Next trainings"
+      "next": "Next trainings",
+      "showLess": "Show less"
     },
     "events": {
       "previous": "Previous events",
-      "next": "Next events"
+      "next": "Next events",
+      "showLess": "Show less"
     },
     "journal": {
       "previous": "Previous stories",
-      "next": "Next stories"
+      "next": "Next stories",
+      "showLess": "Show less"
     },
     "tools": {
       "previous": "Previous tool categories",
-      "next": "Next tool categories"
+      "next": "Next tool categories",
+      "showLess": "Show less"
     },
     "products": {
       "previous": "Previous products",
-      "next": "Next products"
+      "next": "Next products",
+      "showLess": "Show less"
     }
   },
   "home": {
@@ -576,7 +581,8 @@
     },
     "carousel": {
       "previous": "Previous products",
-      "next": "Next products"
+      "next": "Next products",
+      "showLess": "Show less"
     },
     "priceFrom": "From",
     "metaPreorder": "Pre-order",

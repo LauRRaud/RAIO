@@ -64,23 +64,28 @@
   "carousel": {
     "training": {
       "previous": "Eelmised treeningud",
-      "next": "Järgmised treeningud"
+      "next": "Järgmised treeningud",
+      "showLess": "Näita vähem"
     },
     "events": {
       "previous": "Eelmised sündmused",
-      "next": "Järgmised sündmused"
+      "next": "Järgmised sündmused",
+      "showLess": "Näita vähem"
     },
     "journal": {
       "previous": "Eelmised lood",
-      "next": "Järgmised lood"
+      "next": "Järgmised lood",
+      "showLess": "Näita vähem"
     },
     "tools": {
       "previous": "Eelmised vahendite kategooriad",
-      "next": "Järgmised vahendite kategooriad"
+      "next": "Järgmised vahendite kategooriad",
+      "showLess": "Näita vähem"
     },
     "products": {
       "previous": "Eelmised tooted",
-      "next": "Järgmised tooted"
+      "next": "Järgmised tooted",
+      "showLess": "Näita vähem"
     }
   },
   "home": {
@@ -576,7 +581,8 @@
     },
     "carousel": {
       "previous": "Eelmised tooted",
-      "next": "Järgmised tooted"
+      "next": "Järgmised tooted",
+      "showLess": "Näita vähem"
     },
     "priceFrom": "Alates",
     "metaPreorder": "Ette tellimine",

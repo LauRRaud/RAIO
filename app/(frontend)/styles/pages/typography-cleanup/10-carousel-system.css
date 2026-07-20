@@ -7,7 +7,7 @@
 ) {
   --raio-carousel-gap: clamp(24px, 1.6vw, 30px);
   --raio-carousel-edge-gap: var(--raio-carousel-gap);
-  --raio-carousel-arrow-size: clamp(48px, 3.4vw, 58px);
+  --raio-carousel-arrow-size: clamp(50px, 3.5vw, 60px);
   position: relative;
   left: 50%;
   box-sizing: border-box;
@@ -33,7 +33,7 @@
 ) {
   --raio-carousel-gap: clamp(24px, 1.6vw, 30px);
   --raio-carousel-edge-gap: var(--raio-carousel-gap);
-  --raio-carousel-arrow-size: clamp(48px, 3.4vw, 58px);
+  --raio-carousel-arrow-size: clamp(50px, 3.5vw, 60px);
   --raio-carousel-side-offset: calc(
     var(--raio-carousel-edge-gap) + var(--raio-carousel-arrow-size) +
       var(--raio-carousel-gap)
@@ -96,8 +96,11 @@
        itself is bottom-only (13-frames-shadows), so 20px of side room is
        plenty and the bottom tail lives in the 48px. */
     width: calc(100% + 40px);
-    padding: 0 20px 48px;
-    margin: 0 -20px -48px;
+    /* Ülaserva 10px: ilma selleta lõikas scrollport kaardi ülemise raamijoone
+       ära (omanik 2026-07-20: "keritavas on puudu ülemine serv kaartidel").
+       Negatiivne margin võtab ruumi paigutusest tagasi. */
+    padding: 10px 20px 48px;
+    margin: -10px -20px -48px;
     scroll-padding-inline: 20px;
   }
 }
@@ -180,6 +183,19 @@ body
   align-items: center;
   justify-content: space-between;
   gap: 12px 28px;
+}
+
+/* "Vaata kõiki" istub pealkirja alumisel joonel, mitte selle optilises keskmes
+   (omanik 2026-07-20: "võiks all pool olla, samal joonel kui pealkiri").
+   Baseline-joondus hoiab lingi täpselt pealkirja tähtede jalal igal laiusel.
+   Ainult ühel real olles — laotud vaates jääb varasem joondus kehtima. */
+@media (min-width: 621px) {
+  .events-section-top,
+  .journal-section-top,
+  .tools-section-top,
+  .training-section-intro {
+    align-items: baseline;
+  }
 }
 
 /* Journal keeps its category row AND the new link on the right; group them so
@@ -324,7 +340,9 @@ body
   justify-content: center;
   align-self: center;
   justify-self: center;
-  border: 0;
+  /* Kompaktsem nupp, paksem hele serv ja suurem nool sees (omanik 2026-07-20:
+     "nooled suuremaks, nupud ise pigem väiksemaks, aga serv paksemaks"). */
+  border: 2px solid rgba(248, 243, 236, 0.72);
   border-radius: 999px;
   background: rgba(17, 16, 13, 0.68);
   color: #f8f3ec;
@@ -334,6 +352,19 @@ body
   transition:
     background 160ms ease,
     transform 160ms ease;
+}
+
+/* Nool kasvab koos nupuga — lucide `size` prop jääb CSS-i alla. */
+:is(
+    .events-event-arrow,
+    .journal-story-arrow,
+    .store-page .store-product-arrow,
+    .tools-page-redesign .tools-category-arrow,
+    .training-page-redesign .training-card-arrow
+  )
+  svg {
+  width: calc(var(--raio-carousel-arrow-size) * 0.66);
+  height: calc(var(--raio-carousel-arrow-size) * 0.66);
 }
 
 :is(

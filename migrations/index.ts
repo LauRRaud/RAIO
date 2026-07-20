@@ -8,6 +8,7 @@ import * as migration_20260711_183834_expanded_page_editor_content from './20260
 import * as migration_20260711_192702_admin_guide from './20260711_192702_admin_guide';
 import * as migration_20260711_225500_expanded_font_options from './20260711_225500_expanded_font_options';
 import * as migration_20260720_140000_section_text_scale from './20260720_140000_section_text_scale';
+import * as migration_20260720_180000_texture_backdrops from './20260720_180000_texture_backdrops';
 
 export const migrations = [
   {
@@ -59,5 +60,10 @@ export const migrations = [
     up: migration_20260720_140000_section_text_scale.up,
     down: migration_20260720_140000_section_text_scale.down,
     name: '20260720_140000_section_text_scale'
+  },
+  {
+    up: migration_20260720_180000_texture_backdrops.up,
+    down: migration_20260720_180000_texture_backdrops.down,
+    name: '20260720_180000_texture_backdrops'
   },
 ];

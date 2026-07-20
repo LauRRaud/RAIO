@@ -79,6 +79,10 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
   }
 
   const showArrows = !showAll && visibleProducts.length > itemsPerPage;
+  /* Link jääb püsima ka avatud vaates ja kerib tagasi karusselli
+     (omanik 2026-07-20: "vaata kõiki kaob ära, ei saa keritava menüü peale
+     tagasi"). */
+  const canExpand = visibleProducts.length > itemsPerPage;
 
   return (
     <>
@@ -120,13 +124,13 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
             value={sortKey}
             onChange={setSortKey}
           />
-          {showArrows ? (
+          {canExpand ? (
             <button
               type="button"
               className="carousel-all-link"
-              onClick={() => setShowAll(true)}
+              onClick={() => setShowAll((open) => !open)}
             >
-              {labels.allLink}
+              {showAll ? labels.carousel.showLess : labels.allLink}
               <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
             </button>
           ) : null}

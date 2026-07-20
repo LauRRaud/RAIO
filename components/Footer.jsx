@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getCmsSectionProps, getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { TextureSlideshow } from "@/components/TextureSlideshow";
 
 function InstagramIcon(props) {
   return (
@@ -21,6 +22,7 @@ export async function Footer({ locale = "et" }) {
 
   return (
     <footer className="footer" {...getCmsSectionProps(messages, "footer")}>
+      <TextureSlideshow set="beige" />
       <div className="footer-shell">
         <Link href={homeHref} className="footer-logo-link" aria-label={brand.name}>
           <img

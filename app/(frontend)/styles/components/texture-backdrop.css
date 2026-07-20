@@ -1,0 +1,104 @@
+/* Sektsioonide loodustekstuuri slaidiseanss (TextureSlideshow.jsx).
+   Backdrop istub bändi gradient-tausta PEAL (z-index -1 + isolation hostil),
+   sisu jääb puutumata. Toon on ÕRN (omanik 2026-07-20: kõigepealt "võta
+   värvikiht pealt ära, tahan naturaalsemaks", siis "lisa toonid tagasi aga
+   õrnemalt") — foto jääb selgelt näha, toon hoiab teksti loetavana. */
+
+.texture-backdrop {
+  position: absolute;
+  inset: 0;
+  /* -3, mitte -1: subpage-hero raamitud foto (.{page}-hero-image) on ise
+     z-index -2 — backdrop peab jääma SELLE alla, aga sektsiooni tausta
+     (maalitakse enne negatiivseid lapsi) peale. */
+  z-index: -3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.texture-backdrop-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1800ms ease;
+}
+
+.texture-backdrop-img.is-active {
+  opacity: 1;
+}
+
+.texture-backdrop-tint {
+  position: absolute;
+  inset: 0;
+}
+
+/* MITTE värvitoonid, vaid neutraalne filter (omanik 2026-07-20: "ära kasutagi
+   sektsioonidel värvi filtreid, lihtsalt hele või tume filter, jääb
+   loomulikum"): heleda tekstiga bänd (dark/terracotta/green) saab kergelt
+   TUMENDAVA kihi, tumeda tekstiga bänd (gray, päis/jalus) kergelt HELENDAVA. */
+.texture-backdrop--dark .texture-backdrop-tint {
+  background: rgba(18, 14, 9, 0.45);
+}
+
+.texture-backdrop--terracotta .texture-backdrop-tint,
+.texture-backdrop--green .texture-backdrop-tint {
+  background: rgba(18, 14, 9, 0.38);
+}
+
+.texture-backdrop--gray .texture-backdrop-tint {
+  background: rgba(255, 251, 243, 0.45);
+}
+
+.texture-backdrop--beige .texture-backdrop-tint,
+.texture-backdrop--light .texture-backdrop-tint {
+  background: rgba(255, 251, 243, 0.5);
+}
+
+/* Hostid: backdrop vajab positsioneeritud esivanemat + oma stacking-konteksti,
+   et z-index -1 maaliks bändi tausta peale, aga sisu alla. Päis (sticky) ja
+   jalus (relative) on juba positsioneeritud — neile ainult isolation. */
+:is(
+  .events-hero-redesign,
+  .journal-hero-redesign,
+  .tools-hero-redesign,
+  .training-hero-redesign,
+  .store-hero,
+  .about-hero,
+  .home-split-hero,
+  .home-split-philosophy,
+  .home-split-tools,
+  .events-scroll-band,
+  .journal-scroll-band,
+  .training-scroll-band,
+  .store-products-section,
+  .tools-category-band,
+  .tools-material-panel,
+  .about-trainers-section,
+  .training-lasting-panel,
+  .events-host-cta,
+  .journal-signup-banner,
+  .training-workshop-panel,
+  .tools-support-band,
+  .store-custom-band,
+  .about-story-panel,
+  .about-closing-panel,
+  .cart-section,
+  .cart-empty
+) {
+  position: relative;
+  isolation: isolate;
+}
+
+.site-header,
+.footer {
+  isolation: isolate;
+}
+
+/* Päise 1px border-bottom jääb padding-boxist VÄLJA, aga absoluutne inset:0
+   katab ainult padding-boxi — ilma selleta paistis borderi rea alt lame beež
+   triip (omanik: "päise menüü all servas imelik triip"). */
+.site-header .texture-backdrop {
+  bottom: -1px;
+}

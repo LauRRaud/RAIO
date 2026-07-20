@@ -3,9 +3,11 @@ import Link from "next/link";
 import { EventsCardsCarousel } from "@/components/EventsCardsCarousel";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { getHeaderTextures } from "@/lib/payloadContent";
 import { HeroMedia } from "@/components/HeroMedia";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getCmsSectionProps, getEventItems, getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { TextureSlideshow } from "@/components/TextureSlideshow";
 
 export async function EventsPage({ locale = "et" }) {
   const messages = await getMessagesWithAdminImages(locale);
@@ -19,7 +21,7 @@ export async function EventsPage({ locale = "et" }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath="/sundmused" labels={messages.header} brandName={messages.brand.name} />
+      <Header locale={locale} currentPath="/sundmused" labels={messages.header} brandName={messages.brand.name} textures={await getHeaderTextures()} />
 
       <main id="main" className="events-page-redesign">
         <section
@@ -27,6 +29,7 @@ export async function EventsPage({ locale = "et" }) {
           aria-labelledby="events-hero-title"
           {...getCmsSectionProps(messages, "eventsHero")}
         >
+          <TextureSlideshow set="dark" />
           <div className="events-hero-panel">
             <h1 id="events-hero-title">{t.heroTitle}</h1>
             <span className="events-short-rule" aria-hidden="true" />
@@ -52,6 +55,7 @@ export async function EventsPage({ locale = "et" }) {
           aria-labelledby="events-upcoming-title"
         >
           <div className="events-scroll-band" {...getCmsSectionProps(messages, "eventsCarousel")}>
+            <TextureSlideshow set="green" />
             <EventsCardsCarousel
               events={events}
               cta={t.cardCta}
@@ -68,6 +72,7 @@ export async function EventsPage({ locale = "et" }) {
             aria-labelledby="events-host-title"
             {...getCmsSectionProps(messages, "eventsHost")}
           >
+            <TextureSlideshow set="terracotta" />
             <div className="events-host-image">
               <Image
                 src={t.host.image}

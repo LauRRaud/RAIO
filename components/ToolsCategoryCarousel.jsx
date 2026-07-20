@@ -28,6 +28,10 @@ export function ToolsCategoryCarousel({
   }, []);
 
   const showNav = !showAll && categories.length > itemsPerPage;
+  /* Link jääb püsima ka avatud vaates ja kerib tagasi karusselli
+     (omanik 2026-07-20: "vaata kõiki kaob ära, ei saa keritava menüü peale
+     tagasi"). */
+  const canExpand = categories.length > itemsPerPage;
 
   function scrollByCards(direction) {
     scrollCarouselByCards(categoryTrackRef.current, direction);
@@ -38,13 +42,13 @@ export function ToolsCategoryCarousel({
       {title ? (
         <div className="tools-section-top">
           <h2 id={titleId}>{title}</h2>
-          {showNav ? (
+          {canExpand ? (
             <button
               type="button"
               className="carousel-all-link"
-              onClick={() => setShowAll(true)}
+              onClick={() => setShowAll((open) => !open)}
             >
-              {allLabel}
+              {showAll ? labels.showLess : allLabel}
               <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
             </button>
           ) : null}

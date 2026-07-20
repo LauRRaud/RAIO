@@ -3,7 +3,7 @@
   --events-paper: #f2ddc2;
   --events-paper-soft: #f2ddc2;
   --events-ink: #11100d;
-  --events-muted: rgba(17, 16, 13, 0.72);
+  --events-muted: #504940;
   --events-line: rgba(17, 16, 13, 0.2);
   --events-icon-green: #9fb16c;
   background: var(--events-paper-soft);

@@ -1,17 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Leaf, UserRound } from "lucide-react";
+import { Heart, Leaf, UserRound, UsersRound } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { getHeaderTextures } from "@/lib/payloadContent";
 import { HeroMedia } from "@/components/HeroMedia";
 import { LineIcon } from "@/components/Icons";
 import { TrainingCardsCarousel } from "@/components/TrainingCardsCarousel";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getCmsSectionProps, getMessagesWithAdminImages, getTrainingItems } from "@/lib/payloadContent";
+import { TextureSlideshow } from "@/components/TextureSlideshow";
 
+/* Kõik neli ühest lucide perekonnast, nagu vahendite lehel (omanik 2026-07-20:
+   "ikoonid vahendi lehel ilusamad kui treeningu lehel"). "hand" on ajalooline
+   võti väikeste gruppide jaoks — käemärk ei tähista gruppi, seega kaardistub
+   see inimeste ikoonile. */
 const qualityIconComponents = {
   leaf: Leaf,
+  hand: UsersRound,
+  users: UsersRound,
   user: UserRound,
+  heart: Heart
 };
 
 export async function TrainingPage({ locale = "et" }) {
@@ -26,7 +35,7 @@ export async function TrainingPage({ locale = "et" }) {
       <a href="#main" className="skip-link">
         {messages.skipLink}
       </a>
-      <Header locale={locale} currentPath="/treeningud" labels={messages.header} brandName={messages.brand.name} />
+      <Header locale={locale} currentPath="/treeningud" labels={messages.header} brandName={messages.brand.name} textures={await getHeaderTextures()} />
 
       <main id="main" className="training-page-redesign">
         <section
@@ -34,6 +43,7 @@ export async function TrainingPage({ locale = "et" }) {
           aria-labelledby="training-hero-title"
           {...getCmsSectionProps(messages, "trainingHero")}
         >
+          <TextureSlideshow set="dark" />
           <div className="training-hero-panel">
             <h1 id="training-hero-title">{t.heroTitle}</h1>
             <span className="training-short-rule" aria-hidden="true" />
@@ -59,6 +69,7 @@ export async function TrainingPage({ locale = "et" }) {
           aria-labelledby="training-list-title"
         >
           <div className="training-scroll-band" {...getCmsSectionProps(messages, "trainingCarousel")}>
+            <TextureSlideshow set="green" />
             <TrainingCardsCarousel
               trainings={trainings}
               cta={t.cardCta}
@@ -75,6 +86,7 @@ export async function TrainingPage({ locale = "et" }) {
             aria-labelledby="training-lasting-title"
             {...getCmsSectionProps(messages, "trainingLasting")}
           >
+            <TextureSlideshow set="gray" />
             <div className="training-lasting-image">
               <Image
                 src={t.lasting.image}
@@ -102,7 +114,7 @@ export async function TrainingPage({ locale = "et" }) {
                     {QualityIcon ? (
                       <QualityIcon
                         className="training-line-icon"
-                        strokeWidth={1.55}
+                        strokeWidth={1.35}
                         aria-hidden="true"
                       />
                     ) : (
@@ -120,6 +132,7 @@ export async function TrainingPage({ locale = "et" }) {
             aria-labelledby="training-workshop-title"
             {...getCmsSectionProps(messages, "trainingWorkshop")}
           >
+            <TextureSlideshow set="terracotta" />
             <div className="training-workshop-copy">
               <h2 id="training-workshop-title">{t.workshop.title}</h2>
               <p>{t.workshop.text}</p>

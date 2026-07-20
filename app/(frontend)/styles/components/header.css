@@ -89,14 +89,15 @@
 
 .header-logo {
   width: fit-content;
-  height: 33px;
+  /* Suurem logo peamenüüs (omanik 2026-07-20). */
+  height: 40px;
   display: inline-flex;
   align-items: center;
 }
 
 .header-logo-mark {
   width: auto;
-  height: 33px;
+  height: 40px;
   max-width: none;
   image-rendering: auto;
   shape-rendering: auto;
@@ -132,7 +133,8 @@
 
 .desktop-nav a {
   position: relative;
-  font-size: calc(1.24rem * var(--cms-text-scale, 1));
+  /* Suuremad menüülingid (omanik 2026-07-20). */
+  font-size: calc(1.42rem * var(--cms-text-scale, 1));
   line-height: 1.05;
   letter-spacing: 0.14em;
   color: var(--raio-ink);
@@ -145,7 +147,9 @@
   left: 0;
   right: 0;
   bottom: -14px;
-  height: 2px;
+  /* Vahepealne jämedus: 2px luges DPR 1.25 juures ebaühtlaselt paksuna, 1px
+     liiga õhukesena (omanik 2026-07-20: "tee vahepealne"). */
+  height: 1.5px;
   background: currentColor;
   transform: scaleX(0);
   transform-origin: center;
@@ -374,11 +378,11 @@
 @media (max-width: 620px) {
 
   .header-logo {
-    height: 27px;
+    height: 32px;
   }
 
   .header-logo-mark {
-    height: 27px;
+    height: 32px;
   }
 
   .language-switch-link {

@@ -40,7 +40,10 @@
   .store-hero-copy,
   .about-hero-panel
 ) :is(h1, p, span, a, svg) {
-  color: var(--ui-box-ink);
+  /* Heledam kreem kui üldine --ui-box-ink: alalehtede header-fotod on tumedad
+     ja tekstuursed, tekst kadus neisse (omanik 2026-07-20: "kõikidel alalehtede
+     headeri tekstid heledamaks"). */
+  color: #fdf8ee;
 }
 
 :is(

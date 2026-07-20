@@ -1,13 +1,20 @@
 .tools-page-redesign .tools-material-panel {
   --material-panel-bg: #d4d0c4;
   --material-panel-ink: #221c14;
-  --material-panel-muted: rgba(34, 28, 20, 0.74);
+  /* 0.74 → 0.9: tekstuurifoto peal upub poolläbipaistev tekst mustrisse
+     (omanik 2026-07-20: "läbipaistvad tekstid nähtavamaks"). */
+  --material-panel-muted: #342e26;
   --material-panel-line: rgba(34, 28, 20, 0.16);
   border: 0;
   border-radius: 0;
   background: var(--material-panel-bg);
   color: var(--material-panel-ink);
   overflow: hidden;
+}
+
+/* Pealkirja cqw-lagi mõõdab just seda veergu. */
+.tools-page-redesign .tools-material-copy {
+  container-type: inline-size;
 }
 
 .tools-page-redesign .tools-material-copy {
@@ -18,13 +25,23 @@
 
 .tools-page-redesign .tools-material-copy h2 {
   color: var(--material-panel-ink);
-  font-size: calc(clamp(2.7rem, 4.15vw, 4.85rem) * var(--cms-text-scale, 1));
+  /* Mahub ühele reale (omanik 2026-07-20: "siin saaks ühele reale panna
+     pealkirja"). 9.5ch piirang murdis pealkirja kaheks ka siis, kui veerus oli
+     ruumi; cqw-lagi hoiab selle ühel real igal laiusel, sest veeru laius ei
+     kasva vaatega proportsionaalselt. Rea laius ≈ 8.6 × kirjakõrgus, seega
+     11.3cqw mahub alati; 2rem põrand hoiab kitsas veerus loetavuse (siis murdub
+     rida jälle, aga muud moodi jääks kiri pisikeseks). */
+  max-width: none;
+  font-size: max(
+    2rem,
+    min(calc(clamp(2.35rem, 3.55vw, 4.2rem) * var(--cms-text-scale, 1)), 11.3cqw)
+  );
   line-height: 1;
 }
 
 .tools-page-redesign .tools-material-copy > p {
   color: var(--material-panel-muted);
-  font-size: calc(clamp(1.32rem, 1.35vw, 1.54rem) * var(--cms-text-scale, 1));
+  font-size: calc(clamp(1.42rem, 1.48vw, 1.7rem) * var(--cms-text-scale, 1));
   line-height: 1.68;
 }
 
@@ -44,8 +61,8 @@
 }
 
 .tools-page-redesign .tools-care-copy p {
-  color: rgba(248, 243, 236, 0.88);
-  font-size: calc(clamp(1.32rem, 1.35vw, 1.54rem) * var(--cms-text-scale, 1));
+  color: #f8f3ec;
+  font-size: calc(clamp(1.42rem, 1.48vw, 1.7rem) * var(--cms-text-scale, 1));
   line-height: 1.66;
 }
 
@@ -69,12 +86,25 @@
   color: #f4efe4;
 }
 
-/* MIKS proof + quality-list icons = a dark brown accent on the rust band, NOT
-   green (owner 2026-07-08: "ikoonide värv pane tumedam pruun"). Card-meta / other
-   line icons stay green. */
+/* MIKS proof + quality-list icons: üks ühine keskmine mõõt (38px vs 50px olid
+   silmnähtavalt erinevad) ja sama värv, mis nende kõrval oleval tekstil
+   (omanik 2026-07-20: "vali mõlemale üks ja keskmine suurus … ikooni värv pane
+   sama, mis tekstil"). */
 .tools-page-redesign .tools-material-proof-row .tools-proof-item svg,
 .training-page-redesign .training-quality-item .training-line-icon {
-  color: #45301e;
+  width: 52px;
+  height: 52px;
+  color: #221c14;
+}
+
+/* Sildid olid kahes kohas eri suurusega (15,7px vs 17,9px) — üks ühine mõõt,
+   varasemast suurem (omanik 2026-07-20: "veel suuremaks, sul vist jäi
+   ühtlustamata ka"). */
+.tools-page-redesign .tools-material-proof-row .tools-proof-item span,
+.training-page-redesign .training-quality-item span {
+  font-size: calc(clamp(1.24rem, 1.26vw, 1.46rem) * var(--cms-text-scale, 1));
+  line-height: 1.24;
+  letter-spacing: 0.1em;
 }
 
 .tools-page-redesign :is(.tools-care-copy) > svg {

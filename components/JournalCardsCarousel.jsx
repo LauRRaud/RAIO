@@ -57,6 +57,10 @@ export function JournalCardsCarousel({
   }
 
   const showArrows = !showAll && articles.length > itemsPerPage;
+  /* Link jääb püsima ka avatud vaates ja kerib tagasi karusselli
+     (omanik 2026-07-20: "vaata kõiki kaob ära, ei saa keritava menüü peale
+     tagasi"). */
+  const canExpand = articles.length > itemsPerPage;
 
   return (
     <>
@@ -77,13 +81,13 @@ export function JournalCardsCarousel({
                 ))}
               </div>
             ) : null}
-            {showArrows ? (
+            {canExpand ? (
               <button
                 type="button"
                 className="carousel-all-link"
-                onClick={() => setShowAll(true)}
+                onClick={() => setShowAll((open) => !open)}
               >
-                {allLabel}
+                {showAll ? labels.showLess : allLabel}
                 <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
               </button>
             ) : null}

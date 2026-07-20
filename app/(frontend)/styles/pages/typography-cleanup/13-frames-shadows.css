@@ -89,3 +89,87 @@
   box-shadow: 0 22px 30px -22px rgba(12, 8, 4, 0.55) !important;
 }
 
+
+/* ---------- Ühtne valge raam + tugevam, kitsam vari (omanik 2026-07-20:
+   "tee nii karuselli kaartidele kui ka igal pool platvormi piltidele valge ilus
+   raam või serv … pane varje ka tugevamaks ja vajadusel kitsamaks").
+   Raam on box-shadow'i ring, mitte border: nii ei nihuta see paigutust ega
+   võitle olemasolevate border:0 !important lähtestustega. See plokk laaditakse
+   faili lõpus, seega võidab varasemad varjud. ---------- */
+:root {
+  /* 2px, mitte 1.5px: DPR 1.25 juures ümardub 1.5px kasutatavaks 0.8px-ks ja
+     joon kaob peaaegu ära. */
+  --raio-frame-line: 2px solid rgba(253, 248, 238, 0.92);
+  --raio-frame-inset: clamp(9px, 0.85vw, 15px);
+  --raio-frame-shadow: 0 16px 26px -12px rgba(0, 0, 0, 0.72);
+  --raio-frame-shadow-strong: 0 20px 30px -12px rgba(0, 0, 0, 0.8);
+}
+
+/* Karusselli/scroll-kaardid */
+.events-page-redesign .events-event-card,
+.journal-page-redesign .journal-story-card,
+.tools-page-redesign .tools-category-card,
+.training-page-redesign .training-card,
+.store-page .store-product-card,
+.related-card {
+  position: relative;
+  box-shadow: var(--raio-frame-shadow-strong) !important;
+}
+
+/* Bändifotod, header-fotod, avalehe raamitud pildid, tootegalerii */
+.about-page-redesign .about-story-image,
+.about-page-redesign .about-trainer-image,
+.events-page-redesign .events-host-image,
+.journal-page-redesign .journal-signup-image,
+.training-page-redesign .training-lasting-image,
+.tools-page-redesign .tools-material-image,
+.tools-page-redesign .tools-care-image,
+.store-page .store-custom-image,
+.home-split-media,
+.events-hero-image,
+.journal-hero-image,
+.tools-hero-image,
+.training-hero-image,
+.store-hero-image,
+.product-primary-media {
+  /* NB: siin EI tohi position'it seada — header-fotod on `position: absolute`
+     (inset-positsioneeritud raam) ja `relative` kukutas nad tagasi voogu
+     (omanik 2026-07-20: "header pildid kukkusid alla poole ja nihkes ka").
+     Kõik need konteinerid on niikuinii positsioneeritud, nii et ::after
+     ankurdub õigesti. */
+  clip-path: none !important;
+  box-shadow: var(--raio-frame-shadow) !important;
+}
+
+/* Raam ei istu enam täpselt serval, vaid passepartout'na veidi sees pool
+   (omanik 2026-07-20: "raam ei ole täiesti servas, vaid sees pool"). ::after,
+   sest inset-box-shadow'd ei saa servast eemale nihutada. 04-card-frames sulges
+   kaartide ::after (content: none) — siin avatakse see uuesti. */
+.events-page-redesign .events-event-card::after,
+.journal-page-redesign .journal-story-card::after,
+.tools-page-redesign .tools-category-card::after,
+.training-page-redesign .training-card::after,
+.store-page .store-product-card::after,
+.related-card::after,
+.about-page-redesign .about-story-image::after,
+.about-page-redesign .about-trainer-image::after,
+.events-page-redesign .events-host-image::after,
+.journal-page-redesign .journal-signup-image::after,
+.training-page-redesign .training-lasting-image::after,
+.tools-page-redesign .tools-material-image::after,
+.tools-page-redesign .tools-care-image::after,
+.store-page .store-custom-image::after,
+.home-split-media::after,
+.events-hero-image::after,
+.journal-hero-image::after,
+.tools-hero-image::after,
+.training-hero-image::after,
+.store-hero-image::after,
+.product-primary-media::after {
+  content: "" !important;
+  position: absolute;
+  inset: var(--raio-frame-inset);
+  z-index: 4;
+  border: var(--raio-frame-line);
+  pointer-events: none;
+}

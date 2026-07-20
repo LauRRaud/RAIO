@@ -19,6 +19,7 @@ import { AdminGuide } from "@/payload/globals/AdminGuide";
 import { PageImages } from "@/payload/globals/PageImages";
 import { PageEditor } from "@/payload/globals/PageEditor";
 import { SiteSettings } from "@/payload/globals/SiteSettings";
+import { TextureBackdrops } from "@/payload/globals/TextureBackdrops";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -36,7 +37,7 @@ export default buildConfig({
     }
   },
   collections: [Users, Media, Pages, ToolCards, Products, Orders, Events, Trainings, JournalArticles],
-  globals: [AdminGuide, PageEditor, SiteSettings, HomePage, PageImages],
+  globals: [AdminGuide, PageEditor, SiteSettings, HomePage, PageImages, TextureBackdrops],
   editor: lexicalEditor(),
   localization: {
     locales: [

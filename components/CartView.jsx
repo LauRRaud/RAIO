@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { useMemo } from "react";
 import { useCart } from "@/components/CartProvider";
+import { TextureSlideshowClient } from "@/components/TextureSlideshowClient";
 import { createCheckoutMailto, formatCurrency, isProductionProduct } from "@/lib/shop";
 import { getLocalizedProducts } from "@/lib/messages";
 
@@ -12,8 +13,12 @@ export function CartView({
   locale = "et",
   recipientEmail,
   shopHref = "/pood",
-  labels
+  labels,
+  textures
 }) {
+  const backdrop = textures?.images?.length ? (
+    <TextureSlideshowClient set="gray" images={textures.images} interval={textures.interval} />
+  ) : null;
   const { items, setQuantity, removeItem, clearCart } = useCart();
   const localizedProducts = useMemo(() => getLocalizedProducts(locale), [locale]);
   const localizedProductBySlug = useMemo(
@@ -36,6 +41,7 @@ export function CartView({
   if (items.length === 0) {
     return (
       <section className="section cart-empty">
+        {backdrop}
         <div className="container cart-empty-inner">
           <div className="cart-empty-heading">
             <h1>{labels.emptyTitle}</h1>
@@ -54,6 +60,7 @@ export function CartView({
 
   return (
     <section className="section cart-section">
+      {backdrop}
       <div className="container cart-shell">
         <div className="cart-heading">
           <h1>{labels.eyebrow}</h1>
