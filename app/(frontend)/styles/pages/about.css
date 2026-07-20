@@ -40,9 +40,11 @@
 .about-hero-logo-mark {
   width: 100%;
   height: auto;
-  /* Valge logo luges kivi peal veidi liiga hele/valge (omanik 2026-07-20) —
-     tuhmime pisut, et mark istuks pehmemalt taustale ilma et ta kaoks. */
-  filter: brightness(0.85) drop-shadow(0 14px 34px rgba(10, 7, 4, 0.45));
+  /* Logo oli algul liiga valge, siis brightness(0.85) tegi liiga halliks
+     (omanik 2026-07-20: "beezikam ja heledam"). Nüüd soe, hele beež:
+     kerge tuhmus + sepia/saturate annab kreemja tooni, mitte jaheda halli. */
+  filter: brightness(0.9) sepia(0.5) saturate(1.75)
+    drop-shadow(0 14px 34px rgba(10, 7, 4, 0.45));
 }
 
 @media (max-width: 980px) {

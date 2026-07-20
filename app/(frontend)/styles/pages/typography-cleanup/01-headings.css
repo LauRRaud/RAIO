@@ -122,12 +122,16 @@
 /* Content-band headings adopt the hero header's tight display treatment —
    bigger, leading at 1, minimal tracking (owner: "tekstid pane nagu headeris"). */
 .about-page-redesign .about-story-copy h2,
+.about-page-redesign .about-trainers-heading h2,
 .about-page-redesign .about-trainer-copy h3,
 .about-page-redesign .about-closing-copy h2,
 .events-page-redesign .events-host-copy h2,
 .journal-page-redesign .journal-signup-copy h2,
 .training-page-redesign .training-lasting-copy h2 {
-  /* Bändi pealkiri veidi väiksem (omanik 2026-07-20: "liiga suur pealkiri"). */
+  /* Bändi pealkiri veidi väiksem (omanik 2026-07-20: "liiga suur pealkiri").
+     Treenerid-pealkiri toodud siia samasse mõõtu (omanik 2026-07-20:
+     "treenerid pealkiri liiga väike võrreldes teiste pealkirjadega") — varem
+     jäi see rea 184 väiksemasse about.css mõõtu, sest polnud selles loendis. */
   font-size: calc(clamp(2.35rem, 3.5vw, 4.05rem) * var(--cms-text-scale, 1));
   line-height: 1;
   letter-spacing: 0.01em;
