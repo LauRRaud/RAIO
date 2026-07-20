@@ -47,6 +47,9 @@
      brightness ↑ = valgem. */
   filter: brightness(0.94) sepia(0.2) saturate(0.55)
     drop-shadow(0 14px 34px rgba(10, 7, 4, 0.45));
+  /* Veidi läbipaistev, et kivi tekstuur kumaks läbi ja logo istuks taustale
+     (omanik 2026-07-20: "veidi läbipaistvam"). Väiksem arv = läbipaistvam. */
+  opacity: 0.85;
 }
 
 @media (max-width: 980px) {
