@@ -146,13 +146,15 @@ body
   )
   :is(.carousel-all-link, .events-all-link) {
   color: #f8f3ec;
-  font-size: calc(clamp(1.34rem, 1.25vw, 1.55rem) * var(--cms-text-scale, 1));
+  /* Uppercase small-label treatment, matching how the rest of the design marks
+     small actions — and, on journal and shop, the thing that stops this reading
+     as a sixth category filter. At the filters' own size and normal case the
+     eye grouped it with them; only the arrow said otherwise. Sized below the
+     filters so it reads as a quieter action beside them. */
+  font-size: calc(clamp(1.15rem, 1.08vw, 1.34rem) * var(--cms-text-scale, 1));
   font-weight: 600;
-  /* events.css sweeps `.events-all-link` into its uppercase 0.18em group, so
-     that one link read "VAATA KÕIKI" while the other four read "Vaata kõiki".
-     Normalised here so all five are the same link. */
-  letter-spacing: 0.02em;
-  text-transform: none;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 :is(.carousel-all-link, .events-all-link) svg {
