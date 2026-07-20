@@ -103,29 +103,81 @@
 }
 
 /* ---------- "Vaata kõiki" trigger ----------
-   Shared by the journal/tools/training/shop headers. Events keeps its older
-   `.events-all-link` (same treatment, page-specific type rules already point at
-   it). Colour is inherited so the link picks up whatever ink its band uses. */
-.carousel-all-link {
+   Shared by the journal/tools/training/shop headers; events' older
+   `.events-all-link` is folded in here so all five match.
+
+   Colour is set, NOT inherited (owner 2026-07-20: "peaks olema hele igal
+   pool"). These links only ever sit on the terracotta scroll band, whose title
+   and filters are cream — but `inherit` picked up the section's admin ink,
+   which is dark on that band, so three of the five came out near-invisible.
+
+   Size reuses the category filters' own clamp so the two agree at every width;
+   the old 16px made the link the smallest thing in its own header. The arrow is
+   sized in `em` so it tracks the text (CSS width/height beats lucide's `size`
+   prop).
+
+   The page-root prefix is what makes the size stick, at (0,2,1). Two rules
+   already claimed these links at (0,2,0) — `.events-page-redesign
+   .events-all-link` and the `:is(.button, …)` type group, which reaches (0,2,0)
+   through its `.store-page .add-to-cart` branch since `:is()` takes its most
+   specific argument. A plain `.carousel-all-link` rule loses to both however
+   late it loads. */
+:is(.carousel-all-link, .events-all-link) {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   white-space: nowrap;
   appearance: none;
   border: 0;
   background: transparent;
-  color: inherit;
+  color: #f8f3ec;
+  font-weight: 600;
+  line-height: 1.25;
   cursor: pointer;
 }
 
+body
+  :is(
+    .events-page-redesign,
+    .journal-page-redesign,
+    .tools-page-redesign,
+    .training-page-redesign,
+    .store-page
+  )
+  :is(.carousel-all-link, .events-all-link) {
+  color: #f8f3ec;
+  font-size: calc(clamp(1.34rem, 1.25vw, 1.55rem) * var(--cms-text-scale, 1));
+  font-weight: 600;
+  /* events.css sweeps `.events-all-link` into its uppercase 0.18em group, so
+     that one link read "VAATA KÕIKI" while the other four read "Vaata kõiki".
+     Normalised here so all five are the same link. */
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+:is(.carousel-all-link, .events-all-link) svg {
+  width: 1em;
+  height: 1em;
+  flex: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :is(.carousel-all-link, .events-all-link):hover {
+    opacity: 0.78;
+  }
+}
+
 /* Events and journal headers are already flex rows; tools and training only
-   ever held an h2, so give them the same title-left / action-right row. */
+   ever held an h2, so give them the same title-left / action-right row.
+   Wrapping matters on a phone: "Vahendite kategooriad" plus the link plus the
+   gap runs ~7px over 390px, so the link drops to its own line instead. */
 .tools-section-top,
 .training-section-intro {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
+  gap: 12px 28px;
 }
 
 /* Journal keeps its category row AND the new link on the right; group them so
@@ -136,6 +188,18 @@
   align-items: center;
   justify-content: flex-end;
   gap: 16px 28px;
+}
+
+/* The shop header stacks title over filters on the left, so a centred right
+   column left the dropdown and "Vaata kõiki" floating on their own third line
+   (owner 2026-07-20: "joondus ja sobivus on imelik"). Bottom-aligning puts them
+   on the filter row, which is what they belong with. */
+.store-page .store-products-header {
+  align-items: flex-end;
+}
+
+.store-page .store-filter-controls {
+  align-items: center;
 }
 
 /* ---------- "Vaata kõiki": scroll track → wrapped grid ----------
