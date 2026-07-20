@@ -28,7 +28,10 @@
 .about-hero-logo {
   position: absolute;
   inset: 50% clamp(40px, 5vw, 96px) auto auto;
-  transform: translateY(-50%);
+  /* translateX nihutab logo veidi vasemale, paremasse serva ankrust eemale
+     (omanik 2026-07-20: "veidi vasakule"). Suurem negatiivne = rohkem vasakul.
+     Mobiilis (<=980px) kirjutatakse transform niikuinii üle (keskele). */
+  transform: translate(-3.5vw, -50%);
   z-index: 1;
   display: flex;
   align-items: center;
