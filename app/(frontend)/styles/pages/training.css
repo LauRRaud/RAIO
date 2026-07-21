@@ -62,23 +62,13 @@
   text-transform: uppercase;
 }
 
+/* Mõõt/reavahe/tähevahe tulevad lehteülesest components/headings.css-ist. */
 .training-hero-panel h1 {
   max-width: 8ch;
   margin: 0;
   color: var(--training-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: calc(clamp(4.2rem, 5.3vw, 6.35rem) * var(--cms-text-scale, 1));
   font-weight: 400;
-  line-height: 0.88;
-  letter-spacing: 0;
-}
-
-.training-short-rule {
-  display: block;
-  width: 54px;
-  height: 1px;
-  margin: 30px 0 24px;
-  background: rgba(17, 16, 13, 0.55);
 }
 
 .training-hero-text {
@@ -674,13 +664,6 @@ body .training-modal-content .training-meta span {
 
 @media (max-width: 620px) {
 
-  .training-hero-panel h1 {
-    font-size: calc(clamp(3.7rem, 15vw, 5.7rem) * var(--cms-text-scale, 1));
-  }
-}
-
-@media (max-width: 620px) {
-
   .training-content-section {
     width: min(calc(100% - 32px), 1680px);
     padding-top: 42px;
@@ -834,21 +817,9 @@ body .training-modal-content .training-meta span {
   align-content: start;
 }
 
-/* A single SHORT accent line centred between the two rows (owner 2026-07-09:
-   "see kriips tee lühem ja pane kahe rea vahele") — not per-item borders. */
-.training-page-redesign .training-quality-list::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 64px;
-  height: 1px;
-  background: rgba(34, 28, 20, 0.4);
-}
-
 /* Editorial list items: icon + centred label. Column matches the 50px icon so
-   it aligns like the MIKS row. No per-item rule — the list has one short one. */
+   it aligns like the MIKS row. (Kriips ridade vahelt eemaldatud — omanik
+   2026-07-09 hiljem: "võta need kriipsud ära".) */
 .training-page-redesign .training-quality-item {
   min-height: 0;
   /* Veerg järgib ikooni uut 44px mõõtu. */
@@ -900,15 +871,6 @@ body .training-modal-content .training-meta span {
 .training-page-redesign .training-workshop-copy h2 {
   max-width: 32ch;
   text-wrap: balance;
-}
-
-.training-page-redesign .training-workshop-copy h2::after {
-  content: "";
-  display: block;
-  width: 54px;
-  height: 1px;
-  margin: clamp(16px, 1.6vw, 24px) auto 0;
-  background: rgba(245, 239, 229, 0.45);
 }
 
 .training-page-redesign .training-workshop-copy p {

@@ -62,27 +62,17 @@
   text-transform: uppercase;
 }
 
+/* Mõõt/reavahe/tähevahe tulevad lehteülesest components/headings.css-ist. */
 .events-hero-panel h1,
 .events-host-copy h2 {
   margin: 0;
   color: var(--events-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: calc(clamp(4.2rem, 6vw, 7.1rem) * var(--cms-text-scale, 1));
   font-weight: 400;
-  line-height: 0.88;
-  letter-spacing: 0;
 }
 
 .events-hero-panel h1 {
   max-width: 7.2ch;
-}
-
-.events-short-rule {
-  display: block;
-  width: 54px;
-  height: 1px;
-  margin: 24px 0 20px;
-  background: rgba(17, 16, 13, 0.55);
 }
 
 .events-hero-text {
@@ -190,7 +180,7 @@ button.events-outline-button {
   display: grid;
   grid-template-rows: auto 1fr;
   border: 1px solid var(--events-line);
-  background: rgba(240, 233, 221, 0.58);
+  /* Taust tuleb components/headings.css ui-box süsteemist. */
 }
 
 .events-event-image {
@@ -502,14 +492,6 @@ body .events-event-modal-content .events-location {
   .events-outline-button,
   .events-location {
     font-size: calc(0.7rem * var(--cms-text-scale, 1));
-  }
-
-}
-
-@media (max-width: 620px) {
-
-  .events-hero-panel h1 {
-    font-size: calc(clamp(4.2rem, 18vw, 6.4rem) * var(--cms-text-scale, 1));
   }
 
 }

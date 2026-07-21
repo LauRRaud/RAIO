@@ -61,23 +61,13 @@
   text-transform: uppercase;
 }
 
+/* Mõõt/reavahe/tähevahe tulevad lehteülesest components/headings.css-ist. */
 .journal-hero-panel h1 {
   max-width: 11.4ch;
   margin: 0;
   color: var(--journal-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: calc(clamp(3rem, 4.05vw, 4.95rem) * var(--cms-text-scale, 1));
   font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: 0;
-}
-
-.journal-short-rule {
-  display: block;
-  width: 54px;
-  height: 1px;
-  margin: 24px 0 20px;
-  background: rgba(17, 16, 13, 0.55);
 }
 
 .journal-hero-text {
@@ -176,7 +166,7 @@
   display: grid;
   grid-template-rows: auto 1fr;
   border: 1px solid var(--journal-line);
-  background: rgba(240, 233, 221, 0.62);
+  /* Taust tuleb components/headings.css ui-box süsteemist. */
 }
 
 .journal-story-image {
@@ -502,15 +492,6 @@ body .journal-article-content .journal-story-meta {
   .journal-text-link,
   .journal-signup-copy h2 {
     font-size: calc(0.7rem * var(--cms-text-scale, 1));
-  }
-
-}
-
-@media (max-width: 620px) {
-
-  .journal-hero-panel h1 {
-    font-size: calc(clamp(2.7rem, 12vw, 4.35rem) * var(--cms-text-scale, 1));
-    line-height: 1.05;
   }
 
 }

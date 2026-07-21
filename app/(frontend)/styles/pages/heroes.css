@@ -60,17 +60,6 @@
     linear-gradient(0deg, rgba(17, 16, 13, 0.34) 0%, rgba(17, 16, 13, 0.06) 58%);
 }
 
-:is(
-  .events-short-rule,
-  .journal-short-rule,
-  .tools-short-rule,
-  .training-short-rule,
-  .store-short-rule,
-  .about-short-rule
-) {
-  background: rgba(245, 239, 229, 0.58);
-}
-
 @media (min-width: 981px) {
 
   /* The photo is held as a framed gallery piece on the right — the same

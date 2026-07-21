@@ -1,0 +1,161 @@
+/* Lehteülene pealkirjade harmoniseerimissüsteem (endine typography-cleanup/
+   01-headings). ÜKS mõõt ja rütm kõigi alalehtede pealkirjadele — omaniku
+   teadlik "üks nupp" otsus; lehepõhised erandid on meelega kadunud.
+   POSITSIOON KASKAADIS ON KANDEV: fail laetakse PÄRAST lehefaile ja polarityt,
+   sest ta ühtlustab sama spetsiifilisusega lehereegleid. Surnud konkurendid on
+   lehefailidest kustutatud — uus väärtus käib SIIA, mitte lehefaili. */
+
+/* Poe hero kehatekst (kaks endist reeglit liidetud; :not(.store-kicker)
+   eemaldatud — klass kadus markupist CSS-auditi A-etapis).
+   .store-hero eesliide hoiab spetsiifilisuse (0,2,1), sest component-type
+   üldine lehe-p reegel (0,1,1) laetakse HILJEM ja võidaks muidu viigi. */
+.store-hero .store-hero-copy p {
+  color: #f8f3ec;
+  font-family: var(--font-body);
+  font-size: calc(clamp(1.55rem, 1.72vw, 1.98rem) * var(--cms-text-scale, 1));
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+:is(
+  .store-product-card,
+  .events-event-card,
+  .journal-story-card,
+  .related-card,
+  .product-hero
+) {
+  background: var(--ui-box-bg);
+}
+
+:is(
+    .store-product-body,
+    .events-event-body,
+    .journal-story-body,
+    .product-copy,
+    .related-card
+  )
+  :is(h1, h2, h3, p, span, strong, li, svg) {
+  color: var(--ui-box-ink);
+}
+
+:is(
+    .store-hero-copy,
+    .events-hero-panel,
+    .journal-hero-panel,
+    .tools-hero-panel,
+    .training-hero-panel,
+    .about-hero-panel
+  )
+  h1 {
+  /* ÜKS mõõt kõigile alalehtede headeritele (omanik 2026-07-20: "pane sama
+     pealkiri, mis journal lehel"). Võitis päeviku mõõt: grupi väikseim ja
+     ainus, mille juures pikim eestikeelne sõna (INSPIRATSIOONI.) tekstiveergu
+     ära mahub. Suurus muutub siin, mitte lehefailides. */
+  /* Ridade vahe tunduvalt avaram ja kiri selle võrra väiksem (omanik
+     2026-07-20) — 3.45vw × 1.24 hoiab ploki umbes sama kõrge kui varasem
+     3.75vw × 1, nii et headeri kompositsioon ei nihku. */
+  font-size: calc(clamp(2.4rem, 3.45vw, 4.15rem) * var(--cms-text-scale, 1));
+  font-weight: 400;
+  line-height: 1.24;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* Kriipsu (short-rule) kustutamisega kadus h1→kehatekst vahe (omanik
+   2026-07-09: "lisa tagasi") — vahe elab nüüd h1 enda küljes. */
+:is(
+    .events-hero-panel,
+    .journal-hero-panel,
+    .tools-hero-panel,
+    .training-hero-panel,
+    .about-hero-panel,
+    .store-hero-copy
+  )
+  h1 {
+  margin-bottom: clamp(28px, 3vw, 40px);
+}
+
+:is(.tools-material-copy, .tools-care-copy) h2 {
+  font-size: calc(clamp(1.55rem, 2.15vw, 2.7rem) * var(--cms-text-scale, 1));
+  font-weight: 400;
+  line-height: 1.24;
+}
+
+:is(.product-copy, .cart-empty-heading) h1 {
+  font-size: calc(var(--type-page-hero) * var(--cms-text-scale, 1));
+  line-height: 1.24;
+  letter-spacing: var(--track-heading);
+}
+
+:is(.section, .product-related-heading) h2,
+:is(
+    .events-host-copy,
+    .tools-material-copy
+  )
+  h2,
+:is(.about-story-copy, .about-closing-copy, .cart-summary) h2 {
+  /* Sektsioonipealkirjad said sama avara reavahe (omanik 2026-07-20) — enamik
+     on üherealised, seepärast jääb mõõt samaks ja muutub ainult leading. */
+  font-size: calc(var(--type-section) * var(--cms-text-scale, 1));
+  line-height: 1.24;
+  letter-spacing: var(--track-heading);
+  text-transform: none;
+}
+
+/* Sisubändide pealkirjad käivad headeri rütmis — "tekstid pane nagu headeris",
+   veidi väiksem mõõt ("liiga suur pealkiri"), treenerite pealkiri samas mõõdus
+   ("treenerid pealkiri liiga väike võrreldes teistega"). Kõik omanik 2026-07-20. */
+.about-page-redesign .about-story-copy h2,
+.about-page-redesign .about-trainers-heading h2,
+.about-page-redesign .about-trainer-copy h3,
+.about-page-redesign .about-closing-copy h2,
+.events-page-redesign .events-host-copy h2,
+.journal-page-redesign .journal-signup-copy h2,
+.training-page-redesign .training-lasting-copy h2 {
+  font-size: calc(clamp(2.2rem, 3.25vw, 3.75rem) * var(--cms-text-scale, 1));
+  line-height: 1.24;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* Töötoa pealkiri on pikk tsentreeritud küsimus — sama käsitlus, leebem lagi,
+   ja avaram reavahe ("kahe rea vahel suurem tühjus", omanik 2026-07-20). */
+.training-page-redesign .training-workshop-copy h2 {
+  font-size: calc(clamp(2.1rem, 3.05vw, 3.75rem) * var(--cms-text-scale, 1));
+  line-height: 1.24;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* Hero-kriipsud on kujunduskeelest väljas (omanik 2026-07-09: "võta need
+   kriipsud ära") — markup renderdab span'id endiselt, CSS peidab. Nende
+   varasem kujundus on lehefailidest kustutatud; kui kriips kunagi tagasi
+   tuleb, kustuta see reegel ja anna elemendile uus stiil lehefailis. */
+:is(
+  .events-short-rule,
+  .journal-short-rule,
+  .tools-short-rule,
+  .training-short-rule,
+  .store-short-rule,
+  .about-short-rule
+) {
+  display: none;
+}
+
+:is(
+    .events-section-top,
+    .journal-section-top,
+    .tools-section-top,
+    .training-section-intro,
+    .store-products-header
+  )
+  h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: calc(clamp(1.65rem, 2.4vw, 2.7rem) * var(--cms-text-scale, 1));
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: var(--track-heading);
+  text-transform: none;
+}

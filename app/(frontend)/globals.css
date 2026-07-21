@@ -25,7 +25,7 @@
    Järjekord on kandev ja vastab üks-ühele endisele importerile; komponendi-
    failid on tõstetud ausate nimedega components/ alla, puhtad override'id
    volditakse järk-järgult baasfailidesse ja kaovad siit nimekirjast. */
-@import "./styles/pages/typography-cleanup/01-headings.css";
+@import "./styles/components/headings.css";
 @import "./styles/pages/typography-cleanup/02-component-type.css";
 @import "./styles/pages/typography-cleanup/03-store-catalog.css";
 @import "./styles/components/card-frames.css";

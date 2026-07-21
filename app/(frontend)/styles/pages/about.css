@@ -91,21 +91,13 @@
   padding-top: clamp(14px, 2vw, 34px);
 }
 
+/* Mõõt/reavahe/tähevahe tulevad lehteülesest components/headings.css-ist. */
 .about-hero-panel h1 {
   max-width: 11.4ch;
   margin: 0;
   color: var(--about-ink);
   font-family: var(--font-display), Georgia, serif;
   font-weight: 400;
-  letter-spacing: 0;
-}
-
-.about-short-rule {
-  display: block;
-  width: 54px;
-  height: 1px;
-  margin: 28px 0 22px;
-  background: rgba(17, 16, 13, 0.55);
 }
 
 /* Lede-ploki mõõdud = päeviku omad, et lõik murduks ja lõppeks samas rütmis. */
@@ -205,15 +197,8 @@
   line-height: 1;
 }
 
-/* Short rule above the heading — the shared section motif. */
-.about-trainers-heading h2::before {
-  content: "";
-  display: block;
-  width: 54px;
-  height: 1px;
-  margin-bottom: clamp(14px, 1.4vw, 22px);
-  background: rgba(245, 239, 229, 0.45);
-}
+/* (Pealkirja kohal olnud kriips eemaldatud — omanik 2026-07-09: "võta need
+   kriipsud ära".) */
 
 .about-trainers-layout {
   display: grid;
@@ -667,9 +652,6 @@
 .about-page-redesign .about-trainers-heading h2 {
   color: var(--cms-color, #221c14);
 }
-.about-page-redesign .about-trainers-heading h2::before {
-  background: rgba(34, 28, 20, 0.4);
-}
 .about-page-redesign .about-trainer-copy h3 {
   color: var(--cms-color, #221c14);
 }
@@ -722,10 +704,6 @@
 .about-page-redesign .about-trainer-copy p {
   color: color-mix(in srgb, #f4efe4 84%, transparent);
 }
-.about-page-redesign .about-trainers-heading h2::before {
-  background: rgba(245, 239, 229, 0.5);
-}
-
 /* Story band: framed gallery photo on the left, copy on the right — the same
    composition as every other content band. */
 .about-page-redesign .about-story-panel {
