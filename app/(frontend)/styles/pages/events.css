@@ -282,12 +282,14 @@ button.events-outline-button {
 
 .events-event-modal-content .events-date {
   margin-bottom: 20px;
-  color: var(--events-muted);
-  font-size: calc(clamp(0.98rem, 1.05vw, 1.12rem) * var(--cms-text-scale, 1));
+  /* Heledam kui muted (omanik 2026-07-22: "liiga tume, halvasti näha") — 72%
+     kreem komposiitus mustjal modaalitaustal keskhalliks. 0.9 loeb selgelt,
+     jäädes tooni võrra pealkirjast õrnemaks. Suurus ka veidi kasvab. */
+  color: rgba(241, 236, 224, 0.9);
+  font-size: calc(clamp(1.14rem, 1.3vw, 1.34rem) * var(--cms-text-scale, 1));
   line-height: 1.35;
 }
 
-body .events-event-modal-content .events-date,
 body .events-event-modal-content .events-location {
   font-size: calc(clamp(1.02rem, 1.12vw, 1.2rem) * var(--cms-text-scale, 1));
   line-height: 1.35;

@@ -25,7 +25,7 @@
    theme/polarity.css nupu hover'i (foto background-image + sama tint gradiendina).
    Ilma selleta läheks nupp lahku päisest niipea, kui filtrit puudutatakse. */
 :root {
-  --raio-stone-light: url("/RAIO taust/03-heledad/1.jpg");
+  --raio-stone-light: url("/RAIO taust/03-heledad/4.jpg");
   --raio-stone-light-tint: rgba(255, 251, 243, 0.5);
   /* Foto keskmine läbi tint-kihi — läheb serva värviks ja aluseks foto alla,
      nii et nupp on õiget tooni ka enne pildi laadimist. */
