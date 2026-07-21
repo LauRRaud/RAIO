@@ -168,7 +168,8 @@
 .tools-hero-image::after,
 .training-hero-image::after,
 .store-hero-image::after,
-.product-primary-media::after {
+.product-primary-media::after,
+.cart-swatch::after {
   content: "" !important;
   position: absolute;
   inset: var(--raio-frame-inset);

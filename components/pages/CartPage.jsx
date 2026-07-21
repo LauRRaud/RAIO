@@ -19,9 +19,10 @@ export async function CartPage({ locale = "et" }) {
           locale={locale}
           shopHref={getLocalizedPath(locale, "/pood")}
           labels={messages.cart}
-          /* Halli kivi tekstuur ka ostukorvi sektsioonile (omanik 2026-07-20).
-             CartView on "use client", nii et pildid tulevad propina. */
-          textures={await getSectionTextures("gray")}
+          /* Terrakota tekstuur nagu punastel scroll-bändidel (omanik
+             2026-07-22: "taust pane see punase sektsiooni tekstuur, ei taha
+             halli"). CartView on "use client", nii et pildid tulevad propina. */
+          textures={await getSectionTextures("terracotta")}
         />
       </main>
       <Footer locale={locale} />

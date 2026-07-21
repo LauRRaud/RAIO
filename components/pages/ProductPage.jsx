@@ -75,6 +75,7 @@ export async function ProductPage({ locale = "et", slug }) {
 
         {related.length > 0 ? (
           <section className="section product-related-section">
+            <TextureSlideshow set="terracotta" />
             <div className="container product-related-layout">
               <div className="product-related-heading">
                 <h2>{t.relatedEyebrow}</h2>

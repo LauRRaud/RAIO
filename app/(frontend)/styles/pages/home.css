@@ -457,7 +457,9 @@
 
 .home-world-card:hover,
 .home-world-card:focus-visible {
-  flex-grow: 1.24;
+  /* Õrnem laienemine (omanik 2026-07-22: "liiga suur zoom hiirega") — kaart
+     kasvab vähem, seega ka pildi ümberkadreering on tagasihoidlikum. */
+  flex-grow: 1.14;
 }
 
 .home-world-media {
@@ -489,7 +491,7 @@
    (omanik 2026-07-20: "võta vist see ära, et muudavad värvi hoveriga"). */
 .home-world-card:hover .home-world-media img,
 .home-world-card:focus-visible .home-world-media img {
-  transform: scale(1.045);
+  transform: scale(1.02);
 }
 
 .home-world-overlay {
@@ -527,27 +529,26 @@
 }
 
 .home-world-sub {
-  max-height: 0;
-  overflow: hidden;
-  margin-top: 0;
+  /* Puhas fade-in, MITTE max-height-klipp: varasem `max-height: 0 → 2em` +
+     `overflow: hidden` lõikas alltektsi alaservast ära (omanik 2026-07-22:
+     "alumine rida lõigatakse ilmumise efekti tõttu alt"). Nüüd rida hoiab oma
+     loomulikku kõrgust kogu aeg ja ainult sulandub sisse — midagi ei kärbita. */
+  margin-top: 12px;
   opacity: 0;
   color: #fdf8ee;
   font-size: calc(clamp(1.24rem, 1.35vw, 1.5rem) * var(--cms-text-scale, 1));
   font-weight: 600;
+  line-height: 1.2;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  transform: translateY(6px);
+  transform: translateY(8px);
   transition:
-    opacity 460ms ease,
-    transform 460ms cubic-bezier(0.16, 1, 0.3, 1),
-    max-height 460ms ease,
-    margin-top 460ms ease;
+    opacity 480ms ease,
+    transform 560ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .home-world-card:hover .home-world-sub,
 .home-world-card:focus-visible .home-world-sub {
-  max-height: 2em;
-  margin-top: 10px;
   opacity: 1;
   transform: none;
 }

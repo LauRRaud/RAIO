@@ -13,6 +13,9 @@
   z-index: -3;
   overflow: hidden;
   pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .texture-backdrop-img {
@@ -84,7 +87,27 @@
 .texture-backdrop--dark,
 .texture-backdrop--terracotta,
 .texture-backdrop--green {
-  background: #14140f;
+  background-color: #14140f;
+}
+
+/* LQIP: iga komplekt saab pisikese hagusa base64-eelvaate konteineri taustaks
+   (imgide ja tindi ALL). Sektsiooni avades/kerides ei vilgu enam must enne foto
+   laadimist (omanik 2026-07-22) — terav foto sulandub 1.8s jooksul peale. */
+.texture-backdrop--dark {
+  background-image: url("data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQBQCdASogABUAPt1gqE0opaQiMAgBEBuJaQDM0B6Nk3InSkdlSLHLZTnl1a4L1vwAAP7k3eALuZU+9iBwE+l6WrV5o1NiqL1LJS+raIwwl0cm3szjEnQsDmo39ivaESwrBx1H0fA9pSDEIOmsAAAA");
+}
+.texture-backdrop--gray {
+  background-image: url("data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwBACdASogABUAPt1gp0yopiOiMAgBEBuJaQAAWk58gS6k/ZxFAf5bMAAA/tkT7/VZKiYEsH5XlBc1CSfnD+2ZiPwKzb1OmVpRHwAAAAA=");
+}
+.texture-backdrop--light,
+.texture-backdrop--beige {
+  background-image: url("data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABwAwCdASogABgAPt1orFEopaQiqAgBEBuJZwDPZBUvqUTUUSAA/uF8d2P6NqPwbkC+Cvz5x0BtAyObXOD0qdnCII2raiebVRZXHAAA");
+}
+.texture-backdrop--terracotta {
+  background-image: url("data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAACQBACdASogABUAPt1mqFAopaOiqAqpEBuJYwDDcA8cPvsxI3WLVct7+QcLwWAA/Rsk/sxm/5tyLTCf9St+uikYmiv+VBs0G8HnnX6iUPFX3iyvAZTVQCuuq4AAAA==");
+}
+.texture-backdrop--green {
+  background-image: url("data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABQBACdASogABQAPt1kqU+opaOiKAqpEBuJYwDHMBElXtbmZph7Sf9VZKIAAP7sUraBruOuMgZI6h9t7dX1eD7F9ihJCVLTMrdqJ2DbNsdnKf0ag4oAAA==");
 }
 
 /* Hostid: backdrop vajab positsioneeritud esivanemat + oma stacking-konteksti,
@@ -115,6 +138,7 @@
   .store-custom-band,
   .about-story-panel,
   .about-closing-panel,
+  .product-related-section,
   .cart-section,
   .cart-empty
 ) {

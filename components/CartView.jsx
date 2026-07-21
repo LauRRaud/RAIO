@@ -18,7 +18,7 @@ export function CartView({
   textures
 }) {
   const backdrop = textures?.images?.length ? (
-    <TextureSlideshowClient set="gray" images={textures.images} interval={textures.interval} />
+    <TextureSlideshowClient set="terracotta" images={textures.images} interval={textures.interval} />
   ) : null;
   const { items, setQuantity, removeItem, clearCart } = useCart();
   const localizedProducts = useMemo(() => getLocalizedProducts(locale), [locale]);
@@ -170,7 +170,7 @@ export function CartView({
                         onClick={() => setQuantity(item.slug, item.quantity - 1)}
                         aria-label={labels.decrease.replace("{name}", item.name)}
                       >
-                        <Minus size={16} />
+                        <Minus size={19} />
                       </button>
                       <span>{item.quantity}</span>
                       <button
@@ -178,11 +178,11 @@ export function CartView({
                         onClick={() => setQuantity(item.slug, item.quantity + 1)}
                         aria-label={labels.increase.replace("{name}", item.name)}
                       >
-                        <Plus size={16} />
+                        <Plus size={19} />
                       </button>
                     </div>
                     <button type="button" className="remove-item" onClick={() => removeItem(item.slug)}>
-                      <Trash2 size={16} />
+                      <Trash2 size={19} />
                       {labels.remove}
                     </button>
                   </div>

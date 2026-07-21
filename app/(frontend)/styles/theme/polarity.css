@@ -300,8 +300,7 @@ body :is(
 .events-solid-button,
 .events-outline-button,
 .journal-solid-button,
-.training-solid-button,
-.cart-solid-action {
+.training-solid-button {
   border-color: var(--ui-surface-button-bg);
   background: var(--ui-surface-button-bg);
   color: var(--ui-surface-button-ink);
@@ -313,9 +312,6 @@ body .events-host-cta .events-solid-button,
 body .journal-signup-banner .journal-solid-button,
 body .training-lasting-panel .training-solid-button,
 body .training-workshop-panel .training-solid-button,
-body .cart-item .cart-solid-action,
-body .cart-summary .cart-solid-action,
-body .cart-summary .button,
 body .store-product-card .add-to-cart,
 body .store-product-card .button,
 body .related-card .button {
@@ -331,8 +327,7 @@ body .store-page .add-to-cart,
 body .events-solid-button,
 body .events-outline-button,
 body .journal-solid-button,
-body .training-solid-button,
-body .cart-solid-action {
+body .training-solid-button {
   border-color: var(--ui-surface-button-bg);
   background: var(--ui-surface-button-bg);
   color: var(--ui-surface-button-ink);
@@ -344,9 +339,6 @@ body .cart-solid-action {
 .journal-signup-banner .journal-solid-button,
 .training-lasting-panel .training-solid-button,
 .training-workshop-panel .training-solid-button,
-.cart-item .cart-solid-action,
-.cart-summary .cart-solid-action,
-.cart-summary .button,
 .store-product-card .add-to-cart,
 .store-product-card .button,
 .related-card .button {
@@ -367,9 +359,7 @@ body .cart-solid-action {
 .journal-solid-button:hover,
 .journal-solid-button:focus-visible,
 .training-solid-button:hover,
-.training-solid-button:focus-visible,
-.cart-solid-action:hover,
-.cart-solid-action:focus-visible {
+.training-solid-button:focus-visible {
   border-color: var(--ui-surface-button-hover-bg);
   background: var(--ui-button-hover-surface);
   color: var(--ui-surface-button-hover-ink);
@@ -385,12 +375,6 @@ body .training-lasting-panel .training-solid-button:hover,
 body .training-lasting-panel .training-solid-button:focus-visible,
 body .training-workshop-panel .training-solid-button:hover,
 body .training-workshop-panel .training-solid-button:focus-visible,
-body .cart-item .cart-solid-action:hover,
-body .cart-item .cart-solid-action:focus-visible,
-body .cart-summary .cart-solid-action:hover,
-body .cart-summary .cart-solid-action:focus-visible,
-body .cart-summary .button:hover,
-body .cart-summary .button:focus-visible,
 body .store-product-card .add-to-cart:hover,
 body .store-product-card .add-to-cart:focus-visible,
 body .store-product-card .button:hover,

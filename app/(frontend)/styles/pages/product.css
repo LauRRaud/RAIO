@@ -124,11 +124,11 @@
   /* Sama vaiksem rõngas nagu karusselli nooltel (omanik 2026-07-21). */
   border: 2px solid rgba(248, 243, 236, 0.45);
   border-radius: 999px;
-  background: rgba(17, 16, 13, 0.68);
+  background: rgba(17, 16, 13, 0.4);
   color: #f8f3ec;
   cursor: pointer;
   pointer-events: auto;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
   transition:
     background 160ms ease,
     transform 160ms ease;
@@ -144,7 +144,7 @@
 
 @media (hover: hover) and (pointer: fine) {
   .product-gallery-arrow:hover {
-    background: rgba(17, 16, 13, 0.84);
+    background: rgba(17, 16, 13, 0.56);
     outline: none;
     transform: scale(1.04);
   }

@@ -1,21 +1,27 @@
 /* Cart page */
 .cart-empty,
 .cart-section {
-  /* Hall kivi, sama toon mis "Miks puu ja kivi?" ja treeningute bändil
-     (omanik 2026-07-20: "pane sinna hall taust, see sektsioon kus on hall kivi
-     taust"). Tekstuurislaid tuleb CartView'st, taustavärv jääb selle alla. */
-  --cart-paper: #d4d0c4;
-  --cart-ink: #221c14;
-  --cart-line: rgba(34, 28, 20, 0.22);
-  --cart-card: #332a1e;
+  /* Terrakota nagu scroll-bändidel (omanik 2026-07-22: "taust pane see punase
+     sektsiooni tekstuur, ei taha halli"). Tekstuurislaid tuleb CartView'st,
+     taustavärv on fallback selle all; tekst hele nagu teistel terrakota
+     bändidel. */
+  --cart-paper: #9a5c44;
+  --cart-ink: #f8f3ec;
+  --cart-line: rgba(248, 243, 236, 0.32);
+  /* Klaasjas kast — sama keel kui tootelehe .product-meta kastidel (omanik
+     2026-07-22: "pruun kast ära, pigem blur kast servaga nagu tootelehel";
+     "blur kastid ise okeid, las jäävad"). Tume täide hoiab kreemi teksti
+     loetavana; blur + õhuke hele serv jäävad. */
+  --cart-card: rgba(18, 16, 12, 0.62);
+  --cart-card-line: rgba(245, 239, 229, 0.22);
   --cart-card-ink: #f5efe5;
-  --cart-card-muted: #bfb8ad;
+  --cart-card-muted: #cbc4b8;
   --cart-button: #f0e9dd;
-  /* Sama paekivi-hover nagu mujal. Ostukorul on oma tokenipere, sest
-     .cart-section .cart-solid-action võidab spetsiifikaga polarity reegli —
-     väärtus peab siin käsitsi kaasa tulema. Nupu TÄIDE tuleb ühisest
+  /* Sama paekivi-hover nagu mujal. Ostukorvi nupud on polarity.css nuppude
+     nimekirjadest väljas (klaasnupp defineeritakse siin failis, mitte ui-box
+     süsteemis), seega väärtus tuleb käsitsi kaasa. Nupu TÄIDE tuleb ühisest
      --ui-button-hover-surface'ist (foto + filter); see token jääb lameda tooni
-     jaoks: nupu serv ja +/− ning "eemalda" hover'i kirjavärv tumedal kaardil. */
+     jaoks: +/− ning "eemalda" hover'i kirjavärv tumedal kaardil. */
   --cart-button-hover: var(--raio-stone-light-flat);
   background: var(--cart-paper);
   color: var(--cart-ink);
@@ -129,23 +135,34 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 0.35fr);
   gap: clamp(28px, 4vw, 64px);
-  align-items: start;
+  /* Stretch + summary align-self: start — nii venib tootekaartide veerg
+     täpselt kokkuvõtte kõrguseks, kui kokkuvõte on kõrgem (omanik 2026-07-22:
+     "tee laia kasti veidi kõrgemaks ja pikliku kasti lühemaks, et oleks
+     sama"). */
+  align-items: stretch;
 }
 
 .cart-items {
   display: grid;
+  /* Vaba kõrgus jaotub kaartide vahel; ühe kaardi puhul täidab kaart kogu
+     veeru ja on kokkuvõttega ühekõrgune. */
+  grid-auto-rows: minmax(min-content, 1fr);
   gap: 16px;
 }
 
 .cart-section .cart-item {
   min-width: 0;
   display: grid;
-  grid-template-columns: clamp(240px, 24vw, 360px) minmax(0, 1fr);
+  /* Laiem pildiveerg (omanik 2026-07-22: "hantlite pilt laiemaks"). */
+  grid-template-columns: clamp(280px, 30vw, 470px) minmax(0, 1fr);
   gap: 0;
   padding: 0;
-  border: 0;
-  border-radius: var(--radius);
-  background: transparent;
+  border: 1px solid var(--cart-card-line);
+  /* Kandiline nagu tootelehe kastid (omanik 2026-07-22: "need kastid ei peaks
+     ümarad olema"). */
+  border-radius: 0;
+  background: var(--cart-card);
+  backdrop-filter: blur(8px);
   color: var(--cart-card-ink);
   overflow: hidden;
   box-shadow: none;
@@ -158,28 +175,25 @@
   height: 100%;
   min-height: 100%;
   overflow: hidden;
-  background: #2b241b;
+  background: transparent;
 }
 
+/* Foto raam tuleb platvormi ühtsest raamisüsteemist (card-chrome.css
+   --raio-frame-* nimekiri) — mitte kohalikust koopiast. Ilma
+   hover-suurenemiseta (omanik 2026-07-22). */
 .cart-swatch img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center center;
-  padding: 14px;
-  filter: saturate(0.92) contrast(1.04);
-  transition: transform 420ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.cart-item:hover .cart-swatch img {
-  transform: scale(1.035);
+  filter: saturate(0.96) contrast(1.02);
 }
 
 .cart-item-copy {
   min-width: 0;
   display: grid;
   align-content: start;
-  background: var(--cart-card);
+  background: transparent;
   padding: clamp(26px, 2.7vw, 42px);
 }
 
@@ -246,9 +260,10 @@
 }
 
 .quantity-control {
-  min-height: 42px;
+  /* Suurem kui enne (omanik 2026-07-22: "ja need ka suuremaks"). */
+  min-height: 48px;
   display: inline-grid;
-  grid-template-columns: 42px minmax(34px, auto) 42px;
+  grid-template-columns: 48px minmax(38px, auto) 48px;
   align-items: center;
   border: 1px solid rgba(245, 239, 229, 0.28);
   border-radius: 0;
@@ -265,8 +280,8 @@
 }
 
 .quantity-control button {
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -280,10 +295,10 @@
 }
 
 .quantity-control span {
-  min-width: 28px;
+  min-width: 30px;
   color: inherit;
   text-align: center;
-  font-size: calc(0.82rem * var(--cms-text-scale, 1));
+  font-size: calc(0.98rem * var(--cms-text-scale, 1));
   font-weight: 700;
 }
 
@@ -293,7 +308,7 @@
   gap: 10px;
   padding: 0;
   color: var(--cart-card-muted);
-  font-size: calc(0.88rem * var(--cms-text-scale, 1));
+  font-size: calc(1rem * var(--cms-text-scale, 1));
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -302,18 +317,24 @@
 .cart-section .cart-summary {
   position: sticky;
   top: 126px;
+  /* Ei veni koos reaga — jääb sisu kõrguseks ja sticky toimib. */
+  align-self: start;
   display: grid;
   align-content: start;
-  border: 0;
-  border-radius: var(--radius);
+  border: 1px solid var(--cart-card-line);
+  border-radius: 0;
   background: var(--cart-card);
+  backdrop-filter: blur(8px);
   color: var(--cart-card-ink);
-  padding: clamp(26px, 2.6vw, 38px);
+  /* Tihedam kui enne — kokkuvõte lühemaks, et kaardiga kõrgus klapiks;
+     alaserv õhem, et "Tühjenda ostukorv" istuks serva lähedal ilma kasti
+     venitamata (omanik 2026-07-22). */
+  padding: clamp(22px, 2vw, 30px) clamp(22px, 2vw, 30px) clamp(14px, 1.4vw, 20px);
   overflow: hidden;
 }
 
 .cart-summary h2 {
-  margin: 0 0 28px;
+  margin: 0 0 18px;
   color: var(--cart-card-ink);
   font-family: var(--font-display), Georgia, serif;
   font-size: calc(clamp(2rem, 3vw, 3.2rem) * var(--cms-text-scale, 1));
@@ -327,7 +348,7 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  padding: 18px 0;
+  padding: 13px 0;
   border-top: 1px solid rgba(245, 239, 229, 0.18);
 }
 
@@ -347,18 +368,21 @@
 .summary-actions {
   display: grid;
   gap: 14px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .cart-section .cart-solid-action {
-  min-height: 50px;
+  min-height: 52px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--cart-button);
+  /* Klaasnupp servaga — sama keel kui tootelehe "Telli ette" (omanik
+     2026-07-22: "nupp peab servaga olema, nagu tootelehel"). */
+  border: 2px solid rgba(248, 243, 236, 0.7);
   border-radius: 0;
-  background: var(--cart-button);
-  color: var(--cart-ink);
+  background: rgba(248, 243, 236, 0.12);
+  backdrop-filter: blur(6px);
+  color: #f4efe4;
   padding: 0 26px;
   font-family: var(--font-ui), system-ui, sans-serif;
   font-size: calc(0.74rem * var(--cms-text-scale, 1));
@@ -375,13 +399,21 @@
 
 .cart-section .cart-solid-action:hover,
 .cart-section .cart-solid-action:focus-visible {
-  border-color: var(--cart-button-hover);
+  border-color: var(--ui-box-button-hover-bg);
   background: var(--ui-button-hover-surface);
-  color: var(--cart-ink);
+  color: #2b241b;
 }
 
 .cart-section .cart-quiet-action {
   color: var(--cart-card-muted);
+}
+
+/* "Tühjenda ostukorv" veidi nupust eemale, alaserva poole — ilma kasti
+   pikemaks venitamata: lisaruum siin + võrra väiksem padding-bottom kaardil
+   (omanik 2026-07-22). Ainult kokkuvõtte päistasandi plokk — checkout-vormi
+   sisese katkestuslingi vahe jääb samaks. */
+.cart-summary > .summary-actions .cart-quiet-action {
+  margin-top: 10px;
 }
 
 /* Checkout-vorm (nimi, e-post, telefon, lisainfo) avaneb kokkuvõtte kaardil
@@ -546,11 +578,11 @@
   }
 
   .quantity-control {
-    grid-template-columns: 38px minmax(30px, auto) 38px;
+    grid-template-columns: 44px minmax(32px, auto) 44px;
   }
 
   .quantity-control button {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
   }
 }
