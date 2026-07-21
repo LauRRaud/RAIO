@@ -72,12 +72,13 @@
   .about-hero-image {
     inset: 50% clamp(40px, 5vw, 96px) auto auto;
     transform: translateY(-50%);
-    /* Sama efektiivne mõõt kui avalehe hero-fotol: mõõdetuna on
-       .home-split-hero .home-split-media ≈ 48vw (1440px: 691px), lagi 860px.
-       47vw on maksimum, mis 48vw tekstiveeru ja 5vw parema serva kõrvale
-       mahub (omanik 2026-07-20: "header sektsioonide pildid on väiksemad
-       kui avalehe omad, tee suuremaks"). */
-    width: min(47vw, 860px);
+    /* TÄPSELT avalehe hero-foto mõõt (omanik 2026-07-21: "alalehe headeri
+       pildid on avalehe omast erineva suurusega, peaks sama olema"). Avaleht
+       on grid: foto = 0.53fr veerg − 5vw margin = efektiivselt 48vw (1440px:
+       691px), lagi 860px. min(48vw, 860px) kordab seda kogu ≥981px vahemikus
+       (varem 47vw jättis foto ~14px kitsamaks ja lükkas vasaku serva paremale).
+       Foto ei põrku tekstiga, sest h1-l on max-width: 14ch. */
+    width: min(48vw, 860px);
     height: auto;
     aspect-ratio: 3 / 2;
     max-height: min(78vh, 700px);
@@ -216,18 +217,6 @@
   .about-hero-image {
     inset: 0;
     width: auto;
-  }
-}
-
-@media (min-width: 981px) and (max-width: 1199px) {
-
-  .events-hero-image,
-  .journal-hero-image,
-  .tools-hero-image,
-  .training-hero-image,
-  .store-hero-image,
-  .about-hero-image {
-    width: min(46vw, 720px);
   }
 }
 

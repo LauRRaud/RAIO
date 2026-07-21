@@ -318,13 +318,15 @@ button.training-text-link {
   max-height: min(820px, calc(100dvh - 32px));
   display: grid;
   grid-template-columns: 1fr;
-  /* Liivatekstuur (omanik 2026-07-21: "akna taust olgu liiva muster");
-     värv jääb varuks pildi laadimise ajaks. */
+  /* Tume sammal-tekstuur + tume filter, hele tekst (omanik 2026-07-21) — vt
+     journal.css .journal-article-dialog. --training-ink pööratakse modaali
+     skoobis heledaks, kogu sisu tekst muutub korraga. */
+  --training-ink: #f1ece0;
   background:
-    linear-gradient(rgba(248, 243, 236, 0.58), rgba(248, 243, 236, 0.58)),
-    #f8f3ec url("/Pictures/liiv-tekstuur.jpg") center / cover no-repeat;
+    linear-gradient(rgba(24, 30, 18, 0.87), rgba(20, 25, 15, 0.9)),
+    #1c2114 url("/RAIO%20taust/06-rohelised/1.jpg") center / cover no-repeat;
   color: var(--training-ink);
-  border: 1px solid rgba(248, 243, 236, 0.22);
+  border: 1px solid rgba(241, 236, 224, 0.14);
   border-radius: var(--ui-card-radius, 8px);
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
   overflow: hidden;
@@ -340,16 +342,16 @@ button.training-text-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(17, 16, 13, 0.16);
+  border: 1px solid rgba(241, 236, 224, 0.22);
   border-radius: 999px;
-  background: rgba(248, 243, 236, 0.9);
+  background: rgba(20, 25, 15, 0.5);
   color: var(--training-ink);
   cursor: pointer;
 }
 
 .training-modal-close:hover,
 .training-modal-close:focus-visible {
-  background: #fffaf1;
+  background: rgba(20, 25, 15, 0.72);
 }
 
 .training-modal-content {

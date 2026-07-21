@@ -63,11 +63,17 @@
   text-transform: none;
 }
 
-/* Trepp-pealkiri: hero pealkirja osad astuvad trepina paremale (omanik
-   2026-07-21: "pealkiri sammudega, nagu trepi astmed — et ei oleks sirgelt
-   joonduses read"). Astmed annab components/SteppedTitle.jsx (lausepiirid
-   või \n); üheastmeline pealkiri jääb muutmata. Taane on em-ides, seega
-   skaleerub kirja mõõduga kaasa. */
+/* Trepp-pealkiri: hero pealkirja osad astuvad siksakina (omanik 2026-07-21:
+   "pealkiri sammudega, nagu trepi astmed — et ei oleks sirgelt joonduses
+   read"). Astmed annab components/SteppedTitle.jsx (sõnapõhine tükeldus või
+   halduri \n); üheastmeline pealkiri jääb muutmata. Taane on em-ides, seega
+   skaleerub kirja mõõduga kaasa.
+
+   Astub AINULT teine aste — kaherealisel on see alumine rida, kolmerealisel
+   keskmine (omanik 2026-07-21: "2 rida → alumine sammuga; 3 rida → ainult
+   keskmine sammuga"). 3. aste ja edasi jäävad vasakjoondusse, nii et tekib
+   siksak, mitte pidev trepp — pidev trepp lükkas pika kolmanda astme liiga
+   kaugele veeru serva. */
 .hero-title-step {
   display: block;
 }
@@ -76,17 +82,9 @@
   margin-left: 0.75em;
 }
 
-.hero-title-step:nth-child(n + 3) {
-  margin-left: 1.5em;
-}
-
 @media (max-width: 620px) {
   .hero-title-step:nth-child(2) {
     margin-left: 0.45em;
-  }
-
-  .hero-title-step:nth-child(n + 3) {
-    margin-left: 0.9em;
   }
 }
 
