@@ -158,20 +158,19 @@
 .journal-card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  /* gap: components/journal-cards.css (ülekattekaardi mõõt) */
 }
 
+/* display/paigutus: components/journal-cards.css (kaart on ülekattekaart) */
 .journal-story-card {
   min-width: 0;
-  display: grid;
   grid-template-rows: auto 1fr;
   border: 1px solid var(--journal-line);
   /* Taust tuleb components/headings.css ui-box süsteemist. */
 }
 
+/* position/aspect-ratio: components/journal-cards.css (pilt on kaardi taust) */
 .journal-story-image {
-  position: relative;
-  aspect-ratio: 1.56 / 1;
   overflow: hidden;
   background: #17130f;
 }
@@ -182,38 +181,17 @@
   filter: saturate(0.9) contrast(1.04);
 }
 
-.journal-story-body {
-  min-height: 250px;
-  display: flex;
-  flex-direction: column;
-  padding: clamp(24px, 2vw, 32px);
-}
-
-.journal-story-meta {
-  display: grid;
-  justify-items: center;
-  gap: 8px;
-  margin: 0 0 12px;
-  color: var(--journal-ink);
-  font-size: calc(0.76rem * var(--cms-text-scale, 1));
-  line-height: 1.25;
-  text-align: center;
-}
+/* Kaardikeha, meta-rea ja lõigu mõõdud tulevad tervikuna
+   components/journal-cards.css-ist. */
 
 .journal-story-body h3 {
   margin: 0;
-  color: var(--journal-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: calc(clamp(1.45rem, 1.75vw, 2.1rem) * var(--cms-text-scale, 1));
   font-weight: 400;
-  line-height: 1.14;
-  letter-spacing: 0;
 }
 
 .journal-story-body > p:not(.journal-story-meta) {
   margin-top: 18px;
-  font-size: calc(clamp(0.92rem, 0.94vw, 1rem) * var(--cms-text-scale, 1));
-  line-height: 1.58;
 }
 
 .journal-text-link {
