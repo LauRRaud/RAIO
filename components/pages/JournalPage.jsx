@@ -1,3 +1,4 @@
+import { SteppedTitle } from "@/components/SteppedTitle";
 import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -28,7 +29,7 @@ export async function JournalPage({ locale = "et" }) {
         >
           <TextureSlideshow set="dark" />
           <div className="journal-hero-panel">
-            <h1 id="journal-hero-title">{t.heroTitle}</h1>
+            <h1 id="journal-hero-title"><SteppedTitle text={t.heroTitle} /></h1>
             <span className="journal-short-rule" aria-hidden="true" />
             <div className="journal-hero-text">
               {t.heroText.map((line) => (

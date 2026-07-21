@@ -1,3 +1,4 @@
+import { SteppedTitle } from "@/components/SteppedTitle";
 import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
@@ -27,7 +28,7 @@ export async function ShopPage({ locale = "et" }) {
         <section className="store-hero" aria-labelledby="store-hero-title" {...getCmsSectionProps(messages, "shopHero")}>
           <TextureSlideshow set="dark" />
           <div className="store-hero-copy">
-            <h1 id="store-hero-title">{t.heroTitle}</h1>
+            <h1 id="store-hero-title"><SteppedTitle text={t.heroTitle} /></h1>
             <span className="store-short-rule" aria-hidden="true" />
             <div className="store-hero-text">
               <p>{t.heroText}</p>

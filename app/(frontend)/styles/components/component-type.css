@@ -199,6 +199,18 @@
 }
 
 
+/* Karussellimodaalide (treening/sündmus/artikkel) kehatekst — liivatekstuuril
+   luges vaikimisi lehe-p mõõt liiga väikesena (omanik 2026-07-21: "tekst on
+   liiga väike ja ma ei näe lugeda"). */
+:is(
+  .training-modal-content,
+  .events-event-modal-content,
+  .journal-article-content
+) p {
+  font-size: calc(clamp(1.34rem, 1.38vw, 1.6rem) * var(--cms-text-scale, 1));
+  line-height: 1.68;
+}
+
 /* Ostukorvi rea tüpograafia (endine typography-cleanup/07). */
 .cart-section .cart-item-top h3 {
   max-width: 22ch;

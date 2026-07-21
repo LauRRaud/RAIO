@@ -1,3 +1,4 @@
+import { SteppedTitle } from "@/components/SteppedTitle";
 import Image from "next/image";
 import Link from "next/link";
 import { EventsCardsCarousel } from "@/components/EventsCardsCarousel";
@@ -31,7 +32,7 @@ export async function EventsPage({ locale = "et" }) {
         >
           <TextureSlideshow set="dark" />
           <div className="events-hero-panel">
-            <h1 id="events-hero-title">{t.heroTitle}</h1>
+            <h1 id="events-hero-title"><SteppedTitle text={t.heroTitle} /></h1>
             <span className="events-short-rule" aria-hidden="true" />
             <div className="events-hero-text">
               {t.heroText.map((line) => (

@@ -63,6 +63,33 @@
   text-transform: none;
 }
 
+/* Trepp-pealkiri: hero pealkirja osad astuvad trepina paremale (omanik
+   2026-07-21: "pealkiri sammudega, nagu trepi astmed — et ei oleks sirgelt
+   joonduses read"). Astmed annab components/SteppedTitle.jsx (lausepiirid
+   või \n); üheastmeline pealkiri jääb muutmata. Taane on em-ides, seega
+   skaleerub kirja mõõduga kaasa. */
+.hero-title-step {
+  display: block;
+}
+
+.hero-title-step:nth-child(2) {
+  margin-left: 0.75em;
+}
+
+.hero-title-step:nth-child(n + 3) {
+  margin-left: 1.5em;
+}
+
+@media (max-width: 620px) {
+  .hero-title-step:nth-child(2) {
+    margin-left: 0.45em;
+  }
+
+  .hero-title-step:nth-child(n + 3) {
+    margin-left: 0.9em;
+  }
+}
+
 /* Kriipsu (short-rule) kustutamisega kadus h1→kehatekst vahe (omanik
    2026-07-09: "lisa tagasi") — vahe elab nüüd h1 enda küljes. */
 :is(

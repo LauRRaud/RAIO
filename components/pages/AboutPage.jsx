@@ -1,3 +1,4 @@
+import { SteppedTitle } from "@/components/SteppedTitle";
 import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -52,7 +53,7 @@ export async function AboutPage({ locale = "et" }) {
             />
           </div>
           <div className="about-hero-panel">
-            <h1 id="about-hero-title">{t.heroTitle}</h1>
+            <h1 id="about-hero-title"><SteppedTitle text={t.heroTitle} /></h1>
             <span className="about-short-rule" aria-hidden="true" />
             <div className="about-hero-text">
               {t.heroText.map((line) => (

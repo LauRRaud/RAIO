@@ -1,3 +1,4 @@
+import { SteppedTitle } from "@/components/SteppedTitle";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, Leaf, UserRound, UsersRound } from "lucide-react";
@@ -45,7 +46,7 @@ export async function TrainingPage({ locale = "et" }) {
         >
           <TextureSlideshow set="dark" />
           <div className="training-hero-panel">
-            <h1 id="training-hero-title">{t.heroTitle}</h1>
+            <h1 id="training-hero-title"><SteppedTitle text={t.heroTitle} /></h1>
             <span className="training-short-rule" aria-hidden="true" />
             <div className="training-hero-text">
               {t.heroText.map((line) => (

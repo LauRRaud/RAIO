@@ -226,7 +226,10 @@ button.journal-text-link {
   max-height: min(820px, calc(100dvh - 32px));
   display: grid;
   grid-template-columns: 1fr;
-  background: #f8f3ec;
+  /* Liivatekstuur (omanik 2026-07-21) — vt training.css .training-dialog. */
+  background:
+    linear-gradient(rgba(248, 243, 236, 0.58), rgba(248, 243, 236, 0.58)),
+    #f8f3ec url("/Pictures/liiv-tekstuur.jpg") center / cover no-repeat;
   color: var(--journal-ink);
   border: 1px solid rgba(248, 243, 236, 0.22);
   border-radius: var(--ui-card-radius, 8px);

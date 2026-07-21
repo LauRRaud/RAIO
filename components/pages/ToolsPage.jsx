@@ -1,3 +1,4 @@
+import { SteppedTitle } from "@/components/SteppedTitle";
 import Image from "next/image";
 import Link from "next/link";
 import { Clock3, Leaf } from "lucide-react";
@@ -35,7 +36,7 @@ export async function ToolsPage({ locale = "et" }) {
         <section className="tools-hero-redesign" aria-labelledby="tools-hero-title" {...getCmsSectionProps(messages, "toolsHero")}>
           <TextureSlideshow set="dark" />
           <div className="tools-hero-panel">
-            <h1 id="tools-hero-title">{t.heroTitle}</h1>
+            <h1 id="tools-hero-title"><SteppedTitle text={t.heroTitle} /></h1>
             <span className="tools-short-rule" aria-hidden="true" />
             <div className="tools-hero-text">
               {t.heroText.map((line) => (

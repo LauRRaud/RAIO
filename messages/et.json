@@ -379,7 +379,7 @@
       "description": "RA•IO sündmused ühendavad liikumise, looduse ja kogukonna."
     },
     "label": "Sündmused",
-    "heroTitle": "Kohtume looduses.",
+    "heroTitle": "Kohtume\nlooduses.",
     "heroText": [
       "RA•IO sündmused ühendavad liikumise, looduse ja kogukonna.",
       "Treeningud, töötoad ja väljakutsed, mis loovad ruumi kasvamiseks."
@@ -460,7 +460,7 @@
       "description": "RA•IO+ ja artiklid"
     },
     "label": "RA•IO+",
-    "heroTitle": "Mõtteid, kogemusi ja inspiratsiooni.",
+    "heroTitle": "Mõtteid, kogemusi\nja inspiratsiooni.",
     "heroText": [
       "Siit leiad lugusid treeningutest, loodusest, töö käsitööna valmimisest ja igapäevasest liikumisest."
     ],
@@ -566,7 +566,7 @@
       "description": "RA•IO first edition treeningvahendite ettetellimine"
     },
     "kicker": "First edition",
-    "heroTitle": "Ettetellimine avatud.",
+    "heroTitle": "Ettetellimine\navatud.",
     "heroText": "Käsitööna valmivad treeningvahendid. Loodud puidust, kivist ja ajast.",
     "heroNote": "Piiratud kogus.",
     "heroImage": "/Pictures/Pood/header pood.png",
@@ -754,7 +754,7 @@
       "description": "RA•IO lugu — liikumine, käsitöövahendid ja kogemused looduses."
     },
     "label": "Meist",
-    "heroTitle": "Treening, tööriist ja kogemus.",
+    "heroTitle": "Treening, tööriist\nja kogemus.",
     "heroText": [
       "RA•IO on loodud selleks, et need kolm ei oleks eraldi asjad, vaid üks terviklik teekond keha ja looduse juurde."
     ],
