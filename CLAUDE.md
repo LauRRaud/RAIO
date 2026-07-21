@@ -5,14 +5,18 @@
 Iga omadus defineeritakse **üks kord**. Kui väärtus on vale, muuda algset
 reeglit — **mitte kunagi ära lisa hilisemat ülekirjutust** teise faili ega
 impordiloendi lõppu. Just nii tekkis 4000-realine typography-cleanup kiht,
-mille mahavõtmine maksis päevi (vt CSS-AUDIT-HANDOFF.md).
+mis 2026-07-21 lahti volditi (struktuur, lõksud ja tööriistad:
+CSS-AUDIT-HANDOFF.md).
 
 - Lehteülesed süsteemid (pealkirjad, komponenditüpograafia, karussell,
   kaardikroom) elavad `app/(frontend)/styles/components/` failides; lehe
   eripärad lehefailis (`pages/*.css`); teemapolaarsus `theme/polarity.css`.
 - Impordijärjekord `globals.css`-is on kandev — uus fail käib õigesse
   kihti (settings → base → layout → primitives → components → pages → theme),
-  mitte lõppu.
+  mitte lõppu. Komponendikiht ise on järjestatud üldisemast täpsemani ja
+  lahendab võrdse spetsiifilisuse viigid positsiooniga.
+- Uus reegel käib SISULISELT sobivasse faili ja faili sees õigesse kohta —
+  lõppu lisatud reegel võib lõhkuda sama faili hilisema mobiiliploki.
 - Enne CSS-i puudutava commit'i tegemist jooksuta `npm run audit:css` —
   see failib, kui sama (media × selektor × omadus) on defineeritud mitmes
   failis.
