@@ -1,7 +1,7 @@
 import { ToolsPage } from "@/components/pages/ToolsPage";
-import { getPageMetadata } from "@/lib/messages";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = getPageMetadata("et", "tools");
+export const metadata = buildPageMetadata("et", "tools");
 export const dynamic = "force-dynamic";
 
 export default function Vahendid() {

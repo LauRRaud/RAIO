@@ -1,5 +1,6 @@
+import { JsonLd } from "@/components/JsonLd";
 import { ProductPage } from "@/components/pages/ProductPage";
-import { getLocalizedProduct, getMessages } from "@/lib/messages";
+import { buildProductJsonLd, buildProductMetadata } from "@/lib/seo";
 import { shopProducts } from "@/lib/shop";
 
 export const dynamic = "force-dynamic";
@@ -10,20 +11,15 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const messages = getMessages("et");
-  const product = getLocalizedProduct("et", slug);
-
-  if (!product) {
-    return { title: messages.product.notFound };
-  }
-
-  return {
-    title: `${product.name} | ${messages.brand.name}`,
-    description: product.description
-  };
+  return buildProductMetadata("et", slug);
 }
 
 export default async function Product({ params }) {
   const { slug } = await params;
-  return <ProductPage locale="et" slug={slug} />;
+  return (
+    <>
+      <JsonLd data={buildProductJsonLd("et", slug)} />
+      <ProductPage locale="et" slug={slug} />
+    </>
+  );
 }

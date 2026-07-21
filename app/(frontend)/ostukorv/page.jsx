@@ -1,7 +1,7 @@
 import { CartPage } from "@/components/pages/CartPage";
-import { getPageMetadata } from "@/lib/messages";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = getPageMetadata("et", "cart");
+export const metadata = buildPageMetadata("et", "cart");
 
 export default function Ostukorv() {
   return <CartPage locale="et" />;

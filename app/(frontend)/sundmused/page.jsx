@@ -1,7 +1,7 @@
 import { EventsPage } from "@/components/pages/EventsPage";
-import { getPageMetadata } from "@/lib/messages";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = getPageMetadata("et", "events");
+export const metadata = buildPageMetadata("et", "events");
 export const dynamic = "force-dynamic";
 
 export default function Sundmused() {

@@ -9,7 +9,9 @@ import { ProductPage } from "@/components/pages/ProductPage";
 import { ShopPage } from "@/components/pages/ShopPage";
 import { ToolsPage } from "@/components/pages/ToolsPage";
 import { TrainingPage } from "@/components/pages/TrainingPage";
-import { getHomeMetadata, getLocalizedProduct, getMessages, getPageMetadata } from "@/lib/messages";
+import { JsonLd } from "@/components/JsonLd";
+import { getMessages } from "@/lib/messages";
+import { buildPageMetadata, buildProductJsonLd, buildProductMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -34,19 +36,16 @@ export async function generateMetadata({ params }) {
   const messages = getMessages("en");
 
   if (!route || route === "en") {
-    return getHomeMetadata("en");
+    return buildPageMetadata("en", "home");
   }
 
   if (routePages[route]) {
-    return getPageMetadata("en", routePages[route].page);
+    return buildPageMetadata("en", routePages[route].page);
   }
 
   if (route.startsWith("pood/")) {
     const productSlug = route.split("/").slice(1).join("/");
-    const product = getLocalizedProduct("en", productSlug);
-    return product
-      ? { title: `${product.name} | ${messages.brand.name}`, description: product.description }
-      : { title: messages.product.notFound };
+    return buildProductMetadata("en", productSlug);
   }
 
   return { title: messages.metadata.title };
@@ -74,7 +73,12 @@ export default async function EnglishSitePage({ params, searchParams }) {
 
   if (route.startsWith("pood/")) {
     const productSlug = route.split("/").slice(1).join("/");
-    return <ProductPage locale="en" slug={productSlug} />;
+    return (
+      <>
+        <JsonLd data={buildProductJsonLd("en", productSlug)} />
+        <ProductPage locale="en" slug={productSlug} />
+      </>
+    );
   }
 
   notFound();
