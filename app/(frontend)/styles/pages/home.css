@@ -86,6 +86,11 @@
   .home-split-hero {
     grid-template-columns: minmax(440px, 0.47fr) 0.53fr;
     align-items: center;
+    /* SAMA kõrgusvalem kui alalehtede herodel (heroes.css desktop-plokk),
+       KOOS 640px põrandaga — muidu istub kompositsioon madalatel akendel
+       (svh < 718) alalehel madalamal ja navigeerimisel "vajub" hero alla.
+       Mobiilis põrand ei kehti (alalehtedel on seal 520px põrand). */
+    min-height: max(640px, calc(100svh - 78px));
   }
 
   .home-split-hero .home-split-copy {
