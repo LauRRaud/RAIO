@@ -129,6 +129,16 @@
   .footer-fineprint {
     bottom: 52px;
   }
+
+  /* Kitsal ekraanil allkiri © rea alla keskele, väikese vahega (omanik
+     2026-07-21: "pane keskjoondusesse ja vähenda veidi vahet ülemise reaga")
+     — nurgaallkiri on desktopi keel. */
+  .footer-credit {
+    left: 0;
+    right: 0;
+    bottom: 22px;
+    text-align: center;
+  }
 }
 
 @media (max-width: 620px) {

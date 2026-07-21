@@ -274,7 +274,10 @@
 
 .mobile-menu-panel {
   position: absolute;
-  top: calc(100% + 8px);
+  /* +17px viib paneeli ülaserva header-bändi alaservaga tasa (nuppu alaserv
+     on bändi servast 17px kõrgemal; mõõdetud 390px vaateaval) — omanik
+     2026-07-21: "veidi alla poole, et oleks menüü servaga tasa". */
+  top: calc(100% + 17px);
   /* Sit closer to the screen edge — the header is inset 18px, so pull the panel
      out most of that (owner 2026-07-09: "avaneb servast nii kaugele"). */
   right: -12px;
@@ -283,10 +286,10 @@
   max-width: calc(100vw - 40px);
   padding: 18px 18px;
   border-radius: var(--ui-card-radius, 8px);
-  /* Cream panel with dark text, matching the header frame (owner 2026-07-09:
-     "vale värvi") — the near-black box read as out of place. */
+  /* Sama paekivi muster nagu header-bändil (omanik 2026-07-21: "menüü aken
+     olgu kivi mustriga, nagu menüü taust"); värv jääb varuks laadimise ajaks. */
   border: 1px solid rgba(34, 28, 20, 0.14);
-  background: #e6ceb0;
+  background: #e6ceb0 url("/Pictures/paekivi-tekstuur.jpg") center / cover no-repeat;
   color: #2b241b;
   box-shadow: 0 18px 42px rgba(17, 16, 13, 0.24);
   overflow: hidden;
