@@ -73,10 +73,29 @@ verifitseeri determinism (teine jooks + diff → identne), ja võrdle IGA
 voltimissammu järel selle vastu. Pärast igat puhast commit'i võid etaloni
 uuendada või hoida sama.
 
-**Müra, mida IGNOREERIDA diffis:** sümmeetrilised `margin-left/right`
-"0px"↔"42px" paarid tsentreeritud sektsioonidel (`margin:auto` lahendumise
-võidujooks, esineb mõlemas suunas juhuslikel lehtedel). KÕIK MUU on päris
-regressioon.
+**Müra, mida IGNOREERIDA diffis:**
+- sümmeetrilised `margin-left/right` "0px"↔"42px" paarid tsentreeritud
+  sektsioonidel (`margin:auto` lahendumise võidujooks, mõlemas suunas);
+- `display:none` elementide (nt `.X-short-rule`) stiilidiffid pärast nende
+  surnud kujundusreeglite kustutamist — element on nähtamatu, computed style
+  muutub, pilt mitte.
+KÕIK MUU on päris regressioon.
+
+**ETALONI ROISKUMINE (õpitud valusalt):** omanik kasutab adminit (tekstid,
+sektsioonivärvid, tekstuurid) samal ajal — CMS-i muudatus muudab DOM-i klasse
+ja inline-muutujaid ning vana etalon muutub võrreldamatuks (sajad võltsdiffid:
+sektsioonitaustad, pärandvärvid, `home-world-card-*` klassid). SEEPÄRAST:
+võrdle AINULT paarisjooksuga — `git stash push -u -- "app/(frontend)"` →
+snapshot (vana CSS, praegune sisu) → `git stash pop` → snapshot (uus CSS) →
+diff. Kaks jooksu järjest, sisu külmutatud.
+
+**SPETSIIFILISUSLÕKS JÄRGMISTE KIHIFAILIDE VASTU (juhtus päriselt):**
+`:not(.surnud-klass)` eemaldamine langetab reegli (0,2,1)→(0,1,1) ja siis
+võidab teda mõni HILISEM kihifail sama sihtmärgi üldreegliga (nt
+component-type lehe-p reegel võitis store-hero p oma). Kontrolli iga
+lihtsustuse võitjat ka JÄRGNEVATE importide, mitte ainult lehefailide vastu;
+vajadusel hoia spetsiifilisus dokumenteeritud eesliitega (nt
+`.store-hero .store-hero-copy p` + kommentaar miks).
 
 **Dev-server:** `preview_start` nimega `raio-dev` (launch.json). Port võib
 olla hõivatud (teine projekt) → autoport annab muu pordi → kasuta seda
@@ -156,18 +175,14 @@ Impordijärjekord globals.css-is on SÄILITATAV kuni fail kaob/voldiitakse.
   (pärast #5–#12 on vahepealsed kadunud → liitmine muutub ohutuks; tee see
   ülesanne VIIMASENA enne #15). Kaardivahede hoovad `--raio-event-eyebrow-top`
   ja `--raio-card-foot-lift` SÄILITA (memory: card-spacing-levers).
-- **#15 · etapp C**:
+- **#15 · etapp C** (punktid 2–3 on JUBA TEHTUD Fable poolt):
   1. `pages/typography-cleanup/` kataloog peab olema tühi → kustuta;
-  2. valvurskript nt `scripts/css-duplicate-guard.mjs`: liida CSS
-     (merge-css loogika), leia sama (media × selektor × omadus) >1 failis →
-     exit 1 koos loendiga; lisa `package.json` scripts alla nt
-     `"audit:css": "node scripts/css-duplicate-guard.mjs"`;
-  3. CLAUDE.md-sse reegel: *"CSS: iga omadus defineeritakse üks kord; vale
-     väärtuse korral muuda algset reeglit, ära lisa hilisemat ülekirjutust.
-     Lehteülesed süsteemid elavad components/ failides; kontrolli
-     `npm run audit:css` enne commit'i."*;
-  4. `npm run build` + snapshot-diff + lõppraport (ridade arv enne/pärast:
-     algne 12 654 → loe kokku);
+  2. ✔ valvur on olemas: `scripts/css-duplicate-guard.mjs` + `npm run
+     audit:css` (praegu FAIL 75 duplikaadiga — number peab voltimistega
+     kahanema nullini; kasuta seda IGA voltimissammu edenemismõõdikuna);
+  3. ✔ CLAUDE.md on loodud (raudreegel + audit:css kohustus);
+  4. `npm run build` + snapshot-paarisjooks + lõppraport (ridade arv
+     enne/pärast: algne 12 654 → loe kokku);
   5. uuenda memory `css-audit-progress.md` (etapp B+C valmis, commit'id).
 
 ## 7. Commit'i ja push'i kord

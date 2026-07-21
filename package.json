@@ -12,6 +12,7 @@
     "payload:types": "payload generate:types",
     "payload:importmap": "payload generate:importmap",
     "audit:ui": "node scripts/ui-audit.mjs",
+    "audit:css": "node scripts/css-duplicate-guard.mjs",
     "seed:admin": "tsx scripts/seed-admin-content.ts"
   },
   "dependencies": {
