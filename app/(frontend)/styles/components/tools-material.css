@@ -19,8 +19,9 @@
   container-type: inline-size;
 }
 
+/* NB: background elab tools.css-is !important-iga (võidab polarity kaardikroomi
+   reeglit ja seega ka seda kihti) — siin teda korrata ei tohi. */
 .tools-page-redesign .tools-material-copy {
-  background: transparent;
   color: var(--material-panel-ink);
   border-radius: 0;
 }

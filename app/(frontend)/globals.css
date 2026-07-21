@@ -27,19 +27,20 @@
    volditakse järk-järgult baasfailidesse ja kaovad siit nimekirjast. */
 @import "./styles/components/headings.css";
 @import "./styles/components/component-type.css";
-@import "./styles/pages/typography-cleanup/03-store-catalog.css";
+@import "./styles/components/store-catalog.css";
+@import "./styles/components/band-cta.css";
 @import "./styles/components/card-frames.css";
 @import "./styles/components/events-cards.css";
 @import "./styles/components/journal-cards.css";
 @import "./styles/pages/typography-cleanup/07-events-journal-passes.css";
-@import "./styles/pages/typography-cleanup/08-tools-material.css";
+@import "./styles/components/tools-material.css";
 @import "./styles/components/carousel-legacy.css";
 @import "./styles/components/carousel-system.css";
 @import "./styles/components/carousel-type.css";
-@import "./styles/pages/typography-cleanup/12-hero-mobile-polish.css";
+@import "./styles/components/hero-polish.css";
 @import "./styles/components/frames-shadows.css";
 @import "./styles/components/overlay-cards.css";
-@import "./styles/pages/typography-cleanup/15-section-headers.css";
+@import "./styles/components/section-headers.css";
 @import "./styles/components/card-polish.css";
 
 /* Fotobändide tekst heledamaks (omanik 2026-07-20). Need bändid korduvad

@@ -398,21 +398,8 @@ body .store-product-card .button:focus-visible {
   color: var(--ui-box-button-hover-ink);
 }
 
-.store-page .store-product-card .add-to-cart,
-.store-page .store-product-card .button {
-  border-color: #f0e9dd;
-  background: #f0e9dd;
-  color: #11100d;
-}
-
-.store-page .store-product-card .add-to-cart:hover,
-.store-page .store-product-card .add-to-cart:focus-visible,
-.store-page .store-product-card .button:hover,
-.store-page .store-product-card .button:focus-visible {
-  border-color: #f1f1ec;
-  background: #f1f1ec;
-  color: #11100d;
-}
+/* Poekaardi CTA värvid (tavaline + hover) elavad components/store-catalog.css-is
+   — see kiht laeb hiljem ja võitis siinsed väärtused alati. */
 
 body .add-to-cart.is-added,
 body .store-page .store-product-card .add-to-cart.is-added {

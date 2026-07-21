@@ -306,10 +306,9 @@
   max-width: 9.5ch;
   color: var(--material-panel-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: calc(clamp(2.7rem, 4.8vw, 6.4rem) * var(--cms-text-scale, 1));
   font-weight: 400;
-  line-height: 0.9;
   letter-spacing: 0;
+  /* Mõõt ja reavahe: components/tools-material.css (cqw-lagi hoiab ühel real) */
 }
 
 .tools-material-copy > p {
@@ -399,7 +398,7 @@
 .tools-care-image {
   position: relative;
   min-height: 320px;
-  overflow: hidden;
+  /* overflow: theme/polarity.css (kaardikroomi ühine reegel) */
 }
 
 .tools-hero-redesign {
@@ -706,8 +705,7 @@
   width: 100%;
   min-height: 0;
   aspect-ratio: 3 / 2;
-  background: #2b241b;
-  /* Real box-shadow lives in typography-cleanup (beats the frame reset). */
+  /* Taust: components/tools-material.css */
   filter: none;
 }
 

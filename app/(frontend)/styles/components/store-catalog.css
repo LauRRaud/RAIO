@@ -65,11 +65,8 @@
   --select-active-ink: #2b241b;
 }
 
-.store-products-section .store-filter-controls .ui-select-menu {
-  margin-top: 4px;
-  border: 1px solid rgba(43, 36, 27, 0.18);
-  box-shadow: 0 14px 30px rgba(17, 16, 13, 0.24);
-}
+/* Avaneva menüü raam/vari/vahe tulevad components/section-headers.css-ist
+   (meta-rea ühtne keel) — siinsed väärtused kaotasid alati. */
 
 .store-product-grid {
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -172,62 +169,6 @@
   border-color: var(--ui-box-button-hover-bg);
   background: var(--ui-box-button-hover-bg);
   color: #2b241b;
-}
-
-/* Solid band CTAs ("Võta ühendust" etc.) as transparent + border, matching the
-   card CTAs — fill with the primitive cream on hover (owner 2026-07-08:
-   "proovime primitiivnuppe ka läbipaistvatena ja raamiga"). */
-body :is(
-  .events-host-cta .events-solid-button,
-  .journal-signup-banner .journal-solid-button,
-  .training-lasting-panel .training-solid-button,
-  .training-workshop-panel .training-solid-button,
-  .store-custom-band .store-solid-button
-) {
-  width: fit-content;
-  min-width: 0;
-  padding-inline: clamp(26px, 2.6vw, 36px);
-  border: 2px solid rgba(248, 243, 236, 0.7);
-  /* Subtle frosted-glass fill instead of fully transparent (owner 2026-07-09:
-     "kerge klaasjas efekt"). */
-  background: rgba(248, 243, 236, 0.12);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
-  color: #f4efe4;
-  font-size: calc(clamp(1.16rem, 1.1vw, 1.3rem) * var(--cms-text-scale, 1));
-}
-
-body :is(
-  .events-host-cta .events-solid-button,
-  .journal-signup-banner .journal-solid-button,
-  .training-lasting-panel .training-solid-button,
-  .training-workshop-panel .training-solid-button,
-  .store-custom-band .store-solid-button
-):hover,
-body :is(
-  .events-host-cta .events-solid-button,
-  .journal-signup-banner .journal-solid-button,
-  .training-lasting-panel .training-solid-button,
-  .training-workshop-panel .training-solid-button,
-  .store-custom-band .store-solid-button
-):focus-visible {
-  border-color: var(--ui-box-button-hover-bg);
-  background: var(--ui-box-button-hover-bg);
-  color: #2b241b;
-}
-
-/* Band flipped to dark 2026-07-20: the CTA is now a LIGHT ghost (light text +
-   border over the frosted fill) that fills light on hover with dark text. */
-body .training-lasting-panel .training-solid-button {
-  border-color: rgba(245, 239, 229, 0.6);
-  color: #f4efe4;
-}
-
-body .training-lasting-panel .training-solid-button:hover,
-body .training-lasting-panel .training-solid-button:focus-visible {
-  border-color: #f4efe4;
-  background: #f4efe4;
-  color: #221c14;
 }
 
 @media (max-width: 1480px) {

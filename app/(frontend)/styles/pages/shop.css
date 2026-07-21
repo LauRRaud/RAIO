@@ -176,10 +176,9 @@
   display: none;
 }
 
+/* Veergude arv ja vahe: components/store-catalog.css (kataloogi süsteem) */
 .store-product-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px;
 }
 
 .store-product-carousel {
@@ -255,31 +254,25 @@
   /* Taust tuleb components/headings.css ui-box süsteemist. */
 }
 
+/* Kuvasuhe, taust ja filtrid: components/store-catalog.css */
 .store-product-image {
   position: relative;
   display: block;
-  aspect-ratio: 0.9 / 1;
   overflow: hidden;
-  background: #17130f;
 }
 
 .store-product-image img {
   object-fit: cover;
-  filter: saturate(0.9) contrast(1.04);
 }
 
 .store-product-card[data-product="kivisangpomm"] .store-product-image img {
   object-position: center 42%;
-  filter: saturate(0.58) contrast(1.12) brightness(0.72) sepia(0.2);
 }
 
+/* Kaardikeha mõõdud/paigutus: components/store-catalog.css + overlay-cards */
 .store-product-body {
-  min-height: 324px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: clamp(24px, 2.4vw, 34px) clamp(16px, 2vw, 26px) 26px;
-  text-align: center;
 }
 
 .store-product-category {
@@ -288,21 +281,17 @@
   font-size: calc(0.62rem * var(--cms-text-scale, 1));
 }
 
+/* Mõõt/laius/leading: components/store-catalog.css */
 .store-product-body h3 {
-  max-width: 16ch;
-  min-height: 2.4em;
   margin: 0;
   color: var(--store-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: calc(clamp(1.36rem, 1.6vw, 2rem) * var(--cms-text-scale, 1));
   font-weight: 500;
-  line-height: 1.18;
 }
 
 .store-price {
   display: inline-flex;
   align-items: baseline;
-  justify-content: center;
   gap: 8px;
   margin: 24px 0 0;
   color: var(--store-ink);
@@ -316,7 +305,6 @@
 }
 
 .store-price strong {
-  font-size: calc(clamp(1.45rem, 1.8vw, 2.1rem) * var(--cms-text-scale, 1));
   line-height: 1;
 }
 
@@ -342,12 +330,7 @@
   }
 }
 
-@media (max-width: 980px) {
-
-  .store-product-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
+/* Ruudustiku murdepunktid: components/store-catalog.css */
 
 @media (max-width: 620px) {
 
@@ -494,12 +477,6 @@
   }
 }
 
-@media (max-width: 620px) {
-
-  .store-product-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 @media (max-width: 620px) {
 
@@ -629,10 +606,5 @@
   }
 }
 
-@media (max-width: 620px) {
-  .store-page .store-product-arrow-left,
-  .store-page .store-product-arrow-right {
-    top: clamp(465px, 122vw, 515px);
-  }
-}
+/* Karusselli noolte mobiilikõrgus: components/carousel-type.css */
 
