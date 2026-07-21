@@ -4,7 +4,10 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* MITTE lisada scroll-behavior: smooth — Next'i route-vahetuse
+     scroll-reset muutub siis nähtavaks liuguks vana lehe peal (leht
+     "vajub alla" enne uue sisu ilmumist). Sujuv kerimine käib sihitult
+     JS-iga (StoreCatalog, karussellid), mitte globaalselt. */
   scrollbar-width: none;
   -ms-overflow-style: none;
   font-synthesis-weight: none;

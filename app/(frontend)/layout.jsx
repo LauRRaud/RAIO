@@ -27,7 +27,7 @@ metadata.icons = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="et" data-scroll-behavior="smooth">
+    <html lang="et">
       <body className={display.variable}>
         <JsonLd data={buildOrganizationJsonLd()} />
         <CartProvider>{children}</CartProvider>
