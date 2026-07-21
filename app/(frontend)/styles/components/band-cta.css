@@ -55,3 +55,14 @@ body .training-lasting-panel .training-solid-button:focus-visible {
   color: #221c14;
 }
 
+
+/* Bändinuppude kirjamõõt (endine typography-cleanup/07). */
+.training-solid-button,
+.events-solid-button,
+.journal-solid-button {
+  font-size: calc(clamp(1.14rem, 1.08vw, 1.28rem) * var(--cms-text-scale, 1));
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  -webkit-text-stroke: 0 transparent;
+  text-shadow: none;
+}

@@ -303,12 +303,11 @@
 }
 
 .tools-page-redesign .tools-material-copy h2 {
-  max-width: 9.5ch;
-  color: var(--material-panel-ink);
   font-family: var(--font-display), Georgia, serif;
   font-weight: 400;
   letter-spacing: 0;
-  /* Mõõt ja reavahe: components/tools-material.css (cqw-lagi hoiab ühel real) */
+  /* max-width, värv, mõõt ja reavahe: components/tools-material.css
+     (tumendatud bänd + cqw-lagi, mis hoiab pealkirja ühel real) */
 }
 
 .tools-material-copy > p {
@@ -713,7 +712,7 @@
 .tools-page-redesign .tools-material-proof-row .tools-proof-item {
   border-top: 1px solid rgba(245, 239, 229, 0.28);
   padding-top: 14px;
-  align-items: center;
+  /* align-items: components/tools-material.css (ikoon sildi kohal) */
 }
 
 /* HOOLDUS band: a framed care photo on the left, the maintenance notes on the

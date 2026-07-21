@@ -26,47 +26,16 @@
   line-height: 1.25;
 }
 
-/* Sort/category dropdowns adopt the cream ghost-button language instead of a
-   dark filled box, so they sit with the other buttons on the terracotta band
-   (owner 2026-07-09: "dropdown nupp ei lähe teiste nuppude stiili ja värviga
-   kokku"). */
-/* The .ui-select root carries a dark box fill from polarity.css — clear it so
-   the cream ghost trigger sits over the terracotta band, not a dark box. */
+/* .ui-select juurel on polarity.css-ist tume kastitäide — see tuleb maha, et
+   päisereal seisaks läbipaistev valik, mitte tume kast. */
 .store-products-section .store-filter-controls .ui-select {
   background: transparent;
 }
 
-.store-products-section .store-filter-controls .ui-select-trigger {
-  border: 2px solid rgba(248, 243, 236, 0.7);
-  border-radius: 0;
-  background: rgba(248, 243, 236, 0.12);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
-  color: #f8f3ec;
-}
-
-.store-products-section .store-filter-controls .ui-select[data-select-theme="dark"] .ui-select-trigger:hover,
-.store-products-section .store-filter-controls .ui-select[data-select-theme="dark"] .ui-select-trigger:focus-visible,
-.store-products-section .store-filter-controls .ui-select[data-select-theme="dark"][data-open="true"] .ui-select-trigger {
-  border-color: var(--ui-box-button-hover-bg);
-  background: var(--ui-box-button-hover-bg);
-  color: #2b241b;
-}
-
-/* Open menu: one clean cream panel with dark text instead of the mixed
-   light-row-on-dark look (owner 2026-07-09: "drop menüü kujundus ei meeldi").
-   The selected and hovered rows read as gentle darker-cream tints. */
-.store-products-section .store-filter-controls .ui-select[data-select-theme="dark"] {
-  --select-bg: #f2ebdf;
-  --select-ink: #2b241b;
-  --select-hover-bg: #e4d9c4;
-  --select-hover-ink: #2b241b;
-  --select-active-bg: #d8c9af;
-  --select-active-ink: #2b241b;
-}
-
-/* Avaneva menüü raam/vari/vahe tulevad components/section-headers.css-ist
-   (meta-rea ühtne keel) — siinsed väärtused kaotasid alati. */
+/* Sortimisvaliku kogu ülejäänud kujundus (nupp, avatud olek, menüü värvid,
+   raam ja vari) elab components/section-headers.css-is — 2026-07-20 ühtlustas
+   päiserea ühte keelde ja siinsed kreemja kummitusnupu väärtused kaotasid
+   pärast seda alati. */
 
 .store-product-grid {
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -189,3 +158,9 @@
   }
 }
 
+
+@media (max-width: 620px) {
+  .store-product-grid {
+    grid-template-columns: 1fr;
+  }
+}

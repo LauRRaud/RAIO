@@ -165,3 +165,10 @@
   border-radius: 0;
 }
 
+
+/* Ümarad nurgad ainult eraldiseisval tootepildil; kaardiga paaris pildid
+   jäävad kandiliseks (endine typography-cleanup/07). */
+:is(.product-primary-media, .product-thumb) {
+  border-radius: var(--ui-card-radius);
+  overflow: hidden;
+}

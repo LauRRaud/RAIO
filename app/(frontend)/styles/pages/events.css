@@ -175,9 +175,9 @@ button.events-outline-button {
   /* gap: components/events-cards.css (ülekattekaardi mõõt) */
 }
 
+/* display/paigutus: components/events-cards.css (kaart on ülekattekaart) */
 .events-event-card {
   min-width: 0;
-  display: grid;
   grid-template-rows: auto 1fr;
   border: 1px solid var(--events-line);
   /* Taust tuleb components/headings.css ui-box süsteemist. */

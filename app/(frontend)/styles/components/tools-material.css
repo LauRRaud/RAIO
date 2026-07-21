@@ -2,14 +2,12 @@
    meist-lehel — tekstid heledaks (omanik 2026-07-20: "kõik tekstid ja ikoonid
    valged, väljaarvatud pealkiri … sarnane nagu treenerid sektsioon"). Fallback-
    gradient on sama hall kui treenerite bändil. */
+/* NB: raam, nurgad ja bänditaust on tools.css-is !important-iga (võidavad
+   polarity kaardikroomi) — neid siin korrata ei tohi, muidu tekib duplikaat,
+   mille tegelik võitja on hoopis varasem fail. */
 .tools-page-redesign .tools-material-panel {
   --material-panel-ink: #fdf8ee;
   --material-panel-muted: color-mix(in srgb, #f4efe4 86%, transparent);
-  border: 0;
-  border-radius: 0;
-  background:
-    radial-gradient(72% 60% at 26% 18%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 60%),
-    linear-gradient(135deg, #aaa694 0%, #97927f 100%);
   color: var(--material-panel-ink);
   overflow: hidden;
 }

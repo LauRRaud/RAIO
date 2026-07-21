@@ -157,7 +157,7 @@
   ) {
   position: absolute;
   left: 50%;
-  bottom: calc(clamp(24px, 2.1vw, 34px) * var(--cms-text-scale, 1));
+  /* bottom: components/card-polish.css (--raio-card-foot-lift hoob) */
   width: fit-content;
   max-width: calc(100% - 48px);
   min-width: 0;
@@ -224,21 +224,17 @@
   }
 }
 
-.events-event-carousel .events-event-body,
-.journal-story-carousel .journal-story-body {
-  padding-bottom: calc(clamp(96px, 6vw, 118px) * var(--cms-text-scale, 1));
-}
+/* padding-bottom, align-content ja asukoharea bottom: components/card-polish.css
+   (kaardi jalavahe hoovad --raio-card-foot-lift / --raio-event-eyebrow-top). */
 
 .events-event-carousel .events-event-card .events-event-body {
-  grid-template-rows: auto auto auto;
-  align-content: center;
+  /* grid-template-rows: components/card-polish.css (vabastas read voolama) */
   gap: clamp(12px, 1vw, 16px);
 }
 
 .events-event-carousel .events-event-card .events-location {
   position: absolute;
   left: 50%;
-  bottom: calc(clamp(114px, 7.1vw, 132px) * var(--cms-text-scale, 1));
   margin: 0;
   transform: translateX(-50%);
 }

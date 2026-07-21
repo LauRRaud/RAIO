@@ -22,7 +22,8 @@ const importRe = /^@import\s+"(\.[^"]+)";\s*$/;
 
 function inline(file) {
   const raw = readFileSync(file, "utf8");
-  let out = "/*===FILE===" + file + "*/\n";
+  // sentinel, MITTE kommentaar — peab üle elama kommentaaride eemaldamise
+  let out = "@__FILE__" + file + "\n";
   for (const line of raw.split("\n")) {
     const m = line.match(importRe);
     out += m ? inline(resolve(dirname(file), m[1])) : line + "\n";
@@ -30,7 +31,9 @@ function inline(file) {
   return out;
 }
 
-const css = inline(ENTRY);
+// Kommentaarid maha ENNE parsimist ja üle reapiiride — kommentaaris olev
+// sulg nihutaks muidu sügavusloendust ja @media konteksti (valepositiivid).
+const css = inline(ENTRY).replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, " "));
 const lines = css.split("\n");
 
 let file = "?";
@@ -43,10 +46,8 @@ const short = (f) => f.replace(/\\/g, "/").replace(/^.*app\//, "app/");
 
 for (let i = 0; i < lines.length; i++) {
   let line = lines[i];
-  const fm = line.match(/\/\*===FILE===(.+?)\*\//);
-  if (fm) { file = short(fm[1]); continue; }
-  line = line.replace(/\/\*.*?\*\//g, "");
-  if (/^\s*\/\*/.test(line)) continue;
+  const fm = line.match(/^@__FILE__(.+)$/);
+  if (fm) { file = short(fm[1].trim()); continue; }
 
   for (let j = 0; j < line.length; j++) {
     const ch = line[j];

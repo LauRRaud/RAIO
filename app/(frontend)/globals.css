@@ -21,10 +21,11 @@
 @import "./styles/pages/heroes.css";
 @import "./styles/theme/polarity.css";
 @import "./styles/primitives/select.css";
-/* --- endine typography-cleanup ülekirjutuskiht (voltimine käib, etapp B) ---
-   Järjekord on kandev ja vastab üks-ühele endisele importerile; komponendi-
-   failid on tõstetud ausate nimedega components/ alla, puhtad override'id
-   volditakse järk-järgult baasfailidesse ja kaovad siit nimekirjast. */
+/* --- komponendikiht: üldisemast täpsemani ---
+   JÄRJEKORD ON KANDEV. Reeglid on siin võrdse spetsiifilisusega (enamasti
+   (0,1,1)) ja lahendavad viigi positsiooniga: lehteülene tüpograafia enne,
+   lehepõhised kaardikihid pärast, kaardi kroom ja viimistlus kõige lõpus.
+   Uus reegel käib SISULISELT sobivasse faili, mitte loendi lõppu. */
 @import "./styles/components/headings.css";
 @import "./styles/components/component-type.css";
 @import "./styles/components/store-catalog.css";
@@ -32,7 +33,6 @@
 @import "./styles/components/card-frames.css";
 @import "./styles/components/events-cards.css";
 @import "./styles/components/journal-cards.css";
-@import "./styles/pages/typography-cleanup/07-events-journal-passes.css";
 @import "./styles/components/tools-material.css";
 @import "./styles/components/carousel-legacy.css";
 @import "./styles/components/carousel-system.css";

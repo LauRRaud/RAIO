@@ -880,8 +880,7 @@ body .training-modal-content .training-meta span {
      pealkirja ja teksti vahele 56px auku, mis lisandus bändi tühjusele
      (omanik 2026-07-20). Vahe jääb alles, ainult mõõdukam. */
   margin-top: clamp(26px, 3.2vw, 46px);
-  font-size: calc(clamp(1.18rem, 1.22vw, 1.42rem) * var(--cms-text-scale, 1));
-  line-height: 1.62;
+  /* Kirja mõõt ja reavahe: components/component-type.css */
 }
 
 .training-page-redesign .training-workshop-panel > .training-solid-button {

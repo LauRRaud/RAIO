@@ -154,9 +154,9 @@ body
      as a sixth category filter. At the filters' own size and normal case the
      eye grouped it with them; only the arrow said otherwise. Sized below the
      filters so it reads as a quieter action beside them. */
-  font-size: calc(clamp(1.15rem, 1.08vw, 1.34rem) * var(--cms-text-scale, 1));
+  /* Mõõt ja tähevahe tulevad components/section-headers.css ühisest
+     --raio-section-meta-* komplektist, et filter, valik ja link ei triiviks. */
   font-weight: 600;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
@@ -429,10 +429,7 @@ body
     grid-template-columns: auto auto 1fr;
     grid-auto-rows: auto;
     column-gap: 12px;
-    /* Clear gap between the arrow row and the card so the arrows read as part of
-       the heading above, not the card below (owner 2026-07-09: "nooled tihedalt
-       pealkirja alla"). Pairs with the tightened section-top margin below. */
-    row-gap: 30px;
+    /* row-gap: components/overlay-cards.css (ülekattekaardid võtsid vahe maha) */
     width: 100vw;
     margin-inline: calc(50% - 50vw);
     left: auto;

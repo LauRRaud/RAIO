@@ -40,3 +40,14 @@
   --track-label: 0.14em;
   --track-soft: 0.075em;
 }
+
+/* Mobiiliskaala: kitsal ekraanil kahaneb kogu tüpograafiaredel korraga
+   (endine typography-cleanup/07). Peab jääma baasploki JÄRELE. */
+@media (max-width: 620px) {
+  :root {
+    --type-page-hero: clamp(2.35rem, 10vw, 3.6rem);
+    --type-section: clamp(1.8rem, 8vw, 2.9rem);
+    --type-card: clamp(1.3rem, 6vw, 1.72rem);
+    --type-body: 0.98rem;
+  }
+}

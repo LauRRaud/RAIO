@@ -273,9 +273,7 @@
   color: #f5efe5;
 }
 
-.product-hero .product-meta span {
-  color: rgba(248, 243, 236, 0.92);
-}
+/* .product-hero .product-meta span värv: components/component-type.css */
 
 .product-meta strong {
   display: block;

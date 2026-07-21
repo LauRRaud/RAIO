@@ -22,6 +22,21 @@
   }
 }
 
+/* Header-sektsiooni lede: pealkirja kõrval luges väiksena (omanik 2026-07-20:
+   "ikka on header sektsioonide tekstid veidi väiksed"). Endine
+   typography-cleanup/07. PEAB seisma component-type üldreeglist hiljem, aga
+   selle faili mobiiliplokkidest VAREM — mobiilis kehtib suurem mõõt. */
+.training-hero-text p,
+.tools-hero-text p,
+.events-hero-text p,
+.journal-hero-text p,
+.about-hero-text p {
+  font-size: calc(clamp(1.55rem, 1.72vw, 1.98rem) * var(--cms-text-scale, 1));
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
 /* Hide subpixel seams where image blocks meet dark copy panels. */
 :is(
     .events-event-image,
@@ -256,12 +271,11 @@
     width: 100%;
   }
 
+  /* align-self / margin-bottom / text-align: components/section-headers.css
+     (2026-07-20 joondas poe päise ülejäänud nelja bändiga vasakule). */
   .store-page .store-products-header h2 {
-    align-self: center;
     width: 100%;
-    margin-bottom: 14px;
     margin-inline: auto;
-    text-align: center;
   }
 
   .store-page .store-product-carousel .store-product-image {
