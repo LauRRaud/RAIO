@@ -274,7 +274,6 @@ body :is(
 
 .button,
 .button-primary,
-.button-secondary,
 .store-page .add-to-cart,
 .events-solid-button,
 .events-outline-button,
@@ -306,7 +305,6 @@ body .related-card .button {
 
 body .button,
 body .button-primary,
-body .button-secondary,
 body .store-page .add-to-cart,
 body .events-solid-button,
 body .events-outline-button,
@@ -469,13 +467,6 @@ body .store-page .store-product-card .add-to-cart.is-added {
 .training-card-image,
 .store-product-image {
   position: relative;
-}
-
-.journal-story-image::after,
-.tools-category-image::after,
-.training-card-image::after,
-.store-product-image::after {
-  content: none;
 }
 
 @media (max-width: 980px) {

@@ -1,9 +1,7 @@
 /* About page */
 .about-page-redesign {
-  --about-paper: #f2ddc2;
   --about-paper-soft: #f2ddc2;
   --about-ink: #11100d;
-  --about-muted: #504940;
   --about-line: rgba(17, 16, 13, 0.18);
   --about-inner-box-bg: rgba(245, 239, 229, 0.035);
   --about-inner-box-line: rgba(245, 239, 229, 0.14);

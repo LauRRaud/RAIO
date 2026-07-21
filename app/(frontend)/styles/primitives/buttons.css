@@ -33,11 +33,6 @@
   color: var(--accent);
 }
 
-.button-secondary {
-  background: transparent;
-  color: var(--text);
-}
-
 .add-to-cart:disabled,
 .button:disabled {
   opacity: 0.48;

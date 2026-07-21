@@ -6,7 +6,6 @@
      taust"). Tekstuurislaid tuleb CartView'st, taustavärv jääb selle alla. */
   --cart-paper: #d4d0c4;
   --cart-ink: #221c14;
-  --cart-muted: #4b4438;
   --cart-line: rgba(34, 28, 20, 0.22);
   --cart-card: #332a1e;
   --cart-card-ink: #f5efe5;

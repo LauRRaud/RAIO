@@ -1,9 +1,7 @@
 /* Shop page */
 .store-page {
-  --store-paper: #f2ddc2;
   --store-paper-soft: #f2ddc2;
   --store-ink: #11100d;
-  --store-muted: #595247;
   --store-line: rgba(17, 16, 13, 0.18);
   --band-pad: max(clamp(24px, 5vw, 76px), calc((100vw - 1560px) / 2));
   overflow-x: clip;
@@ -51,22 +49,16 @@
   padding-top: clamp(12px, 1.8vw, 32px);
 }
 
-.store-kicker,
 .store-products-header h2,
 .store-category-nav,
 .store-category-nav button,
 .store-sort,
-.store-product-category,
-.store-product-meta {
+.store-product-category {
   font-size: calc(0.72rem * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-}
-
-.store-kicker {
-  margin: 0 0 26px;
 }
 
 .store-hero-copy h1 {
@@ -347,32 +339,6 @@
   line-height: 1;
 }
 
-.store-product-meta {
-  display: grid;
-  gap: 8px;
-  width: 100%;
-  margin: 24px 0 0;
-  padding: 0;
-  list-style: none;
-  text-align: left;
-}
-
-.store-product-meta li {
-  position: relative;
-  padding-left: 22px;
-  color: var(--store-ink);
-  font-size: calc(0.62rem * var(--cms-text-scale, 1));
-}
-
-.store-product-meta li::before {
-  content: "✧";
-  position: absolute;
-  left: 0;
-  top: -1px;
-  font-size: calc(0.82rem * var(--cms-text-scale, 1));
-  line-height: 1;
-}
-
 @media (max-width: 1180px) {
 
   .store-product-grid {
@@ -436,13 +402,11 @@
 
 @media (max-width: 620px) {
 
-  .store-kicker,
-.store-products-header h2,
-.store-category-nav,
-.store-category-nav button,
-.store-sort,
-.store-product-category,
-.store-product-meta {
+  .store-products-header h2,
+  .store-category-nav,
+  .store-category-nav button,
+  .store-sort,
+  .store-product-category {
     font-size: calc(0.7rem * var(--cms-text-scale, 1));
   }
 }
@@ -596,10 +560,7 @@
 
 @media (max-width: 620px) {
 
-  .store-product-meta {
-    max-width: 260px;
   }
-}
 
 /* --- Custom-order CTA band before the footer (moved here from /vahendid): the
    shared framed-band composition — copy left, framed photo right, on rust. --- */

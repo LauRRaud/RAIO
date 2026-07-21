@@ -1,9 +1,7 @@
 /* Training page */
 .training-page-redesign {
-  --training-paper: #f2ddc2;
   --training-paper-soft: #f2ddc2;
   --training-ink: #11100d;
-  --training-muted: #504940;
   --training-line: rgba(17, 16, 13, 0.18);
   --training-icon-green: #9fb16c;
   background: var(--training-paper-soft);

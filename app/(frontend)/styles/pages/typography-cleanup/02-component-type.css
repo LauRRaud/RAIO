@@ -51,7 +51,6 @@
 }
 
 :is(
-  .store-kicker,
   .store-product-category,
   .store-price span,
   .events-date,

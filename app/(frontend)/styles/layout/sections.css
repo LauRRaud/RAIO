@@ -20,16 +20,6 @@
   line-height: 0.94;
 }
 
-.section-heading {
-  display: grid;
-  gap: 10px;
-  margin-bottom: clamp(40px, 6vw, 86px);
-}
-
-.section-heading h2 {
-  max-width: 14ch;
-}
-
 @media (max-width: 720px) {
 
   .section {

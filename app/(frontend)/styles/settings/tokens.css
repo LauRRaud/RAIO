@@ -1,23 +1,13 @@
 /* Design tokens */
 :root {
   --bg: #f2ddc2;
-  --background: #f2ddc2;
   --surface: #fbf8f1;
-  --surface-soft: #eee4d4;
-  --surface-strong: #171310;
   --text: #171310;
-  --muted: #5f5d55;
-  --stone: #807d74;
-  --walnut: #4f3327;
   --accent: #7c2632;
   --accent-2: #61713b;
   --accent-text: #fffaf1;
-  --border: rgba(23, 19, 16, 0.18);
   --hairline: rgba(23, 19, 16, 0.34);
-  --shadow: 0 14px 34px rgba(23, 19, 16, 0.13);
-  --soft-shadow: 0 18px 46px rgba(23, 19, 16, 0.08);
   --container: 1440px;
-  --narrow: 1160px;
   --radius: 0.5rem;
   /* Consistent, homepage-scale height for the full-bleed content bands on the
      subpages. One knob to tune them all. Kept tighter than a full viewport so
@@ -25,11 +15,6 @@
   --band-h: clamp(540px, 68vh, 780px);
 }
 :root {
-  --raio-paper: #f2ddc2;
-  --raio-paper-soft: #f2ddc2;
   --raio-ink: #17130f;
-  --raio-faded: #6f685e;
-  --raio-dark: #11100d;
-  --raio-dark-2: #191712;
   --raio-white: #f5efe5;
 }

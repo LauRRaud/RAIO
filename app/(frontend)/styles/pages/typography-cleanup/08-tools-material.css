@@ -5,7 +5,6 @@
 .tools-page-redesign .tools-material-panel {
   --material-panel-ink: #fdf8ee;
   --material-panel-muted: color-mix(in srgb, #f4efe4 86%, transparent);
-  --material-panel-line: rgba(245, 239, 229, 0.28);
   border: 0;
   border-radius: 0;
   background:

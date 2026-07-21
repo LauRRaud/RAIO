@@ -1,12 +1,8 @@
 /* Tools page */
 .tools-page-redesign {
-  --tools-paper: #f2ddc2;
   --tools-paper-soft: #f2ddc2;
   --tools-ink: #11100d;
-  --tools-muted: #504940;
   --tools-line: rgba(17, 16, 13, 0.18);
-  --tools-inner-box-bg: rgba(245, 239, 229, 0.035);
-  --tools-inner-box-line: rgba(245, 239, 229, 0.14);
   --tools-inner-box-radius: 0;
   --tools-icon-green: #9fb16c;
   background: var(--tools-paper-soft);
@@ -285,7 +281,6 @@
   --material-panel-bg: #e7dccb;
   --material-panel-ink: #17130f;
   --material-panel-muted: #554f47;
-  --material-panel-line: rgba(23, 19, 15, 0.14);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-areas:
@@ -676,9 +671,7 @@
 
 /* Break the bands out to the full viewport width. */
 .tools-page-redesign .tools-material-panel,
-.tools-page-redesign .tools-care-panel,
-.tools-page-redesign .tools-support-band,
-.tools-page-redesign .tools-video-band {
+.tools-page-redesign .tools-support-band {
   width: 100vw;
   margin-inline: calc(50% - 50vw);
   padding-inline: 0;
