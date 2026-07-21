@@ -130,7 +130,7 @@ body .events-event-card .events-outline-button {
 body .events-event-card .events-outline-button:hover,
 body .events-event-card .events-outline-button:focus-visible {
   border-color: var(--ui-box-button-hover-bg);
-  background: var(--ui-box-button-hover-bg);
+  background: var(--ui-button-hover-surface);
   color: #2b241b;
 }
 

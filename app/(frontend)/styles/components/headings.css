@@ -61,6 +61,11 @@
   line-height: 1.24;
   letter-spacing: 0.01em;
   text-transform: none;
+  /* Õrn süvendav vari foto peal (omanik 2026-07-21: "kerge vari tekstidele").
+     Lähtepunkt — vajadusel tugevamaks/nõrgemaks või laiendada kehatekstile. */
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 6px 20px rgba(0, 0, 0, 0.18);
 }
 
 /* Trepp-pealkiri: hero pealkirja osad astuvad siksakina (omanik 2026-07-21:

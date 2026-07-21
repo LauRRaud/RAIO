@@ -481,8 +481,10 @@ body
   align-self: center;
   justify-self: center;
   /* Kompaktsem nupp, paksem hele serv ja suurem nool sees (omanik 2026-07-20:
-     "nooled suuremaks, nupud ise pigem väiksemaks, aga serv paksemaks"). */
-  border: 2px solid rgba(248, 243, 236, 0.72);
+     "nooled suuremaks, nupud ise pigem väiksemaks, aga serv paksemaks").
+     Rõngas ise on vaiksem (omanik 2026-07-21: "nooltenuppude rõngad veidi
+     läbipaistvamaks") — paksus jääb, kohalolek kahaneb. */
+  border: 2px solid rgba(248, 243, 236, 0.45);
   border-radius: 999px;
   background: rgba(17, 16, 13, 0.68);
   color: #f8f3ec;
@@ -505,6 +507,10 @@ body
   svg {
   width: calc(var(--raio-carousel-arrow-size) * 0.66);
   height: calc(var(--raio-carousel-arrow-size) * 0.66);
+  /* Nupp ise jääb loetavaks, nool sees on vaiksem (omanik 2026-07-21: "noole-
+     nuppude sees sisu läbipaistvamaks"). Hover toob noole täisjõuga tagasi. */
+  opacity: 0.7;
+  transition: opacity 160ms ease;
 }
 
 :is(
@@ -538,6 +544,16 @@ body
     background: rgba(17, 16, 13, 0.84);
     outline: none;
     transform: scale(1.04);
+  }
+
+  :is(
+    .events-event-arrow,
+    .journal-story-arrow,
+    .store-page .store-product-arrow,
+    .tools-page-redesign .tools-category-arrow,
+    .training-page-redesign .training-card-arrow
+  ):hover svg {
+    opacity: 1;
   }
 }
 

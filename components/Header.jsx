@@ -121,6 +121,9 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName, te
               <Menu size={22} strokeWidth={1.9} />
             </summary>
             <div className="mobile-menu-panel">
+              {textures?.images?.length ? (
+                <TextureSlideshowClient set="beige" images={textures.images} interval={textures.interval} />
+              ) : null}
               <nav aria-label={t.mobileNavLabel}>
                 {mobileItems.map((item) => (
                   <Link key={item.key} href={item.href}>

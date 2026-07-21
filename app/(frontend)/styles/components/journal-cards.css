@@ -121,7 +121,7 @@
 .journal-story-card .journal-text-link:hover,
 .journal-story-card .journal-text-link:focus-visible {
   border-color: var(--ui-box-button-hover-bg);
-  background: var(--ui-box-button-hover-bg);
+  background: var(--ui-button-hover-surface);
   color: #2b241b;
 }
 

@@ -19,6 +19,19 @@
   --raio-white: #f5efe5;
 }
 
+/* Hele paekivi — päise/jaluse slaidiseansi ("03-heledad") struktuur ja selle
+   helendav filter. Üks tõeallikas, sest sama paar kordub kahes kohas:
+   components/texture-backdrop.css maalib bändi (foto <img> + tint-kiht) ja
+   theme/polarity.css nupu hover'i (foto background-image + sama tint gradiendina).
+   Ilma selleta läheks nupp lahku päisest niipea, kui filtrit puudutatakse. */
+:root {
+  --raio-stone-light: url("/RAIO taust/03-heledad/1.jpg");
+  --raio-stone-light-tint: rgba(255, 251, 243, 0.5);
+  /* Foto keskmine läbi tint-kihi — läheb serva värviks ja aluseks foto alla,
+     nii et nupp on õiget tooni ka enne pildi laadimist. */
+  --raio-stone-light-flat: #cbc4bb;
+}
+
 /* Tüpograafiaskaala (endine typography-cleanup/00-tokens).
    NB: --ui-box-* pere elab theme/polarity.css :root-is. */
 :root {

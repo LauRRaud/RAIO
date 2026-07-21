@@ -136,7 +136,7 @@
 .store-page .store-product-card .button:hover,
 .store-page .store-product-card .button:focus-visible {
   border-color: var(--ui-box-button-hover-bg);
-  background: var(--ui-box-button-hover-bg);
+  background: var(--ui-button-hover-surface);
   color: #2b241b;
 }
 

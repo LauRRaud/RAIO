@@ -231,14 +231,14 @@ button.events-outline-button {
   max-height: min(820px, calc(100dvh - 32px));
   display: grid;
   grid-template-columns: 1fr;
-  /* Tume sammal-tekstuur + tume filter, hele tekst (omanik 2026-07-21) — vt
+  /* Sammal-tekstuur MUSTJA filtri all + hele tekst (omanik 2026-07-21) — vt
      journal.css .journal-article-dialog. --events-ink JA --events-muted
      pööratakse modaali skoobis heledaks (kuupäev kasutab muted'it). */
   --events-ink: #f1ece0;
   --events-muted: rgba(241, 236, 224, 0.72);
   background:
-    linear-gradient(rgba(24, 30, 18, 0.87), rgba(20, 25, 15, 0.9)),
-    #1c2114 url("/RAIO%20taust/06-rohelised/1.jpg") center / cover no-repeat;
+    linear-gradient(rgba(14, 13, 11, 0.86), rgba(10, 10, 9, 0.9)),
+    #14140f url("/RAIO%20taust/06-rohelised/1.jpg") center / cover no-repeat;
   color: var(--events-ink);
   border: 1px solid rgba(241, 236, 224, 0.14);
   border-radius: var(--ui-card-radius, 8px);
@@ -298,9 +298,10 @@ body .events-event-modal-content .events-location {
   margin: 0;
   color: var(--events-ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: calc(clamp(2.2rem, 4vw, 4.8rem) * var(--cms-text-scale, 1));
+  /* Väiksem modaali pealkiri (omanik 2026-07-21: "pealkirjad liiga suured"). */
+  font-size: calc(clamp(1.85rem, 2.8vw, 3.1rem) * var(--cms-text-scale, 1));
   font-weight: 400;
-  line-height: 1.02;
+  line-height: 1.06;
   letter-spacing: 0;
 }
 

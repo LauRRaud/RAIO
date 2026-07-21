@@ -337,7 +337,7 @@ body .training-page-redesign .training-card .training-text-link {
 .tools-page-redesign .tools-category-body .tools-text-link:focus-visible,
 .training-page-redesign .training-card .training-text-link:hover,
 .training-page-redesign .training-card .training-text-link:focus-visible {
-  background: var(--ui-box-button-hover-bg);
+  background: var(--ui-button-hover-surface);
   border-color: var(--ui-box-button-hover-bg);
   color: #2b241b;
 }

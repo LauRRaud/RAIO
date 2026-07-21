@@ -8,14 +8,34 @@
   --ui-box-line: transparent;
   --ui-surface-button-bg: #332a1e;
   --ui-surface-button-ink: #f5efe5;
-  --ui-surface-button-hover-bg: #3a342a;
-  --ui-surface-button-hover-ink: #f5efe5;
+  /* Hover = päisemenüü paekivi, kogu platvormil sama (omanik 2026-07-21: "pane
+     igapool platvormil nuppudele sama hover struktuur nagu on päisemenüü
+     taust" → "mitte filter, vaid see sama struktuur, foto pealt" → "foto +
+     struktuur nupule, filter ka"). Seega PÄRIS foto, mitte selle keskmine:
+     #e6ceb0 oli alusvärv struktuurikihi ALL ja luges vale, liiga kollasena.
+
+     Kiht kihi haaval sama mis .texture-backdrop--beige päises: foto peal sama
+     helendav tint. background-size: 100vw hoiab kivi TERA täpselt päise
+     mastaabis — päis venitab foto object-fit: cover'iga just vaateava laiuseks
+     (4000px × 0.2 = 800px @800px vaateava), nii et nupp on aken samasse
+     paeplaati, mitte eraldi väike koopia. Viimane kiht on lame keskmine, mis
+     hoiab tooni paigas enne foto laadimist.
+
+     Karusselli- ja galeriinooled jäävad teadlikult välja — nemad seisavad fotol
+     ja tumenevad edasi omal moel. */
+  --ui-button-hover-surface:
+    linear-gradient(
+      var(--raio-stone-light-tint),
+      var(--raio-stone-light-tint)
+    ),
+    var(--raio-stone-light) center / 100vw auto var(--raio-stone-light-flat);
+  /* Servavärv ja muud kohad, kuhu foto ei mahu, saavad sama tooni lamedalt. */
+  --ui-surface-button-hover-bg: var(--raio-stone-light-flat);
+  --ui-surface-button-hover-ink: #2b241b;
   --ui-box-button-bg: #f0e9dd;
   --ui-box-button-ink: #11100d;
-  /* Hover = a gentle warm darken, NOT a near-white flash (owner: "hover ei
-     tohiks nii hele olla"). Single source of truth for every cream button. */
-  --ui-box-button-hover-bg: #f1f1ec;
-  --ui-box-button-hover-ink: #11100d;
+  --ui-box-button-hover-bg: var(--raio-stone-light-flat);
+  --ui-box-button-hover-ink: #2b241b;
   /* Sharp editorial corners across the platform ("kandiline" brand language). */
   --ui-card-radius: 0;
   --ui-button-radius: 0;
@@ -351,7 +371,7 @@ body .cart-solid-action {
 .cart-solid-action:hover,
 .cart-solid-action:focus-visible {
   border-color: var(--ui-surface-button-hover-bg);
-  background: var(--ui-surface-button-hover-bg);
+  background: var(--ui-button-hover-surface);
   color: var(--ui-surface-button-hover-ink);
 }
 
@@ -378,7 +398,7 @@ body .store-product-card .button:focus-visible,
 body .related-card .button:hover,
 body .related-card .button:focus-visible {
   border-color: var(--ui-box-button-hover-bg);
-  background: var(--ui-box-button-hover-bg);
+  background: var(--ui-button-hover-surface);
   color: var(--ui-box-button-hover-ink);
 }
 
@@ -394,7 +414,7 @@ body .store-product-card .add-to-cart:focus-visible,
 body .store-product-card .button:hover,
 body .store-product-card .button:focus-visible {
   border-color: var(--ui-box-button-hover-bg);
-  background: var(--ui-box-button-hover-bg);
+  background: var(--ui-button-hover-surface);
   color: var(--ui-box-button-hover-ink);
 }
 
@@ -447,7 +467,7 @@ body .store-page .store-product-card .add-to-cart.is-added {
   .training-solid-button
 ):focus-visible {
   border-color: var(--ui-box-button-hover-bg);
-  background: var(--ui-box-button-hover-bg);
+  background: var(--ui-button-hover-surface);
   color: var(--ui-box-button-hover-ink);
 }
 

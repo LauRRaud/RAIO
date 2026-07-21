@@ -37,7 +37,7 @@ body :is(
   .store-custom-band .store-solid-button
 ):focus-visible {
   border-color: var(--ui-box-button-hover-bg);
-  background: var(--ui-box-button-hover-bg);
+  background: var(--ui-button-hover-surface);
   color: #2b241b;
 }
 
@@ -50,9 +50,9 @@ body .training-lasting-panel .training-solid-button {
 
 body .training-lasting-panel .training-solid-button:hover,
 body .training-lasting-panel .training-solid-button:focus-visible {
-  border-color: #f4efe4;
-  background: #f4efe4;
-  color: #221c14;
+  border-color: var(--ui-box-button-hover-bg);
+  background: var(--ui-button-hover-surface);
+  color: var(--ui-box-button-hover-ink);
 }
 
 

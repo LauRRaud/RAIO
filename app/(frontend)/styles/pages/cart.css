@@ -11,7 +11,12 @@
   --cart-card-ink: #f5efe5;
   --cart-card-muted: #bfb8ad;
   --cart-button: #f0e9dd;
-  --cart-button-hover: #f1f1ec;
+  /* Sama paekivi-hover nagu mujal. Ostukorul on oma tokenipere, sest
+     .cart-section .cart-solid-action võidab spetsiifikaga polarity reegli —
+     väärtus peab siin käsitsi kaasa tulema. Nupu TÄIDE tuleb ühisest
+     --ui-button-hover-surface'ist (foto + filter); see token jääb lameda tooni
+     jaoks: nupu serv ja +/− ning "eemalda" hover'i kirjavärv tumedal kaardil. */
+  --cart-button-hover: var(--raio-stone-light-flat);
   background: var(--cart-paper);
   color: var(--cart-ink);
 }
@@ -371,7 +376,7 @@
 .cart-section .cart-solid-action:hover,
 .cart-section .cart-solid-action:focus-visible {
   border-color: var(--cart-button-hover);
-  background: var(--cart-button-hover);
+  background: var(--ui-button-hover-surface);
   color: var(--cart-ink);
 }
 

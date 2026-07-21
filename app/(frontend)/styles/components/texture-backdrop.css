@@ -70,7 +70,21 @@
 
 .texture-backdrop--beige .texture-backdrop-tint,
 .texture-backdrop--light .texture-backdrop-tint {
-  background: rgba(255, 251, 243, 0.5);
+  background: var(--raio-stone-light-tint);
+}
+
+/* Struktuuri (slaidiseansi) ALL on tume neutraalne alus, MITTE sektsiooni
+   värviline gradient (omanik 2026-07-21: "struktuuride all olgu must taust
+   täiesti, mitte gradient efekte — nende alt näitab värvilisi plokke, mida ma
+   ei soovi"). Backdrop istub sektsiooni gradiendi peal (z-index -3), seega tema
+   enda tume taust katab gradiendi ära ja lehe laadimisel ei vilgu värviline
+   plokk enne fotode laadimist. Ainult tumeda-teksti komplektid — heledad
+   (gray/beige/light: päis, jalus, hallid bändid) jäävad heledaks, muidu
+   vilguks päis/jalus mustalt. */
+.texture-backdrop--dark,
+.texture-backdrop--terracotta,
+.texture-backdrop--green {
+  background: #14140f;
 }
 
 /* Hostid: backdrop vajab positsioneeritud esivanemat + oma stacking-konteksti,

@@ -49,8 +49,6 @@ export async function ProductPage({ locale = "et", slug }) {
                 <strong>{product.price}</strong>
                 <span>€</span>
               </p>
-              <p className="lede product-lede">{product.description}</p>
-
               <div className="product-actions">
                 <AddToCartButton
                   product={product}
@@ -62,10 +60,13 @@ export async function ProductPage({ locale = "et", slug }) {
 
               <div className="product-meta">
                 <div>
-                  <span>{t.metaProduction}</span>
-                  <strong>
-                    {product.productionNote} {product.estimatedProductionTime}.
-                  </strong>
+                  <p className="product-lede">{product.description}</p>
+                  <p className="product-meta-note">
+                    <span>{t.metaProduction}</span>
+                    <strong>
+                      {product.productionNote} {product.estimatedProductionTime}.
+                    </strong>
+                  </p>
                 </div>
               </div>
             </div>
