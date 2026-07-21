@@ -2,7 +2,9 @@
 :root {
   --ui-box-bg: #332a1e;
   --ui-box-ink: #f5efe5;
-  --ui-box-muted: #bfb8ad;
+  /* #f8f3ec (mitte #bfb8ad) — endine typography-cleanup kiht kirjutas selle
+     positsiooniga üle; voltimisel jäi võitev väärtus. */
+  --ui-box-muted: #f8f3ec;
   --ui-box-line: transparent;
   --ui-surface-button-bg: #332a1e;
   --ui-surface-button-ink: #f5efe5;

@@ -18,3 +18,25 @@
   --raio-ink: #17130f;
   --raio-white: #f5efe5;
 }
+
+/* Tüpograafiaskaala (endine typography-cleanup/00-tokens).
+   NB: --ui-box-* pere elab theme/polarity.css :root-is. */
+:root {
+  --font-body:
+    "Segoe UI", Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ui:
+    "Segoe UI", Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --type-page-hero: clamp(2.7rem, 4vw, 4.85rem);
+  --type-section: clamp(1.55rem, 2.25vw, 2.65rem);
+  --type-card: clamp(1.08rem, 1.24vw, 1.46rem);
+  /* Kehatekst luges suurte pealkirjade kõrval liiga väiksena (omanik
+     2026-07-20: "pealkirjade all on tekstid ka väikesed"). */
+  --type-body: clamp(1.18rem, 1.18vw, 1.34rem);
+  --type-small: 1.06rem;
+  --type-label: 0.92rem;
+  --track-heading: 0.045em;
+  --track-card: 0.04em;
+  --track-body: 0.035em;
+  --track-label: 0.14em;
+  --track-soft: 0.075em;
+}
