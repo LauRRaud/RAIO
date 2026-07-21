@@ -21,7 +21,27 @@
 @import "./styles/pages/heroes.css";
 @import "./styles/theme/polarity.css";
 @import "./styles/primitives/select.css";
-@import "./styles/pages/typography-cleanup.css";
+/* --- endine typography-cleanup ülekirjutuskiht (voltimine käib, etapp B) ---
+   Järjekord on kandev ja vastab üks-ühele endisele importerile; komponendi-
+   failid on tõstetud ausate nimedega components/ alla, puhtad override'id
+   volditakse järk-järgult baasfailidesse ja kaovad siit nimekirjast. */
+@import "./styles/pages/typography-cleanup/00-tokens.css";
+@import "./styles/pages/typography-cleanup/01-headings.css";
+@import "./styles/pages/typography-cleanup/02-component-type.css";
+@import "./styles/pages/typography-cleanup/03-store-catalog.css";
+@import "./styles/components/card-frames.css";
+@import "./styles/pages/typography-cleanup/05-events-cards.css";
+@import "./styles/pages/typography-cleanup/06-journal-cards.css";
+@import "./styles/pages/typography-cleanup/07-events-journal-passes.css";
+@import "./styles/pages/typography-cleanup/08-tools-material.css";
+@import "./styles/components/carousel-legacy.css";
+@import "./styles/components/carousel-system.css";
+@import "./styles/components/carousel-type.css";
+@import "./styles/pages/typography-cleanup/12-hero-mobile-polish.css";
+@import "./styles/components/frames-shadows.css";
+@import "./styles/components/overlay-cards.css";
+@import "./styles/pages/typography-cleanup/15-section-headers.css";
+@import "./styles/components/card-polish.css";
 
 /* Fotobändide tekst heledamaks (omanik 2026-07-20). Need bändid korduvad
    peaaegu igal lehel ja iga leht värvis oma teksti eraldi — :has(> ...) tabab
