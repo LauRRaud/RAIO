@@ -455,15 +455,13 @@
   overflow: hidden;
   isolation: isolate;
   color: #f7f1e4;
-  transition: flex-grow 1100ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.home-world-card:hover,
-.home-world-card:focus-visible {
-  /* Õrnem laienemine (omanik 2026-07-22: "liiga suur zoom hiirega") — kaart
-     kasvab vähem, seega ka pildi ümberkadreering on tagasihoidlikum. */
-  flex-grow: 1.14;
-}
+/* Kaardi laius-animatsioon (flex-grow) eemaldatud: layout-animatsioon
+   renderdas kaardi sisu 1.25× DPR-il iga kaadri jaoks ümber → pilt ja sellel
+   istuv tekst värisesid (omanik 2026-07-22: "pilt ise väriseb, millel tekst
+   on"). Hover-vastus on nüüd ainult pildisuum (GPU-transform, allpool) +
+   allteksti ilmumine; naabrid enam maad ei anna. */
 
 .home-world-media {
   position: absolute;
@@ -476,6 +474,10 @@
 .home-world-media img {
   object-fit: cover;
   object-position: center center;
+  /* Suum jookseb omal komposiitkihil (rasteriseeritakse korra, kompositor
+     skaleerib), et hover ei renderdaks pilti iga kaadri jaoks ümber. */
+  will-change: transform;
+  backface-visibility: hidden;
   transition:
     transform 1300ms cubic-bezier(0.16, 1, 0.3, 1),
     filter 900ms ease;
@@ -489,12 +491,13 @@
   object-position: 50% 30%;
 }
 
-/* Hover suurendab kaarti ja toob alapealkirja nähtavale, AGA ei muuda enam
+/* Hover suumib pilti ja toob alapealkirja nähtavale, AGA ei muuda enam
    piltide heledust/küllastust — naaberkaardid tuhmusid ja hoveritav helenes
-   (omanik 2026-07-20: "võta vist see ära, et muudavad värvi hoveriga"). */
+   (omanik 2026-07-20: "võta vist see ära, et muudavad värvi hoveriga").
+   Veidi selgem suum, sest kaart ise enam ei kasva (omanik 2026-07-22). */
 .home-world-card:hover .home-world-media img,
 .home-world-card:focus-visible .home-world-media img {
-  transform: scale(1.02);
+  transform: scale3d(1.05, 1.05, 1);
 }
 
 .home-world-overlay {
