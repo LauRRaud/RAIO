@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { scrollCarouselByCards } from "@/lib/carouselScroll";
 
-export function EventsCardsCarousel({ events, cta, modalClose, labels, title, titleId, allLabel }) {
+export function EventsCardsCarousel({ events, cta, modalClose, labels, title, titleId, allLabel, registerLabel, statusLabels, registerFallbackHref }) {
   const eventTrackRef = useRef(null);
   const closeButtonRef = useRef(null);
   const [activeEvent, setActiveEvent] = useState(null);
@@ -191,6 +191,19 @@ export function EventsCardsCarousel({ events, cta, modalClose, labels, title, ti
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
+              {(activeEvent.ctaUrl || registerFallbackHref) &&
+              (activeEvent.registrationStatus || "open") === "open" ? (
+                <a
+                  className="events-solid-button events-event-register"
+                  href={activeEvent.ctaUrl || registerFallbackHref}
+                  {...(activeEvent.ctaUrl ? { target: "_blank", rel: "noreferrer" } : {})}
+                >
+                  {registerLabel}
+                </a>
+              ) : null}
+              {statusLabels?.[activeEvent.registrationStatus] ? (
+                <p className="events-event-status">{statusLabels[activeEvent.registrationStatus]}</p>
+              ) : null}
             </div>
           </article>
         </div>,

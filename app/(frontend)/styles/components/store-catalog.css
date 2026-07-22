@@ -112,16 +112,17 @@
 .store-page .store-product-card .add-to-cart,
 .store-page .store-product-card .button {
   width: min(100%, 220px);
-  min-height: 44px;
+  /* Sama kõrgus kui sündmuste/päeviku kaardinuppudel (omanik 2026-07-22: poe
+     kaardinupud olid teiste karussellide omadest vertikaalselt kitsamad). */
+  min-height: 50px;
   margin-top: 16px;
   align-self: center;
   gap: 10px;
   border: 2px solid rgba(248, 243, 236, 0.7);
   border-radius: 0;
-  /* Subtle frosted-glass fill instead of fully transparent (owner 2026-07-09:
-     "kerge klaasjas efekt"). */
-  background: rgba(248, 243, 236, 0.12);
-  backdrop-filter: blur(6px);
+  /* Poolläbipaistev täide ilma blur'ita (omanik 2026-07-09 "kerge klaasjas
+     efekt"; 2026-07-22 blur maha, et kivitekstuur kumaks läbi). */
+  background: rgba(248, 243, 236, 0.2);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
   color: #f4efe4;
   font-size: calc(1.16rem * var(--cms-text-scale, 1));

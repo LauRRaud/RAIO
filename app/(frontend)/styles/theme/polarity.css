@@ -8,34 +8,21 @@
   --ui-box-line: transparent;
   --ui-surface-button-bg: #332a1e;
   --ui-surface-button-ink: #f5efe5;
-  /* Hover = päisemenüü paekivi, kogu platvormil sama (omanik 2026-07-21: "pane
-     igapool platvormil nuppudele sama hover struktuur nagu on päisemenüü
-     taust" → "mitte filter, vaid see sama struktuur, foto pealt" → "foto +
-     struktuur nupule, filter ka"). Seega PÄRIS foto, mitte selle keskmine:
-     #e6ceb0 oli alusvärv struktuurikihi ALL ja luges vale, liiga kollasena.
-
-     Kiht kihi haaval sama mis .texture-backdrop--beige päises: foto peal sama
-     helendav tint. background-size: 100vw hoiab kivi TERA täpselt päise
-     mastaabis — päis venitab foto object-fit: cover'iga just vaateava laiuseks
-     (4000px × 0.2 = 800px @800px vaateava), nii et nupp on aken samasse
-     paeplaati, mitte eraldi väike koopia. Viimane kiht on lame keskmine, mis
-     hoiab tooni paigas enne foto laadimist.
-
-     Karusselli- ja galeriinooled jäävad teadlikult välja — nemad seisavad fotol
-     ja tumenevad edasi omal moel. */
-  --ui-button-hover-surface:
-    linear-gradient(
-      var(--raio-stone-light-tint),
-      var(--raio-stone-light-tint)
-    ),
-    var(--raio-stone-light) center / 100vw auto var(--raio-stone-light-flat);
+  /* Hover = 0.7-läbipaistev lame kivitoon, ilma hele tint-filtri ja fotota
+     (omanik 2026-07-22: "võta hele filter ära"; alfa 0.7, et kivitoon jääks
+     piisavalt hele ja must tekst peale näha). Varem oli kivifoto + helendav
+     tint-kiht (päisemenüü struktuur); see luges liiga heledana. Poolläbipaistev
+     toon laseb nupu tumedal alusel õrnalt läbi kumada. */
+  --ui-button-hover-surface: rgba(203, 196, 187, 0.7);
   /* Servavärv ja muud kohad, kuhu foto ei mahu, saavad sama tooni lamedalt. */
   --ui-surface-button-hover-bg: var(--raio-stone-light-flat);
-  --ui-surface-button-hover-ink: #2b241b;
+  /* Hover-ink = sama kui --ui-box-button-ink; #2b241b luges poolläbipaistval
+     kivil kaardifotode kohal liiga tuhmilt (omanik 2026-07-22). */
+  --ui-surface-button-hover-ink: #11100d;
   --ui-box-button-bg: #f0e9dd;
   --ui-box-button-ink: #11100d;
   --ui-box-button-hover-bg: var(--raio-stone-light-flat);
-  --ui-box-button-hover-ink: #2b241b;
+  --ui-box-button-hover-ink: #11100d;
   /* Sharp editorial corners across the platform ("kandiline" brand language). */
   --ui-card-radius: 0;
   --ui-button-radius: 0;

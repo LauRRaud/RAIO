@@ -416,6 +416,10 @@ body .training-modal-content .training-meta span {
   line-height: 1.68;
 }
 
+.training-modal-register {
+  margin-top: 30px;
+}
+
 .training-lasting-panel {
   display: grid;
   /* Three equal strips: photo | copy | quality list — regular rhythm. */

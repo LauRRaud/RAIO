@@ -560,16 +560,6 @@
     border-radius: 0;
   }
 
-  .about-trainer-image::after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 40px;
-    background: linear-gradient(to bottom, rgba(25, 23, 18, 0), var(--ui-box-bg));
-    pointer-events: none;
-    z-index: 1;
-  }
-
   .about-trainer-copy {
     min-height: 0;
     border: 0;
@@ -587,17 +577,16 @@
 /* The legacy mobile card above is a dark box with light text. The redesign
    trainers band is light "nature gray" with DARK text, so the dark card made
    the copy unreadable (owner 2026-07-09: "treenerid sektsioon väga halb
-   mobiilis"). Transparent card, no dark image fade, left-aligned dark copy. */
+   mobiilis"). Transparent card, left-aligned dark copy. Fotoraam tuleb
+   card-chrome.css-ist nagu kõigil piltidel — mobiilis kandis vana tumeda
+   kaardi alläämbe-fade (height:40px) siia sisse ja moondas raami 40px kastiks
+   pildi ülaservas (omanik 2026-07-22); fade eemaldatud, raam täidab pildi. */
 @media (max-width: 620px) {
   .about-page-redesign .about-trainer-card {
     background: transparent;
     /* The legacy card clips with overflow:hidden, cutting the photo's shadow off
        at its edges (owner 2026-07-09: "varjud pildi servadest ära lõigatud"). */
     overflow: visible;
-  }
-
-  .about-page-redesign .about-trainer-image::after {
-    content: none;
   }
 
   .about-page-redesign .about-trainer-copy {

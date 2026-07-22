@@ -336,6 +336,18 @@ body .events-event-modal-content .events-location {
   line-height: 1.68;
 }
 
+.events-event-register {
+  margin-top: 30px;
+}
+
+.events-event-status {
+  margin: 30px 0 0;
+  color: var(--events-ink);
+  font-size: calc(clamp(0.98rem, 1.05vw, 1.12rem) * var(--cms-text-scale, 1));
+  font-style: italic;
+  line-height: 1.35;
+}
+
 .events-host-cta {
   display: grid;
   grid-template-columns: minmax(0, 1.46fr) minmax(360px, 0.92fr);

@@ -15,6 +15,8 @@ export function TrainingCardsCarousel({
   title,
   titleId,
   allLabel,
+  registerLabel,
+  registerHref,
 }) {
   const trainingTrackRef = useRef(null);
   const closeButtonRef = useRef(null);
@@ -208,6 +210,11 @@ export function TrainingCardsCarousel({
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
+              {registerHref && registerLabel ? (
+                <a className="training-solid-button training-modal-register" href={registerHref}>
+                  {registerLabel}
+                </a>
+              ) : null}
             </div>
           </article>
         </div>,

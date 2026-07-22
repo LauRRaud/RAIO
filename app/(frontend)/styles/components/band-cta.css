@@ -1,22 +1,27 @@
 /* Bändide CTA-nupud: läbipaistev klaasjas nupp raamiga, mis hover'il täitub
    kreemiga (omanik 2026-07-08: "proovime primitiivnuppe ka läbipaistvatena ja
-   raamiga"). Ühine keel sündmuste, ajakirja, treeningute ja poe bändidel. */
+   raamiga"). Ühine keel sündmuste, ajakirja, treeningute ja poe bändidel ning
+   kaardimodaalide "Registreeru"-nuppudel (need istuvad samuti tumeda pinna peal;
+   omanik 2026-07-22: "pruun nupp ei lähe stiiliga kokku, pane nagu mujal").
+   Kahe-klassiline kuju .X-dialog .X-solid-button hoiab spetsiifilisuse polarity
+   üldreeglist (body .training-solid-button) kõrgemal, muidu jääks pruun täide. */
 
 body :is(
   .events-host-cta .events-solid-button,
+  .events-event-dialog .events-solid-button,
   .journal-signup-banner .journal-solid-button,
   .training-lasting-panel .training-solid-button,
   .training-workshop-panel .training-solid-button,
+  .training-dialog .training-solid-button,
   .store-custom-band .store-solid-button
 ) {
   width: fit-content;
   min-width: 0;
   padding-inline: clamp(26px, 2.6vw, 36px);
   border: 2px solid rgba(248, 243, 236, 0.7);
-  /* Subtle frosted-glass fill instead of fully transparent (owner 2026-07-09:
-     "kerge klaasjas efekt"). */
-  background: rgba(248, 243, 236, 0.12);
-  backdrop-filter: blur(6px);
+  /* Poolläbipaistev täide ilma blur'ita (omanik 2026-07-09 "kerge klaasjas
+     efekt"; 2026-07-22 blur maha, et kivitekstuur kumaks läbi). */
+  background: rgba(248, 243, 236, 0.2);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
   color: #f4efe4;
   font-size: calc(clamp(1.16rem, 1.1vw, 1.3rem) * var(--cms-text-scale, 1));
@@ -24,16 +29,20 @@ body :is(
 
 body :is(
   .events-host-cta .events-solid-button,
+  .events-event-dialog .events-solid-button,
   .journal-signup-banner .journal-solid-button,
   .training-lasting-panel .training-solid-button,
   .training-workshop-panel .training-solid-button,
+  .training-dialog .training-solid-button,
   .store-custom-band .store-solid-button
 ):hover,
 body :is(
   .events-host-cta .events-solid-button,
+  .events-event-dialog .events-solid-button,
   .journal-signup-banner .journal-solid-button,
   .training-lasting-panel .training-solid-button,
   .training-workshop-panel .training-solid-button,
+  .training-dialog .training-solid-button,
   .store-custom-band .store-solid-button
 ):focus-visible {
   border-color: var(--ui-box-button-hover-bg);

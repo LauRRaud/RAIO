@@ -380,8 +380,8 @@
      2026-07-22: "nupp peab servaga olema, nagu tootelehel"). */
   border: 2px solid rgba(248, 243, 236, 0.7);
   border-radius: 0;
-  background: rgba(248, 243, 236, 0.12);
-  backdrop-filter: blur(6px);
+  /* Blur maha (omanik 2026-07-22): kivitekstuur kumab poolläbipaistva alt läbi. */
+  background: rgba(248, 243, 236, 0.2);
   color: #f4efe4;
   padding: 0 26px;
   font-family: var(--font-ui), system-ui, sans-serif;

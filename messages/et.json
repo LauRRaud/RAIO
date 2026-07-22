@@ -185,6 +185,7 @@
     "listIntro": "Pakume erinevaid treeninguid, mis toetavad nii keha kui vaimu. Vali endale sobiv formaat ja tule liikumise kaudu ühendusse - iseenda, looduse ja kogukonnaga.",
     "cardCta": "Vaata",
     "modalClose": "Sulge treening",
+    "register": "Registreeru",
     "trainings": [
       {
         "title": "Funktsionaalne treening",
@@ -391,6 +392,10 @@
     "allLink": "Vaata kõiki",
     "cardCta": "Vaata",
     "modalClose": "Sulge sündmus",
+    "register": "Registreeru",
+    "registrationSoon": "Registreerimine avaneb peagi",
+    "registrationFull": "Sündmus on täis",
+    "registrationClosed": "Registreerimine on suletud",
     "events": [
       {
         "date": "25. mai 2024",

@@ -103,8 +103,9 @@
   shape-rendering: auto;
   /* Puhas must luges liiga karmilt paekivi peal (omanik 2026-07-21: "logo
      veidi liiga must, väike läbipaistvus sisse" → hiljem "läbipaistvamaks,
-     0.6"). Sama vesimärgi-keel nagu jaluse logol. */
-  opacity: 0.6;
+     0.6" → 2026-07-22 "veidi läbipaistvam", 0.5 → "isegi veidi veel", 0.42 →
+     "nõksa vähem läbipaistvaks", 0.5). Sama vesimärgi-keel nagu jaluse logol. */
+  opacity: 0.5;
 }
 
 .desktop-nav {
@@ -168,7 +169,9 @@
 
 .desktop-nav a:hover,
 .desktop-nav a:focus-visible {
-  color: var(--raio-ink);
+  /* Soe tumepruun, mitte --raio-ink — täisopacity mustjas luges paekivil
+     võõrana (omanik 2026-07-22: "see must ei ole naturaalne värv"). */
+  color: #2b241b;
   opacity: 1;
 }
 
@@ -220,7 +223,8 @@
 
 .language-switch-link:hover,
 .language-switch-link:focus-visible {
-  color: var(--raio-ink);
+  /* Sama soe pruun nagu .desktop-nav a:hover — mustjas luges võõrana. */
+  color: #2b241b;
 }
 
 .cart-button {

@@ -79,6 +79,8 @@ export async function TrainingPage({ locale = "et" }) {
               title={t.listTitle}
               titleId="training-list-title"
               allLabel={t.allLink}
+              registerLabel={t.register}
+              registerHref={contactHref}
             />
           </div>
 

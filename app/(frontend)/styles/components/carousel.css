@@ -510,6 +510,10 @@ body
   /* Nupp ise jääb loetavaks, nool sees on vaiksem (omanik 2026-07-21: "noole-
      nuppude sees sisu läbipaistvamaks"). Hover toob noole täisjõuga tagasi. */
   opacity: 0.7;
+  /* Optiline tsentreerimine (omanik 2026-07-22): chevron on geomeetriliselt
+     keskel, aga siluett kaldub avatud külje poole — nihe tipu suunas, suund
+     tuleb muutujast (-left / -right allpool). */
+  transform: translateX(var(--raio-arrow-nudge, 0px));
   transition: opacity 160ms ease;
 }
 
@@ -521,6 +525,8 @@ body
   .training-page-redesign .training-card-arrow-left
 ) {
   grid-column: 1;
+  /* Vasak chevron: nihe tipu (vasaku) suunas. */
+  --raio-arrow-nudge: -2px;
 }
 
 :is(
@@ -531,6 +537,8 @@ body
   .training-page-redesign .training-card-arrow-right
 ) {
   grid-column: 3;
+  /* Parem chevron: nihe tipu (parema) suunas. */
+  --raio-arrow-nudge: 2px;
 }
 
 @media (hover: hover) and (pointer: fine) {

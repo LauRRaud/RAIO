@@ -185,6 +185,7 @@
     "listIntro": "We offer a range of trainings that support both body and mind. Choose the format that suits you and connect through movement - with yourself, nature, and community.",
     "cardCta": "View",
     "modalClose": "Close training",
+    "register": "Register",
     "trainings": [
       {
         "title": "Functional training",
@@ -391,6 +392,10 @@
     "allLink": "View all",
     "cardCta": "View",
     "modalClose": "Close event",
+    "register": "Register",
+    "registrationSoon": "Registration opens soon",
+    "registrationFull": "This event is full",
+    "registrationClosed": "Registration is closed",
     "events": [
       {
         "date": "25 May 2024",

@@ -65,6 +65,13 @@ export async function EventsPage({ locale = "et" }) {
               title={t.upcomingTitle}
               titleId="events-upcoming-title"
               allLabel={t.allLink}
+              registerLabel={t.register}
+              registerFallbackHref={contactHref}
+              statusLabels={{
+                soon: t.registrationSoon,
+                full: t.registrationFull,
+                closed: t.registrationClosed
+              }}
             />
           </div>
 

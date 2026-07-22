@@ -139,7 +139,22 @@
   height: calc(var(--product-arrow-size) * 0.66);
   /* Sama vaikne nool nagu karusselli nooltel (omanik 2026-07-21). */
   opacity: 0.7;
+  /* Optiline tsentreerimine (omanik 2026-07-22): chevron on geomeetriliselt
+     täpselt keskel, aga täidetud silueti raskuskese jääb avatud külje poole,
+     nii et nool paistab paigast ära. Nihe tipu suunas — suund tuleb muutujast
+     (prev = vasak, next = parem). */
+  transform: translateX(var(--product-arrow-nudge, 0px));
   transition: opacity 160ms ease;
+}
+
+/* Prev on esimene nupp (vasak chevron → nihe vasakule/tipu poole),
+   next on viimane (parem chevron → paremale). */
+.product-gallery-controls .product-gallery-arrow:first-child {
+  --product-arrow-nudge: -2px;
+}
+
+.product-gallery-controls .product-gallery-arrow:last-child {
+  --product-arrow-nudge: 2px;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -227,8 +242,9 @@
 }
 
 .product-actions .button {
-  /* Suurem CTA (omanik 2026-07-21: "nupu suuremaks"). */
-  min-height: 58px;
+  /* CTA hoiab teksti tihedamalt (omanik 2026-07-22: "nupp teksti suhtes
+     väiksemaks") — madalam kast, tekst jääb samaks. */
+  min-height: 48px;
   border-radius: var(--ui-button-radius);
   font-family: var(--font-display), Georgia, serif;
   font-size: calc(1.15rem * var(--cms-text-scale, 1));
@@ -238,13 +254,14 @@
    (03-store-catalog.css: "kerge klaasjas efekt"). */
 .product-hero .product-actions .button {
   width: fit-content;
-  /* Selgelt suurem nupp — lühike silt ("Telli ette") vajab min-laiust, muidu
-     jääks kitsaks (omanik 2026-07-21: "nupu suuremaks"). */
-  min-width: 240px;
-  padding-inline: clamp(34px, 3vw, 48px);
+  /* Nupp hoiab teksti tihedamalt (omanik 2026-07-22: "nupp teksti suhtes
+     väiksemaks") — väiksem min-laius ja külgpolster, et "Telli ette" ümber
+     jääks vähem tühja. */
+  min-width: 160px;
+  padding-inline: clamp(22px, 1.9vw, 30px);
   border: 2px solid rgba(248, 243, 236, 0.7);
-  background: rgba(248, 243, 236, 0.12);
-  backdrop-filter: blur(6px);
+  /* Blur maha (omanik 2026-07-22): kivitekstuur kumab poolläbipaistva alt läbi. */
+  background: rgba(248, 243, 236, 0.2);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
   color: #f4efe4;
   font-size: calc(clamp(1.28rem, 1.2vw, 1.46rem) * var(--cms-text-scale, 1));

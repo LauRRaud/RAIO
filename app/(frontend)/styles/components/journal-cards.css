@@ -106,10 +106,9 @@
   padding: 0 40px;
   border: 2px solid rgba(248, 243, 236, 0.7);
   border-radius: 0;
-  /* Subtle frosted-glass fill, matching the shop card CTA (owner 2026-07-09:
-     "klaasjas efekt igal pool"). */
-  background: rgba(248, 243, 236, 0.12);
-  backdrop-filter: blur(6px);
+  /* Poolläbipaistev täide ilma blur'ita (omanik 2026-07-09 "klaasjas efekt igal
+     pool"; 2026-07-22 blur maha, et kivitekstuur kumaks läbi). */
+  background: rgba(248, 243, 236, 0.2);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.34);
   color: #f4efe4;
   font-size: calc(clamp(1.08rem, 1vw, 1.2rem) * var(--cms-text-scale, 1));
