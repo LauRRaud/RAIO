@@ -95,7 +95,7 @@
       "description": "Käsitöö sangpommid ja treeningvahendid Eesti kivist ja puidust. Trenn on tunne."
     },
     "hero": {
-      "image": "/Pictures/Avaleht/RAIO HERO1.png",
+      "image": "/Pictures/Avaleht/RAIO HERO1.webp",
       "imageAlt": "RA•IO kividest sangpommi kandev mees õhtupäikeses",
       "titleStart": "Trenn on",
       "titleAccent": "tunne.",
@@ -106,7 +106,7 @@
       "headingStart": "Liikumine on",
       "headingAccent": "rituaal.",
       "body": "RA•IO on loodud neile, kes otsivad midagi enamat kui lihtsalt trenni. See on ühendus loodusega, oma keha ja kogukonnaga. Kivi raskus, puidu soojus ja kohalolu hetkes — siin sünnib jõud, mis jääb.",
-      "image": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.png",
+      "image": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.webp",
       "imageAlt": "Kivist sangpommidega treenija metsarajal",
       "eyebrow": "Filosoofia"
     },
@@ -118,7 +118,7 @@
           "title": "Treeningud",
           "subtitle": "Liikumine",
           "path": "/treeningud",
-          "image": "/Pictures/Avaleht/RAIO TREENINGUD.png",
+          "image": "/Pictures/Avaleht/RAIO TREENINGUD.webp",
           "alt": "RA•IO treeningvahendiga inimene õues"
         },
         {
@@ -126,7 +126,7 @@
           "title": "Vahendid",
           "subtitle": "Käsitöö",
           "path": "/vahendid",
-          "image": "/Pictures/Avaleht/RAIO VAHENDID.png",
+          "image": "/Pictures/Avaleht/RAIO VAHENDID.webp",
           "alt": "Kivist ja puidust RA•IO treeningvahendi lähivaade"
         },
         {
@@ -134,7 +134,7 @@
           "title": "Sündmused",
           "subtitle": "Kogemused",
           "path": "/sundmused",
-          "image": "/Pictures/Avaleht/raio-sundmused.png",
+          "image": "/Pictures/Avaleht/raio-sundmused.webp",
           "alt": "RA•IO sündmus looduses päikeseloojangul",
           "variant": "event"
         },
@@ -143,7 +143,7 @@
           "title": "Meist",
           "subtitle": "Lugu",
           "path": "/meist",
-          "image": "/Pictures/Avaleht/RAIO MEIST.png",
+          "image": "/Pictures/Avaleht/RAIO MEIST.webp",
           "alt": "Graveeritud RA•IO kivitekstuur",
           "variant": "meist"
         },
@@ -152,13 +152,13 @@
           "title": "RA•IO+",
           "subtitle": "Lood",
           "path": "/journal",
-          "image": "/Pictures/Avaleht/RAIO JOURNAL.png",
+          "image": "/Pictures/Avaleht/RAIO JOURNAL.webp",
           "alt": "Tume atmosfäärne mägine maastik"
         }
       ]
     },
     "tools": {
-      "image": "/Pictures/Avaleht/pomm.png",
+      "image": "/Pictures/Avaleht/pomm.webp",
       "imageAlt": "Puust ja kivist käsitöö sangpomm rohelisel murul",
       "eyebrow": "Käsitöö vahendid",
       "headingStart": "Kivi, puit ja",
@@ -178,7 +178,7 @@
       "Treeninguks on kogu loodus."
     ],
     "heroCta": "Vaata treeninguid",
-    "heroImage": "/Pictures/Treeningud/header.png",
+    "heroImage": "/Pictures/Treeningud/header.webp",
     "heroImagePosition": "center center",
     "listTitle": "Treeningud meie looduses",
     "allLink": "Vaata kõiki",
@@ -266,7 +266,7 @@
       "text": "Pakume võimalust era- ja ettevõtete gruppidele. Kirjuta meile ja loome koos sobiva kogemuse.",
       "cta": "Võta ühendust"
     },
-    "heroImageMobile": "/Pictures/Avaleht/RAIO TREENINGUD.png"
+    "heroImageMobile": "/Pictures/Avaleht/RAIO TREENINGUD.webp"
   },
   "tools": {
     "metadata": {
@@ -279,7 +279,7 @@
       "RA•IO vahendid on käsitööna valmivad treeningvahendid, mis ühendavad looduse jõu, lihtsuse ja ajatu vastupidavuse.",
       "Valmistatud puidust ja kivist."
     ],
-    "heroImage": "/Pictures/Vahendid/header.png",
+    "heroImage": "/Pictures/Vahendid/header.webp",
     "heroImagePosition": "center center",
     "proofLabel": "Vahendite omadused",
     "heroProof": [
@@ -372,7 +372,7 @@
       "image": "/Pictures/Vahendid/kivi ja puit.png",
       "imageAlt": "Kivist treeningvahend järve ääres"
     },
-    "heroImageMobile": "/Pictures/Avaleht/RAIO VAHENDID.png"
+    "heroImageMobile": "/Pictures/Avaleht/RAIO VAHENDID.webp"
   },
   "events": {
     "metadata": {
@@ -386,7 +386,7 @@
       "Treeningud, töötoad ja väljakutsed, mis loovad ruumi kasvamiseks."
     ],
     "heroCta": "Vaata kõiki sündmusi",
-    "heroImage": "/Pictures/Sündmused/sundmused-header.png",
+    "heroImage": "/Pictures/Sündmused/sundmused-header.webp",
     "heroImagePosition": "center center",
     "upcomingTitle": "Lähitulevad sündmused",
     "allLink": "Vaata kõiki",
@@ -402,7 +402,7 @@
         "title": "Hommikune liikumine jõe ääres",
         "description": "Funktsionaalne treening looduses. Hingamine, jõud ja kohalolu.",
         "location": "Tartu, Emajõgi",
-        "image": "/Pictures/Sündmused/sundmused-header.png",
+        "image": "/Pictures/Sündmused/sundmused-header.webp",
         "imagePosition": "center 48%",
         "body": [
           "Alustame päeva rahuliku soojenduse, hingamise ja loomulike liikumismustritega. Fookus on keha äratamisel, mitte kiirustamisel.",
@@ -457,7 +457,7 @@
       "image": "/Pictures/Sündmused/events-host-workshop.png",
       "imageAlt": "Metsane sündmuseala sangpommide ja puidust treeningvahenditega"
     },
-    "heroImageMobile": "/Pictures/Avaleht/raio-sundmused.png"
+    "heroImageMobile": "/Pictures/Avaleht/raio-sundmused.webp"
   },
   "journal": {
     "metadata": {
@@ -470,7 +470,7 @@
       "Siit leiad lugusid treeningutest, loodusest, töö käsitööna valmimisest ja igapäevasest liikumisest."
     ],
     "heroCta": "Vaata kõiki artikleid",
-    "heroImage": "/Pictures/Journal/header vasakule.png",
+    "heroImage": "/Pictures/Journal/header vasakule.webp",
     "storiesTitle": "Viimased lood",
     "allLink": "Vaata kõiki",
     "categoriesLabel": "Kategooriad:",
@@ -526,7 +526,7 @@
         "category": "Mõtted",
         "title": "Vaikus kui jõuallikas",
         "excerpt": "Miks vaikuses viibimine aitab tugevdada fookust, närvisüsteemi ja sisemist vastupidavust.",
-        "image": "/Pictures/Journal/RAIO MEIST1.png",
+        "image": "/Pictures/Journal/RAIO MEIST1.webp",
         "body": [
           "Vaikus ei ole tühjus. See on keskkond, kus keha saab märgata, mis on päriselt pinges ja mis vajab vabastamist.",
           "Kui treeningu kõrval on ruumi vaikusele, muutub pingutus täpsemaks. Liikumine ei ole enam ainult välise tulemuse tagaajamine, vaid sisemise fookuse harjutamine.",
@@ -563,7 +563,7 @@
       "text": "Saadame aeg-ajalt häid mõtteid, uudiseid ja lugusid, mis toetavad sinu teekonda.",
       "cta": "Liitu uudiskirjaga"
     },
-    "heroImageMobile": "/Pictures/Avaleht/RAIO JOURNAL.png"
+    "heroImageMobile": "/Pictures/Avaleht/RAIO JOURNAL.webp"
   },
   "shop": {
     "metadata": {
@@ -574,7 +574,7 @@
     "heroTitle": "Ettetellimine\navatud.",
     "heroText": "Käsitööna valmivad treeningvahendid. Loodud puidust, kivist ja ajast.",
     "heroNote": "Piiratud kogus.",
-    "heroImage": "/Pictures/Pood/header pood.png",
+    "heroImage": "/Pictures/Pood/header pood.webp",
     "heroImagePosition": "94% center",
     "productsTitle": "Tooted",
     "allLink": "Vaata kõiki",
@@ -667,7 +667,7 @@
         "estimatedProductionTime": "2-4 nädalat"
       }
     },
-    "heroImageMobile": "/Pictures/Pood/header pood.png"
+    "heroImageMobile": "/Pictures/Pood/header pood.webp"
   },
   "product": {
     "eyebrow": "Pood",
@@ -763,14 +763,14 @@
     "heroText": [
       "RA•IO on loodud selleks, et need kolm ei oleks eraldi asjad, vaid üks terviklik teekond keha ja looduse juurde."
     ],
-    "heroImage": "/Pictures/Journal/RAIO MEIST1.png",
+    "heroImage": "/Pictures/Journal/RAIO MEIST1.webp",
     "cta": "Võta ühendust",
     "storyTitle": "Meie lugu",
     "story": [
       "Brändi nimi on RA•IO ja juriidiline ettevõte on Raio33Movement OÜ.",
       "Siin on ruum nii liikumisele, sündmustele kui ka käsitööna valmistatud tööriistadele - kõik sündinud samast soovist liikuda aeglasemalt, käega ja päriselt."
     ],
-    "storyImage": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.png",
+    "storyImage": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.webp",
     "storyImageAlt": "Samblase sangaga kivist RA•IO treeningvahend",
     "values": [
       {
@@ -806,7 +806,7 @@
     "closingTitle": "Räägime lähemalt.",
     "closingText": "Küsimused, koostöö või tellimused — kirjuta meile.",
     "closingCta": "Võta ühendust",
-    "heroImageMobile": "/Pictures/Avaleht/RAIO MEIST.png"
+    "heroImageMobile": "/Pictures/Avaleht/RAIO MEIST.webp"
   },
   "contact": {
     "metadata": {

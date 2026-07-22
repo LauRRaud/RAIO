@@ -42,7 +42,7 @@
    motion for all three keywords lives in HomeMotion.jsx. */
 @media (prefers-reduced-motion: no-preference) {
   .home-split-hero .home-title-accent {
-    animation: home-accent-in 1.25s cubic-bezier(0.22, 0.61, 0.36, 1) 0.55s backwards;
+    animation: home-accent-in 1.25s cubic-bezier(0.22, 0.61, 0.36, 1) 0.8s backwards;
   }
 }
 
@@ -200,16 +200,19 @@
    media curtain (::before) are elements HomeMotion never touches. */
 
 @media (min-width: 981px) and (prefers-reduced-motion: no-preference) {
+  /* Sisenemine algab veidi hiljem, et koopia ei jõuaks fotost ette (omanik
+     2026-07-22: "tekstid ilmuvad veidi vara, väike viivitus"). Stagger jääb
+     samaks, kogu rada nihkub ~0.25s edasi. */
   .home-split-hero .home-split-eyebrow {
-    animation: home-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+    animation: home-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
   }
 
   .home-split-hero .home-hero-title {
-    animation: home-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+    animation: home-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
   }
 
   .home-split-hero .home-split-lede {
-    animation: home-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.44s both;
+    animation: home-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
   }
 
   /* Hero photo shows immediately — the load "curtain wipe" was removed

@@ -95,7 +95,7 @@
       "description": "Handcrafted kettlebells and training tools made of Estonian stone and wood. Training is a feeling."
     },
     "hero": {
-      "image": "/Pictures/Avaleht/RAIO HERO1.png",
+      "image": "/Pictures/Avaleht/RAIO HERO1.webp",
       "imageAlt": "A man carrying a RA•IO stone kettlebell at sunset",
       "titleStart": "Training is a",
       "titleAccent": "feeling.",
@@ -106,7 +106,7 @@
       "headingStart": "Movement is a",
       "headingAccent": "ritual.",
       "body": "RA•IO is built for those who seek more than simple training. It is a connection with nature, your body and community. The weight of stone, the warmth of wood, presence in the moment — here, lasting strength is born.",
-      "image": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.png",
+      "image": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.webp",
       "imageAlt": "Athlete carrying stone kettlebells on a forest trail",
       "eyebrow": "Philosophy"
     },
@@ -118,7 +118,7 @@
           "title": "Training",
           "subtitle": "Movement",
           "path": "/treeningud",
-          "image": "/Pictures/Avaleht/RAIO TREENINGUD.png",
+          "image": "/Pictures/Avaleht/RAIO TREENINGUD.webp",
           "alt": "Person training outdoors with a RA•IO tool"
         },
         {
@@ -126,7 +126,7 @@
           "title": "Tools",
           "subtitle": "Handcraft",
           "path": "/vahendid",
-          "image": "/Pictures/Avaleht/RAIO VAHENDID.png",
+          "image": "/Pictures/Avaleht/RAIO VAHENDID.webp",
           "alt": "Close-up of a RA•IO stone and wood training tool"
         },
         {
@@ -134,7 +134,7 @@
           "title": "Events",
           "subtitle": "Experiences",
           "path": "/sundmused",
-          "image": "/Pictures/Avaleht/raio-sundmused.png",
+          "image": "/Pictures/Avaleht/raio-sundmused.webp",
           "alt": "RA•IO event in nature at sunset",
           "variant": "event"
         },
@@ -143,7 +143,7 @@
           "title": "About",
           "subtitle": "Story",
           "path": "/meist",
-          "image": "/Pictures/Avaleht/RAIO MEIST.png",
+          "image": "/Pictures/Avaleht/RAIO MEIST.webp",
           "alt": "Engraved RA•IO stone texture",
           "variant": "meist"
         },
@@ -152,13 +152,13 @@
           "title": "RA•IO+",
           "subtitle": "Stories",
           "path": "/journal",
-          "image": "/Pictures/Avaleht/RAIO JOURNAL.png",
+          "image": "/Pictures/Avaleht/RAIO JOURNAL.webp",
           "alt": "Dark atmospheric mountain landscape"
         }
       ]
     },
     "tools": {
-      "image": "/Pictures/Avaleht/pomm.png",
+      "image": "/Pictures/Avaleht/pomm.webp",
       "imageAlt": "Handcrafted wood and stone kettlebell on grass",
       "eyebrow": "Handcrafted tools",
       "headingStart": "Stone, wood and",
@@ -178,7 +178,7 @@
       "All of nature is your training ground."
     ],
     "heroCta": "See the trainings",
-    "heroImage": "/Pictures/Treeningud/header.png",
+    "heroImage": "/Pictures/Treeningud/header.webp",
     "heroImagePosition": "center center",
     "listTitle": "Training in our nature",
     "allLink": "View all",
@@ -266,7 +266,7 @@
       "text": "We offer options for private and corporate groups. Write to us and we'll create the right experience together.",
       "cta": "Get in touch"
     },
-    "heroImageMobile": "/Pictures/Avaleht/RAIO TREENINGUD.png"
+    "heroImageMobile": "/Pictures/Avaleht/RAIO TREENINGUD.webp"
   },
   "tools": {
     "metadata": {
@@ -279,7 +279,7 @@
       "RA•IO tools are handcrafted training tools that combine the strength of nature, simplicity, and timeless durability.",
       "Made of wood and stone."
     ],
-    "heroImage": "/Pictures/Vahendid/header.png",
+    "heroImage": "/Pictures/Vahendid/header.webp",
     "heroImagePosition": "center center",
     "proofLabel": "Tool qualities",
     "heroProof": [
@@ -372,7 +372,7 @@
       "image": "/Pictures/Vahendid/kivi ja puit.png",
       "imageAlt": "A stone training tool by a lake"
     },
-    "heroImageMobile": "/Pictures/Avaleht/RAIO VAHENDID.png"
+    "heroImageMobile": "/Pictures/Avaleht/RAIO VAHENDID.webp"
   },
   "events": {
     "metadata": {
@@ -386,7 +386,7 @@
       "Trainings, workshops, and challenges that create space to grow."
     ],
     "heroCta": "See all events",
-    "heroImage": "/Pictures/Sündmused/sundmused-header.png",
+    "heroImage": "/Pictures/Sündmused/sundmused-header.webp",
     "heroImagePosition": "center center",
     "upcomingTitle": "Upcoming events",
     "allLink": "View all",
@@ -402,7 +402,7 @@
         "title": "Morning movement by the river",
         "description": "Functional training in nature. Breathing, strength, and presence.",
         "location": "Tartu, Emajõgi",
-        "image": "/Pictures/Sündmused/sundmused-header.png",
+        "image": "/Pictures/Sündmused/sundmused-header.webp",
         "imagePosition": "center 48%",
         "body": [
           "We start the day with a calm warm-up, breathing, and natural movement patterns. The focus is waking the body, not rushing.",
@@ -457,7 +457,7 @@
       "image": "/Pictures/Sündmused/events-host-workshop.png",
       "imageAlt": "A forest event area with kettlebells and wooden training tools"
     },
-    "heroImageMobile": "/Pictures/Avaleht/raio-sundmused.png"
+    "heroImageMobile": "/Pictures/Avaleht/raio-sundmused.webp"
   },
   "journal": {
     "metadata": {
@@ -470,7 +470,7 @@
       "Here you'll find stories about training, nature, the craft of making, and everyday movement."
     ],
     "heroCta": "See all articles",
-    "heroImage": "/Pictures/Journal/header vasakule.png",
+    "heroImage": "/Pictures/Journal/header vasakule.webp",
     "storiesTitle": "Latest stories",
     "allLink": "View all",
     "categoriesLabel": "Categories:",
@@ -526,7 +526,7 @@
         "category": "Thoughts",
         "title": "Silence as a source of strength",
         "excerpt": "Why time spent in silence helps strengthen focus, the nervous system, and inner resilience.",
-        "image": "/Pictures/Journal/RAIO MEIST1.png",
+        "image": "/Pictures/Journal/RAIO MEIST1.webp",
         "body": [
           "Silence is not emptiness. It is an environment where the body can notice what is truly tense and what needs to be released.",
           "When training leaves room for silence, effort becomes more precise. Movement is no longer only about an external result, but a practice of inner focus.",
@@ -563,7 +563,7 @@
       "text": "From time to time we send good thoughts, news, and stories that support your journey.",
       "cta": "Subscribe to the newsletter"
     },
-    "heroImageMobile": "/Pictures/Avaleht/RAIO JOURNAL.png"
+    "heroImageMobile": "/Pictures/Avaleht/RAIO JOURNAL.webp"
   },
   "shop": {
     "metadata": {
@@ -574,7 +574,7 @@
     "heroTitle": "Pre-orders\nopen.",
     "heroText": "Handcrafted training tools. Made of wood, stone, and time.",
     "heroNote": "Limited quantity.",
-    "heroImage": "/Pictures/Pood/header pood.png",
+    "heroImage": "/Pictures/Pood/header pood.webp",
     "heroImagePosition": "94% center",
     "productsTitle": "Products",
     "allLink": "View all",
@@ -667,7 +667,7 @@
         "estimatedProductionTime": "2-4 weeks"
       }
     },
-    "heroImageMobile": "/Pictures/Pood/header pood.png"
+    "heroImageMobile": "/Pictures/Pood/header pood.webp"
   },
   "product": {
     "eyebrow": "Shop",
@@ -763,14 +763,14 @@
     "heroText": [
       "RA•IO exists so these three are not separate things, but one whole journey back to the body and to nature."
     ],
-    "heroImage": "/Pictures/Journal/RAIO MEIST1.png",
+    "heroImage": "/Pictures/Journal/RAIO MEIST1.webp",
     "cta": "Get in touch",
     "storyTitle": "Our story",
     "story": [
       "The brand's public name is RA•IO and the legal company is Raio33Movement OÜ.",
       "There is room here for movement, events, and handcrafted tools alike - all born from the same wish to move slower, by hand, and for real."
     ],
-    "storyImage": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.png",
+    "storyImage": "/Pictures/Avaleht/RAIO avalehe teise sektsiooni - slogani juurde.webp",
     "storyImageAlt": "RA•IO stone training tool with a moss-covered handle",
     "values": [
       {
@@ -806,7 +806,7 @@
     "closingTitle": "Let's talk.",
     "closingText": "Questions, collaboration, or orders — write to us.",
     "closingCta": "Get in touch",
-    "heroImageMobile": "/Pictures/Avaleht/RAIO MEIST.png"
+    "heroImageMobile": "/Pictures/Avaleht/RAIO MEIST.webp"
   },
   "contact": {
     "metadata": {
