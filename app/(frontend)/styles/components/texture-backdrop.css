@@ -56,6 +56,19 @@
   background: rgba(18, 14, 9, 0.58);
 }
 
+/* ERAND: alalehtede rohelised KARUSSELLIBÄNDID näitavad metsafotot ilma
+   tumendava kihita (omanik 2026-07-23: "võta filter rohelise karusselli
+   taustalt ära — ainult neil alalehtedel"). Puudutab AINULT nelja sirvi-bändi;
+   avalehe filosoofia-split, /meist lugu, tootelehe ja poe roheline bänd jäävad
+   0.58 tumendusega, samuti kaardi-modaalid (portaalitud document.body'sse, seega
+   sellest hostist väljas). Kaartidel on oma tume raam, mis hoiab teksti loetava. */
+.events-scroll-band .texture-backdrop--green .texture-backdrop-tint,
+.journal-scroll-band .texture-backdrop--green .texture-backdrop-tint,
+.training-scroll-band .texture-backdrop--green .texture-backdrop-tint,
+.tools-category-band .texture-backdrop--green .texture-backdrop-tint {
+  background: transparent;
+}
+
 .texture-backdrop--gray .texture-backdrop-tint {
   background: rgba(255, 251, 243, 0.45);
 }
