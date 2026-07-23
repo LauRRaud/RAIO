@@ -215,9 +215,6 @@
     animation: home-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
   }
 
-  /* Hero photo shows immediately — the load "curtain wipe" was removed
-     (owner 2026-07-09: "võta headeri piltidelt see efekt ära kui lehe laen"). */
-
   /* Scroll cue at the foot of the hero: a clean down-chevron (crisp SVG, round
      joins) that gently drifts and fades. Sits low, clear of the framed photo. */
   .home-split-hero::before {
@@ -236,6 +233,21 @@
   }
 }
 
+/* Hero photo + its inset frame fade in together on load, at every width (owner
+   2026-07-23: "headeris pildid fade in efektiga ja raam ei ilmuks enne pilti,
+   vaid koos"; laiendus mobiilile). Fading the whole media box carries the image,
+   the frame (::after) and the drop-shadow in as one piece, so the frame can
+   never flash in before the photo. Opacity only + backwards fill (no forwards):
+   on desktop the box transform/scroll-fade are driven inline per frame by
+   HomeMotion.jsx and control hands back cleanly once the intro ends; on mobile
+   HomeMotion clears those inline styles, so opacity reverts to base. NOT the
+   "curtain wipe" removed 2026-07-09 (a hard slide) — this is a soft fade. */
+@media (prefers-reduced-motion: no-preference) {
+  .home-split-hero .home-split-media {
+    animation: raio-hero-media-in 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s backwards;
+  }
+}
+
 @keyframes home-fade-up {
   from {
     opacity: 0;
@@ -244,6 +256,20 @@
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Opacity-only intro for the framed hero photos, shared by the home hero, the
+   subpage heroes (pages/heroes.css) and the /meist logo (pages/about.css) — the
+   same cross-file sharing as home-fade-up. Opacity only, so it never fights the
+   inline transform HomeMotion.jsx keeps on the home hero's media box, and so the
+   About logo container can fade while its mark keeps its own 0.5 opacity. */
+@keyframes raio-hero-media-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 

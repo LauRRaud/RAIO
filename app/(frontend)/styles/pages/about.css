@@ -69,6 +69,16 @@
   }
 }
 
+/* Header-logo fades in on load like the framed hero photos elsewhere (omanik
+   2026-07-23, laiendus /meist-le). Fading the CONTAINER 0→1 leaves the mark's
+   own 0.5 opacity intact (efektiivne 0→0.5) — 0.5 jääb defineerituks üks kord,
+   .about-hero-logo-mark'il. Keyframe raio-hero-media-in tuleb pages/home.css-ist. */
+@media (prefers-reduced-motion: no-preference) {
+  .about-hero-logo {
+    animation: raio-hero-media-in 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+  }
+}
+
 .about-hero::before {
   content: "";
   position: absolute;

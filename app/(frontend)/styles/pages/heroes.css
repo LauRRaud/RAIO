@@ -205,9 +205,22 @@
 
   /* Sisenemine algab veidi hiljem (nagu avalehe hero'l), et koopia ei jõuaks
      fotost ette (omanik 2026-07-22: "tekstid ilmuvad veidi vara"). */
+}
 
-  /* Subpage hero photos show immediately — the load "curtain wipe" was removed
-     (owner 2026-07-09: "võta headeri piltidelt see efekt ära kui lehe laen"). */
+/* Subpage hero photo + its inset frame fade in together on load, at every width,
+   matching the home hero (owner 2026-07-23: "headeris pildid fade in efektiga ja
+   raam ei ilmuks enne pilti, vaid koos"; laiendus mobiilile). Fading the whole
+   image box carries the photo, the frame (::after) and the shadow in as one
+   piece; no JS drives these boxes, so a both-fill holds the end state. Meist
+   jääb välja: selle header on logo, mitte raamitud foto — vt about.css. */
+@media (prefers-reduced-motion: no-preference) {
+  .events-hero-image,
+  .journal-hero-image,
+  .tools-hero-image,
+  .training-hero-image,
+  .store-hero-image {
+    animation: raio-hero-media-in 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+  }
 }
 
 @media (max-width: 980px) {
