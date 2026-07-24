@@ -208,9 +208,10 @@
      3px joone ümarad otsad kärpimata. */
   clip-path: inset(-3px 100% -3px -3px);
   transition: clip-path 240ms ease;
-  /* Nui õrnem kui tekst (omanik 2026-07-24: "veidi läbipaistvamaks nuia" → 0.8).
-     Sama väärtus kivil (::before), et kogu nui oleks ühtlaselt läbipaistev. */
-  opacity: 0.8;
+  /* Nui õrnem kui tekst (omanik 2026-07-24: "veidi läbipaistvamaks nuia" → 0.8 →
+     "veidi tumedam" → 0.9). Sama väärtus kivil (::before), et kogu nui oleks
+     ühtlaselt läbipaistev. */
+  opacity: 0.9;
 }
 
 .nav-mace path {
@@ -242,7 +243,7 @@
   border-radius: 42% 58% 56% 44% / 52% 44% 56% 48%;
   background: currentColor;
   /* Sama läbipaistvus kui varrel (.nav-mace) — kogu nui ühtlane. */
-  opacity: 0.8;
+  opacity: 0.9;
   transform: scale(0);
   transform-origin: center;
   /* Kerge ületus (>1) → kivi "kukub" paika, nagu kivipea saua otsas. */
