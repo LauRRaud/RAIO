@@ -42,26 +42,47 @@
   top: 0;
   z-index: 80;
   border: 0;
-  border-bottom: 1px solid rgba(17, 16, 13, 0.1);
-  /* Frame (header + footer) is a touch deeper & more muted than the page paper
-     (owner 2026-07-08: "jalus ja päis pastelsemaks, veidi tumedamaks"). */
-  background: #e6ceb0;
-  box-shadow:
-    0 10px 28px rgba(17, 16, 13, 0.14),
-    0 4px 12px rgba(17, 16, 13, 0.08);
+  /* Taust ja vari elavad ::before kihil, et alaserv saaks kivise murdejoone.
+     Maski EI TOHI panna .site-header'ile endale — mask lõikab ka üle kasti
+     ulatuvad lapsed ja mobiilimenüü paneel ripub kasti alt väljas. */
   opacity: 1;
   transform: translateY(0);
   transition:
     transform 680ms cubic-bezier(0.19, 1, 0.22, 1),
-    opacity 460ms ease,
-    box-shadow 520ms ease;
+    opacity 460ms ease;
   will-change: transform;
+}
+
+/* Frame (header + footer) is a touch deeper & more muted than the page paper
+   (owner 2026-07-08: "jalus ja päis pastelsemaks, veidi tumedamaks"). */
+.site-header::before {
+  content: "";
+  position: absolute;
+  /* Ulatub kasti alt servariba võrra välja: sakid hammustavad lehe sisusse,
+     mitte ei lõika bändi õhemaks — kerides libiseb sisu murdejoone alt läbi. */
+  inset: 0 0 calc(-1 * var(--raio-stone-edge-h));
+  /* Backdrop (foto-slaidiseanss) on -3 — lame toon jääb selle alla varuks. */
+  z-index: -4;
+  /* Pseudo laiendaks muidu päise klikiala sakiriba võrra hero sisu peale. */
+  pointer-events: none;
+  background: #e6ceb0;
+  mask-image: linear-gradient(#000, #000), var(--raio-stone-edge-bottom);
+  mask-repeat: no-repeat, repeat-x;
+  mask-position: top, bottom;
+  mask-size:
+    100% calc(100% - var(--raio-stone-edge-h)),
+    var(--raio-stone-edge-tile);
+  /* Vari järgib maskitud siluetti — box-shadow joonistaks sirge kasti serva
+     tagasi. Sama sügavus, mis endisel box-shadow paaril. */
+  filter: drop-shadow(0 10px 28px rgba(17, 16, 13, 0.14))
+    drop-shadow(0 4px 12px rgba(17, 16, 13, 0.08));
 }
 
 .site-header.is-hidden {
   opacity: 0;
-  transform: translateY(calc(-100% - 6px));
-  box-shadow: none;
+  /* -56px: murdejooneriba (16px) + drop-shadow ulatuvad kasti alt välja ja
+     peavad samuti ekraanilt kaduma. */
+  transform: translateY(calc(-100% - 56px));
   pointer-events: none;
 }
 
@@ -79,7 +100,9 @@
 
 .header-shell {
   width: min(calc(100% - 56px), 1780px);
-  min-height: 78px;
+  /* Madalam menüüriba (omanik 2026-07-24: "veidi kitsamaks vertikaalselt").
+     40px logo + ~13px õhku üleval-all. */
+  min-height: 66px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(130px, 0.7fr) minmax(520px, 1.4fr) minmax(160px, 0.7fr);
@@ -89,15 +112,19 @@
 
 .header-logo {
   width: fit-content;
-  /* Suurem logo peamenüüs (omanik 2026-07-20). */
-  height: 40px;
+  /* Suurem logo peamenüüs (omanik 2026-07-20), aga skaleeruv: rem+vw clamp
+     kahandab logo mobiililayout'is sujuvalt 40→32px (omanik 2026-07-24: "logo
+     ei lähe väiksemaks, ei skaleeru... rem ühikusse"). rem-baas respekteerib
+     juurfonti/ligipääsu-suumi; ülempiir 2.5rem saabub 980px juures, seega
+     desktop jääb täpselt 40px. Alt-breakpointi 32px-kärped enam ei vaja. */
+  height: clamp(2rem, 1.14rem + 2.22vw, 2.5rem);
   display: inline-flex;
   align-items: center;
 }
 
 .header-logo-mark {
   width: auto;
-  height: 40px;
+  height: clamp(2rem, 1.14rem + 2.22vw, 2.5rem);
   max-width: none;
   image-rendering: auto;
   shape-rendering: auto;
@@ -152,19 +179,74 @@
     opacity 160ms ease;
 }
 
-.desktop-nav a::after {
+/* Hover / aktiivse lehe tähis on treeningsau: kõver VARS (SVG-joon .nav-mace),
+   mille vasakus otsas on kivi (::before) — omanik 2026-07-24: "kriips, millel on
+   kivi otsas" → "lisa väike kõverus". SVG, sest ristkülik ei kõverdu ega saa
+   kindlat ümarat otsa; non-scaling-stroke hoiab paksuse ja ümarad otsad
+   ühtlasena igal lingilaiusel ning stroke-linecap: round annab garanteeritult
+   ümara otsa. Vars joonistub kivi otsast välja (stroke-dashoffset), kivi kukub
+   kergelt vetrudes paika. */
+.nav-mace {
+  position: absolute;
+  /* left jätab kivile ruumi. SVG on asenduselement: left+right EI venita seda
+     (jääks viewBox'i intrinsic 100px-le → joon eri sõnadel eri pikkusega, omanik
+     2026-07-24: "osadel liiga lühike, teistel liiga pikk"). Otsene width sunnib
+     joone alati lingi laiusega venima: 100% − (3px left + 6px right). Otsa 6px
+     sissepoole teksti servast (omanik: "veidi lühem"). */
+  left: 3px;
+  width: calc(100% - 9px);
+  /* Lingile lähemal; 10px riba kese ~8px lingi allservast (= kivi kese). */
+  bottom: -13px;
+  height: 10px;
+  overflow: visible;
+  pointer-events: none;
+  /* Vars on PEIDUS, kuni hover/aktiivne; clip paljastab vasakult paremale (kivi
+     otsast välja). clip-path, MITTE stroke-dashoffset: viimane koos
+     non-scaling-stroke'i ja venitatud path'iga ei peitnud joont laiematel
+     linkidel ega paljastanud täispikkuses (omanik 2026-07-24: "ilma hoverita
+     kriipsud, ja kui on hover, siis ikka lühem"). Negatiivsed servad hoiavad
+     3px joone ümarad otsad kärpimata. */
+  clip-path: inset(-3px 100% -3px -3px);
+  transition: clip-path 240ms ease;
+  /* Nui õrnem kui tekst (omanik 2026-07-24: "veidi läbipaistvamaks nuia" → 0.8).
+     Sama väärtus kivil (::before), et kogu nui oleks ühtlaselt läbipaistev. */
+  opacity: 0.8;
+}
+
+.nav-mace path {
+  fill: none;
+  stroke: currentColor;
+  /* Jämedam vars (omanik: "joon veidi paksem" → "veidi jämedam ikkagi");
+     non-scaling-stroke → 3px igal laiusel, otsad ei venita. */
+  stroke-width: 3px;
+  /* Garanteeritult ümar ots (omanik: "kriipsu ots ümaramaks" → "ikka liiga
+     kandiline"). */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.desktop-nav a::before {
   content: "";
   position: absolute;
   left: 0;
-  right: 0;
-  bottom: -14px;
-  /* Vahepealne jämedus: 2px luges DPR 1.25 juures ebaühtlaselt paksuna, 1px
-     liiga õhukesena (omanik 2026-07-20: "tee vahepealne"). */
-  height: 1.5px;
+  /* Kivi istub varrega ÜHEL joonel (mitte kohal) — joon lõpeb kivi sees
+     (omanik 2026-07-24: "kriipsu otsas ümmargune, mitte kriipsu kohal"). SVG-riba
+     kese on 8px lingi allservast; 8px kivi kese sinna → bottom -12px. */
+  bottom: -12px;
+  /* Ebakorrapärane kivi, mitte täisring (omanik 2026-07-24: "kivi veidi liiga
+     ümmargune"): pisut laiem kui kõrge + asümmeetriline border-radius annab
+     lameda paekivi silueti. */
+  width: 9px;
+  height: 8px;
+  border-radius: 42% 58% 56% 44% / 52% 44% 56% 48%;
   background: currentColor;
-  transform: scaleX(0);
+  /* Sama läbipaistvus kui varrel (.nav-mace) — kogu nui ühtlane. */
+  opacity: 0.8;
+  transform: scale(0);
   transform-origin: center;
-  transition: transform 160ms ease;
+  /* Kerge ületus (>1) → kivi "kukub" paika, nagu kivipea saua otsas. */
+  transition: transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .desktop-nav a:hover,
@@ -175,10 +257,16 @@
   opacity: 1;
 }
 
-.desktop-nav a:hover::after,
-.desktop-nav a:focus-visible::after,
-.desktop-nav a.is-active::after {
-  transform: scaleX(1);
+.desktop-nav a:hover .nav-mace,
+.desktop-nav a:focus-visible .nav-mace,
+.desktop-nav a.is-active .nav-mace {
+  clip-path: inset(-3px -3px -3px -3px);
+}
+
+.desktop-nav a:hover::before,
+.desktop-nav a:focus-visible::before,
+.desktop-nav a.is-active::before {
+  transform: scale(1);
 }
 
 .header-actions {
@@ -363,7 +451,10 @@
 @media (max-width: 980px) {
   .header-shell {
     width: min(calc(100% - 36px), 1780px);
-    min-height: 72px;
+    /* Madalam mobiili-layout'is (omanik 2026-07-24: "mobiilis rohkem" →
+       "veidi laiemaks ikka, muidu jääb imelik vahe avatud menüüga"): 58px
+       hoiab avatud paneeli ülaserva päise kivise servaga kokku. */
+    min-height: 58px;
     grid-template-columns: auto 1fr;
   }
 }
@@ -402,12 +493,11 @@
 
 @media (max-width: 620px) {
 
-  .header-logo {
-    height: 32px;
-  }
-
-  .header-logo-mark {
-    height: 32px;
+  .header-shell {
+    /* Päris mobiilis pisut madalam kui tahvlil, aga mitte nii lühike, et
+       avatud menüü alla jääks vahe (omanik 2026-07-24). Logo skaleerub siin
+       clamp-i põhjaväärtusele 32px — eraldi kõrguskärbet enam ei ole. */
+    min-height: 54px;
   }
 
   .language-switch-link {

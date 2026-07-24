@@ -100,6 +100,9 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName, te
             return (
               <Link key={item.key} href={item.href} className={isActive ? "is-active" : undefined} aria-current={isActive ? "page" : undefined}>
                 {item.label}
+                <svg className="nav-mace" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M2 5 Q 50 7 98 5" />
+                </svg>
               </Link>
             );
           })}

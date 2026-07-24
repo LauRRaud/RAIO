@@ -3,10 +3,22 @@
   position: relative;
   overflow: hidden;
   min-height: clamp(286px, 19vw, 340px);
+  /* Kivine murdejoon ülaservas, sirge borderi asemel. Erinevalt päisest võib
+     maski panna otse .footer'ile — ükski laps ei ulatu kastist välja.
+     Negatiivne margin tõmbab jaluse eelmise (tumeda) bändi peale, et sakkide
+     vahelt paistaks selle foto, mitte lehe taust; sisu jääb puutumata —
+     sügavaimad murrud küünivad padding-top'i sisse, aga esimene laps (logo)
+     istub translateY võrra veel allpool. */
+  margin-top: calc(-1 * var(--raio-stone-edge-h));
   padding: clamp(14px, 2vw, 30px) clamp(24px, 5vw, 64px) clamp(58px, 5vw, 78px);
   background: #e6ceb0;
   color: #40342a;
-  border-top: 1px solid rgba(64, 52, 42, 0.12);
+  mask-image: linear-gradient(#000, #000), var(--raio-stone-edge-top);
+  mask-repeat: no-repeat, repeat-x;
+  mask-position: bottom, top;
+  mask-size:
+    100% calc(100% - var(--raio-stone-edge-h)),
+    var(--raio-stone-edge-tile);
 }
 
 .footer-shell {

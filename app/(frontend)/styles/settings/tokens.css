@@ -32,6 +32,26 @@
   --raio-stone-light-flat: #cbc4bb;
 }
 
+/* Kivine murdejoon — päise alaserv ja jaluse ülaserv (omanik 2026-07-24:
+   "sirge serv ei tundu loomulik, muu on struktuurne ja tekstuurne —
+   kivisemaks"). Siluett antakse kahekihilise mask-image'iga: gradientkiht
+   katab pinna miinus servariba, murdejoone-tiil (otsad samal kõrgusel →
+   õmblusvaba repeat-x) katab servariba. Peegelpaar: -bottom murrab alaserva
+   (päis), -top ülaserva (jalus).
+   Profiil on TEADLIKULT hõre ja ebaühtlane: väga pikad rahulikud lõigud
+   (~90–180px) õrna triiviga, üks sügav ja üks mõõdukas murd tiili kohta —
+   tihe ühtlane sakirida luges saehambana, mitte kivina (omanik 2026-07-24:
+   "liiga palju väikseid sakke" → hõrendatud → "isegi veel vähem sakke").
+   Sakid on ka madalad: serva-riba on 16px, aga sügavaim hammas küünib vaid
+   ~9.5px-ni (omanik 2026-07-24: "veidi madalamaks sakid") — joon jääb
+   pinnalähedane, mitte sügav rebend. */
+:root {
+  --raio-stone-edge-h: 16px;
+  --raio-stone-edge-tile: 960px 16px;
+  --raio-stone-edge-bottom: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20960%2016'%3E%3Cpath%20d='M0,0H960V5L890,8L790,3L700,6L520,4.5L370,9.5L330,7.5L230,3.5L140,6.5L0,5Z'/%3E%3C/svg%3E");
+  --raio-stone-edge-top: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20960%2016'%3E%3Cpath%20d='M0,11L140,9.5L230,12.5L330,10L370,6.5L520,11.5L700,10L790,13L890,9.5L960,11V16H0Z'/%3E%3C/svg%3E");
+}
+
 /* Tüpograafiaskaala (endine typography-cleanup/00-tokens).
    NB: --ui-box-* pere elab theme/polarity.css :root-is. */
 :root {

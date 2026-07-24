@@ -177,9 +177,15 @@
   isolation: isolate;
 }
 
-/* Päise 1px border-bottom jääb padding-boxist VÄLJA, aga absoluutne inset:0
-   katab ainult padding-boxi — ilma selleta paistis borderi rea alt lame beež
-   triip (omanik: "päise menüü all servas imelik triip"). */
+/* Päise fotokiht järgib sama kivist murdejoont nagu .site-header::before
+   taustakiht: ulatub kasti alt servariba võrra välja ja saab identse maski,
+   nii et foto ja lame varutoon murduvad ühte joont pidi. */
 .site-header .texture-backdrop {
-  bottom: -1px;
+  bottom: calc(-1 * var(--raio-stone-edge-h));
+  mask-image: linear-gradient(#000, #000), var(--raio-stone-edge-bottom);
+  mask-repeat: no-repeat, repeat-x;
+  mask-position: top, bottom;
+  mask-size:
+    100% calc(100% - var(--raio-stone-edge-h)),
+    var(--raio-stone-edge-tile);
 }
