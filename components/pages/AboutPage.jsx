@@ -66,6 +66,9 @@ export async function AboutPage({ locale = "et" }) {
         <div className="about-content-section">
           <section className="about-story-panel" aria-labelledby="about-story-title" {...getCmsSectionProps(messages, "aboutStory")}>
             <TextureSlideshow set="green" />
+            <div className="band-heading about-story-heading">
+              <h2 id="about-story-title">{t.storyTitle}</h2>
+            </div>
             <div className="about-story-image">
               <Image
                 src={t.storyImage}
@@ -75,7 +78,6 @@ export async function AboutPage({ locale = "et" }) {
               />
             </div>
             <div className="about-story-copy">
-              <h2 id="about-story-title">{t.storyTitle}</h2>
               {t.story.map((line) => (
                 <p key={line}>{line}</p>
               ))}
@@ -84,7 +86,7 @@ export async function AboutPage({ locale = "et" }) {
 
           <section className="about-trainers-section" id="treenerid" aria-labelledby="about-trainers-title" {...getCmsSectionProps(messages, "aboutTrainers")}>
             <TextureSlideshow set="gray" />
-            <div className="about-trainers-heading">
+            <div className="band-heading about-trainers-heading">
               <h2 id="about-trainers-title">{t.trainersTitle}</h2>
             </div>
 
@@ -110,8 +112,10 @@ export async function AboutPage({ locale = "et" }) {
 
           <section className="about-closing-panel" aria-labelledby="about-closing-title" {...getCmsSectionProps(messages, "aboutClosing")}>
             <TextureSlideshow set="terracotta" />
-            <div className="about-closing-copy">
+            <div className="band-heading about-closing-heading">
               <h2 id="about-closing-title">{t.closingTitle}</h2>
+            </div>
+            <div className="about-closing-copy">
               <div className="about-closing-values" aria-label={t.storyTitle}>
                 {t.values.map((value) => (
                   <article key={value.title}>

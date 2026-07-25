@@ -512,7 +512,6 @@
 .store-custom-band {
   width: 100vw;
   margin-inline: calc(50% - 50vw);
-  margin-top: -1px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(480px, 740px);
   column-gap: clamp(40px, 5.5vw, 100px);
@@ -538,7 +537,7 @@
   color: #f2d9b6;
 }
 
-.store-custom-copy h2 {
+.store-custom-heading h2 {
   margin: 0;
   color: #f7efe1;
   font-family: var(--font-display), Georgia, serif;
@@ -598,6 +597,11 @@
 @media (max-width: 980px) {
   .store-custom-band {
     grid-template-columns: 1fr;
+  }
+
+  /* Pealkiri jääb foto `order: -1` ette, muidu tõuseks foto bändi tippu. */
+  .store-custom-heading {
+    order: -2;
   }
 
   .store-custom-image {

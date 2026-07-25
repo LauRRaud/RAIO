@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { CartButton } from "@/components/CartButton";
 import { getLocalizedPath } from "@/lib/i18n";
 import { TextureSlideshowClient } from "@/components/TextureSlideshowClient";
@@ -20,6 +20,11 @@ function isActivePath(currentPath, href) {
 
 export function Header({ locale = "et", currentPath = "/", labels, brandName, textures = null }) {
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  /* Mobiilimenüü on ekraanitäis paneel, seega tema olek EI TOHI jääda <details>
+     enda DOM-atribuudi hooleks: Next'i kliendinavigatsioon hoiab sama sõlme
+     elus ja avatud menüü kataks järgmise lehe ära. Kontrollitud olek + sulgemine
+     lingiklõpsul ja teepiste muutumisel. */
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lastScrollYRef = useRef(0);
   const frameRef = useRef(null);
   const t = labels;
@@ -75,6 +80,24 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName, te
     };
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [currentPath]);
+
+  useEffect(() => {
+    if (!isMenuOpen) return undefined;
+
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isMenuOpen]);
+
   return (
     <header className={`site-header${isHeaderHidden ? " is-hidden" : ""}`}>
       {textures?.images?.length ? (
@@ -119,9 +142,14 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName, te
             countLabel={t.cartCountLabel}
           />
 
-          <details className="mobile-menu">
-            <summary aria-label={t.openMenuLabel}>
-              <Menu size={22} strokeWidth={1.9} />
+          <details
+            className="mobile-menu"
+            open={isMenuOpen}
+            onToggle={(event) => setIsMenuOpen(event.currentTarget.open)}
+          >
+            <summary aria-label={isMenuOpen ? t.closeMenuLabel : t.openMenuLabel}>
+              <Menu className="mobile-menu-icon-open" size={22} strokeWidth={1.9} aria-hidden="true" />
+              <X className="mobile-menu-icon-close" size={22} strokeWidth={1.9} aria-hidden="true" />
             </summary>
             <div className="mobile-menu-panel">
               {textures?.images?.length ? (
@@ -129,11 +157,13 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName, te
               ) : null}
               <nav aria-label={t.mobileNavLabel}>
                 {mobileItems.map((item) => (
-                  <Link key={item.key} href={item.href}>
+                  <Link key={item.key} href={item.href} onClick={() => setIsMenuOpen(false)}>
                     {item.label}
                   </Link>
                 ))}
-                <Link href={cartHref}>{t.cartLabel}</Link>
+                <Link href={cartHref} onClick={() => setIsMenuOpen(false)}>
+                  {t.cartLabel}
+                </Link>
               </nav>
             </div>
           </details>

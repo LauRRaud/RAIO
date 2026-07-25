@@ -175,17 +175,17 @@
 
   :is(
     .events-section-top h2,
-    .events-host-copy h2,
+    .events-host-heading h2,
     .journal-section-top h2,
-    .journal-signup-copy h2,
+    .journal-signup-heading h2,
     .store-products-header h2,
     .tools-section-top h2,
-    .tools-material-copy h2,
-    .tools-care-copy h2,
+    .tools-material-heading h2,
+    .tools-care-heading h2,
     .training-section-intro h2,
-    .about-story-copy h2,
+    .about-story-heading h2,
     .about-trainers-heading h2,
-    .about-closing-copy h2,
+    .about-closing-heading h2,
     .about-contact-panel h3,
     .product-related-heading h2,
     .cart-summary h2
@@ -195,18 +195,12 @@
     text-align: center;
   }
 
-  .training-page-redesign .training-workshop-copy h2 {
-    margin-inline: 0;
-    text-align: left;
-  }
-
-  /* Left-aligned, smaller lasting-band heading with breathing room below the
-     photo — it sat right against the image before (owner 2026-07-09: "pealkiri
-     liiga pildi all"). */
-  .training-page-redesign .training-lasting-copy h2 {
-    margin-inline: 0;
-    margin-top: clamp(28px, 7vw, 40px);
-    text-align: left;
+  /* Väiksem mõõt telefoni bändipealkirjale. Endised `margin-inline: 0` /
+     `text-align: left` erandid (töötuba ja "jääb sinuga") on kadunud — kõik
+     sektsioonipealkirjad on nüüd bändi keskteljel (omanik 2026-07-25), ja
+     `margin-top`, mis andis pildi alla jäänud pealkirjale õhku, ei ole enam
+     vajalik: pealkiri istub pildi KOHAL oma real. */
+  .training-page-redesign .training-lasting-heading h2 {
     font-size: calc(clamp(2rem, 8.5vw, 2.5rem) * var(--cms-text-scale, 1));
     line-height: 1.24;
   }
@@ -228,7 +222,7 @@
     margin-inline: auto;
   }
 
-  .about-page-redesign .about-closing-copy h2 {
+  .about-page-redesign .about-closing-heading h2 {
     font-size: calc(clamp(2.2rem, 9.5vw, 2.7rem) * var(--cms-text-scale, 1));
     line-height: 1.24;
   }

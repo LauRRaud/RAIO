@@ -53,8 +53,8 @@
 .tools-category-body h3,
 .tools-text-link,
 .tools-proof-item span,
-.tools-material-copy h2,
-.tools-care-copy h2 {
+.tools-material-heading h2,
+.tools-care-heading h2 {
   font-size: calc(0.78rem * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.1;
@@ -274,10 +274,10 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-areas:
+    "heading heading"
     "copy image"
     "values values";
   gap: clamp(18px, 2vw, 30px);
-  margin-top: 24px;
   padding: clamp(18px, 2.4vw, 34px);
   border: 1px solid rgba(23, 19, 16, 0.12);
   background:
@@ -285,6 +285,15 @@
     var(--material-panel-bg);
   color: var(--material-panel-ink);
   overflow: hidden;
+}
+
+/* Pealkiri on oma rida üle mõlema veeru (components/section-headers.css). */
+.tools-material-heading {
+  grid-area: heading;
+}
+
+.tools-care-heading {
+  grid-area: heading;
 }
 
 .tools-material-copy {
@@ -296,13 +305,13 @@
   padding: clamp(20px, 2.6vw, 44px);
 }
 
-.tools-page-redesign .tools-material-copy h2,
-.tools-care-copy h2 {
+.tools-page-redesign .tools-material-heading h2,
+.tools-care-heading h2 {
   margin: 0;
   color: var(--tools-ink);
 }
 
-.tools-page-redesign .tools-material-copy h2 {
+.tools-page-redesign .tools-material-heading h2 {
   font-family: var(--font-display), Georgia, serif;
   font-weight: 400;
   letter-spacing: 0;
@@ -449,6 +458,7 @@
   .tools-material-panel {
     grid-template-columns: 1fr;
     grid-template-areas:
+      "heading"
       "copy"
       "image"
       "values";
@@ -532,7 +542,7 @@
   .tools-category-body h3,
   .tools-text-link,
   .tools-proof-item span,
-  .tools-material-copy h2 {
+  .tools-material-heading h2 {
     font-size: calc(0.7rem * var(--cms-text-scale, 1));
   }
 }
@@ -684,14 +694,13 @@
   /* min(740px, 46%) → min(800px, 48%): foto veidi suuremaks (omanik
      2026-07-20: "pilt võiks ka veidi suurem olla"). */
   grid-template-columns: minmax(0, 1fr) minmax(0, min(800px, 48%));
-  grid-template-areas: "copy image";
+  grid-template-areas:
+    "heading heading"
+    "copy image";
   column-gap: clamp(40px, 5.5vw, 100px);
   row-gap: 0;
   align-items: center;
   padding: clamp(56px, 6vw, 88px) var(--band-pad);
-  /* Seamless stacking under the terracotta category band — kill the leftover
-     24px top margin that showed a cream stripe (owner 2026-07-09). */
-  margin-top: -1px;
 }
 
 .tools-page-redesign .tools-material-copy {
@@ -719,10 +728,11 @@
    right — the shared framed-band composition (photo side alternates the rust
    material band above). */
 .tools-page-redesign .tools-support-band {
-  margin-top: -1px;
   display: grid;
   grid-template-columns: minmax(480px, 740px) minmax(0, 1fr);
-  grid-template-areas: "image copy";
+  grid-template-areas:
+    "heading heading"
+    "image copy";
   column-gap: clamp(40px, 5.5vw, 100px);
   align-items: center;
   padding: clamp(56px, 6vw, 88px) var(--band-pad);
@@ -757,7 +767,7 @@
 /* Cream, header-scale heading on the green band — matching the hero header
    treatment (owner: "hoolduse tekstid nagu header sektsioonis") and never
    near-black (owner: "mustad pealkirjad ei meeldi"). */
-.tools-page-redesign .tools-support-band .tools-care-copy h2 {
+.tools-page-redesign .tools-support-band .tools-care-heading h2 {
   color: #f4efe4;
   font-size: calc(clamp(2.7rem, 4.15vw, 4.85rem) * var(--cms-text-scale, 1));
   line-height: 1;
@@ -779,6 +789,7 @@
   .tools-page-redesign .tools-material-panel {
     grid-template-columns: 1fr;
     grid-template-areas:
+      "heading"
       "image"
       "copy";
   }
@@ -789,6 +800,7 @@
        the photo column collapses to 0 → image vanishes (owner 2026-07-09:
        "pilt on kadunud vahendite lehel"). */
     grid-template-areas:
+      "heading"
       "image"
       "copy";
   }

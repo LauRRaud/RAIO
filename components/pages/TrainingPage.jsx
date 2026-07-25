@@ -90,6 +90,9 @@ export async function TrainingPage({ locale = "et" }) {
             {...getCmsSectionProps(messages, "trainingLasting")}
           >
             <TextureSlideshow set="gray" />
+            <div className="band-heading training-lasting-heading">
+              <h2 id="training-lasting-title">{t.lasting.title}</h2>
+            </div>
             <div className="training-lasting-image">
               <Image
                 src={t.lasting.image}
@@ -101,7 +104,6 @@ export async function TrainingPage({ locale = "et" }) {
             </div>
 
             <div className="training-lasting-copy">
-              <h2 id="training-lasting-title">{t.lasting.title}</h2>
               <p>{t.lasting.text}</p>
               <Link href={path("/meist#treenerid")} className="training-solid-button">
                 {t.lasting.cta}

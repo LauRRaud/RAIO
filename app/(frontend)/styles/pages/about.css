@@ -60,9 +60,21 @@
 }
 
 @media (max-width: 980px) {
-  /* Laotud vaates istub logo teksti all, pildi endise täislaiuse asemel. */
+  /* Laotud vaates istub logo teksti all, pildi endise täislaiuse asemel.
+     Alaserva varu on suur: 30px jättis logo sektsiooni põhja kinni ja pärast
+     bändiõmbluse lisandumist (components/band-seam.css murrab 8–21px hero sisse)
+     jäi selle ja murdejoone vahele vaid mõni piksel (omanik 2026-07-25: "meist
+     lehel on hero sektsioonis mobiilis logo liiga all"). Nüüd istub logo teksti
+     ja sektsiooni põhja vahelises tühjas ruumis, veidi ülalpool optilist keset.
+
+     76px → 140px → 112px (omanik 2026-07-25, kaks ringi: "logo … üles poole",
+     seejärel "logo veidi alla poole"). Varu MÕÕDETAKSE sektsiooni kastist, aga
+     NÄHTAV alaserv on 28px kõrgemal — järgmine bänd tõmmatakse õmbluse võrra
+     hero peale —, nii et 76px luges silmale ~48px-na ja logo tundus põhja kinni
+     jäävat; 140px viis ta teksti liiga lähedale. 112px = nähtavat ruumi ~84px,
+     logo istub teksti ja põhja vahel õrnalt allpool optilist keset. */
   .about-hero-logo {
-    inset: auto 0 clamp(30px, 7vw, 62px) 0;
+    inset: auto 0 clamp(112px, 21vw, 160px) 0;
     transform: none;
     width: min(70vw, 420px);
     margin-inline: auto;
@@ -160,7 +172,7 @@
   padding: clamp(30px, 3.4vw, 56px);
 }
 
-.about-story-copy h2 {
+.about-story-heading h2 {
   margin: 0 0 18px;
   color: var(--about-ink);
   font-family: var(--font-display), Georgia, serif;
@@ -291,7 +303,7 @@
   justify-content: center;
 }
 
-.about-closing-copy h2 {
+.about-closing-heading h2 {
   max-width: 16ch;
   margin: 0;
   color: #f8f3ec;
@@ -685,11 +697,8 @@
   padding-block: 0;
 }
 
-/* -1px overlap hides fractional-DPR (125% scaling) hairlines between bands. */
-.about-page-redesign .about-trainers-section,
-.about-page-redesign .about-closing-panel {
-  margin-top: -1px;
-}
+/* Bändide ülekate (endine -1px juuksekarva-peit) tuleb nüüd õmbluselt:
+   components/band-seam.css tõmbab iga bändi murdejoone võrra üles. */
 
 /* Trainers band flipped to a DARK gray backdrop (texture-backdrop.css darkening
    tint), so the ink goes LIGHT (owner 2026-07-20: "siin ka tekst heledaks —
@@ -743,6 +752,12 @@
   gap: 0;
   padding-block: 0;
 }
+/* Paneel ise on padding-block: 0 (veerud kannavad oma polstrit), seega toob
+   keskele tõstetud pealkiri oma ülemise polstri ise kaasa. */
+.about-page-redesign .about-closing-heading {
+  padding: clamp(40px, 4.8vw, 72px) var(--band-pad) 0;
+}
+
 .about-page-redesign .about-closing-copy {
   padding-block: clamp(40px, 4.8vw, 72px);
   padding-inline-start: var(--band-pad);

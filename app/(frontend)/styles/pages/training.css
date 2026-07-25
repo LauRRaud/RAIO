@@ -424,7 +424,6 @@ body .training-modal-content .training-meta span {
   display: grid;
   /* Three equal strips: photo | copy | quality list — regular rhythm. */
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-  margin-top: 24px;
   border: 1px solid var(--training-line);
   background: rgba(240, 233, 221, 0.62);
 }
@@ -444,7 +443,7 @@ body .training-modal-content .training-meta span {
   padding: clamp(24px, 2.5vw, 34px);
 }
 
-.training-lasting-copy h2,
+.training-lasting-heading h2,
 .training-workshop-copy h2 {
   margin: 0;
   color: var(--training-ink);
@@ -510,7 +509,6 @@ body .training-modal-content .training-meta span {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: clamp(24px, 4vw, 56px);
   align-items: center;
-  margin-top: 24px;
   border: 1px solid var(--training-line);
   background: rgba(240, 233, 221, 0.62);
   padding: clamp(20px, 2.4vw, 30px) clamp(34px, 5vw, 76px);
@@ -780,23 +778,26 @@ body .training-modal-content .training-meta span {
   color: #f8f3ec;
   border-top-color: rgba(248, 243, 236, 0.28);
 }
-/* Bands stack seamlessly — no cream gaps between scroll/lasting/workshop. */
-.training-page-redesign .training-lasting-panel,
-.training-page-redesign .training-workshop-panel { margin-top: -1px; }
+/* Bändide ülekate tuleb õmbluselt (components/band-seam.css) — endised
+   `margin-top: -1px` triibud on kustutatud. */
 /* Lasting band: wide framed photo on the left — hero-scale — with copy and
    the quality list stacked on the right. */
 .training-page-redesign .training-lasting-panel {
   grid-template-columns: minmax(480px, 740px) minmax(0, 1fr);
-  grid-template-rows: auto auto;
+  /* Rida 1 = pealkiri üle terve bändi, read 2–3 = foto | tekst + omadusloend. */
+  grid-template-rows: auto auto auto;
   column-gap: clamp(40px, 5.5vw, 100px);
   align-items: center;
   padding: clamp(56px, 6vw, 88px) var(--band-pad);
-  margin-top: -1px;
+}
+
+.training-page-redesign .training-lasting-heading {
+  grid-row: 1;
 }
 
 .training-page-redesign .training-lasting-image {
   grid-column: 1;
-  grid-row: 1 / span 2;
+  grid-row: 2 / span 2;
   width: 100%;
   height: auto;
   min-height: 0;
@@ -855,9 +856,8 @@ body .training-modal-content .training-meta span {
 }
 .training-page-redesign .training-lasting-image { border-radius: 0 !important; }
 
-/* Seamless stacking: bands touch each other and the footer. -1px overlap
-   hides the fractional-DPR hairline between the stacked bands. */
-.training-page-redesign .training-workshop-panel { margin-top: -1px; }
+/* Seamless stacking: bands touch each other and the footer — ülekate ise tuleb
+   õmbluselt (components/band-seam.css). */
 .training-page-redesign .training-content-section { padding-bottom: 0; }
 
 /* Workshop band: a centred call-to-action moment — no empty half-screen. */

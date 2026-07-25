@@ -233,6 +233,8 @@
   .about-hero-image {
     inset: 0;
     width: auto;
+    /* (Endine --raio-frame-inset nihe on kadunud koos raamiga — hero-fotodel
+       raami enam pole, vt components/card-chrome.css.) */
   }
 }
 

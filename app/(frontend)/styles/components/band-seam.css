@@ -1,0 +1,83 @@
+/* Bändiõmblus — kivine murdejoon sektsioonide vahel (omanik 2026-07-25:
+   "sektsioonide üleminekud avalehel ja alalehtedel on liiga sirgjoonelised ja
+   lõigatud … anda servale tekstuuri nagu jaluse ülemine serv").
+
+   MEHAANIKA (sama kahekihiline mask nagu päisel/jalusel, vt settings/tokens.css):
+   alumine bänd tõmmatakse --raio-band-seam-h võrra ÜLES ja tema ülaserv
+   maskitakse murdejoonega. Nii paistab murrete vahelt läbi ülemise bändi enda
+   tekstuurifoto — lame varuvärv või lehe taust ei tule kordagi mängu, sest
+   sakkide all on päris naaberbänd, mitte selle koopia.
+
+   MIKS ALUMINE, MITTE ÜLEMINE: DOM-järjekorras maalitakse hilisem bänd peale,
+   nii et ainult alumise serva maskimine paljastab naabri. Ülemise bändi alaserva
+   maskimine paljastaks lehe tausta.
+
+   MIKS SIIN, MITTE LEHEFAILIDES: õmblus on lehteülene süsteem — üks reegel, üks
+   profiil. Varem kandis iga lehefail oma `margin-top: -1px` triipu (fraktsioonilise
+   DPR-i juuksekarva peitmiseks); need on kustutatud, sest õmbluse ülekate (44px)
+   teeb sama töö. Nihe elab NÜÜD AINULT siin — kui bänd vajub valesti, muuda seda
+   reeglit, ära lisa lehefaili uut margin-top'i.
+
+   ESIMENE bänd (herod) jääb VÄLJA: päise enda alaserv (components/header.css)
+   murdub juba tema peale. Jalus toob oma murde ise kaasa (components/footer.css). */
+
+:is(
+  .home-split-philosophy,
+  .home-split-tools,
+  .home-world,
+  .events-scroll-band,
+  .events-host-cta,
+  .journal-scroll-band,
+  .journal-signup-banner,
+  .training-scroll-band,
+  .training-lasting-panel,
+  .training-workshop-panel,
+  .tools-category-band,
+  .tools-material-panel,
+  .tools-support-band,
+  .store-products-section,
+  .store-custom-band,
+  .about-story-panel,
+  .about-trainers-section,
+  .about-closing-panel,
+  .product-related-section
+) {
+  margin-top: calc(-1 * var(--raio-band-seam-h));
+  mask-image: linear-gradient(#000, #000), var(--raio-band-seam-top);
+  mask-repeat: no-repeat, repeat-x;
+  mask-position: bottom, left var(--raio-band-seam-shift, 0px) top 0;
+  /* +1px: gradientkiht ulatub ÜHE piksli võrra tiili sisse, et murdosalise
+     kõrguse ja DPR-i juures ei jääks kihtide liitekohta karvakarva pilu. Tiil on
+     sügavaimast murdest (21px) allpool ühtlaselt läbipaistmatu, seega ülekate
+     siluetti ei muuda. */
+  mask-size:
+    100% calc(100% - var(--raio-band-seam-h) + 1px),
+    var(--raio-band-seam-tile);
+}
+
+/* Tiili faas nihkub lehel allapoole liikudes, et kolm õmblust ei kordaks
+   üksteise all sama siluetti (tapeedimuster). Ainus asi, mis bändide vahel
+   erineb — profiil ise on kõigil üks. */
+.home-split-tools,
+.events-host-cta,
+.journal-signup-banner,
+.training-lasting-panel,
+.tools-material-panel,
+.store-custom-band,
+.about-trainers-section {
+  --raio-band-seam-shift: -520px;
+}
+
+.training-workshop-panel,
+.tools-support-band,
+.about-closing-panel,
+.home-world {
+  --raio-band-seam-shift: -1040px;
+}
+
+/* Avalehe kaardirida (.home-world) SAAB samuti õmbluse (omanik 2026-07-25:
+   "üleval sektsioonis ka ei ole seda mask lõiget nagu teistes sektsioonides
+   on"). Varasem erand kartis, et murre lõikab kaardipilte — lõikabki, aga
+   ainult 8–21px kaardi ÜLASERVAST, kus on niikuinii ainult foto; kaardi sisu
+   (pealkiri, allkiri) istub vertikaalses keskmes ega puutu. Sama loogika nagu
+   iga teise bändi juures: murre käib läbi foto, mitte lameda värvi. */

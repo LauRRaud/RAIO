@@ -47,8 +47,10 @@ export async function ShopPage({ locale = "et" }) {
 
         <section className="store-custom-band" aria-labelledby="store-custom-title" {...getCmsSectionProps(messages, "shopCustom")}>
           <TextureSlideshow set="terracotta" />
-          <div className="store-custom-copy">
+          <div className="band-heading store-custom-heading">
             <h2 id="store-custom-title">{custom.title}</h2>
+          </div>
+          <div className="store-custom-copy">
             {custom.lines.map((line) => (
               <p key={line}>{line}</p>
             ))}

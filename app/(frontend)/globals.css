@@ -26,6 +26,7 @@
    (0,1,1)) ja lahendavad viigi positsiooniga: lehteülene tüpograafia enne,
    lehepõhised kaardikihid pärast, kaardi kroom ja viimistlus kõige lõpus.
    Uus reegel käib SISULISELT sobivasse faili, mitte loendi lõppu. */
+@import "./styles/components/band-seam.css";
 @import "./styles/components/headings.css";
 @import "./styles/components/component-type.css";
 @import "./styles/components/store-catalog.css";

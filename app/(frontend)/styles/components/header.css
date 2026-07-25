@@ -388,65 +388,79 @@
   display: none;
 }
 
+/* Avatud mobiilimenüü on EKRAANITÄIS kivipind, mitte kast nupu all (omanik
+   2026-07-25: "tahan, et see oleks sama tekstuuriga, mis ülemine serv, et need
+   on sünkroonis, ja lisaks oleks ekraani suurune, mitte kast nupu all").
+
+   TEKSTUURI SÜNKROON tuleb katmisest, mitte kahe slaidiseansi kokkuleppest:
+   paneel katab z-index -1 juures ka päise enda tausta (.site-header::before on
+   -4, päise fotokiht -3), nii et ekraanil on avatuna ÜKS paekivipind — kaks
+   seanssi ei saa enam eri fotot näidata. Päise sisu (logo, keel, ostukorv,
+   sulgemisrist) on z-index: auto ja jääb paneeli PEALE, kogu aeg kasutatavaks.
+
+   position: fixed lahendub .site-header'i suhtes (tal on transform → temast saab
+   fixed-elementide kontaineriblokk). See on OK: header on sticky top: 0 ja
+   avatud menüü sunnib ta translateY(0) peale (.site-header:has(...)), seega
+   100vw × 100dvh katab täpselt ekraani. */
 .mobile-menu-panel {
-  position: absolute;
-  /* Kivine ülaserv sööb paneeli ülemise ~10px ära, nii et visuaalne murdejoon
-     istub ~10px allpool paneeli kasti serva. Nihe on häälestatud jätma header-
-     bändi kivise alaserva ja paneeli murdejoone vahele õhuke ~5px vahe: 4px
-     kiskus need kokku (omanik 2026-07-24: "alla poole"), 17px jättis suure tühja
-     vahe ("vii ülespoole, et suur vahe ei jääks"). */
-  top: calc(100% + 9px);
-  /* Vastu ekraani serva — header on 18px servast sees, -12px jättis veel 6px
-     triibu serva vahele (omanik 2026-07-21: "menüü paremale jääb kitsas triip,
-     pane vastu serva"). -18px viib paneeli parema serva täpselt ekraani servani. */
-  right: -18px;
-  width: max-content;
-  min-width: 164px;
-  max-width: calc(100vw - 40px);
-  /* Ülaserv veidi avaram: kivine murdejoon sööb ülemise ~13px ära, nii et
-     esimene link ei jää sakkidele liiga lähedale. */
-  padding: 24px 18px 18px;
-  border-radius: var(--ui-card-radius, 8px);
-  /* TÄPSELT sama vahetuv paekivi-slaidiseanss nagu header-bändil (omanik
-     2026-07-21: "tekstuur peab olema sama mis ülemisel paneelil — slideshow
-     efektiga vahetuv"). Seanss renderdatakse paneeli sisse (Header.jsx,
-     set="beige") koos sama --beige toonikihiga, nii et paneel ja bänd on
-     üks-ühele; ühtlane #e6ceb0 jääb varuks laadimise ajaks. isolation hoiab
-     backdrop'i z-index:-3 paneeli sees (muidu kukuks header-bändi taha).
-     Serv eemaldatud (omanik: "serv võta avanevalt menüült ära"). */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100dvh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  /* Ülal rohkem kui all: päiserida sööb ülemise ~58px, seega optiliselt keskele
+     jäämiseks peab ülemine padding olema selle võrra suurem. */
+  padding: 96px 24px 48px;
+  /* Vahetuv paekivi-slaidiseanss renderdatakse paneeli sisse (Header.jsx,
+     set="beige") sama --beige toonikihiga nagu päisebändil; ühtlane #e6ceb0 jääb
+     varuks laadimise ajaks. isolation hoiab backdrop'i z-index:-3 paneeli sees
+     (muidu kukuks päisebändi taha). */
   isolation: isolate;
   background: #e6ceb0;
   color: #2b241b;
-  overflow: hidden;
-  /* Kivine murdejoon ka avaneva menüü ÜLASERVAS (omanik 2026-07-24: "paneel
-     ülevalt liiga sirge, peab veidi teisiti"). Sama --raio-stone-edge-top mask
-     nagu jaluse ülaserval: solid-kiht katab alt (ümarad alanurgad püsivad),
-     kivikahhel sööb ülaserva 16px sakiliseks. Mask lõikab terve paneeli — ka
-     sisemise foto-slaidiseansi ja teksti — ühte murdejoont pidi. */
-  mask-image: linear-gradient(#000, #000), var(--raio-stone-edge-top);
-  mask-repeat: no-repeat, repeat-x;
-  mask-position: bottom, top;
-  mask-size:
-    100% calc(100% - var(--raio-stone-edge-h)),
-    var(--raio-stone-edge-tile);
-  /* box-shadow joonistaks sakkide vahelt sirge kasti ülaserva tagasi; filter
-     drop-shadow järgib maskitud kivisiluetti (sama võte kui .site-header::before). */
-  filter: drop-shadow(0 16px 32px rgba(17, 16, 13, 0.24));
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .mobile-menu-panel nav {
   display: grid;
-  gap: 18px;
+  gap: clamp(14px, 3.2vh, 26px);
+  justify-items: center;
+  text-align: center;
 }
 
 .mobile-menu-panel a {
   display: flex;
   align-items: center;
-  min-height: 26px;
-  /* Veidi suurem menüükiri (omanik 2026-07-21). */
-  font-size: calc(1.18rem * var(--cms-text-scale, 1));
+  /* Ekraanitäis menüüs on link puutesihtmärk, mitte rippmenüü rida. */
+  min-height: 44px;
+  font-size: calc(1.62rem * var(--cms-text-scale, 1));
   color: #2b241b;
   white-space: nowrap;
+}
+
+/* Hamburger vahetub avatud olekus ristiks — paneel katab ekraani, seega
+   sulgemisviide peab olema seal, kus nupp niigi on. Mõlemad ikoonid on DOM-is,
+   vahetus käib CSS-iga, et <details> jääks JS-i-vabaks toggle'iks. */
+.mobile-menu-icon-close {
+  display: none;
+}
+
+.mobile-menu[open] .mobile-menu-icon-open {
+  display: none;
+}
+
+.mobile-menu[open] .mobile-menu-icon-close {
+  display: block;
+}
+
+/* Ekraanitäis menüü ajal ei tohi leht tema all edasi kerida. */
+body:has(.mobile-menu[open]) {
+  overflow: hidden;
 }
 
 @media (max-width: 1180px) {

@@ -18,6 +18,7 @@
     "cartLabel": "Cart",
     "cartCountLabel": "items",
     "openMenuLabel": "Open menu",
+    "closeMenuLabel": "Close menu",
     "mobileNavLabel": "Mobile navigation",
     "languages": {
       "et": "ET",

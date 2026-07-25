@@ -67,8 +67,10 @@ export async function ToolsPage({ locale = "et" }) {
 
           <section className="tools-material-panel" aria-labelledby="tools-material-title" {...getCmsSectionProps(messages, "toolsMaterial")}>
             <TextureSlideshow set="gray" />
-            <div className="tools-material-copy">
+            <div className="band-heading tools-material-heading">
               <h2 id="tools-material-title">{t.material.title}</h2>
+            </div>
+            <div className="tools-material-copy">
               <p>{t.material.text}</p>
 
               <div className="tools-proof-row tools-material-proof-row" aria-label={t.proofLabel}>
@@ -98,6 +100,9 @@ export async function ToolsPage({ locale = "et" }) {
 
           <section className="tools-support-band" aria-labelledby="tools-care-title" {...getCmsSectionProps(messages, "toolsCare")}>
             <TextureSlideshow set="terracotta" />
+            <div className="band-heading tools-care-heading">
+              <h2 id="tools-care-title">{t.care.title}</h2>
+            </div>
             <div className="tools-care-image">
               <Image
                 src={t.care.image}
@@ -109,7 +114,6 @@ export async function ToolsPage({ locale = "et" }) {
             </div>
 
             <div className="tools-care-copy">
-              <h2 id="tools-care-title">{t.care.title}</h2>
               {t.care.lines.map((line) => (
                 <p key={line}>{line}</p>
               ))}

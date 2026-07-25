@@ -24,7 +24,7 @@
   border-radius: 0;
 }
 
-.tools-page-redesign .tools-material-copy h2 {
+.tools-page-redesign .tools-material-heading h2 {
   /* Sektsioonipealkirjade kreem, mitte puhas valge — sama toon kui treenerite
      bändi pealkirjal. */
   color: #f4efe4;
@@ -151,7 +151,7 @@
      tracks the widest single-line fit from 320–414px. No `nowrap` — if a
      longer localized title ever exceeds the width it wraps instead of
      clipping. */
-  .tools-page-redesign .tools-material-copy h2 {
+  .tools-page-redesign .tools-material-heading h2 {
     font-size: calc(clamp(1.85rem, 9.6vw, 3.4rem) * var(--cms-text-scale, 1));
     line-height: 1.04;
     /* The base rule caps this at 9.5ch, which forced "Miks puu ja kivi?" onto
@@ -185,12 +185,10 @@
     margin: 0;
   }
 
-  .tools-page-redesign :is(.tools-care-copy) h2 {
-    grid-column: 2;
-    grid-row: 1;
-    margin: 0;
-    text-align: left;
-  }
+  /* (Endine reegel, mis pani telefonis "Hoolduse" pealkirja ikooni KÕRVALE
+     `.tools-care-copy` ruudustikus, on kustutatud: pealkiri on nüüd bändi enda
+     laps ja istub keskteljel nagu iga teine sektsioonipealkiri — omanik
+     2026-07-25.) */
 
   .tools-page-redesign :is(.tools-care-copy) p {
     grid-column: 1 / -1;

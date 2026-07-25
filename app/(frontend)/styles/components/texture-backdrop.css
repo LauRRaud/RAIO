@@ -68,18 +68,36 @@
    et nav loeb ka bändi kõige eredama pöörleva foto (2.webp, sammal) peal.
    Puudutab AINULT nelja sirvi-bändi; avalehe filosoofia-split, /meist lugu,
    tootelehe ja poe roheline bänd jäävad ühtlase 0.58-ga, samuti kaardi-modaalid
-   (portaalitud document.body'sse, sellest hostist väljas). */
+   (portaalitud document.body'sse, sellest hostist väljas).
+
+   ALASERV saab peegelpildis sama vinjeti (omanik 2026-07-25: "mingi imelik triip
+   on ühe kindla sektsiooni juures eri lehtedel"). Ainult top-vinjett tähendas,
+   et bändi alumine ~50px polsterriba jäi tindita — mobiilis, kus kaart on
+   servast servani, oli see AINUS koht, kus toonimata foto välja paistis, ja
+   luges kaardi ja bändiõmbluse vahele jääva hele(sinaka) triibuna. Teine kiht
+   `to top` mõõdab ALASERVAST, seega ankur on jälle px-des ega sõltu bändi
+   kõrvusest; 150px hajub kaardi taha ära, nii et foto keskosa jääb endiselt
+   naturaalseks. Kihid liituvad alfa-kompositsioonis — bändidel, mis on nii
+   madalad, et vinjetid kattuvad, muutub tulemus lihtsalt ühtlaselt tumedaks. */
 .events-scroll-band .texture-backdrop--green .texture-backdrop-tint,
 .journal-scroll-band .texture-backdrop--green .texture-backdrop-tint,
 .training-scroll-band .texture-backdrop--green .texture-backdrop-tint,
 .tools-category-band .texture-backdrop--green .texture-backdrop-tint {
-  background: linear-gradient(
-    to bottom,
-    rgba(18, 14, 9, 0.6) 0,
-    rgba(18, 14, 9, 0.46) 145px,
-    rgba(18, 14, 9, 0.1) 190px,
-    transparent 212px
-  );
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(18, 14, 9, 0.6) 0,
+      rgba(18, 14, 9, 0.46) 145px,
+      rgba(18, 14, 9, 0.1) 190px,
+      transparent 212px
+    ),
+    linear-gradient(
+      to top,
+      rgba(18, 14, 9, 0.6) 0,
+      rgba(18, 14, 9, 0.46) 80px,
+      rgba(18, 14, 9, 0.1) 130px,
+      transparent 150px
+    );
 }
 
 .texture-backdrop--gray .texture-backdrop-tint {

@@ -471,6 +471,14 @@
   min-height: clamp(560px, 43vw, 780px);
   overflow: hidden;
   background: var(--home-umber);
+  /* MITTE `padding-bottom: var(--raio-stone-edge-h)`. Varem sai bänd serva-jagu
+     umbrat, et jaluse kivine ülaserv sööks selle ära ja kaardifoto jääks terveks
+     — aga jalus katab sellest ainult alumise osa (murre jookseb tiili sees
+     y 6.5…13), nii et ülejäänud ~7px paistis kaardi ja murdejoone vahelt lameda
+     sirge triibuna välja (omanik 2026-07-25: "avalehe jaluse üleval ma näen ka
+     mingit triipu … sektsioon ei ulatu selle ebahariliku serva taha vaid lõpeb
+     enne ära"). Nüüd ulatuvad kaardifotod jaluse alla nagu iga teise lehe
+     tekstuuriväli ja murre lõikab fotosse, mitte lameda värvi sisse. */
 }
 
 .home-world-card {
@@ -604,6 +612,8 @@
     position: absolute;
     inset: 0;
     z-index: 0;
+    /* (Endised --raio-frame-inset nihked on kadunud koos raamiga — avalehe
+       piltidel raami enam pole, vt components/card-chrome.css.) */
   }
 
   .home-split::before {

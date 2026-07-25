@@ -18,6 +18,7 @@
     "cartLabel": "Ostukorv",
     "cartCountLabel": "toodet",
     "openMenuLabel": "Ava menüü",
+    "closeMenuLabel": "Sulge menüü",
     "mobileNavLabel": "Mobiilimenüü",
     "languages": {
       "et": "ET",
