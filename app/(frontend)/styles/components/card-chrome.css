@@ -143,12 +143,8 @@
    sest inset-box-shadow'd ei saa servast eemale nihutada. 04-card-frames sulges
    kaartide ::after (content: none) — siin avatakse see uuesti.
 
-   VÄLJAS: alalehtede hero-fotod (.{page}-hero-image) ja avalehe raamitud pildid
-   (.home-split-media) — omanik 2026-07-25: "hero sektsioonidesse ja avalehele ma
-   ei taha raame". Neilt kadus koos raamiga ka selle kaaslane box-shadow: mõlemad
-   on ühe ja sama galeriiviimistluse osad ning foto on neis kohtades täisserv või
-   suur inset-plokk, kus vari luges raami paksendusena. Bändifotod, kaardid,
-   tootegalerii ja ostukorvi värvinäidised jäävad raamituks. */
+   SIIT LOENDIST VÄLJAS, aga raamitud allpool töölaua-plokis: alalehtede
+   hero-fotod (.{page}-hero-image) ja avalehe pildid (.home-split-media). */
 .events-page-redesign .events-event-card::after,
 .journal-page-redesign .journal-story-card::after,
 .tools-page-redesign .tools-category-card::after,
@@ -171,6 +167,34 @@
   z-index: 4;
   border: var(--raio-frame-line);
   pointer-events: none;
+}
+
+/* Hero-fotod ja avalehe pildid on raamitud AINULT töölaual (omanik 2026-07-25:
+   "desktopis pidi olema, mobiilis mitte"). ≤980px lähevad need täisserva
+   taustafotoks, mille peal istub tekst (pages/home.css, pages/heroes.css) — seal
+   loeks sissepoole nihutatud joon ekraani sees oleva kastina, mitte galeriiraami
+   passepartout'na. 981px on täpselt see piir, kus mõlemad failid vahetavad
+   paigutust; seesama piir hoiab raami ja fotokasti ühes tükis.
+
+   /meist hero jääb välja: selle header on logo, mitte raamitud foto.
+
+   AINULT raamijoon, mitte --raio-frame-shadow nagu bändifotodel: neil kastidel
+   on juba oma suunatud vari (home.css splitidel sektsioonivärvi toonis,
+   heroes.css hero-fotodel) ja teine vari peale luges raami paksendusena. */
+@media (min-width: 981px) {
+  .home-split-media::after,
+  .events-hero-image::after,
+  .journal-hero-image::after,
+  .tools-hero-image::after,
+  .training-hero-image::after,
+  .store-hero-image::after {
+    content: "";
+    position: absolute;
+    inset: var(--raio-frame-inset);
+    z-index: 4;
+    border: var(--raio-frame-line);
+    pointer-events: none;
+  }
 }
 
 /* ---------- Carousel cards: full-bleed image with overlaid copy ----------

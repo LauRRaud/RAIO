@@ -612,8 +612,8 @@
     position: absolute;
     inset: 0;
     z-index: 0;
-    /* (Endised --raio-frame-inset nihked on kadunud koos raamiga — avalehe
-       piltidel raami enam pole, vt components/card-chrome.css.) */
+    /* Täisserv ilma raamita: valge raamijoon on ainult ≥981px
+       (components/card-chrome.css). */
   }
 
   .home-split::before {
