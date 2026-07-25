@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { CartButton } from "@/components/CartButton";
 import { getLocalizedPath } from "@/lib/i18n";
 import { TextureSlideshowClient } from "@/components/TextureSlideshowClient";
@@ -147,9 +147,19 @@ export function Header({ locale = "et", currentPath = "/", labels, brandName, te
             open={isMenuOpen}
             onToggle={(event) => setIsMenuOpen(event.currentTarget.open)}
           >
+            {/* Kolm kriipsu on CSS-ribad, MITTE lucide <Menu>: SVG teljed (y 6/12/18
+                24-viewBox'is) sattusid 27px-le skaleerides murdosalistele
+                pikslitele ja iga kriips rasterdus eri paksusega (omanik
+                2026-07-25: "hamburgeri kriipsud sama paksud"). Ribad istuvad
+                täisarvulistel positsioonidel ja on definitsiooni järgi ühepaksud.
+                Ühtlasi kaob eraldi X-ikoon: samad ribad pöörduvad ristiks, nii et
+                kinni- ja lahtioleku märk on sama massiga. */}
             <summary aria-label={isMenuOpen ? t.closeMenuLabel : t.openMenuLabel}>
-              <Menu className="mobile-menu-icon-open" size={22} strokeWidth={1.9} aria-hidden="true" />
-              <X className="mobile-menu-icon-close" size={22} strokeWidth={1.9} aria-hidden="true" />
+              <span className="menu-bars" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </span>
             </summary>
             <div className="mobile-menu-panel">
               {textures?.images?.length ? (

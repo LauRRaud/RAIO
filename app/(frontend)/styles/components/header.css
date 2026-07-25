@@ -29,14 +29,6 @@
   }
 }
 
-@media (max-width: 720px) {
-
-  .cart-button {
-    width: 40px;
-    height: 40px;
-  }
-}
-
 .site-header {
   position: sticky;
   top: 0;
@@ -50,7 +42,21 @@
   transition:
     transform 680ms cubic-bezier(0.19, 1, 0.22, 1),
     opacity 460ms ease;
-  will-change: transform;
+  /* Püsiv `will-change: transform` on ära võetud: see hoidis päist alaliselt oma
+     kompositorikihis, ilma et peita/näita üleminek sellest võidaks — kihi loob
+     brauser ülemineku ajaks niikuinii ise.
+
+     NB mõõdetud fakt: will-change EI OLNUD hamburgeri joonte paksuse kõikumise
+     põhjus (omanik 2026-07-25: "miks need kriipsud muudavad paksust?"). Selle
+     teeb `position: sticky` — Chrome komposiitib kleepuva päise omaette kihiks,
+     mille SEADMEPIKSLI nihe järgib murdosalist keriminet. Mõõtsin: ekraanitihedustel
+     1.0 / 2.0 / 3.0 rasterduvad ribad igal kerimiskohal identselt, ainult 1.25
+     juures (Windowsi 125% skaalimine) vahelduvad nad nelja kuju vahel. Paksus
+     ei loe — 1.6px, 2px ja 3px käituvad ühtmoodi. Ainus asi, mis selle 1.25
+     juures ära võtab, on `position: fixed`, aga see tõstab päise voost välja ja
+     nõuab vahetükki + kõigi hero-kõrguste ülevaatamist. Sama artefakt puudutab
+     kõiki päise juuksekarvu (ET kõrval olev eraldusjoon, nav-i allkriips), mitte
+     ainult hamburgerit. */
 }
 
 /* Frame (header + footer) is a touch deeper & more muted than the page paper
@@ -443,19 +449,83 @@
   white-space: nowrap;
 }
 
-/* Hamburger vahetub avatud olekus ristiks — paneel katab ekraani, seega
-   sulgemisviide peab olema seal, kus nupp niigi on. Mõlemad ikoonid on DOM-is,
-   vahetus käib CSS-iga, et <details> jääks JS-i-vabaks toggle'iks. */
-.mobile-menu-icon-close {
-  display: none;
-}
+/* ---------- Hamburger: kolm riba, mis pöörduvad ristiks ----------
+   Kriipsud on CSS-ribad, mitte SVG-jooned (vt components/Header.jsx): SVG-teljed
+   sattusid skaleerides murdosalistele pikslitele ja iga kriips rasterdus eri
+   paksusega (omanik 2026-07-25: "hamburgeri kriipsud sama paksud"). Siin on
+   kõrgus, samm ja pikkus täisarvulised px-id — kolm riba on identsed.
 
-.mobile-menu[open] .mobile-menu-icon-open {
-  display: none;
-}
-
-.mobile-menu[open] .mobile-menu-icon-close {
+   "Vaata, mis nendega teha saab": eraldi X-ikooni enam ei ole. Ülemine ja alumine
+   riba pöörduvad 45° ristiks ja keskmine tõmbub oma keskkoha suunas kokku ning
+   kaob — sama žest nagu peamenüü nuil, kus liikumise juhib üks element ja teine
+   tuleb järel. Kuna rist on tehtud SAMADEST ribadest, on kinni- ja lahtioleku
+   märgil sama joonepaksus ja sama massi — vana lucide <X> luges hamburgerist
+   optiliselt väiksemana, kuigi kast oli sama (omanik 2026-07-25: "sulge rist
+   väike"). <details> jääb endiselt JS-i-vabaks toggle'iks. */
+/* KÕIK MÕÕDUD TÄISARVULISED PIKSLID. Vahepeal olid ribad 2.5px paksud ja
+   positsioonidel 8.75/17.5 — murdosaline geomeetria rasterdus igal real veidi
+   erinevalt ja kolmik luges kivitekstuuri peal värelevana (omanik 2026-07-25:
+   "liiga paksud on ja veidi võbelevad imelikult"). Kõrgus = viimase riba
+   ülaserv + paksus (16 + 2); paksust või sammu muutes muutub ka see arv JA
+   pöörde translateY, muidu ei kohtu risti kaks õlga täpselt keskel. */
+.menu-bars {
+  position: relative;
   display: block;
+  width: 26px;
+  height: 18px;
+}
+
+.menu-bars span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  /* 2px = kriipsu paksus mõlemas olekus. Paksuse ÜHTLUSTAMINE käib teistpidi
+     kui esimeses katses: mitte kriipse paksemaks, vaid risti õlgu õhemaks.
+     45° pöördel läheb riba serv kaldu ja anti-aliasing mustab ta ~1.2×
+     tugevamaks, nii et rist luges paksemana (omanik 2026-07-25: "pane kriipsud
+     sama paksud kui risti kriipsud"); kriipse 2.5px-ni paksendades läks aga
+     kogu märk liiga jämedaks. Nüüd jääb 2px püsima ja pöördel võtab
+     scaleY(0.85) diagonaali 1.7px-ni, mis anti-aliasinguga loeb 2px-na. */
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  transform-origin: 50% 50%;
+  transition:
+    transform 340ms cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 180ms ease;
+}
+
+.menu-bars span:nth-child(1) {
+  top: 0;
+}
+
+.menu-bars span:nth-child(2) {
+  top: 8px;
+}
+
+.menu-bars span:nth-child(3) {
+  top: 16px;
+}
+
+/* scaleX(1.16) hoiab risti sama laiana nagu hamburger: 45° pöördel kahaneks
+   26px riba katvus 18.4px-ni ja rist loeks väiksemana. scaleY(0.8): vt kõrgust. */
+.mobile-menu[open] .menu-bars span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg) scaleX(1.16) scaleY(0.85);
+}
+
+.mobile-menu[open] .menu-bars span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.2);
+}
+
+.mobile-menu[open] .menu-bars span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg) scaleX(1.16) scaleY(0.85);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-bars span {
+    transition: none;
+  }
 }
 
 /* Ekraanitäis menüü ajal ei tohi leht tema all edasi kerida. */
@@ -516,7 +586,7 @@ body:has(.mobile-menu[open]) {
     margin-right: 0;
     padding: 8px 0;
     padding-right: 12px;
-    font-size: calc(1rem * var(--cms-text-scale, 1));
+    font-size: calc(1.36rem * var(--cms-text-scale, 1));
     letter-spacing: 0.12em;
   }
 }
@@ -533,6 +603,43 @@ body:has(.mobile-menu[open]) {
   .mobile-menu {
     display: block;
   }
+
+  /* Puutesihik 40 → 48px. */
+  .mobile-menu summary {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Mobiilis ainult LAIEM — vertikaalne geomeetria jääb baasmõõdule.
+     Laius ei mõjuta horisontaalse riba rasterdust, samm ja paksus mõjutavad:
+     vahepealne 9px samm andis 1.25× ekraanitihedusel 11.25 seadmepikslit, seega
+     igal kolmel ribal oli ERINEV alampiksli faas ja igaüks sai eri poolele
+     halli äärise — täpselt see luges võbelemisena (omanik 2026-07-25). 8px samm
+     on täisarv seadmepiksleid tihedustel 1 / 1.25 / 1.5 / 2 / 3, nii et kolmik
+     jagab ühte faasi ja rasterdub identselt. Sammu muutes kontrolli see üle. */
+  .menu-bars {
+    width: 28px;
+  }
+
+  .language-switch-link svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Ostukorvi kast koos ikooniga suuremaks. NB: see mõõt ELAB SIIN, mitte
+     failipealses `@media (max-width: 720px)` plokis — see plokk oli surnud
+     kood, sest baasreegel `.cart-button { width: 46px }` on failis HILJEM ja
+     võitis võrdse spetsiifilisuse (0,1,0) juures positsiooniga. Kärbe 40px-ni
+     ei jõustunud kordagi. */
+  .cart-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-button svg {
+    width: 29px;
+    height: 29px;
+  }
 }
 
 @media (max-width: 620px) {
@@ -545,14 +652,15 @@ body:has(.mobile-menu[open]) {
   }
 
   .language-switch-link {
-    min-width: 44px;
+    min-width: 56px;
     padding-right: 10px;
-    font-size: calc(1.08rem * var(--cms-text-scale, 1));
+    font-size: calc(1.48rem * var(--cms-text-scale, 1));
     letter-spacing: 0.12em;
   }
 
+  /* Eraldusjoon kasvab kirjaga kaasa, muidu jääb ta uue mõõdu kõrval tikuks. */
   .language-switch-link::after {
-    height: 16px;
+    height: 23px;
   }
 
 }
