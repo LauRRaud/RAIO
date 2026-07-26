@@ -1,6 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import variantMap from "@/lib/textureVariants.json";
+
+/* Responsive-taustad ilma next/image'ita: crossfade elab CSS-is, seega <img>
+   jääb. srcset EI vähenda kvaliteeti — variandid on sama q60, ainult
+   väiksemate mõõtmetega, ja telefon ei suuda 2000 px faili niikuinii kuvada.
+   Kaardis puuduv pilt (admini upload, uus foto ilma variante genereerimata)
+   renderdub muutumatult ilma srcset'ita. Kaart: scripts/texture-variants.mjs. */
+function buildSrcSet(src) {
+  const entry = variantMap[src];
+  if (!entry) return undefined;
+
+  const slash = src.lastIndexOf("/");
+  const dir = src.slice(0, slash);
+  const file = src.slice(slash + 1);
+
+  return [
+    ...entry.variants.map((w) => `${dir}/w${w}/${file} ${w}w`),
+    `${src} ${entry.base}w`
+  ].join(", ");
+}
 
 /* Kliendipool: roteerib serverist saadud pilte crossfade'iga. Ühe pildiga
    kaust = staatiline taust, vahetumist ei toimu. */
@@ -37,6 +57,9 @@ export function TextureSlideshowClient({ set, images, interval = 20000 }) {
           <img
             key={src}
             src={src}
+            srcSet={buildSrcSet(src)}
+            /* Taust katab sektsiooni servast servani, seega laius = vaateava. */
+            sizes="100vw"
             alt=""
             className={`texture-backdrop-img${index === active ? " is-active" : ""}`}
             loading={index === 0 ? "eager" : "lazy"}
