@@ -74,7 +74,7 @@
      jäävat; 140px viis ta teksti liiga lähedale. 112px = nähtavat ruumi ~84px,
      logo istub teksti ja põhja vahel õrnalt allpool optilist keset. */
   .about-hero-logo {
-    inset: auto 0 clamp(112px, 21vw, 160px) 0;
+    inset: auto 0 112px 0;
     transform: none;
     width: min(70vw, 420px);
     margin-inline: auto;
@@ -646,7 +646,12 @@
   }
 
   /* Laotud vaates on kõigil foto teksti kohal — vahelduv pool loeks ühes veerus
-     juhusliku hüppena. */
+     juhusliku hüppena. Selektor ütles "kõigil", aga kattis ainult paarisrea:
+     PAARITUL kaardil jäi töölaua `order: 2` alles, nii et 621…980px vahemikus
+     oli esimesel treeneril foto teksti ALL ja teisel peal (loojate sama reegel
+     allpool loetleb mõlemad — see siin jäi poolele teele). Mõõdetud 700/768/
+     900px: esimene kaart tekst→foto, teine foto→tekst. */
+  .about-trainer-image,
   .about-trainer-card:nth-child(even) .about-trainer-image {
     order: 0;
   }
@@ -694,10 +699,40 @@
   }
 }
 
+/* TELEFONIS on logo VOOS, mitte absoluutselt bändi alaserva ankurdatud.
+   Ankurdatud logo ja ülalt kasvav tekst on kaks sõltumatut süsteemi: hero
+   tüpograafia skaleerub vw-ga, seega mida laiem telefon, seda madalamale tekst
+   ulatub, aga logo jäi paigale. Mõõdetud (enne): 320px vahe 54px, 430px 14px,
+   600px −15px ehk logo JOOKSIS TEKSTI PEALE. Ükski püsiv nihe ega vw-valem
+   seda ei lahenda — proovitud, mõlemad murduvad vahemiku otstes.
+
+   `margin-top: auto` veerus teeb selle iseparanevaks: vaba ruumi korral neelab
+   auto kogu ülejäägi ja logo istub bändi põhjas nagu varem; ruumipuuduses
+   taandub auto nulli ja logo lihtsalt järgneb tekstile — kattuda ei saa.
+   Alaserva kaugus = 64px bändi padi + 76px siit = 140px, mis on ~28px kõrgemal
+   kui varasem 112px (omanik 2026-07-26: "ja seda raio logo ka veidi" üles).
+   Teksti ja logo miinimumvahe tuleb .about-hero-panel'i alapadjast (44px). */
 @media (max-width: 620px) {
   .about-hero {
+    flex-direction: column;
     min-height: auto;
     padding-top: 92px;
+  }
+
+  .about-hero-logo {
+    position: static;
+    /* AboutPage.jsx-is on logo teksti EES (töölaual on ta parem veerg ja seal
+       niikuinii absoluutne). Voos tähendaks see logo teksti kohal — order viib
+       ta tagasi teksti alla, DOM-i puutumata. */
+    order: 1;
+    /* MITTE `margin-top: auto`. Auto parkis logo iga kord bändi põhja ja põhi
+       on telefonis voldi TAGA: bänd on 734px, nähtavat ruumi 608px (664 − 56px
+       päis), nii et logo alaserv sattus 650px peale ehk 14px enne volti
+       (omanik 2026-07-26: "logo võiks üleval pool ikkagi olla"). Püsiv vahe
+       teeb asukoha determineerituks — ta ei sõltu enam sellest, kas bänd
+       parasjagu istub 700px põrandal või on sisust pikem. 96px allpool hoiab
+       logo ja järgmise bändi õmbluse vahel õhku. */
+    margin: 0 auto 96px;
   }
 
   .about-hero::before {
@@ -710,7 +745,10 @@
 @media (max-width: 620px) {
 
   .about-hero-panel {
-    padding: 0 0 44px;
+    /* 44 → 12px: see padi on ainus asi teksti ja logo VAHEL, seega ta lükkab
+       logo otse voldi taha. Vahe jääb ikka ~48px (ülejäänu tuleb pealkirja ja
+       lõigu reakastidest) — vt .about-hero-logo kommentaari samas failis. */
+    padding: 0 0 12px;
   }
 }
 

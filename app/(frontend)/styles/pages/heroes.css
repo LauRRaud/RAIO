@@ -270,7 +270,13 @@
     .about-hero
   ) {
     align-items: flex-start;
-    padding: clamp(88px, 16vh, 150px) 0 64px;
+    /* Ülapadi 16vh → 6vh (omanik 2026-07-26: "tõsta hero sektsioone alalehtedel
+       üles poole, tekste", seejärel "logo võiks üleval pool ikkagi olla").
+       Päris telefonis andis 16vh ~106px. 6vh = ~40px tõstab KOGU bändi sisu —
+       nii teksti kui /meist wordmarki — ja see on ainus hoob, mis mõlemat
+       korraga liigutab: teksti ja logo omavaheline vahe on juba minimaalne.
+       Mõõdetud 390px ekraanil: logo alaserv 650px → 598px, vaateava 664px. */
+    padding: clamp(40px, 6vh, 72px) 0 64px;
   }
 
   :is(

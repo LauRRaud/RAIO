@@ -628,12 +628,12 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    /* Ülemine kaal, mitte alumine: mobiilis istub koopia nüüd bändi ülaosas
-       (vt .home-split-copy allpool), seega tume pool peab olema seal. Alumine
-       0.30 hoiab ainult sektsioonide vahelist õmblust, jättes foto alumise
-       kolmandiku — avalehe hero'l RA·IO märk — loetavalt heledaks. */
+    /* Alumine kaal: koopia on püstsuunas keskel ja loeb bändi keskosas, kus see
+       gradient annab 0.34 — sama tasakaal, mis siin algusest saati oli. (Korra
+       sai see ülakaaluliseks keeratud, kui koopia oli ekslikult ülaserva
+       ankurdatud; joondus on tagasi keskel, seega ka gradient.) */
     background:
-      linear-gradient(180deg, rgba(26, 18, 10, 0.72) 0%, rgba(26, 18, 10, 0.44) 44%, rgba(26, 18, 10, 0.14) 74%, rgba(26, 18, 10, 0.3) 100%),
+      linear-gradient(0deg, rgba(26, 18, 10, 0.74) 0%, rgba(26, 18, 10, 0.34) 52%, rgba(26, 18, 10, 0.12) 100%),
       linear-gradient(90deg, rgba(26, 18, 10, 0.5) 0%, rgba(26, 18, 10, 0.08) 72%);
     pointer-events: none;
   }
@@ -643,19 +643,22 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    /* Koopia bändi ÜLAOSAS, mitte keskel (omanik 2026-07-26: "hero sektsioonid
-       üles poole, et logo ei kataks"). Keskjoondus tähendas, et madalamal päris
-       telefoni viewport'il kasvas tekstiplokk sektsiooni keskelt mõlemas suunas
-       laiali ja jooksis foto sisse küpsetatud RA·IO märgi peale. Ülaserva
-       ankurdatuna koguneb kogu vaba ruum foto alumisse otsa, kus märk on. */
-    justify-content: flex-start;
+    /* Lift the copy off the bottom edge so the body text has room to grow
+       (owner 2026-07-09: "tekstid veidi üles poole, et saaks väikest teksti
+       suuremaks panna").
+
+       Keskjoondus on siin ÕIGE ja ta tuli korra ekslikult ära võetud: "hero
+       üles poole, et logo ei kataks" käis /meist-i kohta, kus RA·IO wordmark on
+       päris element (pages/about.css) — avalehe bändidel sellist märki ei ole.
+       Ülaserva ankurdatuna jäi sisu liiga kõrgele ja alla tekkis suur tühi foto
+       (omanik 2026-07-26: "avalehel jällegi on vaja alla poole viia sektsioonide
+       sisu, liiga üleval"). Algne kokkusurutus tuli hoopis bändi kõrgusest —
+       selle lahendab 700px põrand ülalpool, mitte joondus. */
+    justify-content: center;
     /* Sama põrand kui .home-split'il — see plokk annab bändile kõrguse. */
     min-height: max(700px, calc(100svh - 72px));
     max-width: none;
-    /* Ülapadi 14vh → 9vh: seadmes oli 14vh alles ~93px ja koos keskjoondusega
-       kadus alumine puhas ala. Nüüd algab tekst kõrgemalt ja märgi kohale jääb
-       ~195px õhku. */
-    padding: clamp(56px, 9vh, 96px) 26px clamp(56px, 9vh, 96px);
+    padding: clamp(84px, 14vh, 132px) 26px clamp(72px, 12vh, 110px);
   }
 
   .home-split-copy .home-hero-title,

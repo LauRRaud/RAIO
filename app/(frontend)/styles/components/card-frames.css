@@ -172,3 +172,92 @@
   border-radius: var(--ui-card-radius);
   overflow: hidden;
 }
+
+/* ---------- ÜKS pilt→pealkiri vahe kõigil bändipaneelidel ----------
+
+   Mobiilis laotub iga bändipaneel ühte veergu: raamitud foto, selle all
+   pealkiri ja tekst. Vahe selle kahe vahel oli igal paneelil ise: mõni pani
+   selle pildi margin-bottom'i (/sundmused), mõni paneeli row-gap'i (loojad),
+   mõni tekstiploki padding-top'i (treenerid, töötuba), mõni ei pannud kuhugi
+   ja veel mõne mobiilipadja tappis lehefaili `padding: 0` ilma media-piirita.
+   Mõõdetud tulemus 390px ekraanil oli 0, 12, 14, 20, 22, 24, 28, 36, 44, 62px
+   (omanik 2026-07-26: "kuidas igal pool on pealkirjad valel kõrgusel … kas
+   tõesti ei saa ühte varianti igal pool kasutada?").
+
+   Nüüd juhib vahet ÜKS mehhanism — pildi alumine veeris, nagu etalonil
+   /sundmused "Korralda oma sündmus" — ja üks arv, --raio-band-stack-gap.
+   Konkureerivad tekstiplokkide padjad ja paneelide row-gap'id nullitakse siin
+   samas, et vahe ei saaks kuhugi kahekordistuda.
+
+   Lehejuure prefiks pole kaunistus: lehefailide reeglid (nt
+   `.tools-page-redesign .tools-care-copy { padding: 0 }`) on (0,2,0), seega
+   paljas :is(...) klassiloend (0,1,0) kaotaks neile. Prefiksiga on ka see
+   reegel (0,2,0) ja komponendikiht laetakse globals.css-is lehtedest HILJEM,
+   nii et viigi võidab positsioon. */
+@media (max-width: 980px) {
+  :is(
+    .events-page-redesign,
+    .journal-page-redesign,
+    .tools-page-redesign,
+    .training-page-redesign,
+    .store-page,
+    .about-page-redesign
+  ) :is(
+    .events-host-image,
+    .journal-signup-image,
+    .tools-material-image,
+    .tools-care-image,
+    .training-lasting-image,
+    .training-workshop-image,
+    .about-story-image,
+    .about-creator-image,
+    .about-trainer-image,
+    .store-custom-image
+  ) {
+    margin-bottom: var(--raio-band-stack-gap);
+  }
+
+  :is(
+    .events-page-redesign,
+    .journal-page-redesign,
+    .tools-page-redesign,
+    .training-page-redesign,
+    .store-page,
+    .about-page-redesign
+  ) :is(
+    .events-host-copy,
+    .journal-signup-copy,
+    .tools-material-copy,
+    .tools-care-copy,
+    .training-lasting-copy,
+    .training-workshop-copy,
+    .about-story-copy,
+    .about-creator-copy,
+    .about-trainer-copy,
+    .store-custom-copy
+  ) {
+    padding-top: 0;
+  }
+
+  :is(
+    .events-page-redesign,
+    .journal-page-redesign,
+    .tools-page-redesign,
+    .training-page-redesign,
+    .store-page,
+    .about-page-redesign
+  ) :is(
+    .events-host-cta,
+    .journal-signup-banner,
+    .tools-material-panel,
+    .tools-support-band,
+    .training-lasting-panel,
+    .training-workshop-panel,
+    .about-story-panel,
+    .about-creator-card,
+    .about-trainer-card,
+    .store-custom-band
+  ) {
+    row-gap: 0;
+  }
+}

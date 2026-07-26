@@ -52,6 +52,13 @@
    jaluse ülaserv on PEEGELPAAR ja neid muudetakse alati koos, muidu lähevad
    need kaks ühe ja sama kujunduskeele otsa lahku. */
 :root {
+  /* ÜKS vahe pildi ja pealkirja vahel, kui bändipaneel laotub mobiilis ühte
+     veergu. Etalon on /sundmused "Korralda oma sündmus" (omanik 2026-07-26:
+     "Korralda oma sündmus tundub kõige parem variant") — sealne
+     .events-host-image kandis seda 28px-t juba, ülejäänud üheksa paneeli tegid
+     igaüks oma moodi ja tulemuseks oli 0…62px (mõõdetud: 0, 12, 14, 20, 22, 24,
+     28, 36, 44, 62). Kasutuskoht: globals.css, pärast lehefaile. */
+  --raio-band-stack-gap: 28px;
   --raio-stone-edge-h: 16px;
   --raio-stone-edge-tile: 960px 16px;
   --raio-stone-edge-bottom: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20960%2016'%3E%3Cpath%20d='M0,0H960V6L830,8L690,4L520,7.5L340,4.5L165,7L0,6Z'/%3E%3C/svg%3E");

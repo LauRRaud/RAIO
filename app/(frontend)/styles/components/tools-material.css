@@ -174,7 +174,13 @@
     grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     column-gap: 12px;
-    padding: 34px 24px 36px;
+    /* Ülapadi 34 → 0: pildi ja pealkirja vahet juhib nüüd ÜKS koht — pildi
+       alumine veeris components/card-frames.css-is (--raio-band-stack-gap).
+       See rida on kohe pärast seda laetud failis, seega ta võitis ühisreegli
+       positsiooniga ja "Hooldus" jäi ainsaks 62px erandiks, kui ülejäänud
+       üheksa paneeli olid juba 28px (omanik 2026-07-26). Külje- ja alapadi
+       jäävad — need pole vahe osa. */
+    padding: 0 24px 36px;
   }
 
   .tools-page-redesign :is(.tools-care-copy) > svg {
