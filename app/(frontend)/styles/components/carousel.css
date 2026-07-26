@@ -318,6 +318,28 @@ body
   margin-top: clamp(20px, 2.4vw, 34px);
 }
 
+/* Karussellisektsiooni pealkiri sai telefonis rohkem õhku ülalt: mõõdetud
+   390x664 istus ta sektsiooni ülaservast 24px kaugusel, samas kui /meist-i
+   "RA·IO LOOJAD" saab oma sektsiooni polstrist 52px (omanik 2026-07-26:
+   "karuselli sektsioonide pealkirja üleval peaks rohkem õhku olema, nii nagu
+   on raio loojad pealkirjal"). 32px viib nad 56px peale ehk etaloniga ühte
+   ritta.
+
+   Üks reegel neljale konteinerile, mis tulevad neljast karussellikomponendist —
+   lehefailidesse laiali see ei kuulu, sest tegu on karusselli enda rütmiga.
+   Ainult telefonis: töölaual istub pealkiri reas koos valikutega ja seal on
+   see rütm juba paigas. */
+@media (max-width: 980px) {
+  :is(
+    .events-section-top,
+    .journal-section-top,
+    .tools-section-top,
+    .training-section-intro
+  ) {
+    padding-top: 32px;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   :is(.carousel-all-link, .events-all-link):hover {
     opacity: 0.78;

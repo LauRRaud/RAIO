@@ -647,13 +647,14 @@
        (owner 2026-07-09: "tekstid veidi üles poole, et saaks väikest teksti
        suuremaks panna").
 
-       Keskjoondus on siin ÕIGE ja ta tuli korra ekslikult ära võetud: "hero
-       üles poole, et logo ei kataks" käis /meist-i kohta, kus RA·IO wordmark on
-       päris element (pages/about.css) — avalehe bändidel sellist märki ei ole.
-       Ülaserva ankurdatuna jäi sisu liiga kõrgele ja alla tekkis suur tühi foto
-       (omanik 2026-07-26: "avalehel jällegi on vaja alla poole viia sektsioonide
-       sisu, liiga üleval"). Algne kokkusurutus tuli hoopis bändi kõrgusest —
-       selle lahendab 700px põrand ülalpool, mitte joondus. */
+       Keskjoondus on siin ÕIGE ja seda on nüüd kaks korda ekslikult muudetud.
+       ÜLASERVA: "hero üles poole, et logo ei kataks" käis /meist-i kohta, kus
+       RA·IO wordmark on päris element (pages/about.css) — avalehe bändidel
+       sellist märki ei ole ja sisu jäi liiga kõrgele. ALASERVA (flex-end):
+       "need tekstid alla poole" käis ainult PEENTEKSTIDE kohta, mitte terve
+       rühma kohta (omanik 2026-07-26: "liigutasid kogu rühma avalehel alla
+       poole, pane tagasi, pidid ainult peeneid tekste"). Peenteksti nihutab
+       .home-split-body margin-top allpool, mitte rühma joondus. */
     justify-content: center;
     /* Sama põrand kui .home-split'il — see plokk annab bändile kõrguse. */
     min-height: max(700px, calc(100svh - 72px));
@@ -668,6 +669,15 @@
      (mõõdetud 390x664: tühjus 182/169 → 152/139). */
   .home-split-copy .home-split-eyebrow {
     margin-bottom: clamp(34px, 9vh, 96px);
+  }
+
+  /* Peentekst istub pealkirjast kaugemal (omanik 2026-07-26: "pidid ainult
+     peeneid tekste [alla poole liigutama]"). NB: rühm on tsentreeritud, seega
+     kasvanud vahe jaguneb — mõõdetud 390x664 viib see peenteksti ~27px
+     allapoole ja pealkirja sama palju ülespoole. Rühm ise jääb bändi keskele,
+     nagu peabki. */
+  .home-split-copy :is(.home-split-lede, .home-split-body) {
+    margin-top: clamp(44px, 12vh, 96px);
   }
 
   .home-split-copy .home-hero-title,
