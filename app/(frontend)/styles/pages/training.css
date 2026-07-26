@@ -269,6 +269,54 @@
   margin-top: 18px;
 }
 
+/* Kaardil on kogu sisu keskjoondatud, seega ka meta — ja mähkudes tuleb KUMBKI
+   rida keskele, mitte vasakusse serva (omanik 2026-07-26: "isegi kui on kahe
+   rea peal tekst, siis pigem keskjoonduses"). Pikema kestuse või tasemenimega
+   kaardid ("Alg-tase-kesktase") mähkusid ja jäid vasakule, kõrvalkaardid mitte
+   — read ei olnud omavahel joondatud.
+
+   Modaal jääb teadlikult VÄLJA: seal on text-align: start, ja keskele tõmmatud
+   meta loeks sealt välja kukkununa. Sama põhjus, miks flex-wrap ise on ühises
+   reeglis, aga joondus mitte. */
+.training-card .training-meta {
+  justify-content: center;
+}
+
+/* Noole-rida peab kaartide vahel SAMAL kõrgusel püsima, muidu hüppavad nooled
+   kerimisel üles-alla (omanik 2026-07-26: "need nooled liiguvad üles ja alla
+   liiga palju, kerida on halb").
+
+   Kaardi kõrgus on kinni (610px) ja nupp ankurdatud, seega sisu kasvab
+   ÜLESPOOLE — iga rida, mis pealkirjale või metale juurde tuleb, lükkab
+   noole-rida kõrgemale. Mõõdetud nelja kaardi peal: 253 / 213 / 179 / 253px.
+   Kaks muutlikku plokki, mõlemale tuleb koht kinni panna:
+
+   - pealkiri 1 rida = 33px, 2 rida = 65px. 2.32em = 2 x line-height (1.16),
+     mitte kõva px: nii püsib mõõt paigas ka siis, kui admini tekstiskaala
+     fonti suurendab (iga font-size siin on calc(... * --cms-text-scale)).
+   - meta 1 rida = 32px, 2 rida = 72px. See mõõt tuleb IKOONIST (32px), mitte
+     fondist, seega px on siin õige ühik: 2 x 32 + 8px reavahe.
+   - kirjeldus 3 rida = 102px, 4 rida = 136px. 6em = 4 x line-height (1.5).
+
+   NB see hoiab noole-rea paigal PRAEGUSE sisu juures (mõõdetud: kirjeldused on
+   3-4 rida, pealkirjad 1-2). Kui admin'is tekib 5-realine kirjeldus või
+   3-realine pealkiri, hakkab see kaart uuesti teistest erinema — siis tuleb
+   kas mõõt siin tõsta või noole-rida päris absoluutseks teha, nagu sündmuste
+   kaardi jalg (pages/events.css). */
+@media (max-width: 620px) {
+  .training-card .training-card-body h3 {
+    min-height: 2.32em;
+  }
+
+  .training-card .training-card-body > p {
+    min-height: 6em;
+  }
+
+  .training-card .training-meta {
+    min-height: calc(2 * 32px + 8px);
+  }
+}
+
 .training-meta span {
   display: flex;
   align-items: center;
@@ -954,9 +1002,9 @@ body .training-modal-content .training-meta span {
      põhja kleepununa (omanik 2026-07-26: "siin see nupp veidi üles poole").
      Ainult ALUMINE polster kasvab — ülemine peab jääma paigale, muidu libiseb
      kogu bänd allapoole ja võit kaob. Sama muudatus tegi /sundmused bändi
-     (pages/events.css), kus lõplik mõõt on 64px; siin on ülapolster 48px, seega
-     sama proportsioon annab 68px. */
+     (pages/events.css). Mõõt: 48px liiga madal -> 68px endiselt nõksa madal
+     ("see nupp nõks üles poole") -> 86px paigas. */
   .training-page-redesign .training-workshop-panel {
-    padding-bottom: 68px;
+    padding-bottom: 86px;
   }
 }
