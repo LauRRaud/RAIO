@@ -213,13 +213,19 @@
 
   /* Pealkiri + nooled + kirjeldus allapoole, kuupäev ja kategooria jäävad üles
      (omanik 2026-07-26: "pane journal lehel pealkirja, nooli ja teksti veidi
-     alla poole. kuupäev jne jäta üles").
+     alla poole. kuupäev jne jäta üles"). Kuupäev on absoluutne (top: 54px
+     ülalpool) ja jalg samuti ankurdatud, seega ülaveeris liigutab ainult
+     voolavaid lapsi — pealkiri, nooled ja tekst korraga.
 
-     Piisab pealkirja ülaveerisest: kuupäev on absoluutne (top: 54px ülalpool) ja
-     jalg samuti ankurdatud, seega liiguvad ainult voolavad lapsed — pealkiri,
-     nooled ja tekst — kõik korraga. Mõõdetud 390px: rühm 34px allapoole, ja
-     kirjelduse ning jala vahele jääb ikka 61px, seega kokku ei jookse. */
-  .journal-story-card .journal-story-body h3 {
-    margin-top: 52px;
+     Seejärel taheti pealkirja üksi kõrgemale ("pealkirja noolte kohal veidi
+     üles poole"), nooled ja tekst pidid paigale jääma. Seepärast käivad need
+     kaks veerist VASTASSUUNDADES: ülemine 52 -> 34px tõstab pealkirja, alumine
+     20 -> 38px annab needsamad 18px nooltele tagasi. Summa 72px hoiab noolte ja
+     teksti kõrguse muutumatuna — kui muudad üht, muuda teist vastupidi.
+     (Alumine veeris on siin, mitte card-chrome.css jagatud reeglis, sest seal
+     kehtiks see kõigile neljale kaardiperele.) */
+  .journal-page-redesign .journal-story-carousel .journal-story-card .journal-story-body h3 {
+    margin-top: 34px;
+    margin-bottom: 38px;
   }
 }

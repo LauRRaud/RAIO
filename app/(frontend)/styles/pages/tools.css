@@ -622,6 +622,19 @@
   .tools-category-body {
     min-height: 0;
   }
+
+  /* Pealkiri veidi kõrgemale, nooled paigale (omanik 2026-07-26: "vahendid
+     lehel pealkiri veidi üles poole"). Veerised käivad vastassuundades: üles
+     -12px, alla +12px, summa jääb 20px ehk noole-rida ja kirjeldus ei liigu.
+
+     Negatiivne ülaveeris on siin ohutu, sest kere ülapolster on 18px — pealkiri
+     jääb kerest sissepoole ega roni kaardiraami peale. Erinevalt poe kaardist
+     ei aita siin ainult alumine veeris: see kere on `flex-start`, mitte
+     `flex-end`, seega alumise kasvatamine lükkaks nooled allapoole. */
+  .tools-page-redesign .tools-category-carousel .tools-category-card .tools-category-body h3 {
+    margin-top: -12px;
+    margin-bottom: 32px;
+  }
 }
 
 @media (max-width: 620px) {

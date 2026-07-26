@@ -949,4 +949,14 @@ body .training-modal-content .training-meta span {
   .training-page-redesign .training-quality-list {
     grid-column: 1;
   }
+
+  /* "Võta ühendust" istus laotud vaates 48px bändi alaservast ja luges bändi
+     põhja kleepununa (omanik 2026-07-26: "siin see nupp veidi üles poole").
+     Ainult ALUMINE polster kasvab — ülemine peab jääma paigale, muidu libiseb
+     kogu bänd allapoole ja võit kaob. Sama muudatus tegi /sundmused bändi
+     (pages/events.css), kus lõplik mõõt on 64px; siin on ülapolster 48px, seega
+     sama proportsioon annab 68px. */
+  .training-page-redesign .training-workshop-panel {
+    padding-bottom: 68px;
+  }
 }

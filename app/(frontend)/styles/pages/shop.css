@@ -501,6 +501,24 @@
   .store-product-body h3 {
     min-height: 0;
   }
+
+  /* Pealkiri (koos kategooriasildiga) veidi kõrgemale, nooled paigale (omanik
+     2026-07-26: "poe lehel ka veidi üles poole").
+
+     Siin piisab ÜHEST veerisest, erinevalt teistest kaardiperedest: kere on
+     `justify-content: flex-end` (card-chrome.css), seega rühm on alaserva
+     pakitud ja pealkirja alumise veerise kasvatamine lükkab tema JA temast
+     ülalpool oleva kategooriasildi üles, jättes noole-rea, hinna ja nupu
+     ankurdatuks. Negatiivset ülaveerist pole vaja — kategooriasilt on
+     pealkirjast vaid 10px kaugusel ja jääks muidu ette.
+
+     .store-product-card selektoris pole kaunistus: card-chrome.css annab samale
+     h3-le margin-bottom: 20px spetsiifikaga (0,3,1) ja kaardiklassita jääks see
+     reegel viiki, mille võidab kaskaadis hilisem — mõõdetud, 36px ei jõudnud
+     kohale. Neljanda klassiga (0,4,1) võidab see kindlalt. */
+  .store-page .store-product-carousel .store-product-card .store-product-body h3 {
+    margin-bottom: 36px;
+  }
 }
 
 @media (max-width: 620px) {

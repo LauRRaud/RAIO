@@ -546,6 +546,18 @@ body .events-event-modal-content .events-location {
     min-height: 0;
   }
 
+  /* Kaardi pealkiri allapoole, kuupäev ja nooled paigale (omanik 2026-07-26:
+     "sündmused lehel alla poole"). Kuupäev on absoluutne, seega tema ei liigu;
+     nooled hoiab paigal see, et veerised käivad VASTASSUUNDADES — ülemine
+     0 -> 14px lükkab pealkirja alla, alumine 20 -> 6px annab needsamad 14px
+     tagasi. Summa 20px hoiab noolte ja teksti kõrguse muutumatuna; kui muudad
+     üht, muuda teist vastupidi. (Journalil on sama muster, aga vastupidises
+     suunas — vt components/journal-cards.css.) */
+  .events-page-redesign .events-event-carousel .events-event-card .events-event-body h3 {
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+
 }
 
 @media (max-width: 620px) {
@@ -690,10 +702,10 @@ body .events-event-modal-content .events-location {
      polster kasvab: ülemine peab jääma paigale, muidu libiseb kogu bänd
      allapoole ja võit kaob.
 
-     Mõõt on kahe otsa vahelt leitud: 56px oli liiga madal, 96px omakorda
-     liiga kõrge ("liiga üleval on nupp"). 74px on nende vahe — ära vii seda
-     kummasse serva tagasi. */
+     Mõõt on kolme ringiga paika saadud, ära hakka seda uuesti nihutama:
+     56px liiga madal -> 96px liiga kõrge -> 74px endiselt nõksa kõrge
+     ("siin nuppu veidi all poole, väike nõks") -> 64px paigas. */
   .events-page-redesign .events-host-cta {
-    padding-bottom: 74px;
+    padding-bottom: 64px;
   }
 }
