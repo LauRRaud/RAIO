@@ -254,32 +254,26 @@
   line-height: 1.54;
 }
 
-/* Kestus ja tase istuvad ÜHEL real, mitte kahel (omanik 2026-07-26: "pane aeg
-   ja kellele ühele reale, nii saab teksti veidi suuremaks üleval teha") — kaks
-   rida sõid kaardil ~36px, mille arvelt sai kirjeldus suuremaks minna.
-   Mõõdetud 390px kaardil: 140 + 126 + vahe mahub 350px sisse.
+/* Kestus ja tase on VIRNAS (kaks rida) — see on töölaua ja modaali kuju.
+   Telefonis lähevad nad ühele reale, vt @media (max-width: 620px) allpool.
 
-   flex-wrap, MITTE jäik rida: sama klass teenindab ka modaali, kus tekst on
-   suurem ja kirjeid võib rohkem olla — seal murdub rida ise, mitte ei jookse
-   üle serva. Reavahe (10px) jääb mähkumise jaoks alles. */
+   Miks kuju on laiuse järgi erinev: telefonis oli kahest reast ~36px kasu, mille
+   arvelt sai kirjeldus suuremaks minna (omanik 2026-07-26: "pane aeg ja kellele
+   ühele reale"). Töölaual on kaardid kõrvuti ja seal luges mähkuv rida halvasti
+   — kolmest kaardist jäi ühel kaks rida ja teistel üks, kaardid ei olnud
+   omavahel joondatud (omanik 2026-07-26: "desktopis oleks hea kui oleks kahes
+   reas"). Virn on seal ühtlane sõltumata tasemenime pikkusest. */
 .training-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px clamp(18px, 5vw, 32px);
+  display: grid;
+  gap: 10px;
   margin-top: 18px;
 }
 
-/* Kaardil on kogu sisu keskjoondatud, seega ka meta — ja mähkudes tuleb KUMBKI
-   rida keskele, mitte vasakusse serva (omanik 2026-07-26: "isegi kui on kahe
-   rea peal tekst, siis pigem keskjoonduses"). Pikema kestuse või tasemenimega
-   kaardid ("Alg-tase-kesktase") mähkusid ja jäid vasakule, kõrvalkaardid mitte
-   — read ei olnud omavahel joondatud.
-
-   Modaal jääb teadlikult VÄLJA: seal on text-align: start, ja keskele tõmmatud
-   meta loeks sealt välja kukkununa. Sama põhjus, miks flex-wrap ise on ühises
-   reeglis, aga joondus mitte. */
+/* Kaardil on kogu sisu keskjoondatud, seega ka meta read. Modaal jääb
+   teadlikult VÄLJA: seal on text-align: start ja keskele tõmmatud meta loeks
+   sealt välja kukkununa. */
 .training-card .training-meta {
-  justify-content: center;
+  justify-items: center;
 }
 
 /* Noole-rida peab kaartide vahel SAMAL kõrgusel püsima, muidu hüppavad nooled
@@ -312,6 +306,15 @@
     min-height: 6em;
   }
 
+  /* Meta on virnas ka telefonis, sama kuju mis töölaual — ühtki erijuhtumit ei
+     ole. Vahepeal oli siin ühe-realine mähkuv variant (omanik soovis "aeg ja
+     kellele ühele reale", et kirjeldus saaks suuremaks), aga see osutus
+     tarbetuks: noole-rea paigalhoidmiseks on metale niikuinii 2 rea jagu ruumi
+     reserveeritud, seega virn ei võta ühtegi pikslit juurde ega võta kirjelduse
+     mõõdust midagi tagasi. Mõõdetud 390px: meta 72px mõlemal kujul.
+
+     min-height jääb PÕRANDAKS ka siis: kui mõnel kaardil peaks kestus või tase
+     puuduma, jääks virna üksainus rida ja nooled hüppaksid uuesti. */
   .training-card .training-meta {
     min-height: calc(2 * 32px + 8px);
   }
