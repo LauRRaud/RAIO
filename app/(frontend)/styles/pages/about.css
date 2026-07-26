@@ -1013,11 +1013,25 @@
   }
 }
 
-/* Laotud vaates jääb kontaktiveerg samuti jooneta. */
+/* Laotud vaates jääb kontaktiveerg samuti jooneta.
+
+   Püstpolster ei tohi siin kahekordistuda: kõrvuti veergudel on mõlemal oma
+   padding-block (tekstiveerg 977, kontaktiveerg 997) ja see ongi bändi õige
+   püstpolster. Laotud vaates satuvad nad kohakuti — mõõdetud 390px ekraanil
+   andis KONTAKT-i kohale 40 + 40 = 80px, samas kui pealkirja all oli ainult
+   18px. Pealkiri hõljus lahus sellest, mida ta pealkirjastab (omanik
+   2026-07-26: "kontakt pealkirja võiks tühja ruumu ülevalt vähemaks võtta,
+   alla nõksa juurde panna").
+
+   Ülemise polstri kannab nüüd ainult tekstiveerg, ja pealkirja-alune vahe
+   tuleb paneeli enda gap'ist — sama hoob, mis lahutab ka väärtused nuppudest,
+   nii et rühm hingab ühtlaselt. */
 @media (max-width: 980px) {
   .about-page-redesign .about-contact-panel {
     border-left: 0 !important;
     border-top: 0 !important;
     padding-inline: var(--band-pad);
+    padding-top: 0;
+    row-gap: clamp(24px, 6.5vw, 30px);
   }
 }
