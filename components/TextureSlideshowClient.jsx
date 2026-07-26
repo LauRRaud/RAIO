@@ -40,6 +40,10 @@ export function TextureSlideshowClient({ set, images, interval = 20000 }) {
             alt=""
             className={`texture-backdrop-img${index === active ? " is-active" : ""}`}
             loading={index === 0 ? "eager" : "lazy"}
+            /* Esimene taust on avalehe LCP-element. eager üksi ei tõsta seda
+               brauseri prioriteedijärjekorras — Lighthouse 2026-07-26 nõudis
+               otse fetchpriority="high" (LCP oli 2.6 s, piir 2.5 s). */
+            fetchPriority={index === 0 ? "high" : undefined}
             decoding="async"
             draggable={false}
           />
