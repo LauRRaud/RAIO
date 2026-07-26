@@ -4,111 +4,127 @@
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/01-mustad-tumedad/2.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/02-hallid/1.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/02-hallid/2.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/03-heledad/1.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/03-heledad/2.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/03-heledad/3.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/03-heledad/4.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/05-terrakota/1.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/05-terrakota/2.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/06-rohelised/1.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/06-rohelised/2.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/06-rohelised/3.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/06-rohelised/4.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/06-rohelised/5.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   },
   "/RAIO%20taust/06-rohelised/6.webp": {
     "base": 2000,
     "variants": [
       1200,
       1600
-    ]
+    ],
+    "portrait": 960
   }
 }

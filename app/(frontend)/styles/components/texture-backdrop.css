@@ -18,6 +18,14 @@
   background-repeat: no-repeat;
 }
 
+/* <picture> on ainult ümbris mobiili portreekärpe <source>'i jaoks
+   (TextureSlideshowClient.jsx) — `display: contents` võtab ta layout'ist välja,
+   nii et <img> absoluutne asetus loeb endiselt .texture-backdrop'i, mitte
+   vahepealset inline-kasti. */
+.texture-backdrop picture {
+  display: contents;
+}
+
 .texture-backdrop-img {
   position: absolute;
   inset: 0;

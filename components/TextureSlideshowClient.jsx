@@ -12,14 +12,31 @@ function buildSrcSet(src) {
   const entry = variantMap[src];
   if (!entry) return undefined;
 
-  const slash = src.lastIndexOf("/");
-  const dir = src.slice(0, slash);
-  const file = src.slice(slash + 1);
+  const { dir, file } = splitPath(src);
 
   return [
     ...entry.variants.map((w) => `${dir}/w${w}/${file} ${w}w`),
     `${src} ${entry.base}w`
   ].join(", ");
+}
+
+function splitPath(src) {
+  const slash = src.lastIndexOf("/");
+  return { dir: src.slice(0, slash), file: src.slice(slash + 1) };
+}
+
+/* Mobiilile PÜSTINE kärbe, mitte sama maastikupilt kitsamana.
+   Bänd on telefonis ~390x700 ja `object-fit: cover` mahutab maastikufoto sinna
+   KÕRGUSE järgi: 1200x800 fail venitatakse 1050 px laiaks ja 63% kaob servadest.
+   Nähtavasse aknasse jõuab siis 446 lähtepikslit, kuigi ekraan nõuab 1170 →
+   2.63x ülesskaleerimine (mõõdetud). Püstine 960x1600 kärbe annab samasse
+   aknasse ~890 pikslit ehk 1.31x — pool vähem hägu, ilma et ükski piksel läheks
+   kärpes raisku. Piir 980px on sama, kust CSS bändid ühte veergu laotab. */
+function buildPortrait(src) {
+  const entry = variantMap[src];
+  if (!entry?.portrait) return undefined;
+  const { dir, file } = splitPath(src);
+  return `${dir}/p/${file}`;
 }
 
 /* Kliendipool: roteerib serverist saadud pilte crossfade'iga. Ühe pildiga
@@ -54,22 +71,28 @@ export function TextureSlideshowClient({ set, images, interval = 20000 }) {
            mountimata, kuni laadimisaken temani jõuab. Järgmine pilt on alati
            ees laetud, nii et is-active vahetus saab opacity-transitioni. */
         index < loadedCount ? (
-          <img
-            key={src}
-            src={src}
-            srcSet={buildSrcSet(src)}
-            /* Taust katab sektsiooni servast servani, seega laius = vaateava. */
-            sizes="100vw"
-            alt=""
-            className={`texture-backdrop-img${index === active ? " is-active" : ""}`}
-            loading={index === 0 ? "eager" : "lazy"}
-            /* Esimene taust on avalehe LCP-element. eager üksi ei tõsta seda
-               brauseri prioriteedijärjekorras — Lighthouse 2026-07-26 nõudis
-               otse fetchpriority="high" (LCP oli 2.6 s, piir 2.5 s). */
-            fetchPriority={index === 0 ? "high" : undefined}
-            decoding="async"
-            draggable={false}
-          />
+          <picture key={src}>
+            {buildPortrait(src) ? (
+              <source media="(max-width: 980px)" srcSet={buildPortrait(src)} />
+            ) : null}
+            <img
+              src={src}
+              srcSet={buildSrcSet(src)}
+              /* Töölaual katab taust sektsiooni servast servani, seega laius =
+                 vaateava. Mobiili mõõt tuleb <source>'ist ülalpool ja seal on
+                 ainult üks fail, nii et sizes teda ei puuduta. */
+              sizes="100vw"
+              alt=""
+              className={`texture-backdrop-img${index === active ? " is-active" : ""}`}
+              loading={index === 0 ? "eager" : "lazy"}
+              /* Esimene taust on avalehe LCP-element. eager üksi ei tõsta seda
+                 brauseri prioriteedijärjekorras — Lighthouse 2026-07-26 nõudis
+                 otse fetchpriority="high" (LCP oli 2.6 s, piir 2.5 s). */
+              fetchPriority={index === 0 ? "high" : undefined}
+              decoding="async"
+              draggable={false}
+            />
+          </picture>
         ) : null
       )}
       <span className="texture-backdrop-tint" />
