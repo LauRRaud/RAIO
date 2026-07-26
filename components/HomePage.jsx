@@ -48,7 +48,16 @@ export async function HomePage({ locale = "et" }) {
             </h1>
             <p className="home-split-lede">{hero.copy}</p>
           </div>
-          <SplitMedia src={hero.image} alt={hero.imageAlt} position="50% 38%" priority />
+          {/* Kärpekoht käib muutuja kaudu, et telefon saaks oma väärtuse:
+              inline-stiil võidab CSS-i, seega otse siia kirjutatud "50% 38%"
+              kehtiks ka töölaual, kus foto istub poole laiuses veerus ja kaader
+              on hoopis teine. Mobiili väärtus: pages/home.css. */}
+          <SplitMedia
+            src={hero.image}
+            alt={hero.imageAlt}
+            position="var(--home-hero-image-pos, 50% 38%)"
+            priority
+          />
         </section>
 
         <section className="home-split home-split-philosophy" data-motion="side" {...getCmsSectionProps(messages, "homePhilosophy")}>

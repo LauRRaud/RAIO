@@ -121,8 +121,17 @@
     .store-hero-copy .store-hero-text p
   ) {
     /* Considerably larger hero lede (owner 2026-07-09: "header sektsioonide
-       väiksed tekstid tunduvalt suuremaks"; shop hero was missed). */
-    font-size: calc(clamp(1.55rem, 6.8vw, 2rem) * var(--cms-text-scale, 1));
+       väiksed tekstid tunduvalt suuremaks"; shop hero was missed).
+
+       6.8 -> 6.2vw (26.5 -> 24.2px 390px ekraanil): 6.8vw juures murdusid pikad
+       laused nii, et viimasele reale jäi paar sõna ja lõiku tekkis auk (omanik
+       2026-07-26: "siin see auk ei meeldi tekstis. tekst väiksemaks veidi. võid
+       teistel herodel ka teha, välja arvatud avalehel").
+
+       See selektoriloend ongi täpselt "kõik herod peale avalehe" — avalehe
+       bändidel on omad klassid (.home-split-lede / .home-split-body,
+       pages/home.css), seega nemad ei liigu kaasa. Ära lisa neid siia. */
+    font-size: calc(clamp(1.45rem, 6.2vw, 1.86rem) * var(--cms-text-scale, 1));
     line-height: 1.6;
   }
 

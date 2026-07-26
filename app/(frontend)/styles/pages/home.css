@@ -623,6 +623,18 @@
        (components/card-chrome.css). */
   }
 
+  /* Hero-foto kärbe telefonis paremale (omanik 2026-07-26: "kas selle mehe
+     fotot saab nihutada paremale veidi, et nägu paistaks").
+
+     Foto on maastik (682x512) püstises 390x700 aknas, seega cover skaleerib
+     KÕRGUSE järgi 932px laiaks ja horisontaalselt kärbib 542px. X% valib, MILLIST
+     932-st vaadata: väiksem number näitab foto vasakut serva, mistõttu tegelane
+     nihkub kaadris paremale ja nägu tuleb välja. 50 -> 34 -> 24% ("nõks veel").
+     Y jääb 38% peale — vertikaalne kadreering oli juba paigas. */
+  .home-split-hero .home-split-media {
+    --home-hero-image-pos: 24% 38%;
+  }
+
   .home-split::before {
     content: "";
     position: absolute;
