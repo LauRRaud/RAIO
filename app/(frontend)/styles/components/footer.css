@@ -160,8 +160,12 @@
     padding-bottom: 118px;
   }
 
+  /* © rida 52 -> 62px servast. See ÜKS arv lahendab kaks soovi korraga (omanik
+     2026-07-26: "instagrami alla veidi vähem, veebilehe autori kohale veidi
+     rohkem"): © rida tõuseb Instagrami reale lähemale ja jätab allkirjale
+     rohkem õhku. Mõõdetud 390px: Instagram->© 23 -> 13px, ©->allkiri 20 -> 30px. */
   .footer-fineprint {
-    bottom: 52px;
+    bottom: 62px;
   }
 
   /* Kitsal ekraanil allkiri © rea alla keskele (omanik 2026-07-21: "pane
@@ -181,9 +185,10 @@
 
   .footer {
     min-height: 260px;
-    /* Ruumi kahele reale: © rida ja selle all allkiri. Alumine mõõt peab
+    /* Ülapolster 20 -> 34px: logo tahab üleval rohkem ruumi (omanik
+       2026-07-26: "jaluse logo üles ja alla rohkem ruumi"). Alumine mõõt peab
        ühtima 880px ploki omaga — shorthand sunnib seda siin üle kordama. */
-    padding: 20px 22px 118px;
+    padding: 34px 22px 118px;
   }
 
 }
@@ -216,9 +221,12 @@
 
   .footer-slogan {
     font-size: calc(clamp(2.45rem, 11vw, 3.05rem) * var(--cms-text-scale, 1));
-    /* Mobiilis on ülemine vahe juba väike (padding-top 20px + translateY 8px),
-       nii et 2.5vw jookseks üle — siin hoiab tasakaalu fikseeritud väärtus. */
-    margin-top: 9px;
+    /* Logo ALUMINE vahe (omanik 2026-07-26: "logo üles ja alla rohkem ruumi").
+       9 -> 22px. NB nähtav vahe ei ole see arv: shelli grid-gap (20px) liidab
+       juurde ja .footer-logo-link translateY (8px) lükkab logo allapoole ehk
+       lahutab. Mõõdetud 390px: nähtav vahe 21 -> 34px. Fikseeritud väärtus, mitte
+       vw — 2.5vw jookseks siin üle. */
+    margin-top: 22px;
   }
 
 }
