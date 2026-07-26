@@ -128,7 +128,12 @@
 /* Kujundaja allkiri päris jaluse parempoolses alanurgas (omanik 2026-07-20:
    "paremasse täiesti nurka alla"). Nurgas seistes ei kuulu see visuaalselt
    keskel oleva © rea juurde — see oli kogu mure algus. Vaiksem kaal ja
-   madalam kontrast hoiavad selle allkirjaks. */
+   madalam kontrast hoiavad selle allkirjaks.
+
+   opacity 0.78 (mitte 0.7): läbipaistvus segab teksti taustaga #e6ceb0 ja
+   0.7 juures tuli kontrast 4.39:1, kui WCAG AA nõuab 4.5:1 (Lighthouse
+   2026-07-26 kaebas). 0.78 annab 5.4:1 ja jääb ikka vaikseks allkirjaks —
+   ära vii seda tagasi allapoole 0.75. */
 .footer-credit {
   position: absolute;
   right: clamp(12px, 1.2vw, 20px);
@@ -139,7 +144,7 @@
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: 0.06em;
-  opacity: 0.7;
+  opacity: 0.78;
 }
 
 @media (max-width: 880px) {
