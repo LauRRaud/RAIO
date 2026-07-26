@@ -150,22 +150,29 @@
 @media (max-width: 880px) {
   /* Alla ~880px jookseb keskel olev © rida nurgas olevale allkirjale otsa
      (mõõdetud: 700px juures kattusid). Kitsamal ekraanil laotakse nad
-     üksteise alla — © rida tõuseb, allkiri jääb ikka paremasse nurka. */
+     üksteise alla — © rida tõuseb, allkiri jääb ikka paremasse nurka.
+
+     Alumine polster 98 -> 118px, sest laotud vaates jäi Instagrami rea ja ©
+     rea vahele mõõdetult 3px: shell lõppes täpselt seal, kus absoluutne © rida
+     algas (omanik 2026-07-26: "jalus on ka mobiilis veidi kramplikult koos").
+     Polster ongi see, mis shelli ja absoluutsete ridade vahele õhku jätab. */
   .footer {
-    padding-bottom: 98px;
+    padding-bottom: 118px;
   }
 
   .footer-fineprint {
     bottom: 52px;
   }
 
-  /* Kitsal ekraanil allkiri © rea alla keskele, väikese vahega (omanik
-     2026-07-21: "pane keskjoondusesse ja vähenda veidi vahet ülemise reaga")
-     — nurgaallkiri on desktopi keel. */
+  /* Kitsal ekraanil allkiri © rea alla keskele (omanik 2026-07-21: "pane
+     keskjoondusesse ja vähenda veidi vahet ülemise reaga") — nurgaallkiri on
+     desktopi keel. 22 -> 8px: allkiri kuulub päris serva (omanik 2026-07-26:
+     "täitsa all servas peaks Design by L. Raudsoo olema"). © rida jääb 52px
+     peale, seega nende vaheks tuleb 20px senise 6px asemel. */
   .footer-credit {
     left: 0;
     right: 0;
-    bottom: 22px;
+    bottom: 8px;
     text-align: center;
   }
 }
@@ -174,8 +181,9 @@
 
   .footer {
     min-height: 260px;
-    /* Ruumi kahele reale: © rida ja selle all allkiri. */
-    padding: 20px 22px 98px;
+    /* Ruumi kahele reale: © rida ja selle all allkiri. Alumine mõõt peab
+       ühtima 880px ploki omaga — shorthand sunnib seda siin üle kordama. */
+    padding: 20px 22px 118px;
   }
 
 }
