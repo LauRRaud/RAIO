@@ -9,7 +9,7 @@
   },
   "metadata": {
     "title": "RA•IO",
-    "description": "RA•IO website, shop, and experience platform"
+    "description": "RA•IO — handcrafted kettlebells, dumbbells and training tools made of Estonian stone and wood. Training and movement events in nature."
   },
   "header": {
     "homeLabel": "RA•IO home",
@@ -92,8 +92,8 @@
   },
   "home": {
     "metadata": {
-      "title": "Raio - Training is a feeling.",
-      "description": "Handcrafted kettlebells and training tools made of Estonian stone and wood. Training is a feeling."
+      "title": "RA•IO — handcrafted kettlebells and training tools",
+      "description": "Handcrafted kettlebells, dumbbells and training clubs made of Estonian stone and wood. Training and events in nature. Training is a feeling."
     },
     "hero": {
       "image": "/Pictures/Avaleht/RAIO HERO1.webp",
@@ -169,8 +169,8 @@
   },
   "training": {
     "metadata": {
-      "title": "Training | RA•IO",
-      "description": "RA•IO training brings together strength, endurance, and mindful movement with the rhythm of nature."
+      "title": "Training in nature — strength and mindful movement | RA•IO",
+      "description": "RA•IO training brings together strength, endurance, and mindful movement with the rhythm of nature. See the sessions and come try."
     },
     "label": "Training",
     "heroTitle": "Movement. In nature.",
@@ -271,8 +271,8 @@
   },
   "tools": {
     "metadata": {
-      "title": "Tools | RA•IO",
-      "description": "RA•IO handcrafted training tools made of wood and stone."
+      "title": "Handcrafted training tools in wood and stone | RA•IO",
+      "description": "Kettlebells, dumbbells, training clubs and tools for children — handcrafted from Estonian wood and stone. Every piece is one of a kind."
     },
     "label": "Tools",
     "heroTitle": "Made from nature. For training.",
@@ -377,8 +377,8 @@
   },
   "events": {
     "metadata": {
-      "title": "Events | RA•IO",
-      "description": "RA•IO events bring together movement, nature, and community."
+      "title": "Movement events in nature | RA•IO",
+      "description": "RA•IO events bring together movement, nature, and community. See upcoming camps and gatherings, and join us."
     },
     "label": "Events",
     "heroTitle": "Let's meet\nin nature.",
@@ -462,8 +462,8 @@
   },
   "journal": {
     "metadata": {
-      "title": "RA•IO+ | RA•IO",
-      "description": "RA•IO+ and articles"
+      "title": "RA•IO+ — writing on movement and craft",
+      "description": "Thoughts and experiences on movement, how the tools are made, and training outdoors. RA•IO+ articles and reading."
     },
     "label": "RA•IO+",
     "heroTitle": "Thoughts, experiences, inspiration.",
@@ -568,8 +568,9 @@
   },
   "shop": {
     "metadata": {
-      "title": "Shop | RA•IO",
-      "description": "RA•IO first edition training tool pre-orders"
+      "title": "Handcrafted kettlebells and training tools | RA•IO shop",
+      "breadcrumb": "Shop",
+      "description": "Pre-order the RA•IO first edition: stone kettlebells, wooden dumbbells and training clubs. Handmade from Estonian materials, lead time confirmed at ordering."
     },
     "kicker": "First edition",
     "heroTitle": "Pre-orders\nopen.",
@@ -756,8 +757,8 @@
   },
   "about": {
     "metadata": {
-      "title": "About | RA•IO",
-      "description": "The RA•IO story — movement, handmade tools, and experiences in nature."
+      "title": "The RA•IO story — movement and handmade tools",
+      "description": "Who is behind RA•IO: movement, training tools handcrafted from Estonian materials, and experiences in nature."
     },
     "label": "About",
     "heroTitle": "Training, tool, experience.",
@@ -802,6 +803,23 @@
         "text": "Guides RA•IO outdoor training with a focus on strength, technique, and presence. In his coaching, strength and calm intertwine — every session leads back to the body's natural movement. He believes lasting strength grows from patience and repetition, and that the body learns best in the rhythm of nature.",
         "image": "/Pictures/Meist/treener.jpg",
         "imageAlt": "Trainer Rainer Olei"
+      }
+    ],
+    "creatorsTitle": "RA•IO creators",
+    "creators": [
+      {
+        "name": "Kristen",
+        "role": "",
+        "text": "PLACEHOLDER — replace with the real bio. Kristen keeps RA•IO's everyday running and makes sure every tool and every meeting carries the same care as the first one.",
+        "image": "/Pictures/paekivi-tekstuur.jpg",
+        "imageAlt": "Portrait photo pending"
+      },
+      {
+        "name": "Marten",
+        "role": "",
+        "text": "PLACEHOLDER — replace with the real bio. Marten brings the handmade side to RA•IO: the material, the tool and the patience that make gear which lasts.",
+        "image": "/Pictures/paekivi-tekstuur.jpg",
+        "imageAlt": "Portrait photo pending"
       }
     ],
     "closingTitle": "Let's talk.",

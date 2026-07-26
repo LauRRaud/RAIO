@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import localFont from "next/font/local";
 import { CartProvider } from "@/components/CartProvider";
 import { JsonLd } from "@/components/JsonLd";
@@ -25,9 +26,14 @@ metadata.icons = {
   icon: "/favicon.ico"
 };
 
-export default function RootLayout({ children }) {
+/* Keel tuleb teelt, mille proxy.js päisesse paneb — /en lehed peavad
+   teatama end inglise keelsena (Google'i keeletuvastus + ekraanilugejad). */
+export default async function RootLayout({ children }) {
+  const pathname = (await headers()).get("x-raio-pathname") || "/";
+  const lang = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "et";
+
   return (
-    <html lang="et">
+    <html lang={lang}>
       <body className={display.variable}>
         <JsonLd data={buildOrganizationJsonLd()} />
         <CartProvider>{children}</CartProvider>

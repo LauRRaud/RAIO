@@ -1,5 +1,5 @@
+import { getPayloadProducts } from "@/lib/payloadContent";
 import { getPublicSiteUrl } from "@/lib/seo";
-import { shopProducts } from "@/lib/shop";
 
 /* Avalikud lehed mõlemas keeles. Ostukorv ja makse jäävad teadlikult välja
    (noindex, vt lib/seo.js) — sitemap'i kuuluvad ainult indekseeritavad lehed. */
@@ -13,7 +13,10 @@ const PUBLIC_PATHS = [
   "/meist"
 ];
 
-export default function sitemap() {
+/* Tooted tulevad Payloadist, mitte lib/shop.js staatilisest loendist —
+   admin'is lisatud toode peab sitemap'i jõudma ilma koodimuudatuseta.
+   DB puudumisel langeb getPayloadProducts ise staatilisele vaikeväärtusele. */
+export default async function sitemap() {
   const site = getPublicSiteUrl();
   const toEn = (path) => (path === "/" ? "/en" : `/en${path}`);
   const entry = (path, { priority, changeFrequency }) => ({
@@ -37,7 +40,8 @@ export default function sitemap() {
     return [entry(path, opts), { ...entry(path, opts), url: `${site}${toEn(path)}` }];
   });
 
-  const products = shopProducts
+  const catalog = await getPayloadProducts("et");
+  const products = catalog
     .filter((product) => product.visible !== false)
     .flatMap((product) => {
       const path = `/pood/${product.slug}`;

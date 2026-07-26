@@ -11,7 +11,13 @@ import { ToolsPage } from "@/components/pages/ToolsPage";
 import { TrainingPage } from "@/components/pages/TrainingPage";
 import { JsonLd } from "@/components/JsonLd";
 import { getMessages } from "@/lib/messages";
-import { buildPageMetadata, buildProductJsonLd, buildProductMetadata } from "@/lib/seo";
+import {
+  buildPageMetadata,
+  buildProductJsonLd,
+  buildProductMetadata,
+  buildShopBreadcrumbJsonLd,
+  buildShopItemListJsonLd
+} from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -66,6 +72,20 @@ export default async function EnglishSitePage({ params, searchParams }) {
     return <PaymentResultPage locale="en" status={sp.status} orderNumber={sp.order} />;
   }
 
+  if (route === "pood") {
+    const [itemListJsonLd, breadcrumbJsonLd] = await Promise.all([
+      buildShopItemListJsonLd("en"),
+      buildShopBreadcrumbJsonLd("en")
+    ]);
+    return (
+      <>
+        <JsonLd data={itemListJsonLd} />
+        <JsonLd data={breadcrumbJsonLd} />
+        <ShopPage locale="en" />
+      </>
+    );
+  }
+
   if (routePages[route]) {
     const { Component } = routePages[route];
     return <Component locale="en" />;
@@ -73,9 +93,14 @@ export default async function EnglishSitePage({ params, searchParams }) {
 
   if (route.startsWith("pood/")) {
     const productSlug = route.split("/").slice(1).join("/");
+    const [productJsonLd, breadcrumbJsonLd] = await Promise.all([
+      buildProductJsonLd("en", productSlug),
+      buildShopBreadcrumbJsonLd("en", productSlug)
+    ]);
     return (
       <>
-        <JsonLd data={buildProductJsonLd("en", productSlug)} />
+        <JsonLd data={productJsonLd} />
+        <JsonLd data={breadcrumbJsonLd} />
         <ProductPage locale="en" slug={productSlug} />
       </>
     );

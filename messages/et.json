@@ -9,7 +9,7 @@
   },
   "metadata": {
     "title": "RA•IO",
-    "description": "RA•IO koduleht, pood ja kogemuste platvorm"
+    "description": "RA•IO — käsitöö sangpommid, hantlid ja treeningvahendid Eesti kivist ja puidust. Treeningud ja liikumissündmused looduses."
   },
   "header": {
     "homeLabel": "RA•IO avalehele",
@@ -92,8 +92,8 @@
   },
   "home": {
     "metadata": {
-      "title": "Raio - Trenn on tunne.",
-      "description": "Käsitöö sangpommid ja treeningvahendid Eesti kivist ja puidust. Trenn on tunne."
+      "title": "RA•IO — käsitöö sangpommid ja treeningvahendid",
+      "description": "Käsitöö sangpommid, hantlid ja treeningnuiad Eesti kivist ja puidust. Treeningud ja sündmused looduses. Trenn on tunne."
     },
     "hero": {
       "image": "/Pictures/Avaleht/RAIO HERO1.webp",
@@ -169,8 +169,8 @@
   },
   "training": {
     "metadata": {
-      "title": "Treeningud | RA•IO",
-      "description": "RA•IO treeningud ühendavad jõu, vastupidavuse ja teadliku liikumise looduse rütmiga."
+      "title": "Treeningud looduses — jõud ja teadlik liikumine | RA•IO",
+      "description": "RA•IO treeningud ühendavad jõu, vastupidavuse ja teadliku liikumise looduse rütmiga. Vaata treeninguid ja tule proovi."
     },
     "label": "Treeningud",
     "heroTitle": "Liikumine. Looduses.",
@@ -271,8 +271,8 @@
   },
   "tools": {
     "metadata": {
-      "title": "Vahendid | RA•IO",
-      "description": "RA•IO käsitööna valminud treeningvahendid puidust ja kivist."
+      "title": "Käsitöö treeningvahendid puidust ja kivist | RA•IO",
+      "description": "Sangpommid, hantlid, treeningnuiad ja lastevahendid — käsitööna Eesti puidust ja kivist. Iga vahend on ainulaadne."
     },
     "label": "Vahendid",
     "heroTitle": "Loodud loodusest. Treeninguks.",
@@ -377,8 +377,8 @@
   },
   "events": {
     "metadata": {
-      "title": "Sündmused | RA•IO",
-      "description": "RA•IO sündmused ühendavad liikumise, looduse ja kogukonna."
+      "title": "Liikumissündmused looduses | RA•IO",
+      "description": "RA•IO sündmused ühendavad liikumise, looduse ja kogukonna. Vaata tulevasi treeninglaagreid ja sündmusi ning tule kohale."
     },
     "label": "Sündmused",
     "heroTitle": "Kohtume\nlooduses.",
@@ -462,8 +462,8 @@
   },
   "journal": {
     "metadata": {
-      "title": "RA•IO+ | RA•IO",
-      "description": "RA•IO+ ja artiklid"
+      "title": "RA•IO+ — artiklid liikumisest ja käsitööst",
+      "description": "Mõtteid ja kogemusi liikumisest, käsitöövahendite valmimisest ja looduses treenimisest. RA•IO+ artiklid ja lugemine."
     },
     "label": "RA•IO+",
     "heroTitle": "Mõtteid, kogemusi, inspiratsiooni.",
@@ -568,8 +568,9 @@
   },
   "shop": {
     "metadata": {
-      "title": "Pood | RA•IO",
-      "description": "RA•IO first edition treeningvahendite ettetellimine"
+      "title": "Käsitöö sangpommid ja treeningvahendid | RA•IO pood",
+      "breadcrumb": "Pood",
+      "description": "Telli ette RA•IO first edition: kivisangpommid, puidust hantlid ja treeningnuiad. Käsitööna Eesti materjalist, valmimisaeg kinnitatakse tellimisel."
     },
     "kicker": "First edition",
     "heroTitle": "Ettetellimine\navatud.",
@@ -756,8 +757,8 @@
   },
   "about": {
     "metadata": {
-      "title": "Meist | RA•IO",
-      "description": "RA•IO lugu — liikumine, käsitöövahendid ja kogemused looduses."
+      "title": "RA•IO lugu — liikumine ja käsitöövahendid",
+      "description": "Kes RA•IO taga on: liikumine, käsitööna valmivad treeningvahendid Eesti materjalist ja kogemused looduses."
     },
     "label": "Meist",
     "heroTitle": "Treening, tööriist, kogemus.",
@@ -802,6 +803,23 @@
         "text": "Juhendab RA•IO treeninguid looduses ning hoiab fookust jõul, tehnikal ja kohalolul. Tema juhendamises põimuvad jõud ja rahu — iga trenn viib tagasi keha loomuliku liikumise juurde. Ta usub, et püsiv tugevus kasvab kannatlikkusest ja kordusest ning et keha õpib kõige paremini looduse rütmis.",
         "image": "/Pictures/Meist/treener.jpg",
         "imageAlt": "Treener Rainer Olei"
+      }
+    ],
+    "creatorsTitle": "Raio loojad",
+    "creators": [
+      {
+        "name": "Kristen",
+        "role": "",
+        "text": "TÄITETEKST — asenda päris tutvustusega. Kristen hoiab RA•IO igapäeva koos ja seisab selle eest, et iga vahend ja iga kohtumine kannaks sama hoolt kui esimene.",
+        "image": "/Pictures/paekivi-tekstuur.jpg",
+        "imageAlt": "Portreefoto lisamata"
+      },
+      {
+        "name": "Marten",
+        "role": "",
+        "text": "TÄITETEKST — asenda päris tutvustusega. Marten toob RA•IO-sse käelise poole: materjali, tööriista ja kannatlikkuse, millest sünnivad vahendid, mis peavad vastu.",
+        "image": "/Pictures/paekivi-tekstuur.jpg",
+        "imageAlt": "Portreefoto lisamata"
       }
     ],
     "closingTitle": "Räägime lähemalt.",
