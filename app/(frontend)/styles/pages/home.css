@@ -661,6 +661,15 @@
     padding: clamp(84px, 14vh, 132px) 26px clamp(72px, 12vh, 110px);
   }
 
+  /* Rühm hingab bändis rohkem laiali, AGA jääb üheks tervikuks. Proovitud sai
+     ka auto-veerist, mis tõstis sildi päris ülaserva ja surus teksti vastu
+     alumist — silt rebis rühmast lahti (omanik 2026-07-26: "ei ole nii ilus").
+     Piiratud vahe hoiab sildi pealkirja juures ja kärbib ainult tühja ülejääki
+     (mõõdetud 390x664: tühjus 182/169 → 152/139). */
+  .home-split-copy .home-split-eyebrow {
+    margin-bottom: clamp(34px, 9vh, 96px);
+  }
+
   .home-split-copy .home-hero-title,
   .home-split-copy .home-split-title {
     color: var(--home-cream);
