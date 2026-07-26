@@ -240,7 +240,11 @@
 
 @media (max-width: 620px) {
   :root {
-    --mobile-first-section-height: max(520px, calc(100svh - 72px));
+    /* Põrand 520 → 700px: sama põhjus kui avalehe bändidel (pages/home.css) —
+       DevTools'i mobiiliemulatsioon annab 100svh = terve ekraan, päris iOS
+       Safari ainult väikese viewport'i (~664px), nii et header jäi seadmes
+       ~180px madalamaks kui kujunduses. */
+    --mobile-first-section-height: max(700px, calc(100svh - 72px));
   }
 
   :is(
@@ -251,8 +255,10 @@
     .store-hero,
     .about-hero
   ) {
-    height: var(--mobile-first-section-height);
-    min-height: 0;
+    /* min-height, MITTE height: jäik kõrgus lõikas pika pealkirja/lõiguga
+       headerid päris telefonis lihtsalt pooleli (omanik 2026-07-26). Nüüd on
+       see põrand, mitte lagi — sisu saab bändi vajadusel kasvatada. */
+    min-height: var(--mobile-first-section-height);
   }
 
   :is(

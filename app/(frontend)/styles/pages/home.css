@@ -605,7 +605,14 @@
 @media (max-width: 980px) {
   .home-split {
     display: block;
-    min-height: max(560px, calc(100svh - 72px));
+    /* PÕRAND 700px, mitte 560px. DevTools'i mobiiliemulatsioonis on 100svh
+       terve ekraan (iPhone 12 Pro: 844px), päris Safaris aga ainult väike
+       viewport (~664px, aadressiriba ja tab-riba maas). Bänd jäi seadmes
+       ~180px madalamaks kui kujunduses: tekst täitis kogu sektsiooni ja kattis
+       foto alumise kolmandiku (omanik 2026-07-26: "mobiilis kokku surutud
+       kattuv sisu"). Põrand on viewport'ist sõltumatu, seega bänd hoiab sama
+       proportsiooni emulaatoris ja päris telefonis. */
+    min-height: max(700px, calc(100svh - 72px));
   }
 
   .home-split-media {
@@ -621,8 +628,12 @@
     position: absolute;
     inset: 0;
     z-index: 1;
+    /* Ülemine kaal, mitte alumine: mobiilis istub koopia nüüd bändi ülaosas
+       (vt .home-split-copy allpool), seega tume pool peab olema seal. Alumine
+       0.30 hoiab ainult sektsioonide vahelist õmblust, jättes foto alumise
+       kolmandiku — avalehe hero'l RA·IO märk — loetavalt heledaks. */
     background:
-      linear-gradient(0deg, rgba(26, 18, 10, 0.74) 0%, rgba(26, 18, 10, 0.34) 52%, rgba(26, 18, 10, 0.12) 100%),
+      linear-gradient(180deg, rgba(26, 18, 10, 0.72) 0%, rgba(26, 18, 10, 0.44) 44%, rgba(26, 18, 10, 0.14) 74%, rgba(26, 18, 10, 0.3) 100%),
       linear-gradient(90deg, rgba(26, 18, 10, 0.5) 0%, rgba(26, 18, 10, 0.08) 72%);
     pointer-events: none;
   }
@@ -632,13 +643,19 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    /* Lift the copy off the bottom edge so the body text has room to grow
-       (owner 2026-07-09: "tekstid veidi üles poole, et saaks väikest teksti
-       suuremaks panna"). */
-    justify-content: center;
-    min-height: max(560px, calc(100svh - 72px));
+    /* Koopia bändi ÜLAOSAS, mitte keskel (omanik 2026-07-26: "hero sektsioonid
+       üles poole, et logo ei kataks"). Keskjoondus tähendas, et madalamal päris
+       telefoni viewport'il kasvas tekstiplokk sektsiooni keskelt mõlemas suunas
+       laiali ja jooksis foto sisse küpsetatud RA·IO märgi peale. Ülaserva
+       ankurdatuna koguneb kogu vaba ruum foto alumisse otsa, kus märk on. */
+    justify-content: flex-start;
+    /* Sama põrand kui .home-split'il — see plokk annab bändile kõrguse. */
+    min-height: max(700px, calc(100svh - 72px));
     max-width: none;
-    padding: clamp(84px, 14vh, 132px) 26px clamp(72px, 12vh, 110px);
+    /* Ülapadi 14vh → 9vh: seadmes oli 14vh alles ~93px ja koos keskjoondusega
+       kadus alumine puhas ala. Nüüd algab tekst kõrgemalt ja märgi kohale jääb
+       ~195px õhku. */
+    padding: clamp(56px, 9vh, 96px) 26px clamp(56px, 9vh, 96px);
   }
 
   .home-split-copy .home-hero-title,
@@ -705,6 +722,12 @@
   }
 
   .home-world-card {
-    min-height: max(440px, 78svh);
+    /* vw, MITTE svh: 78svh oli emulaatoris 658px, päris telefonis 518px, nii et
+       portreefotod (sangpommitõstja jt) lõikusid seadmes palju tugevamalt kui
+       kujunduses (omanik 2026-07-26: "osade sektsioonide pildid ära lõigatud …
+       need peaks olema kõrgemad"). vw on igal pool sama, seega kaardi kuvasuhe
+       ei sõltu enam brauseriribadest. 390px laiuselt 643px kõrge — emulaatoris
+       praktiliselt sama mis enne, päris telefonis +125px. */
+    min-height: clamp(580px, 165vw, 720px);
   }
 }

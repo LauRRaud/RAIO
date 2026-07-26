@@ -6,6 +6,19 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { scrollCarouselByCards } from "@/lib/carouselScroll";
 
+/* Kategooriat võrreldakse võtme, mitte sildi järgi: Payload saadab
+   "Kasitoo" (ilma täpitähtedeta), messages'is on "Käsitöö". Diakriitikute
+   eemaldamine viib mõlemad samale võtmele ("kasitoo"). */
+const DIACRITICS = new RegExp("[\\u0300-\\u036f]", "g");
+
+function categoryKey(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(DIACRITICS, "")
+    .trim()
+    .toLowerCase();
+}
+
 export function JournalCardsCarousel({
   articles,
   readMore,
@@ -22,6 +35,8 @@ export function JournalCardsCarousel({
   const [activeArticle, setActiveArticle] = useState(null);
   const [itemsPerPage, setItemsPerPage] = useState(3);
   const [showAll, setShowAll] = useState(false);
+  /* Esimene kategooria ("Kõik") on filtrita vaade. */
+  const [activeCategory, setActiveCategory] = useState(0);
 
   useEffect(() => {
     const update = () => setItemsPerPage(window.innerWidth <= 620 ? 1 : 3);
@@ -56,11 +71,23 @@ export function JournalCardsCarousel({
     scrollCarouselByCards(journalTrackRef.current, direction);
   }
 
-  const showArrows = !showAll && articles.length > itemsPerPage;
+  const activeKey =
+    activeCategory > 0 ? categoryKey(categories?.[activeCategory]) : null;
+  const visibleArticles = activeKey
+    ? articles.filter((article) => categoryKey(article.category) === activeKey)
+    : articles;
+
+  function selectCategory(index) {
+    setActiveCategory(index);
+    setShowAll(false);
+    if (journalTrackRef.current) journalTrackRef.current.scrollLeft = 0;
+  }
+
+  const showArrows = !showAll && visibleArticles.length > itemsPerPage;
   /* Link jääb püsima ka avatud vaates ja kerib tagasi karusselli
      (omanik 2026-07-20: "vaata kõiki kaob ära, ei saa keritava menüü peale
      tagasi"). */
-  const canExpand = articles.length > itemsPerPage;
+  const canExpand = visibleArticles.length > itemsPerPage;
 
   return (
     <>
@@ -72,9 +99,11 @@ export function JournalCardsCarousel({
               <div className="journal-category-row" aria-label={categoryNavLabel}>
                 {categories.map((category, index) => (
                   <button
-                    className={index === 0 ? "is-active" : undefined}
+                    className={index === activeCategory ? "is-active" : undefined}
                     type="button"
                     key={category}
+                    onClick={() => selectCategory(index)}
+                    aria-pressed={index === activeCategory}
                   >
                     {category}
                   </button>
@@ -121,7 +150,7 @@ export function JournalCardsCarousel({
         className={`journal-card-grid ${showAll ? "is-expanded" : ""}`}
         ref={journalTrackRef}
       >
-        {articles.map((article) => (
+        {visibleArticles.map((article) => (
           <article className="journal-story-card" key={article.title}>
             <div className="journal-story-image">
               <Image

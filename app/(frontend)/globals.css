@@ -48,13 +48,34 @@
    light jäävad välja, sest neil on tume kiri heledal pinnal. !important, sest
    lehepõhised reeglid (nt .home-split-philosophy .home-split-title) on
    spetsiifilisemad. Nupud ja sildid on nimekirjast VÄLJAS — neil on samuti oma
-   tume kiri heledal pinnal. */
+   tume kiri heledal pinnal.
+
+   TEINE selektor: kolm HALLI bändi, mis said texture-backdrop.css-is heleneva
+   tindi asemel TUMENDAVA (rgba(18,14,9,0.55)) ja seega heleda kirja. Nad jäid
+   siit algselt välja, sest erand kirjutati PEALKIRJADE pärast (halli bändi
+   pealkiri peab jääma soojast beežist puutumata) — aga koos pealkirjaga jäi
+   ilma ka kehatekst ja need kolm sektsiooni püsisid vanal tuhmimal #f4efe4-l,
+   /vahendid koguni 86% läbipaistvana (omanik 2026-07-26: "osadel lehtedel ka
+   liiga hall või läbipaistev"). Kolm hosti on loetletud nimeliselt, TÄPSELT
+   nagu tumendav tint texture-backdrop.css-is — paljas
+   :has(> .texture-backdrop--gray) tabaks ka päise, jaluse ja teised hallid
+   pinnad, kus kiri on tume. */
 :has(> :is(
   .texture-backdrop--dark,
   .texture-backdrop--green,
   .texture-backdrop--terracotta
-)) :is(p, li) {
-  color: #fffaf2 !important;
+)) :is(p, li),
+:is(
+  .training-lasting-panel,
+  .about-trainers-section,
+  .tools-material-panel
+):has(.texture-backdrop--gray) :is(p, li) {
+  /* PUHAS valge, mitte kreem #fffaf2 (omanik 2026-07-26: "ma lihtsalt tahan kas
+     valget teksti või musta teksti, nendel on nähtavus kõige parem"). Kehatekst
+     istub liikuvate fotoslaidide peal, kus kreemi soojus kadus taustatoonidesse
+     — valge on ainus toon, mis iga slaidi peal ühtviisi loeb. Pealkirjad jäävad
+     soojale #fef5e3-le (allpool): "pealkirjad on okei". */
+  color: #ffffff !important;
 }
 
 /* Pealkirjad kannavad /meist logo beeži tooni (omanik 2026-07-20: "hea värv,
