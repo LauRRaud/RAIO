@@ -6,16 +6,22 @@ function textureSetField(name: string, label: string, description: string): Fiel
   return {
     name,
     label,
+    /* relationTo: "textures", MITTE "media" — tekstuuridel on oma kollektsioon
+       koos püstkärpe ja srcset-mõõtudega (payload/collections/Textures.ts).
+       Vahetus oli ohutu, sest need viis välja olid kõik tühjad. */
     type: "upload",
-    relationTo: "media",
+    relationTo: "textures",
     hasMany: true,
     admin: { description }
   };
 }
 
 /* Sektsioonide taustaslaidid (omanik 2026-07-20: "seda saab admin lehelt
-   muuta"). Kui kategooria on siin tuhi, kasutab leht serveri kausta
-   public/"RAIO taust"/<NN-kategooria> pilte — admin on ulekirjutuskiht. */
+   muuta"). Pildid imporditi kaustast kollektsiooni 2026-07-26, seega admin on
+   nüüd ALLIKAS: siin lohistad järjekorda, vahetad tekstuure komplektide vahel
+   ja lisad uusi. Kaust public/"RAIO taust" jääb varuvariandiks tühja
+   kategooria jaoks — nii ei jää sektsioon kunagi taustata, kui keegi kogemata
+   komplekti tühjaks teeb. Import: npm run textures:import. */
 export const TextureBackdrops: GlobalConfig = {
   slug: "texture-backdrops",
   label: "Taustaslaidid",

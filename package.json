@@ -14,7 +14,8 @@
     "audit:ui": "node scripts/ui-audit.mjs",
     "audit:css": "node scripts/css-duplicate-guard.mjs",
     "seed:admin": "tsx scripts/seed-admin-content.ts",
-    "textures:variants": "node scripts/texture-variants.mjs"
+    "textures:variants": "node scripts/texture-variants.mjs",
+    "textures:import": "tsx scripts/import-textures.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.85.1",
