@@ -803,23 +803,32 @@
         "text": "Guides RA•IO outdoor training with a focus on strength, technique, and presence. In his coaching, strength and calm intertwine — every session leads back to the body's natural movement. He believes lasting strength grows from patience and repetition, and that the body learns best in the rhythm of nature.",
         "image": "/Pictures/Meist/treener.jpg",
         "imageAlt": "Trainer Rainer Olei"
+      },
+      {
+        "name": "Marten",
+        "role": "Trainer",
+        "text": "Marten guides RA•IO training and brings the handmade side into the session: the material, the tool and the patience.",
+        "image": "/Pictures/Meist/treener2.jpg",
+        "imagePosition": "center 25%",
+        "imageAlt": "Trainer Marten"
       }
     ],
     "creatorsTitle": "RA•IO creators",
     "creators": [
       {
-        "name": "Kristen",
+        "name": "Rainer",
         "role": "",
-        "text": "PLACEHOLDER — replace with the real bio. Kristen keeps RA•IO's everyday running and makes sure every tool and every meeting carries the same care as the first one.",
-        "image": "/Pictures/paekivi-tekstuur.jpg",
-        "imageAlt": "Portrait photo pending"
+        "text": "Rainer is one of the founders of RA•IO: this is where the idea started that a training tool can be stone, wood and real.",
+        "image": "/Pictures/Meist/treener.jpg",
+        "imageAlt": "Rainer"
       },
       {
-        "name": "Marten",
+        "name": "Kristen",
         "role": "",
-        "text": "PLACEHOLDER — replace with the real bio. Marten brings the handmade side to RA•IO: the material, the tool and the patience that make gear which lasts.",
-        "image": "/Pictures/paekivi-tekstuur.jpg",
-        "imageAlt": "Portrait photo pending"
+        "text": "Kristen keeps RA•IO's everyday running and makes sure every tool and every meeting carries the same care as the first one.",
+        "image": "/Pictures/Meist/Looja-kristen.jpg",
+        "imagePosition": "center 22%",
+        "imageAlt": "Kristen"
       }
     ],
     "closingTitle": "Let's talk.",

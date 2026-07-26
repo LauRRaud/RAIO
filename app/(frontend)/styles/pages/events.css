@@ -64,7 +64,7 @@
 
 /* Mõõt/reavahe/tähevahe tulevad lehteülesest components/headings.css-ist. */
 .events-hero-panel h1,
-.events-host-heading h2 {
+.events-host-copy h2 {
   margin: 0;
   color: var(--events-ink);
   font-family: var(--font-display), Georgia, serif;
@@ -370,10 +370,8 @@ body .events-event-modal-content .events-location {
   border-left: 1px solid var(--events-line);
 }
 
-/* 8.5ch pärines ajast, mil pealkiri istus kitsas tekstiveerus; üle terve bändi
-   tsentreerituna murdis see kolmele reale. 14ch annab mõlemas keeles kaks rida. */
-.events-host-heading h2 {
-  max-width: 14ch;
+.events-host-copy h2 {
+  max-width: 8.5ch;
   font-size: calc(clamp(3.1rem, 4.5vw, 5.8rem) * var(--cms-text-scale, 1));
   line-height: 0.92;
 }
@@ -560,7 +558,7 @@ body .events-event-modal-content .events-location {
 
 @media (max-width: 620px) {
 
-  .events-host-heading h2 {
+  .events-host-copy h2 {
     font-size: calc(clamp(3.2rem, 15vw, 4.8rem) * var(--cms-text-scale, 1));
   }
 
@@ -615,15 +613,13 @@ body .events-event-modal-content .events-location {
   .events-page-redesign .events-host-cta {
     grid-template-columns: minmax(480px, 740px) minmax(0, 1fr);
   }
-  /* Rida 1 kuulub bändi keskteljel istuvale pealkirjale (band-heading),
-     foto ja tekst algavad realt 2. */
   .events-page-redesign .events-host-image {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 1;
   }
   .events-page-redesign .events-host-copy {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 1;
   }
 }
 

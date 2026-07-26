@@ -66,9 +66,6 @@ export async function AboutPage({ locale = "et" }) {
         <div className="about-content-section">
           <section className="about-story-panel" aria-labelledby="about-story-title" {...getCmsSectionProps(messages, "aboutStory")}>
             <TextureSlideshow set="green" />
-            <div className="band-heading about-story-heading">
-              <h2 id="about-story-title">{t.storyTitle}</h2>
-            </div>
             <div className="about-story-image">
               <Image
                 src={t.storyImage}
@@ -78,15 +75,52 @@ export async function AboutPage({ locale = "et" }) {
               />
             </div>
             <div className="about-story-copy">
+              <h2 id="about-story-title">{t.storyTitle}</h2>
               {t.story.map((line) => (
                 <p key={line}>{line}</p>
               ))}
             </div>
           </section>
 
+          {/* Loojad: kaks inimest, kumbki oma laia reana ja fotopool vaheldub
+              (omanik 2026-07-26). Eraldi sektsioon treenerite KOHAL — treenerite
+              bänd jääb puutumata, sinna lisandub inimene hiljem. */}
+          <section className="about-creators-section" id="loojad" aria-labelledby="about-creators-title" {...getCmsSectionProps(messages, "aboutCreators")}>
+            {/* Sama hele kivi mis jalusel (omanik 2026-07-26) — jalus kasutab
+                sedasama "beige" komplekti. */}
+            <TextureSlideshow set="beige" />
+            <div className="about-creators-heading">
+              <h2 id="about-creators-title">{t.creatorsTitle}</h2>
+            </div>
+
+            <div className="about-creators-layout">
+              {t.creators.map((creator) => (
+                <article className="about-creator-card" key={creator.name}>
+                  <div className="about-creator-image">
+                    {/* imagePosition (messages/*.json) nihutab 3:2 kärpe akent
+                        püstfotol näo peale — ilma selleta jääb portreest ette
+                        keskmine riba ja pea kärbub ülaservast. */}
+                    <Image
+                      src={creator.image}
+                      alt={creator.imageAlt}
+                      fill
+                      sizes="(max-width: 980px) 100vw, 44vw"
+                      style={creator.imagePosition ? { objectPosition: creator.imagePosition } : undefined}
+                    />
+                  </div>
+                  <div className="about-creator-copy">
+                    <h3>{creator.name}</h3>
+                    {creator.role ? <span className="about-creator-role">{creator.role}</span> : null}
+                    <p>{creator.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
           <section className="about-trainers-section" id="treenerid" aria-labelledby="about-trainers-title" {...getCmsSectionProps(messages, "aboutTrainers")}>
             <TextureSlideshow set="gray" />
-            <div className="band-heading about-trainers-heading">
+            <div className="about-trainers-heading">
               <h2 id="about-trainers-title">{t.trainersTitle}</h2>
             </div>
 
@@ -99,6 +133,7 @@ export async function AboutPage({ locale = "et" }) {
                       alt={trainer.imageAlt}
                       fill
                       sizes="(max-width: 980px) 100vw, 44vw"
+                      style={trainer.imagePosition ? { objectPosition: trainer.imagePosition } : undefined}
                     />
                   </div>
                   <div className="about-trainer-copy">
@@ -112,10 +147,8 @@ export async function AboutPage({ locale = "et" }) {
 
           <section className="about-closing-panel" aria-labelledby="about-closing-title" {...getCmsSectionProps(messages, "aboutClosing")}>
             <TextureSlideshow set="terracotta" />
-            <div className="band-heading about-closing-heading">
-              <h2 id="about-closing-title">{t.closingTitle}</h2>
-            </div>
             <div className="about-closing-copy">
+              <h2 id="about-closing-title">{t.closingTitle}</h2>
               <div className="about-closing-values" aria-label={t.storyTitle}>
                 {t.values.map((value) => (
                   <article key={value.title}>

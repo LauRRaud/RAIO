@@ -167,6 +167,7 @@
 .about-story-copy p,
 .about-closing-copy p,
 .about-closing-values p,
+.about-creator-copy p,
 .about-trainer-copy p {
   font-size: calc(clamp(1.42rem, 1.48vw, 1.7rem) * var(--cms-text-scale, 1));
   line-height: 1.6;

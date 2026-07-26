@@ -1,35 +1,14 @@
-/* ---------- Sektsioonipealkiri keskele üle terve bändi ----------
-   Omanik 2026-07-25: "pealkirjad sektsioonides keskjoondusesse". Valitud
-   tõlgendus: pealkiri keskele ÜLE TERVE BÄNDI, mitte oma tekstiveeru sees.
-   Bändides vahetub fotopool (kord vasakul, kord paremal) ja veerusisene
-   tsentreerimine oleks andnud pealkirjale iga bändi juures eri x-koordinaadi —
-   üle bändi tsentreeritud pealkiri annab kõigile üheainsa telje.
+/* ---------- Sektsioonipealkirjad: TÖÖLAUAL vasakul, MOBIILIS keskel ----------
+   2026-07-25 tõsteti kõik bändipealkirjad markupis tekstiveerust välja bändi
+   keskteljele (`.band-heading`). Omanik 2026-07-26: "mul ei olnud enne
+   sektsioonides pealkirjad keskjoonduses … mobiilis pidi olema teisiti, mitte
+   arvutis. siin ongi vahe" — soov käis ainult telefoni kohta.
 
-   MEHAANIKA: pealkiri on markupis TÕSTETUD tekstiveerust välja bändi otseseks
-   lapseks (`<div class="band-heading X-heading">`), sest ainult bändi enda
-   grid-lapsena saab ta veergudest üle ulatuda. Seetõttu käivad kõik varasemad
-   `.X-copy h2` reeglid nüüd `.X-heading h2` pihta — need on ümber nimetatud
-   kohapeal, mitte üle kirjutatud (spetsiifilisus jääb (0,1,1)-ks, seega
-   kaskaadiviigid lahenevad samamoodi nagu enne).
-
-   Ridade paigutus (grid-area / grid-row) elab iga bändi enda failis, sest see
-   sõltub bändi veerukaardist; siin on ainult ühine osa. */
-.band-heading {
-  grid-column: 1 / -1;
-  justify-self: stretch;
-  /* Vahe pealkirja ja bändi sisu vahel elab SIIN, mitte bändide row-gap'is —
-     nii ei triivi neliteist bändi üksteisest lahku. */
-  margin: 0 0 clamp(28px, 3.2vw, 52px);
-  text-align: center;
-}
-
-/* `auto` külgvaru, MITTE ainult text-align: mitmel pealkirjal on oma
-   `max-width` (8.5ch, 14ch, 16ch), et pikk pealkiri murduks kindlas kohas —
-   ilma selleta jääks kitsas kast bändi vasakusse serva ja tsentreeritud oleks
-   ainult tekst kasti sees. */
-.band-heading h2 {
-  margin: 0 auto;
-}
+   Seega on pealkiri jälle oma tekstiveeru esimene laps ja joondub veeru
+   servaga; keskjoonduse annab ainult telefoniplokk components/hero-polish.css-is
+   (`max-width: none; margin-inline: auto; text-align: center`), mis on seal
+   olnud juba varem. `.band-heading` klassi ega selle reegleid enam ei ole —
+   uus pealkiri käib lihtsalt oma veergu, mitte siia. */
 
 /* ---------- Keritavate sektsioonide ühtne päis ----------
    Viis bändi — sündmused, lood, tooted, vahendid, treeningud — kandsid päises
@@ -64,18 +43,24 @@
   /* Ühine allserva varu hoiab teksti alusjooned koos ka siis, kui aktiivsel
      filtril on allkriips ja lingil mitte. */
   --raio-section-meta-pad: 6px;
-  /* Pealkiri EI istu enam meta-rea kõrval, vaid oma real bändi keskteljel
-     (omanik 2026-07-25) — meta-rida (filtrid / "Vaata kõiki") järgneb tema all
-     samal teljel. Endised `align-items: baseline | flex-end | flex-start`
-     variandid on kustutatud: veerusuunalises paindes juhib align-items
-     VÕRDLEMISI risti — need oleksid pealkirja servale tagasi tõmmanud. */
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(16px, 1.8vw, 26px);
-  text-align: center;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px clamp(28px, 3vw, 52px);
+}
+
+/* Ühel real olles istub kogu meta-rida pealkirja tähtede jalal. */
+@media (min-width: 621px) {
+  :is(
+    .events-section-top,
+    .journal-section-top,
+    .store-page .store-products-header,
+    .tools-section-top,
+    .training-section-intro
+  ) {
+    align-items: baseline;
+  }
 }
 
 /* Poe pealkiri kandis 10-24px allservavaru ajast, mil filtririba oli tema all;
@@ -95,14 +80,14 @@
    ja iga tulevase sildi puhul — sama kuju.
 
    Reegel jääb ainult filtreid kandvatele päistele. Sündmustel, vahenditel ja
-   treeningutel on päises üksainus "Vaata kõiki", mis istub nüüd pealkirja all
-   samal keskteljel; see mahub alati ega sõltu keelest. */
+   treeningutel on päises üksainus "Vaata kõiki", mis istub pealkirja kõrval
+   paremal; see mahub alati ega sõltu keelest. */
 :is(.journal-section-actions, .store-section-actions) {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 12px clamp(24px, 2.4vw, 42px);
 }
 
@@ -110,7 +95,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px clamp(20px, 2vw, 36px);
   font-size: var(--raio-section-meta-size);
   letter-spacing: var(--raio-section-meta-track);
@@ -333,6 +318,22 @@ body
   letter-spacing: var(--raio-section-meta-track);
 }
 
+/* ---------- Kitsad ekraanid ----------
+   Ainsa lingiga päised (sündmused, vahendid, treeningud) lasevad lingil kitsalt
+   ekraanilt pealkirja alla kukkuda; siis joondub see vasakule, mitte ei jää
+   üksi paremale rippuma. Filtripäised on juba niikuinii kaherealised. */
+@media (max-width: 980px) {
+  :is(
+    .events-section-top,
+    .journal-section-top,
+    .store-page .store-products-header,
+    .tools-section-top,
+    .training-section-intro
+  ) {
+    align-items: flex-start;
+  }
+}
+
 @media (max-width: 620px) {
   /* Telefonis vahetab pood tekstifiltrid kahe valiku vastu (shop.css) — selle
      `display: none` on (0,1,0) ja jääks siinse paindereegli (0,2,0) alla, mistõttu
@@ -341,8 +342,8 @@ body
     display: none;
   }
 
-  /* Poe pealkiri oli mobiilis ainsana keskjoondatud — nüüd on kõik viis seda,
-     seega jääb alles ainult allservavaru nullimine (vahe tuleb päise gap'ist). */
+  /* Telefonis on kõigi viie päise pealkiri keskel (components/hero-polish.css);
+     siin ainult allservavaru nullimine, vahe tuleb päise gap'ist. */
   .store-page .store-products-header h2 {
     margin-bottom: 0;
   }

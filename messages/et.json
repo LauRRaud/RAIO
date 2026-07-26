@@ -803,23 +803,32 @@
         "text": "Juhendab RA•IO treeninguid looduses ning hoiab fookust jõul, tehnikal ja kohalolul. Tema juhendamises põimuvad jõud ja rahu — iga trenn viib tagasi keha loomuliku liikumise juurde. Ta usub, et püsiv tugevus kasvab kannatlikkusest ja kordusest ning et keha õpib kõige paremini looduse rütmis.",
         "image": "/Pictures/Meist/treener.jpg",
         "imageAlt": "Treener Rainer Olei"
+      },
+      {
+        "name": "Marten",
+        "role": "Treener",
+        "text": "Marten juhendab RA•IO treeninguid ning toob trenni käelise poole: materjali, tööriista ja kannatlikkuse.",
+        "image": "/Pictures/Meist/treener2.jpg",
+        "imagePosition": "center 25%",
+        "imageAlt": "Treener Marten"
       }
     ],
     "creatorsTitle": "Raio loojad",
     "creators": [
       {
-        "name": "Kristen",
+        "name": "Rainer",
         "role": "",
-        "text": "TÄITETEKST — asenda päris tutvustusega. Kristen hoiab RA•IO igapäeva koos ja seisab selle eest, et iga vahend ja iga kohtumine kannaks sama hoolt kui esimene.",
-        "image": "/Pictures/paekivi-tekstuur.jpg",
-        "imageAlt": "Portreefoto lisamata"
+        "text": "Rainer on RA•IO üks loojatest: siit algas mõte, et treeningvahend võib olla kivist, puidust ja päris.",
+        "image": "/Pictures/Meist/treener.jpg",
+        "imageAlt": "Rainer"
       },
       {
-        "name": "Marten",
+        "name": "Kristen",
         "role": "",
-        "text": "TÄITETEKST — asenda päris tutvustusega. Marten toob RA•IO-sse käelise poole: materjali, tööriista ja kannatlikkuse, millest sünnivad vahendid, mis peavad vastu.",
-        "image": "/Pictures/paekivi-tekstuur.jpg",
-        "imageAlt": "Portreefoto lisamata"
+        "text": "Kristen hoiab RA•IO igapäeva koos ja seisab selle eest, et iga vahend ja iga kohtumine kannaks sama hoolt kui esimene.",
+        "image": "/Pictures/Meist/Looja-kristen.jpg",
+        "imagePosition": "center 22%",
+        "imageAlt": "Kristen"
       }
     ],
     "closingTitle": "Räägime lähemalt.",

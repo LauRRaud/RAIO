@@ -81,9 +81,6 @@ export async function EventsPage({ locale = "et" }) {
             {...getCmsSectionProps(messages, "eventsHost")}
           >
             <TextureSlideshow set="terracotta" />
-            <div className="band-heading events-host-heading">
-              <h2 id="events-host-title">{t.host.title}</h2>
-            </div>
             <div className="events-host-image">
               <Image
                 src={t.host.image}
@@ -93,6 +90,7 @@ export async function EventsPage({ locale = "et" }) {
               />
             </div>
             <div className="events-host-copy">
+              <h2 id="events-host-title">{t.host.title}</h2>
               <span className="events-short-rule" aria-hidden="true" />
               <p>{t.host.text}</p>
               <Link href={contactHref} className="events-solid-button">

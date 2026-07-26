@@ -69,10 +69,8 @@ export async function JournalPage({ locale = "et" }) {
             {...getCmsSectionProps(messages, "journalSignup")}
           >
             <TextureSlideshow set="terracotta" />
-            <div className="band-heading journal-signup-heading">
-              <h2 id="journal-signup-title">{t.signup.title}</h2>
-            </div>
             <div className="journal-signup-copy">
+              <h2 id="journal-signup-title">{t.signup.title}</h2>
               <p>{t.signup.text}</p>
               <a href={emailHref} className="journal-solid-button">
                 {t.signup.cta}

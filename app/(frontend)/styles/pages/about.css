@@ -172,7 +172,7 @@
   padding: clamp(30px, 3.4vw, 56px);
 }
 
-.about-story-heading h2 {
+.about-story-copy h2 {
   margin: 0 0 18px;
   color: var(--about-ink);
   font-family: var(--font-display), Georgia, serif;
@@ -222,6 +222,124 @@
 /* (Pealkirja kohal olnud kriips eemaldatud — omanik 2026-07-09: "võta need
    kriipsud ära".) */
 
+/* ---------- Loojad ----------
+   Kaks inimest, kumbki oma laia reana; fotopool vaheldub (omanik 2026-07-26:
+   "alguses tekst vasakul, pilt paremal, teine inimene pilt vasakul, tekst
+   paremal"). Sama rea-anatoomia mis treeneribändil, aga OMA klassid: treenerite
+   bänd peab jääma puutumata ja saab hiljem teise inimese juurde. */
+
+/* Bändi enda grid + gap — TÄPSELT sama valem mis .about-trainers-section'il.
+   See jäi loojate bändi juurde tulemata ja pealkirja ning esimese foto vahe oli
+   seetõttu 0px: "RAIO LOOJAD" istus otse pildi peal (omanik 2026-07-26: "see
+   raio loojad on imelikult vastu pilti, pealkiri"). Treeneritel oli sama kohas
+   20px, sest nende bänd ON grid. Vahe kuulub bändi enda gap'i, MITTE pealkirja
+   margin'i — muidu lahkneksid kaks bändi jälle teineteisest. */
+.about-creators-section {
+  display: grid;
+  gap: clamp(20px, 2.2vw, 30px);
+}
+
+.about-creators-layout {
+  display: grid;
+  gap: clamp(40px, 5vw, 84px);
+}
+
+.about-creator-card {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(480px, 740px);
+  gap: clamp(36px, 5vw, 96px);
+  align-items: center;
+  background: transparent;
+}
+
+/* Esimene: tekst vasakul, foto paremal. */
+.about-creator-image {
+  order: 2;
+}
+
+/* Teine (ja iga järgmine paarisrida): peegelpilt — foto vasakul, tekst
+   paremal. Veerukaart pöördub kaasa, muidu jääks lai fotoveerg tekstile. */
+.about-creator-card:nth-child(even) {
+  grid-template-columns: minmax(480px, 740px) minmax(0, 1fr);
+}
+
+.about-creator-card:nth-child(even) .about-creator-image {
+  order: 0;
+}
+
+.about-creator-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: var(--about-inner-box-radius);
+  background: #2b241b;
+  box-shadow: 0 16px 34px -10px rgba(12, 8, 4, 0.5);
+}
+
+.about-creator-image img {
+  object-fit: cover;
+  object-position: center center;
+  filter: saturate(0.86) contrast(1.04) brightness(0.86);
+}
+
+.about-creator-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+  background: transparent;
+}
+
+/* Vasakpoolne tekstiveerg ei alga bändi servast, vaid HERO tekstijoonelt
+   (omanik 2026-07-26: "teksti joondus võiks olla ... nagu hero sektsioonis").
+   Hero pad on `clamp(64px, 9vw, 176px)` (pages/heroes.css) ja mõõdetakse
+   ekraani servast; bändiveerg algab juba `--band-pad` pealt, seega lisandub
+   ainult nende VAHE. `max(0px, …)`, sest laial ekraanil kasvab --band-pad
+   (1560px sisu tsentreerimine) hero joonest suuremaks — siis lisavaru ei ole.
+   Peegelreale (foto vasakul) seda ei panda: seal on tekst juba bändi keskel ja
+   lisavaru ainult kasvataks fotovahet. */
+.about-creator-card:nth-child(odd) .about-creator-copy,
+.about-trainer-card:nth-child(odd) .about-trainer-copy {
+  padding-inline-start: max(0px, calc(clamp(64px, 9vw, 176px) - var(--band-pad)));
+}
+
+/* Mõõt tuleb bändipealkirjade ühisreeglist (components/headings.css), kus see
+   nimi istub koos treenerikaardi omaga. Värvi EI panda: sektsiooni-editori
+   reegel `[data-cms-section] :is(h1…h6)` (globals.css, laaditud viimasena) võidab
+   siin võrdse kaaluga ja annab pealkirjale `inherit` — nii tuleb toon bändi enda
+   `color`-ist ja hele/tume vahetus toimib ühest kohast. */
+.about-creator-copy h3 {
+  margin: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+}
+
+/* Roll on valikuline (messages/*.json `role`) — tühjana ei renderdata teda
+   üldse, nii et see reegel ei jäta tühja rida. */
+.about-creator-role {
+  margin-top: 10px;
+  color: #a5502f;
+  font-size: calc(clamp(1.06rem, 1.1vw, 1.22rem) * var(--cms-text-scale, 1));
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Mõõt ja reavahe tulevad bändilõikude ühisreeglist (components/component-type
+   .css) — seal on kõigi bändide kereteksti üksainus mõõt. Siin oli ta korra üle
+   kirjutatud ja lõik luges naabritest väiksemana (omanik 2026-07-26). */
+.about-creator-copy p {
+  max-width: 38ch;
+  margin: 24px 0 0;
+  /* Must, mitte soe pruun #40342a (omanik 2026-07-26: "ma lihtsalt tahan kas
+     valget teksti või musta teksti, nendel on nähtavus kõige parem"). Loojate
+     lõik on ainus tume kehatekst heledal paekivil ja pruuni peenikesed jooned
+     sulasid tekstuuri sisse. Nimi (h3) jääb puutumata — "pealkirjad on okei". */
+  color: #000000;
+}
+
 .about-trainers-layout {
   display: grid;
   gap: clamp(22px, 3vw, 44px);
@@ -239,6 +357,16 @@
 /* Photo right, copy left (owner 2026-07-08). */
 .about-trainer-image {
   order: 2;
+}
+
+/* Teine treener (ja iga järgmine paarisrida) on peegelpilt: pilt enne, tekst
+   pärast (omanik 2026-07-26) — sama rütm mis loojate bändis. */
+.about-trainer-card:nth-child(even) {
+  grid-template-columns: minmax(480px, 740px) minmax(0, 1fr);
+}
+
+.about-trainer-card:nth-child(even) .about-trainer-image {
+  order: 0;
 }
 
 /* The photo is held as a wide framed gallery piece — same language as the heroes. */
@@ -296,6 +424,9 @@
   color: #f8f3ec;
 }
 
+/* Pealkiri + väärtused on üks tsentreeritud rühm veeru sees (omanik
+   2026-07-26). Kui pealkiri oli bändi keskteljel omaette real, luges vahe
+   tema ja väärtuste vahel poole bändi kõrguseks. */
 .about-closing-copy {
   min-width: 0;
   display: flex;
@@ -303,7 +434,7 @@
   justify-content: center;
 }
 
-.about-closing-heading h2 {
+.about-closing-copy h2 {
   max-width: 16ch;
   margin: 0;
   color: #f8f3ec;
@@ -324,13 +455,14 @@
   align-self: stretch;
   display: flex;
   flex-direction: column;
+  /* Sama telg mis kõrvalveerul: mõlemad rühmad bändi kõrguse keskel.
+     Keskjoondus oli siin varem kolm korda kirjas; nüüd üks kord. */
   justify-content: center;
   gap: clamp(18px, 2vw, 28px);
   min-height: 0;
 }
 
 .about-contact-panel {
-  justify-content: center;
   border: 1px solid var(--about-inner-box-line);
   border-radius: var(--about-inner-box-radius);
   background: var(--about-inner-box-bg);
@@ -444,6 +576,7 @@
   border-bottom-color: currentColor;
 }
 
+/* Ülavaru hoiab vahet pealkirjaga, mis on samas veerus otse selle kohal. */
 .about-closing-values {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -507,8 +640,37 @@
 @media (max-width: 980px) {
 
   .about-trainers-layout,
-  .about-trainer-card {
+  .about-trainer-card,
+  .about-trainer-card:nth-child(even) {
     grid-template-columns: 1fr;
+  }
+
+  /* Laotud vaates on kõigil foto teksti kohal — vahelduv pool loeks ühes veerus
+     juhusliku hüppena. */
+  .about-trainer-card:nth-child(even) .about-trainer-image {
+    order: 0;
+  }
+
+  /* Hero-joone sissenihe kehtib ainult kõrvutivaates: ühes veerus jääks tekst
+     foto vasakservast sisse poole. */
+  .about-creator-card:nth-child(odd) .about-creator-copy,
+  .about-trainer-card:nth-child(odd) .about-trainer-copy {
+    padding-inline-start: 0;
+  }
+
+  /* Laotud vaates on mõlemal loojal foto teksti kohal — peegeldus kaob, sest
+     ühes veerus loeks vahelduv järjekord juhusliku hüppena. `:nth-child(even)`
+     veerukaart tuleb samuti tagasi ühele veerule, muidu jääks 480px miinimum
+     telefoniekraanile laiaks. */
+  .about-creators-layout,
+  .about-creator-card,
+  .about-creator-card:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .about-creator-image,
+  .about-creator-card:nth-child(even) .about-creator-image {
+    order: 0;
   }
 }
 
@@ -632,6 +794,7 @@
 
 /* Break the top-level bands out to the full viewport width. */
 .about-page-redesign .about-story-panel,
+.about-page-redesign .about-creators-section,
 .about-page-redesign .about-trainers-section,
 .about-page-redesign .about-closing-panel {
   width: 100vw;
@@ -681,9 +844,26 @@
   padding-inline-end: 0;
 }
 
+/* Loojate bänd kannab JALUSE heledat kivi (omanik 2026-07-26: "see taust pane
+   sama hele, mis jalusel on") — sama "beige" tekstuurikomplekt (AboutPage.jsx),
+   sama alusvärv ja sama tume tint mis components/footer.css-is. Seetõttu on ta
+   ka ainus /meist bänd, kus tekst on tume. */
+.about-page-redesign .about-creators-section {
+  padding-inline: var(--band-pad);
+  padding-block: clamp(52px, 5.2vw, 84px);
+  border-color: rgba(64, 52, 42, 0.16);
+  color: #40342a;
+  background: #e6ceb0 !important;
+}
+
+.about-page-redesign .about-creators-heading h2 {
+  color: var(--cms-color, #40342a);
+}
+
 /* Square, borderless bands and images. */
 .about-page-redesign :is(
-  .about-story-panel, .about-trainers-section, .about-closing-panel,
+  .about-story-panel, .about-creators-section, .about-closing-panel,
+  .about-trainers-section, .about-creator-image, .about-creator-copy,
   .about-contact-panel, .about-story-image, .about-trainer-image, .about-trainer-copy
 ) {
   --ui-card-radius: 0;
@@ -709,8 +889,11 @@
 .about-page-redesign .about-trainer-copy h3 {
   color: #f4efe4;
 }
+/* Täisheledus, mitte 84% — poolläbipaistev kreem luges tumeda kivifoto peal
+   halli tekstina (omanik 2026-07-26: "treeneri sektsioonis on teksti värv liiga
+   hall"). Sama toon, mis pealkirjal tema kohal. */
 .about-page-redesign .about-trainer-copy p {
-  color: color-mix(in srgb, #f4efe4 84%, transparent);
+  color: #f4efe4;
 }
 /* Story band: framed gallery photo on the left, copy on the right — the same
    composition as every other content band. */
@@ -752,22 +935,12 @@
   gap: 0;
   padding-block: 0;
 }
-/* Paneel ise on padding-block: 0 (veerud kannavad oma polstrit), seega toob
-   keskele tõstetud pealkiri oma ülemise polstri ise kaasa. */
-.about-page-redesign .about-closing-heading {
-  padding: clamp(40px, 4.8vw, 72px) var(--band-pad) 0;
-}
-
+/* Paneel ise on padding-block: 0 — bändi püstpolstri kannavad veerud. */
 .about-page-redesign .about-closing-copy {
   padding-block: clamp(40px, 4.8vw, 72px);
   padding-inline-start: var(--band-pad);
   padding-inline-end: clamp(28px, 3vw, 52px);
 }
-.about-page-redesign .about-contact-panel {
-  align-self: stretch;
-  justify-content: center;
-}
-
 /* Band colours (unchanged) over the polarity theme. */
 .about-page-redesign .about-story-panel {
   --ui-box-bg: #a4664e;
@@ -792,7 +965,10 @@
 }
 .about-page-redesign :is(.about-story-copy, .about-closing-copy) { background: transparent !important; }
 
-/* Homepage-scale band height on desktop (mobile keeps its natural stacked height). */
+/* Homepage-scale band height on desktop (mobile keeps its natural stacked height).
+   Bänd on üherealine (pealkiri elab tekstiveerus), seega venitab min-height
+   ainsat rida ja veerud tsentreerivad oma rühma ise — ülejääki ridade vahel
+   jagada pole. */
 @media (min-width: 981px) {
   .about-page-redesign .about-closing-panel {
     min-height: var(--band-h);

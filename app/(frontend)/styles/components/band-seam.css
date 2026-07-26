@@ -38,6 +38,7 @@
   .store-products-section,
   .store-custom-band,
   .about-story-panel,
+  .about-creators-section,
   .about-trainers-section,
   .about-closing-panel,
   .product-related-section
@@ -73,6 +74,12 @@
 .about-closing-panel,
 .home-world {
   --raio-band-seam-shift: -1040px;
+}
+
+/* Loojate bänd istub /meist lehel loo ja treenerite vahel — kolmas faas, et
+   neli järjestikust õmblust ei korduks. */
+.about-creators-section {
+  --raio-band-seam-shift: -260px;
 }
 
 /* Avalehe kaardirida (.home-world) SAAB samuti õmbluse (omanik 2026-07-25:

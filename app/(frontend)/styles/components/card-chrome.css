@@ -13,6 +13,7 @@
     .training-lasting-panel,
     .training-workshop-panel,
     .about-story-panel,
+    .about-creators-section,
     .about-closing-panel,
     .store-page .store-product-card,
     .related-card
@@ -62,6 +63,8 @@
     .training-workshop-copy,
     .about-story-image,
     .about-story-copy,
+    .about-creator-image,
+    .about-creator-copy,
     .about-closing-copy,
     .store-page .store-product-image,
     .store-page .store-product-body,
@@ -83,6 +86,7 @@
 .training-page-redesign .training-lasting-image,
 .tools-page-redesign .tools-material-image,
 .tools-page-redesign .tools-care-image,
+.about-page-redesign .about-creator-image,
 .about-page-redesign .about-trainer-image {
   clip-path: none !important;
   /* Bottom-directional drop only — a wide blur used to spill onto the top and
@@ -121,6 +125,7 @@
 
 /* Bändifotod, header-fotod, avalehe raamitud pildid, tootegalerii */
 .about-page-redesign .about-story-image,
+.about-page-redesign .about-creator-image,
 .about-page-redesign .about-trainer-image,
 .events-page-redesign .events-host-image,
 .journal-page-redesign .journal-signup-image,
@@ -152,6 +157,7 @@
 .store-page .store-product-card::after,
 .related-card::after,
 .about-page-redesign .about-story-image::after,
+.about-page-redesign .about-creator-image::after,
 .about-page-redesign .about-trainer-image::after,
 .events-page-redesign .events-host-image::after,
 .journal-page-redesign .journal-signup-image::after,
