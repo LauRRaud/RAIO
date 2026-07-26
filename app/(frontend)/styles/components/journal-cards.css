@@ -210,4 +210,16 @@
     top: 54px;
     max-width: calc(100% - 44px);
   }
+
+  /* Pealkiri + nooled + kirjeldus allapoole, kuupäev ja kategooria jäävad üles
+     (omanik 2026-07-26: "pane journal lehel pealkirja, nooli ja teksti veidi
+     alla poole. kuupäev jne jäta üles").
+
+     Piisab pealkirja ülaveerisest: kuupäev on absoluutne (top: 54px ülalpool) ja
+     jalg samuti ankurdatud, seega liiguvad ainult voolavad lapsed — pealkiri,
+     nooled ja tekst — kõik korraga. Mõõdetud 390px: rühm 34px allapoole, ja
+     kirjelduse ning jala vahele jääb ikka 61px, seega kokku ei jookse. */
+  .journal-story-card .journal-story-body h3 {
+    margin-top: 52px;
+  }
 }
