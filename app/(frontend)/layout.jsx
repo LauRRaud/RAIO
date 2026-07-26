@@ -26,6 +26,15 @@ metadata.icons = {
   icon: "/favicon.ico"
 };
 
+/* Google Search Console'i HTML-tag kinnitus — alternatiiv DNS TXT-kirjele.
+   Env loetakse build-ajal, seega uus väärtus nõuab rebuild'i + deploy'd.
+   Tühja muutujaga ei lisata tagi üldse: pool-tühi verification-meta on
+   Google'ile vigane signaal. */
+const googleVerification = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+if (googleVerification) {
+  metadata.verification = { google: googleVerification };
+}
+
 /* Keel tuleb teelt, mille proxy.js päisesse paneb — /en lehed peavad
    teatama end inglise keelsena (Google'i keeletuvastus + ekraanilugejad). */
 export default async function RootLayout({ children }) {
