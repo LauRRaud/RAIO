@@ -254,9 +254,18 @@
   line-height: 1.54;
 }
 
+/* Kestus ja tase istuvad ÜHEL real, mitte kahel (omanik 2026-07-26: "pane aeg
+   ja kellele ühele reale, nii saab teksti veidi suuremaks üleval teha") — kaks
+   rida sõid kaardil ~36px, mille arvelt sai kirjeldus suuremaks minna.
+   Mõõdetud 390px kaardil: 140 + 126 + vahe mahub 350px sisse.
+
+   flex-wrap, MITTE jäik rida: sama klass teenindab ka modaali, kus tekst on
+   suurem ja kirjeid võib rohkem olla — seal murdub rida ise, mitte ei jookse
+   üle serva. Reavahe (10px) jääb mähkumise jaoks alles. */
 .training-meta {
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px clamp(18px, 5vw, 32px);
   margin-top: 18px;
 }
 
