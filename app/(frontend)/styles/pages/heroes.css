@@ -269,14 +269,41 @@
     .store-hero,
     .about-hero
   ) {
-    align-items: flex-start;
     /* Ülapadi 16vh → 6vh (omanik 2026-07-26: "tõsta hero sektsioone alalehtedel
        üles poole, tekste", seejärel "logo võiks üleval pool ikkagi olla").
        Päris telefonis andis 16vh ~106px. 6vh = ~40px tõstab KOGU bändi sisu —
        nii teksti kui /meist wordmarki — ja see on ainus hoob, mis mõlemat
        korraga liigutab: teksti ja logo omavaheline vahe on juba minimaalne.
-       Mõõdetud 390px ekraanil: logo alaserv 650px → 598px, vaateava 664px. */
+       Mõõdetud 390px ekraanil: logo alaserv 650px → 598px, vaateava 664px.
+
+       Polster on teadlikult asümmeetriline (40 üleval, 64 all) — see annab
+       tsentreeritud rühmale optilise ülakalde ilma eraldi maagilise arvuta. */
     padding: clamp(40px, 6vh, 72px) 0 64px;
+  }
+
+  /* /meist ankurdab bändi alaserva suure wordmarkiga, seega tema tekst kuulub
+     üles: flex-start. Ülejäänud viiel herol seda ankrut EI OLE ja sama reegel
+     jättis nad ülaserva rippuma — mõõdetud /treeningud 390x664: 40px tühja
+     üleval, 272px all (omanik 2026-07-26: "teised herod on veidi lahjad
+     paigutuse mõttes, liiga üleval ja all tühjus", ja täpsustus "meist hero
+     erineb, sest seal on logo ka").
+
+     Tsentreerimine jagab vaba ruumi ise ja asümmeetriline polster hoiab rühma
+     keskkohast pisut ülalpool — mõõdetud tulemus 144 : 168. Sisu ei saa siin
+     üle serva minna, sest min-height on põrand, mitte lagi: pikem pealkiri
+     kasvatab bändi, mitte ei lõika rühma pooleli. */
+  :is(
+    .events-hero-redesign,
+    .journal-hero-redesign,
+    .tools-hero-redesign,
+    .training-hero-redesign,
+    .store-hero
+  ) {
+    align-items: center;
+  }
+
+  .about-hero {
+    align-items: flex-start;
   }
 
   :is(
