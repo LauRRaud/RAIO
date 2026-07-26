@@ -686,11 +686,14 @@ body .events-event-modal-content .events-location {
 
   /* "Võta ühendust" istus laotud vaates 56px bändi alaservast — foto, pealkiri
      ja tekst on tema kohal, nii et nupp luges bändi põhja kleepununa (omanik
-     2026-07-26: "see võta ühendust nupp peaks mobiilis ka üleval pool veidi
-     olema"). Ainult ALUMINE polster kasvab: ülemine peab jääma paigale, muidu
-     libiseb kogu bänd allapoole ja võit kaob. Mõõdetud 390px: nupp 56 -> 96px
-     bändi alaservast. */
+     2026-07-26: "peaks mobiilis ka üleval pool veidi olema"). Ainult ALUMINE
+     polster kasvab: ülemine peab jääma paigale, muidu libiseb kogu bänd
+     allapoole ja võit kaob.
+
+     Mõõt on kahe otsa vahelt leitud: 56px oli liiga madal, 96px omakorda
+     liiga kõrge ("liiga üleval on nupp"). 74px on nende vahe — ära vii seda
+     kummasse serva tagasi. */
   .events-page-redesign .events-host-cta {
-    padding-bottom: 96px;
+    padding-bottom: 74px;
   }
 }
