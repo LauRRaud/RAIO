@@ -127,16 +127,6 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
               value={sortKey}
               onChange={setSortKey}
             />
-            {canExpand ? (
-              <button
-                type="button"
-                className="carousel-all-link"
-                onClick={() => setShowAll((open) => !open)}
-              >
-                {showAll ? labels.carousel.showLess : labels.allLink}
-                <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
-              </button>
-            ) : null}
           </div>
         </div>
       </div>
@@ -228,6 +218,21 @@ export function StoreCatalog({ categories, products, locale = "et", labels }) {
           ))}
         </div>
       </div>
+
+      {/* "Vaata kõiki" karusselli JÄREL, mitte filtrite kõrval (omanik
+          2026-07-26) — kaardid esmalt läbi, siis väljapääs. */}
+      {canExpand ? (
+        <div className="carousel-all-foot">
+          <button
+            type="button"
+            className="carousel-all-link"
+            onClick={() => setShowAll((open) => !open)}
+          >
+            {showAll ? labels.carousel.showLess : labels.allLink}
+            <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
+          </button>
+        </div>
+      ) : null}
     </>
   );
 }

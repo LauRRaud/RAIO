@@ -68,16 +68,6 @@ export function TrainingCardsCarousel({
       {title ? (
         <div className="training-section-intro">
           <h2 id={titleId}>{title}</h2>
-          {canExpand ? (
-            <button
-              type="button"
-              className="carousel-all-link"
-              onClick={() => setShowAll((open) => !open)}
-            >
-              {showAll ? labels.showLess : allLabel}
-              <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
-            </button>
-          ) : null}
         </div>
       ) : null}
 
@@ -221,6 +211,20 @@ export function TrainingCardsCarousel({
         document.body
       ) : null}
       </div>
+
+      {/* "Vaata kõiki" karusselli JÄREL (omanik 2026-07-26). */}
+      {canExpand ? (
+        <div className="carousel-all-foot">
+          <button
+            type="button"
+            className="carousel-all-link"
+            onClick={() => setShowAll((open) => !open)}
+          >
+            {showAll ? labels.showLess : allLabel}
+            <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
+          </button>
+        </div>
+      ) : null}
     </>
   );
 }

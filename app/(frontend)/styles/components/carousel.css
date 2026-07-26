@@ -306,6 +306,18 @@ body
   flex: none;
 }
 
+/* "Vaata kõiki" istub nüüd karusselli JÄREL, oma real ja keskel (omanik
+   2026-07-26: "Vaata kõiki peaks all pool olema"). Varem oli ta pealkirja
+   kõrval — poes koguni filtrite reas kolmanda elemendina, kus ta luges
+   järjekordse valikuna, mitte väljapääsuna. Uus järg: pealkiri → valikud →
+   kaardid → link. Konteiner tuleb karussellikomponentidest
+   (.carousel-all-foot, 4 faili). */
+.carousel-all-foot {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(20px, 2.4vw, 34px);
+}
+
 @media (hover: hover) and (pointer: fine) {
   :is(.carousel-all-link, .events-all-link):hover {
     opacity: 0.78;

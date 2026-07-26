@@ -42,16 +42,6 @@ export function ToolsCategoryCarousel({
       {title ? (
         <div className="tools-section-top">
           <h2 id={titleId}>{title}</h2>
-          {canExpand ? (
-            <button
-              type="button"
-              className="carousel-all-link"
-              onClick={() => setShowAll((open) => !open)}
-            >
-              {showAll ? labels.showLess : allLabel}
-              <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
-            </button>
-          ) : null}
         </div>
       ) : null}
 
@@ -132,6 +122,22 @@ export function ToolsCategoryCarousel({
         ))}
         </div>
       </div>
+
+      {/* "Vaata kõiki" istub karusselli JÄREL, mitte pealkirja kõrval (omanik
+          2026-07-26): kaardid loetakse esmalt läbi ja alles siis pakutakse
+          väljapääsu. Sama muster kõigil neljal karussellil. */}
+      {canExpand ? (
+        <div className="carousel-all-foot">
+          <button
+            type="button"
+            className="carousel-all-link"
+            onClick={() => setShowAll((open) => !open)}
+          >
+            {showAll ? labels.showLess : allLabel}
+            <ArrowRight size={20} strokeWidth={1.6} aria-hidden="true" />
+          </button>
+        </div>
+      ) : null}
     </>
   );
 }
