@@ -450,7 +450,25 @@ body .training-page-redesign .training-card .training-text-link {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin: 0 0 22px;
+    /* Noolte ja kirjelduse vahe on hoob, sest kaardi JALG (asukoht + nupp) on
+       alaserva ankurdatud (`bottom` .events-location jt peal) ja kirjeldus
+       voolab ülalt — nende vahele jääv lõtk ongi see "tühi ruum all". Vahe
+       kasvatamine lükkab kirjelduse alla ja kärbib lõtku sama palju.
+
+       Muutuja, mitte kõva arv: kirjelduste enda margin-top erineb perede vahel
+       (mõõdetud 390px: sündmused 16px nooltest, lood 32px), seega üks ühine arv
+       ei anna ühesugust nähtavat vahet. Sama muster mis --raio-card-foot-lift. */
+    margin: 0 0 var(--raio-card-nav-gap, 22px);
+  }
+
+  /* Sündmuste kaardil oli kirjeldus nooltele liiga lähedal ja all suur tühimik
+     (omanik 2026-07-26: "tekst kuidagi noolte all liiga nooltele lähedal ja
+     palju tühja ruumi all. journal lehel on veidi parem lugu"). Kirjelduse
+     margin-top on siin 0 — selle nullib .events-event-body p reegel, mis katab
+     ka kuupäeva ja asukoha, seega vahet ei saa sealt tõsta. Mõõdetud tulemus:
+     nool->tekst 16 -> 46px, tekst->jalg 81 -> 51px. */
+  .events-event-carousel .events-event-card {
+    --raio-card-nav-gap: 52px;
   }
 
   .card-swipe-arrow {
