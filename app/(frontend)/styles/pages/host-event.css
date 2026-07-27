@@ -90,11 +90,12 @@
   align-items: baseline;
 }
 
-/* Number pealkirjafondis ja vaikses toonis, mitte tehnilise "01" sildina
-   (omanik 2026-07-27: "need numbrid siin ees ei meeldi"). Ta loeb järjekorda,
-   aga ei võistle sammu pealkirjaga. */
+/* Number pealkirjafondis, mitte tehnilise "01" sildina (omanik 2026-07-27:
+   "need numbrid siin ees ei meeldi"). Roheline aktsent, sama mis "hea teada"
+   kriipsudel — 42% kreem jäi liiga tuhmiks (omanik: "heledamaks või
+   rohelisemaks"). */
 .host-modal-step-number {
-  color: rgba(241, 236, 224, 0.42);
+  color: var(--events-icon-green);
   font-family: var(--font-display), Georgia, serif;
   font-size: calc(clamp(1.44rem, 1.7vw, 1.8rem) * var(--cms-text-scale, 1));
   font-weight: 400;
