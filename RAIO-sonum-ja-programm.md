@@ -1,0 +1,923 @@
+# RA•IO — sõnum, tekstid ja programm
+
+Töödokument. Koostatud 27.07.2026, aluseks praegune raio.ee sisu
+(`messages/et.json`, `SEO-TEKSTID.txt`).
+
+**Versioon 2 (27.07.2026):** kõik väited on üle kontrollitud saidi tegeliku
+seisu vastu — `messages/et.json`, `SEO-TEKSTID.txt` ja pildifailid kaustas
+`public/Pictures`. Mis vahepeal juba korda tehtud (kuupäevad), on märgitud
+tehtuks; piltide osa (3b) on nüüd kontrollitud faktide, mitte mälu pealt.
+
+Kasuta nii: loe **osa 1–3** korra läbi (see on otsustuskoht), siis võta osadest
+4–9 ainult see, mida parasjagu vaja. Kõik `{loksudes}` märgitud kohad vajavad
+sinu käest päris numbrit või fakti.
+
+---
+
+## 1. Diagnoos: mis praeguste tekstidega viga on
+
+Praegune sait ei ole halb. Hääl on olemas, ta on ühtlane ja ta on omanäoline.
+Probleem on kitsam ja parandatav: **tekst räägib tunnetest, aga ei räägi
+asjadest.**
+
+Loe need kaks lauset kõrvuti:
+
+> „RA•IO on loodud neile, kes otsivad midagi enamat kui lihtsalt trenni.
+> See on ühendus loodusega, oma keha ja kogukonnaga."
+
+> „Selle kivi tegi ümaraks jää ja vesi, umbes 12 000 aastat tagasi. Meie
+> ainus töö oli ta põllult üles leida ja talle sang külge panna."
+
+Esimene sobib ükskõik millisele joogastuudiole Euroopas. Teine sobib ainult
+RA•IO-le. Mõlemad on „poeetilised" — aga teine on poeetiline **konkreetsuse
+kaudu**, mitte abstraktsuse kaudu.
+
+See ongi kogu suund, mille valisid (1 + 2): **jätame luule alles, aga luule
+peab tulema päris asjadest.** Kivi kaalust, puidu lõhnast, külmast käepidemest,
+sellest et vihma käes ei tühistata.
+
+Neli konkreetset viga, mis praegu korduvad:
+
+1. **Abstraktsed nimisõnad kannavad lauset.** „Kohalolu", „teekond", „terviklik
+   kogemus", „ühendus", „ajatu väärtus". Need ei tekita pilti. Iga selline sõna
+   tuleks asendada asjaga, mida saab käega katsuda.
+2. **Bränd seletab, kes ta on, selle asemel et lihtsalt olla.** „RA•IO on loodud
+   selleks, et…" Tugev bränd ei seleta oma missiooni, ta näitab, mida ta teeb.
+3. **Treeningute nimed võiksid olla ükskõik millise jõusaali omad.**
+   „Funktsionaalne treening", „Mobiilsus & liikuvus". Ainus asi, mis RA•IO-l
+   päriselt erinev on — kivi, puit, väljas, aasta ringi — nimedes ei kajastu.
+4. **Materjali lugu on ütlemata.** Kõige tugevam vara on kasutamata: kivid
+   tulevad Eesti põldudelt, kuju andsid neile jää ja vesi, ja iga tükk on
+   kordumatu. Sellest ei räägi praegu ükski lause.
+
+---
+
+## 2. Positsioon: üks lause, mida keegi teine öelda ei saa
+
+> **RA•IO paneb Eesti põllukivi ja kodumaise puidu kokku treeningvahendiks,
+> mis käes töötab — ja treenib nendega inimesi väljas, aasta ringi.**
+
+Test, kas mingi tekstirida on RA•IO oma: **kas konkurent saaks sama lause oma
+saidile kopeerida?** Kui saaks, viska minema.
+
+- „Ühendus iseenda ja loodusega" → saaks kopeerida. Välja.
+- „Meie kivid on korjatud {maakond} põldudelt" → ei saaks. Sisse.
+
+### Kolm sammast, millel kõik tekstid seisavad
+
+**1. Päritolu (kust asi tuleb).**
+Malm valatakse tehases. Kivi **leitakse** põllult. See on kogu kategooria
+eristus ühes vastanduses. Kasuta seda halastamatult.
+
+⚠️ **Ja siin tuleb olla täpne: te ei raiu kive.** Kuju tegid jää ja vesi.
+Teie töö on **valik** ja **kokkupanek**. See on *parem* lugu kui raiumine, mitte
+kehvem — sest seda ei ütle keegi teine. Iga tootja maailmas väidab, et ta
+vormib midagi. Peaaegu keegi ei julge öelda: „kuju ei ole meie oma, see oli
+juba valmis, meie leidsime ta üles."
+
+**Kolm verbi, mis tuleks kogu saidil paika panna:**
+> Malm **valatakse**. Kivi **leitakse**. Puu **raiutakse**.
+
+Kolmest ainult üks on tehas. Ja raiumine — RA•IO nime juur — käib **puidu**
+kohta, mitte kivi kohta. Nii jääb nimemäng alles ja ükski lause ei valeta.
+
+**2. Kordumatus (miks see tükk on sinu oma).**
+Iga vahend on eri kuju, eri tekstuuri ja pisut eri kaaluga. Tööstus peab seda
+veaks. Teie jaoks on see toode.
+
+**3. Ilm ja koht (miks väljas, mitte saalis).**
+Ebatasane maapind, külm käepide, tuul, pime hommik. Mitte „loodusega ühenduses",
+vaid „kell 7 hommikul on kivi nii külm, et esimesed kaks kordust teed valesti".
+
+### Nimi
+
+Nimel on **kaks kihti** ja mõlemad on kasutamata.
+
+**Esimene: nimi on inimese nimi.** RA•IO tuleb **Rainer Oleist** — autorist
+endast. Käsitööbrändi puhul on see kõige tugevam asi, mis nimel üldse olla
+saab: see on **allkiri**, mitte turundusnimi. Stradivari, Leatherman, Kalašnikov
+— tegija nimi asja peal tähendab, et keegi vastutab. Praegu ei tea seda ükski
+külastaja, sest kuskil ei ole seda öeldud.
+
+> „Nimi ei ole välja mõeldud. See on tegija oma: **Ra**iner **O**le**i**."
+
+Pane see Meist-lehele ühe lausena. See on ühtaegu lugu, tõestus ja vastus
+küsimusele „kes selle tegi".
+
+**Teine: RA•IO ≈ raiuma.** Kivi te ei raiu — aga **puitu raiute** ja endale
+kohta raiute samuti. Kasuta seda seal, kus ta on aus: puidu, töö ja hoiaku
+kohta. Kaks kihti korraga on parem kui üks:
+
+> „Rainer Olei nimest. Ja sellest, mida puiduga tehakse."
+
+### Ja siis: mis on siin siis üldse käsitöö?
+
+See on küsimus, mille klient küsib kohe, kui sa ütled ausalt „kivi kuju ei ole
+meie tehtud". Vastus peab olema saidil olemas, muidu jääb mulje, et te korjate
+kive ja müüte neid edasi.
+
+**Vastus on kokkupanek.** Käsitöö ei ole kivi vormimine ega puidu treimine
+eraldi — see on **kahe materjali ühendamine vahendiks, mida saab treeninguks
+kasutada**. Kivi üksi ei ole sangpomm. Puu üksi ei ole sangpomm. Vahend
+tekib liitekohas.
+
+Sellest tuleb kogu brändi tugevaim lause:
+
+> **„Kivi tegi jää. Puu kasvas ise. Vahendi tegime meie."**
+> *EN: „The ice made the stone. The forest grew the wood. We made the tool."*
+
+Kolm allikat, kolm eri aega, üks tegu — ja teie tegu on ainus, mis on
+inimese oma. See on aus, täpne ja seda ei saa keegi teine öelda.
+
+**Kolm asja, mis selle lause sisse mahuvad ja mis kõik peavad saidil kirjas
+olema:**
+
+1. **Valik.** Enamik põllukive ei kõlba: vale kaal, vale raskuskese, pragu
+   sees, kuju selline, et vahendit ei tule. Ühe hea kivi leidmiseks vaadatakse
+   läbi hulk halbu. **Mitu? See number on su parim müügiargument — ütle mulle
+   ja panen teksti sisse.**
+   > „Ühe sangpommi jaoks vaatame läbi umbes {30} kivi. Ülejäänud jäävad põllule."
+
+2. **Liide** — kõige tähtsam koht ja praegu täiesti kirjeldamata. Ostja
+   esimene vaikne kahtlus on: *kas kivi tuleb sanga küljest lahti?* Kui te
+   sellele ei vasta, vastab ta ise, ja vastus ei ole teile soodne. Kirjuta
+   välja, kuidas puu ja kivi kokku saavad ja miks see peab.
+   > „Kõige tähtsam koht sangpommi juures on see, kus puu ja kivi kokku
+   > saavad. Sinna läheb kogu töö. {Kirjelda: kuidas.}"
+
+3. **Vorm ja tasakaal.** See ongi „vahendiks tegemine": kus on raskuskese, kuidas
+   pomm käes istub, kuidas ta kiiges pöörab, kas ta seisab maas püsti. Kivi
+   ei ole selleks sündinud — teie teete ta selleks. Ütle seda otse:
+   > „Kivi ei ole treeningvahend. Meie töö on ta selleks teha: leida tasakaal,
+   > õige haardekõrgus ja kinnitus, mis kannab. Alles siis on ta sangpomm."
+
+---
+
+## 3. Häälereeglid (anna need igale, kes RA•IO-le teksti kirjutab)
+
+1. **Nimisõna asemel asi.** Mitte „kogemus", vaid „hommik". Mitte „kvaliteet",
+   vaid „see peab su lapselapse käes vastu".
+2. **Number, kui vähegi saab.** 12 000 aastat. 8 inimest. 2–4 nädalat. 90 minutit.
+   Numbrid teevad teksti usutavaks paremini kui ükski omadussõna.
+3. **Lühike lause on tugevam lause.** Kui lauses on üle 20 sõna, lõika pooleks.
+4. **Ütle ka see, mis on ebamugav.** „Vihm ei tühista." „Kivi on külm." „Kaks
+   tükki ei ole kunagi ühesugused, seega täpset kaalu me ette ei luba." Aus
+   miinus müüb rohkem kui täiuslik plus.
+5. **Ära seleta tunnet, tekita see.** Ära kirjuta „see on eriline tunne".
+   Kirjuta, mis juhtub, ja lase inimesel ise tunda.
+6. **Bränd ei räägi endast kolmandas isikus rohkem kui kaks korda lehe kohta.**
+   Praegu algab liiga palju lauseid sõnaga „RA•IO".
+7. **Üks luuleline lause lõigu kohta, mitte kolm.** Poeetiline joon töötab siis,
+   kui ta on erand. Praegu on ta reegel ja seetõttu ei mõju.
+
+### Musta nimekirja sõnad (praegu saidil, palun asenda)
+
+`teekond` · `kohalolu` (jäta max 1 kord kogu saidil) · `terviklik` ·
+`ehe kogemus` · `ajatu` · `midagi enamat kui lihtsalt trenn` ·
+`ühendus iseenda, looduse ja kogukonnaga` · `loodud selleks, et` ·
+`sisemine tasakaal` · `looduse rütm` (praegu 5 korda) · `rituaal`
+(hea sõna, aga jäta 2 kohta, mitte 6)
+
+### Terminid, mis on praegu saidil vastuolus — vali üks ja parandu kõikjal
+
+| Praegu kasutusel | Vali üks |
+|---|---|
+| jalutuskepp (avaleht) / treeningnuiad (SEO) / „Treeningnui (sau)" (pood) / Treeningsauad (kategooria) | **sau** (pikk vorm „treeningsau") |
+| sangpomm / kivisangpomm / puu & kivi sangpomm | jäta nii, on loogiline |
+| „Vahendid" vs „tooted" vs „treeningvahendid" | avalikus tekstis **vahendid** |
+
+---
+
+## 3b. Pildid — kõige suurem oht kogu brändile
+
+*(Lisatud pärast saidi ekraanipiltide vaatamist.)*
+
+Visuaalne pool on tugev: tume kivitekstuur, kreemjas kiri, terrakota
+aktsent, õhukesed suurtähed pealkirjades ja kaldkirjas serif rõhusõna
+(„Trenn on **tunne.**"). See süsteem töötab, ära seda muuda.
+
+Aga siis on **üks probleem, mis on suurem kui kõik tekstid kokku.**
+
+Avalehe hero-pilt on **päris**: päris mees, päris kivisangpomm, päris Eesti
+õu, päris valgus. See on saidi kõige väärtuslikum vara.
+
+Enamik ülejäänud pilte on **AI-ga tehtud** ja seda on näha
+*(kontrollitud 27.07 failide kaupa, `public/Pictures`)*:
+
+- Vahendite-lehe päisepildil (`Vahendid/header.webp`) on taustal **mäestik**
+  ja vahenditel kärgja mustriga kivipind, mida teie toodetel ei ole.
+- Avalehe RA•IO+ kaart (`Avaleht/RAIO JOURNAL.webp`) on mägismaa-org, pigem
+  Šotimaa kui Eesti. Ja saidi **enda alt-tekst tunnistab selle üles**: „Tume
+  atmosfäärne mägine maastik". Kui pilte vahetad, vaheta ka alt-tekstid.
+- „Looduses taastumine" pildil on alpimaastik.
+- AI-piltidel olevad sangpommid **ei näe välja nagu teie tegelikud tooted** —
+  kuju, sang ja käepide on teised. Klient tellib pildi järgi ja saab muud.
+- Piltidel olevad köieköidised ja kärbunud detailid ei kannata lähivaadet.
+
+**Päris on ja jäävad** (sama kontrolli põhjal): avalehe hero
+(`RAIO HERO1.webp` — päris mees, päris õu, päris valgus) ja treenerite fotod
+Meist-lehel. Sau samblal (`Vahendid/jalutuskepp.png`) näeb usutav välja —
+kui see on päris foto, siis just selline peab kogu tootefotograafia olema;
+kui ka see on AI, kehtib talle sama reegel kui teistele.
+
+**Miks see on tapev just teile.** Teie kogu lubadus on „päris, käsitsi,
+kohapealne, kordumatu". AI-pilt on definitsiooni järgi vastupidine: masina
+tehtud, kohatu, lõputult korratav. Kui klient taipab (ja Eesti-suurusel turul
+taipab keegi kindlasti), siis ei kahtle ta ainult piltides — ta hakkab
+kahtlema, kas kivid on üldse Eestist ja kas käsitöö on üldse käsitöö.
+
+**Mida teha, tähtsuse järjekorras:**
+
+1. **Kõik tootepildid peavad olema päris.** See ei ole valikuline. Üks pärastlõun
+   telefoniga hea valgusega annab kogu poe pildid.
+2. **Kõik pildid, kus on inimene ja treening, peavad olema päris.** Piisab
+   ühest treeningust, kus keegi pildistab.
+3. Meeleolupildid (mets, järv, udu) võivad esialgu AI olla — aga **ainult siis,
+   kui neil ei ole mägesid ega tooteid.** Eesti maastik on tasane. Iga mägi
+   pildil on vale.
+4. Aja jooksul asenda needki. Sinu materjal on tasuta: töökoda, tolm, käed,
+   pooleliolev kivi, sama vahend aasta hiljem.
+
+**Nõrk koht 2:** kotil ja logol on ingliskeelne joon **„STRONGER. NATURALLY."**
+See on geneeriline — sama lause on maailmas tuhandel toidulisandibrändil.
+Asenda: **„CHOSEN, NOT CAST."** Sama pikk, sama hea rütm, ainult teie oma
+— ja täpne: te ei vormi kivi, te valite selle.
+
+---
+
+## 4. Sloganid
+
+### Tase 1 — peakandidaadid (vali 1, maksimaalselt 2)
+
+**A. „Valitud, mitte valatud."**
+*EN: „Chosen, not cast."*
+Parim kandidaat — ja tänu sinu parandusele **parem kui esialgne variant**
+(„raiutud, mitte valatud"), sest see on korraga täpsem JA tugevam sõnamäng:
+*valitud* ja *valatud* on ühe tähe kaugusel. Neli sõna ütlevad korraga, mis
+teie töö päriselt on (valik), mis on vastane (tehases valatud malm) ja et te
+ei aja udu. Töötab graveerituna puidule, sildil, pakendil, IG-bios.
+
+**A2. „Kivi tegi jää. Puu kasvas ise. Vahendi tegime meie."**
+*EN: „The ice made the stone. The forest grew the wood. We made the tool."*
+Sama mõte, pikem ja soojem — ja pärast täpsustust kõige täpsem lause kogu
+dokumendis. Kolm allikat, kolm eri aega, üks inimese tegu. Sobib avalehele,
+tootelehele ja Meist-lehe algusesse. Ausus on siin müügiargument, mitte möönd.
+
+**B. „Tõsta midagi, mis on vanem kui sina."**
+*EN: „Lift something older than you."*
+Soojem ja kutsuvam. Sobib treeningutele ja sündmustele, kus on vaja inimest
+kohale meelitada, mitte toodet müüa. Kannab endas kogu jääaja lugu ilma seda
+välja ütlemata.
+
+**C. „Kivi ei valeta."**
+*EN: „Stone doesn't lie."*
+Treeningu slogan. Kivi ei ole kalibreeritud, ekraani ei ole, numbrit peal ei ole
+— on ainult see, kas raskus liikus või ei liikunud.
+
+**D. „Maast tõstetud."**
+*EN: „Lifted from the ground."*
+Kahetähenduslik ja väga eestlaslik: kivi korjati maast ja treening algab maast.
+Vaikne, alahinnatud, hea pikaks kasutuseks.
+
+**Soovitus:** hoia **„Trenn on tunne."** alles jaluses ja seal, kus ta juba
+trükitud on — see on teil olemas ja inimesed on seda näinud. Aga lisa kõrvale
+**„Valitud, mitte valatud."** toote- ja brändiliinina. Kaks lauset, kaks
+erinevat tööd: üks räägib treeningust, teine vahenditest.
+
+### Tase 2 — toetavad read teemade kaupa
+
+**Materjal ja päritolu**
+- Malm valatakse. Kivi leitakse. Puu raiutakse.
+- Kivi tegi jää. Puu kasvas ise. Vahendi tegime meie.
+- Kivi üksi ei ole sangpomm. Puu üksi ka mitte.
+- Kogu töö on ühes kohas: seal, kus puu ja kivi kokku saavad.
+- Nimi ei ole välja mõeldud. See on tegija oma.
+- Me ei tee kive ümaraks. Selle tegi juba vesi ära.
+- Ainus asi, mis selle kivi juures muutus, on see, et tal on nüüd sang.
+- Jää tõi need siia. Sina tõstad need üles.
+- Ükski kivi ei ole teise koopia. Ka sinu oma ei ole.
+- Ühe hea kivi jaoks jääb {kolmkümmend} põllule.
+- Puit soojeneb su käes. Kivi ei soojene kunagi päris ära.
+- Vanem kui iga jõusaal maailmas.
+
+**Treening ja sündmused**
+- Metsas ei ole peegleid.
+- Ilm on osa treeningust.
+- Vihm ei tühista.
+- Kaheksa inimest, üks lõke, hulk kive.
+- Siin ei loe kordused. Loeb see, kas kivi liikus.
+- Tule kohale. Tõsta. Söö. Mine koju teistmoodi.
+- Trenn, kust tuled koju mullaga.
+
+**Käsitöö**
+- Enne sind hoidis seda kahe inimese käsi. Me teame nende nimesid.
+- Kulunud puit ei ole viga. See on logiraamat.
+- Ajas ei lähe ta halvemaks. Ta läheb rohkem sinu omaks.
+- Ühekaupa, käsitsi, kohapealsest materjalist.
+
+**Ettevõtetele**
+- Suvepäev ilma köieraja ja nimesiltideta.
+- Me ei tee meeskonnamänge. Me anname raskuse, koha ja juhendaja.
+- Päeva lõpuks on kõigil käed mustad. See ongi mõte.
+
+**Poele / ettetellimisele**
+- Piiratud kogus, sest kive korjatakse käsitsi.
+- Valmib 2–4 nädalaga, sest kiiremini ei saa.
+
+---
+
+## 5. Lehtede tekstid — konkreetsed asendused
+
+Iga ploki juures on **PRAEGU** (mis saidil on) ja **UUS** (ettepanek).
+Kus on kaks varianti, on A = maisem/konkreetsem, B = poeetilisem.
+
+### 5.1 Avaleht — hero (`home.hero`)
+
+**PRAEGU**
+> Trenn on **tunne.**
+> Käsitöö sangpommid ja treeningvahendid Eesti kivist ning kodumaisest puidust.
+
+**UUS — variant A**
+> Valitud, **mitte valatud.**
+> Sangpommid, hantlid ja sauad Eesti põllukivist ja kodumaisest puidust.
+> Iga kivi otsime käsitsi välja, iga sanga teeme ise, {maakond} töökojas.
+
+**UUS — variant B**
+> Tõsta midagi, **mis on vanem kui sina.**
+> Jää tõi need kivid Eestisse umbes 12 000 aastat tagasi ja tegi nad ümaraks.
+> Meie panime neile sanga.
+
+*Eyebrow jääb: „Käsitöö treeningvahendid Eestist" — see on hea ja
+otsingusõbralik.*
+
+### 5.2 Avaleht — filosoofia (`home.philosophy`)
+
+**PRAEGU**
+> Liikumine on **rituaal.**
+> RA•IO on loodud neile, kes otsivad midagi enamat kui lihtsalt trenni. See on
+> ühendus loodusega, oma keha ja kogukonnaga. Kivi raskus, puidu soojus ja
+> kohalolu hetkes — siin sünnib jõud, mis jääb.
+
+**UUS — variant A**
+> Trenn **ilma peeglita.**
+> Jõusaalis on kõik ette antud: raskus, rada, temperatuur, muusika. Väljas ei
+> ole. Maapind on ebatasane, kivi on külm ja käepide ei ole päris seal, kus sa
+> tahaksid. Just sellepärast õpib keha rohkem. Väikesed grupid, päris ilm,
+> aasta ringi.
+
+**UUS — variant B**
+> Loodus ei tee **kordusi.**
+> Ükski kivi ei ole teise koopia ja ükski hommik ei ole eelmise oma. Sa ei saa
+> siin numbrit taga ajada, sest numbrit ei ole. Saad ainult teada, kas raskus
+> liikus. Enamasti liigub — ja siis oled sa päev otsa natuke teistsugune.
+
+### 5.3 Avaleht — vahendite plokk (`home.tools`)
+
+**PRAEGU**
+> Kivi, puit ja **sinu jõud.**
+> Sangpommid, hantlid ja jalutuskepid — Eesti kivist ja kodumaisest puidust,
+> käsitööna sinu kätte.
+
+⚠️ „jalutuskepid" on siin vale sõna — mujal saidil on „sauad" ja
+„treeningnuiad". Paranda ära.
+
+**UUS**
+> Kivi, puit ja **sinu käed.**
+> Sangpommid, hantlid ja sauad. Kivi otsime ükshaaval põllult, sanga teeme
+> käsitsi. Kaks ühesugust me teha ei oska ega taha.
+
+### 5.4 Treeningud — hero (`training`)
+
+**PRAEGU**
+> Liikumine. Looduses.
+> RA•IO treeningud ühendavad jõu, vastupidavuse ja teadliku liikumise looduse
+> rütmiga. Treeninguks on kogu loodus.
+
+**UUS**
+> Trenn **väljas.** Aasta ringi.
+> Kivi, puit ja maapind, mis ei ole kunagi tasane. Väikesed grupid kuni {8}
+> inimest, {Tartu ja Elva} kandis. Vahendid toome meie.
+
+**Nimekirja sissejuhatus (`training.listIntro`)**
+> PRAEGU: „Pakume erinevaid treeninguid, mis toetavad nii keha kui vaimu. Vali
+> endale sobiv formaat ja tule liikumise kaudu ühendusse - iseenda, looduse ja
+> kogukonnaga."
+>
+> UUS: „Viis formaati, üks põhimõte: raskus on päris ja koht on väljas. Kui sa
+> ei tea, kust alustada, tule **Kivitundi** — sinna tullakse esimest korda."
+
+**Plokk „Treening, mis jääb sinuga ka pärast"**
+> UUS pealkiri: „Sa lähed koju mullaga."
+> UUS tekst: „Grupid on väikesed, sest juhendaja peab jõudma iga inimese juurde.
+> Kohad valime ise ja käime need enne läbi. Vahendid, juhendamine ja
+> ohutusjuhis on hinna sees — sina tood ainult riided, mis tohivad määrduda."
+
+### 5.5 Vahendid (`tools`)
+
+**PRAEGU (hero)**
+> Loodud loodusest. Treeninguks.
+> RA•IO vahendid on käsitööna valmivad treeningvahendid, mis ühendavad looduse
+> jõu, lihtsuse ja ajatu vastupidavuse.
+
+**UUS**
+> Kivi, mis oli siin enne meid.
+> Munakivid Eesti põldudelt ja puit Eesti metsast. Kuju oli olemas juba enne
+> meid — meie leiame õige kivi üles ja teeme talle sanga.
+
+**„Miks puu ja kivi?" (`tools.material`)**
+> PRAEGU: „Puit ja kivi on looduslikud, vastupidavad ja ajatud materjalid, mis
+> loovad treeningus eheda ühenduse maapinnaga…"
+>
+> UUS: „Sellepärast, et kivi on juba olemas ja juba õiges kujus. Jää ja vesi
+> tegid need munakivid ümaraks umbes 12 000 aastat tagasi ja jätsid need Eesti
+> põldudele, kust neid siiani välja korjatakse. Meie ei vormi neid ümber —
+> otsime välja õige kaalu, õige raskuskeskme ja õige pinnaga kivi ning teeme
+> talle puidust sanga. Ühe hea kivi kohta jääb {kolmkümmend} põllule."
+
+**Hooldus (`tools.care`)** — see plokk on juba hea. Muuda ainult viimane rida:
+> PRAEGU: „Hoituna õigesti kestavad põlvest põlve."
+> UUS: „Õigesti hoituna pärib selle su lapselaps. Kriimud tulevad kaasa."
+
+**Eritellimus (`tools.custom`)**
+> UUS pealkiri: „Tahad konkreetset kaalu?"
+> UUS tekst: „Ütle kaal, käepideme jämedus ja kellele see läheb. Kui kivi
+> selline meil parasjagu on, teeme ära; kui ei ole, ütleme ausalt, kaua otsimine
+> võtab."
+
+### 5.6 Sündmused (`events`)
+
+**PRAEGU**
+> Kohtume looduses.
+> RA•IO sündmused ühendavad liikumise, looduse ja kogukonna. Treeningud,
+> töötoad ja väljakutsed, mis loovad ruumi kasvamiseks.
+
+**UUS**
+> Kohtume **väljas.**
+> Hommikud enne päikest, õhtud lõkke ääres, päevad, kus tehakse endale ise
+> tööriist. Enamasti 8–16 inimest. Alati väljas, kui just lund vööni ei ole.
+
+✅ **Kuupäevad on korras** *(kontrollitud 27.07.2026)*: sündmused on saidil
+15.08–26.09.2026 ja RA•IO+ lood aprill–mai 2026 — varasem 2024-probleem on
+parandatud. Reegel edaspidiseks: möödunud kuupäevaga sündmus võta maha samal
+nädalal, ja kui järgmist kuupäeva veel ei ole, pane „Järgmine kuupäev
+täpsustub — anna märku, kui tahad teada saada". Vana kuupäev tapab usalduse
+kiiremini kui halb tekst.
+
+### 5.7 Ettevõtetele (`hostEvent`) — see leht on juba kõige parem
+
+See leht on saidi tugevaim tekst: konkreetne, sammud on selged, „Vihm ei
+tühista" on täpselt õige toon. Muuda ainult kolme kohta:
+
+**Hero**
+> UUS: „Suvepäev ilma köieraja ja nimesiltideta."
+> „Pool päeva või terve päev väljas. Meie toome kivid, puidust vahendid ja
+> juhendajad. Teie tulete kohale ja lähete õhtul koju mustade kätega."
+
+**Lisa uus plokk — „Miks see teie inimestele mõjub"** (praegu puudub, aga
+ettevõtte otsustaja vajab põhjendust, mille saab juhatusele edasi öelda):
+> „Enamik tiimipäevi eeldab, et inimesed teevad midagi, mis on natuke piinlik.
+> Siin ei pea. Kivi on raske kõigile ühtemoodi ja keegi ei pea end tõestama
+> sõnadega. Kes tahab pingutada, pingutab; kes tahab õppida, õpib tehnikat; kes
+> tahab lihtsalt metsas jalutada ja süüa, teeb sedagi. Ühesugust päeva kellelegi
+> peale ei suru."
+
+**Lisa üks lause hinna kohta** (praegu on hind täiesti nähtamatu, mis peletab
+ettevõtte otsustaja eemale):
+> „Orienteeruv hind: alates {X} € inimese kohta, miinimum {Y} € grupi kohta.
+> Täpne pakkumine tuleb kirjaga ühe tööpäeva jooksul."
+
+### 5.8 Meist (`about`)
+
+**PRAEGU**
+> Treening, tööriist, kogemus.
+> RA•IO on loodud selleks, et need kolm ei oleks eraldi asjad, vaid üks
+> terviklik teekond keha ja looduse juurde.
+
+**UUS**
+> Nimi on tegija oma.
+> RA•IO tuleb **Rainer Oleist** — temast algas mõte, et treeningvahend võib
+> olla kivist ja puidust. Me teeme vahendeid ja treenime nendega ise. Kui
+> midagi käes ei tööta, siis me seda ei müü.
+
+**Lugu (`about.story`)** — praegune lugu ütleb ainult juriidilise nime. See on
+raisatud koht. Meist-leht on müügileht: siin otsustab ettevõtte klient, kas
+teid usaldada. Vaja on **kolme fakti**:
+1. Kust idee tuli (üks konkreetne hetk, mitte üldistus).
+2. Millal alustasite ja mitu vahendit on tehtud.
+3. Miks just kivi — üks isiklik põhjus.
+
+Näidisstruktuur, mille sina faktidega täidad:
+> „{Aasta} suvel {kus} tõstis Rainer põllult kivi ja mõtles, et see on parem
+> raskus kui ükski malmpomm, mille eest ta oli maksnud. Kivi oli olemas, puu
+> oli olemas — vahendit ei olnud. Esimese tegi ta {kellele}. Praeguseks on
+> neid {arv}. Töökoda on {kus}, treeningud käivad {kus}. Kivi tuleb {kust},
+> puit {kust}. Nimi tuli tema enda omast."
+
+⚠️ Neli asja parandada Meist-lehel:
+- **Ütle välja, et RA•IO = Rainer Olei.** Praegu ei tea seda ükski külastaja.
+  See on lehe kõige väärtuslikum lause ja ta puudub täiesti.
+- **Rainer on lehel kaks korda** (treener + looja) sama fotoga. Nüüd, kus on
+  teada, et ta on autor, ei ole kordus viga — aga siis peab see ka nii välja
+  nägema. Tee autorist **eraldi, esimene plokk** („RA•IO taga on Rainer Olei")
+  ja jäta treenerite ritta lühike rida ilma teist fotot kordamata.
+- **Martenil puudub perekonnanimi**, Raineril on. Ühtlusta.
+- **Kristenil puudub roll** (tekst on olemas, aga rolli väli on tühi).
+  Kirjuta midagi konkreetset — „tellimused ja logistika" on parem kui tühjus.
+- **Sektsiooni pealkiri on „Raio loojad"** — ainus koht saidil, kus nimi on
+  kirjutatud ilma punktita ja väiketähtedega. Paranda: „RA•IO loojad".
+- Rainer on loojate plokis praegu „üks loojatest" — pehme sõnastus. Kui
+  autorilugu (RA•IO = Rainer Olei) sisse tuleb, kirjuta see plokk selle järgi
+  ümber.
+
+---
+
+## 6. Tootetekstid
+
+SEO-fail ütleb õigesti: praegused kirjeldused on 60–85 märki, Google tahab
+120–155. Siin on nii **lühikirjeldus** (kaardile) kui **SEO-kirjeldus**
+(120–155 märki) ja **pikk tekst** (tootelehele).
+
+Kus on `{}`, pane oma päris number.
+
+### Kivisangpomm
+
+- **Lühike (kaardile):** Eesti põllult valitud munakivi, millele on tehtud sang.
+  Iga tükk erineva kuju ja tekstuuriga.
+- **SEO (147 märki):** Sangpomm Eesti põllukivist. Kivi tegi jää, vahendi
+  tegime meie. Kaal {8–24 kg}, iga tükk kordumatu. Valmib 2–4 nädalaga. Telli ette.
+- **Pikk tekst:**
+  > Kivi tuleb Eesti põllult, kuhu jää selle umbes 12 000 aastat tagasi jättis.
+  > Ümaraks tegid ta vesi ja aeg. Meie ei muutnud kuju — otsisime välja õige
+  > kaalu ja raskuskeskmega kivi ning tegime talle puidust sanga. Ühe hea kivi
+  > kohta jäi {kolmkümmend} põllule.
+  >
+  > Kivisangpomm ei käitu käes nagu malmpomm. Pind on karedam, raskuskese ei ole
+  > täiuslikult keskel ja haare nõuab rohkem tähelepanu. Esimesed korrad tunduvad
+  > kohmakad. Pärast seda muutub tehnika puhtamaks kui malmiga, sest kivi ei
+  > andesta lohakat haaret.
+  >
+  > Kaal {…}. Kuna iga kivi on isesugune, võib tegelik kaal erineda ±{0,5} kg.
+  > Seda me täpsemaks ei saa ja ei taha ka.
+
+### Puu & kivi sangpomm
+
+- **Lühike:** Kivikeha, puidust käepide. Soojem haare, sama aus raskus.
+- **SEO (139 märki):** Kivisangpomm puidust käepidemega — soojem haare ja pehmem
+  tunnetus kui puhtal kivil. Käsitöö, Eesti materjal, valmib 2–4 nädalaga.
+- **Pikk tekst:**
+  > Kivi annab raskuse, puit annab haarde. Puidust käepide soojeneb käes
+  > minutiga, kivi ei soojene kunagi päris ära — see kontrast on kogu asja mõte.
+  >
+  > Sobib neile, kes teevad rohkem kordusi või pikemaid seeriaid, kus paljas
+  > kivi hakkab pihku näpistama. Käepideme jämedus {…} mm; eritellimusel teeme
+  > jämedama või peenema.
+
+### Hantlid
+
+- **Lühike:** Kivist raskused puidust käepidemel. Paarina või ükshaaval.
+- **SEO (141 märki):** Käsitöö hantlid Eesti kivist ja puidust. Rahulikuks
+  jõutreeninguks kodus või õues. Kaal {…}, valmib käsitsi 2–4 nädalaga.
+- **Pikk tekst:**
+  > Kaks kivi, kaks käepidet, ei ühtegi keeret ega kruvi. Kaal on fikseeritud —
+  > see ei ole komplekt, mida saab reguleerida, vaid asi, mille sa võtad kätte
+  > ja paned pärast lauale tagasi.
+  >
+  > Kui tead soovitud kaalu, ütle tellimisel. Kui ei tea, kirjuta, mida sa
+  > nendega teha tahad, ja me pakume välja.
+
+### Treeningsau
+
+- **Lühike:** Puidust sau liikuvuse, haarde ja õlgade jaoks.
+- **SEO (147 märki):** Käsitöö treeningsau Eesti puidust — õlgade liikuvuse,
+  haarde ja kogu keha koostöö arendamiseks. Sobib ka soojenduseks. Valmib 2–4 nädalaga.
+- **Pikk tekst:**
+  > Sau on kõige alahinnatum treeningvahend, mis olemas on. Raskust on vähe, aga
+  > õlad, randmed ja rinnalihased saavad liikuvust, mida raskus ei anna.
+  >
+  > Kümme minutit sauga enne trenni teeb rohkem kui kakskümmend minutit
+  > venitamist. Kümme minutit sauga pärast tööpäeva teeb rohkem kui mõlemad.
+  >
+  > Pikkus {…}, kaal {…}. Puit on {liik}, viimistlus looduslik õli.
+
+### Laste treeningvahendid
+
+- **Lühike:** Kergemad kivid ja sauad, tehtud lapse käele.
+- **SEO (138 märki):** Lastele mõõdetud käsitöövahendid kivist ja puidust.
+  Kerge kaal, lapse haardele sobiv käepide. Kaal ja suurus vanuse järgi.
+- **Pikk tekst:**
+  > Laps ei taha treenida. Laps tahab tõsta seda, mida isa tõstab. Need on
+  > sellepärast olemas.
+  >
+  > Kaal ja käepide kohandame lapse vanusele — kirjuta tellimisel, kui vana
+  > laps on. Servad on ümarad, viimistlus loodusliku õliga, midagi mürgist
+  > sellel ei ole.
+
+---
+
+## 7. SEO pealkirjad ja kirjeldused (asendused `SEO-TEKSTID.txt` jaoks)
+
+Ainult need, kus praegusest on selget võitu. Ülejäänud on juba korras.
+
+| Leht | Praegu | Ettepanek |
+|---|---|---|
+| Avaleht TITLE | RA•IO — treeningvahendid | Kivist ja puidust sangpommid \| RA•IO (46) |
+| Avaleht DESC | Käsitöö treeningvahendid Eesti kivist… Trenn on tunne. | Sangpommid, hantlid ja sauad Eesti põllukivist ja puidust. Kivi tegi jää, vahendi tegime meie. Treeningud väljas aasta ringi. (150) |
+| Treeningud TITLE | Treeningud looduses — jõud ja teadlik liikumine \| RA•IO | Treeningud väljas — kivi, puit, päris ilm \| RA•IO (49) |
+| Treeningud DESC | …ühendavad jõu, vastupidavuse ja teadliku liikumise looduse rütmiga. | Väikesed grupid väljas aasta ringi, {Tartu ja Elva} kandis. Kivisangpommid ja puidust vahendid on hinna sees. Vaata aegu ja tule proovi. (~140) |
+| Vahendid TITLE | Käsitöö treeningvahendid puidust ja kivist \| RA•IO | jääb — hea |
+| Vahendid DESC | …Iga vahend on ainulaadne. | Sangpommid, hantlid, sauad ja lastevahendid Eesti põllukivist ja puidust. Iga kivi valitud ükshaaval. Kaks ühesugust me teha ei oska. (~145) |
+| Sündmused DESC | …Vaata tulevasi treeninglaagreid ja sündmusi ning tule kohale. | Hommikutreeningud, saunaõhtud, sangpommi töötoad ja päevad, kus teed endale ise tööriista. Vaata, mis tuleb, ja tule kohale. (~140) |
+
+**EN peakirjeldus** (praegu 156 märki, üle piiri):
+> Kettlebells, dumbbells and clubs from Estonian field stone and wood. The ice made the
+> stone, the forest grew the wood, we made the tool. Outdoor training all year. *(151)*
+
+**Poe EN kirjeldus** on samuti 156 märki (teine üle-piiri koht SEO-failis).
+Asendus:
+> Pre-order the RA•IO first edition: kettlebells, dumbbells and clubs handmade
+> from Estonian stone and wood. Lead time confirmed at ordering. *(139)*
+
+**Jagamispilt:** SEO-faili järgi on kõigil lehtedel sama `og-default.jpg`.
+Kui uued päris fotod tulevad (3b), tee avalehele ja poele oma 1200×630
+jagamispilt — see on pilt, mida näeb igaüks, kellele linki WhatsAppis või
+Facebookis jagatakse.
+
+---
+
+## 8. Treeningud — realistlik programm
+
+Eeldus: kaks juhendajat (Rainer, Marten), vahendid olemas, hooaeg tugevam mais–oktoobris.
+Nimed on eestikeelsed ja lühikesed, sest need peavad mahtuma kaardile ja
+Instagrami loosse.
+
+### Tuumik — viis formaati (need müü kohe)
+
+**1. KIVITUND** — *sissepääs kogu maailma*
+> „Esimene kord. Kivi, keharaskus ja tund aega väljas."
+- 60 min · kuni 10 inimest · kõigile · nädalas 1–2 korda, fikseeritud aeg ja koht
+- Sisu: soojendus sauga, kivisangpommi põhiliigutused (kannatus, tõmme,
+  esiviipe), kandmine, jahutus. Tehnika üle intensiivsuse.
+- **Miks see on olemas:** iga bränd vajab ust, millest esimest korda sisse
+  astutakse. Kõik muu müüakse siit edasi. Hoia hind madal.
+
+**2. RASKE HOMMIK** — *põhitreening*
+> „Laupäeva hommik, kus kivi on külm ja seeriad on pikad."
+- 75–90 min · kuni 8 inimest · kesktase ja edasi · laupäeviti
+- Sisu: jõud ja vastupidavus — sangpommid, hantlid, kandmised, kelgu/palgi
+  vedamine kui koht lubab. Vahelduv tempo, puhas tehnika ka väsinuna.
+- **Asendab** praegust „Jõu & vastupidavuse treeningut" — sama sisu, parem nimi.
+
+**3. KANNE** — *ainuomane formaat, mida keegi teine Eestis ei tee*
+> „Tõsta kivi. Kanna. Pane maha. Korda, kuni kohal."
+- 60–75 min · kuni 12 inimest · kõigile (koormus valitakse ise) · pühapäeviti
+- Sisu: 3–5 km rada metsas või ranna ääres, vahendid kaasas, peatustega.
+  Kandmine, panemine, vahetamine, paarikandmine. Kardiotreening, mis ei tundu
+  kardiona.
+- **Miks see on hea:** ei vaja kohta ega taristut, sobib igale tasemele
+  korraga, näeb fotol vapustav välja ja on täiesti RA•IO oma. Sellest võib
+  saada teie tunnuslik asi.
+
+**4. SAU JA ÕLAD** — *lühike ja lihtne müüa*
+> „Nelikümmend viis minutit õlgadele, mida arvuti on ära lõhkunud."
+- 45 min · kuni 12 inimest · kõigile · argipäeva õhtuti
+- Sisu: sau, liikuvus, hingamine, haare, rinnalihaste avamine. Rahulik.
+- **Miks:** kõige laiem sihtgrupp (kontoritöö), madalaim sisenemisbarjäär,
+  müüb kõige otsemini sauda. Sobib ka veebi/siseruumi, mis päästab talve.
+
+**5. KAHEKESI / ÜKSI** — *personaal- ja paaristreening*
+- 60 min · 1–2 inimest · kokkuleppel
+- Sisu: tehnika, isiklik kava, vahendi valik enne ostu.
+- **Miks:** kõrgeim tunnitasu, ei sõltu grupi täitumisest, ja on loomulik
+  müügikanal vahenditele („proovi enne, kui ostad").
+
+### Hooajaline lisa
+
+**6. KÜLM JA KIVI** — november–märts
+> „Kui pime, siis pime. Lühem trenn, kuum saun, koju."
+- 45 min trenni + saun · kuni 8 inimest · nädalavahetuse hommikul
+- Lahendab kõige suurema ärilise probleemi: **mida te teete talvel.**
+
+**7. VÄIKESED KÄED** — lastele, 6–12 a
+- 45 min · kuni 8 last · laupäeva hommik, samal ajal kui vanem on Raskes Hommikus
+- **Miks:** müüb lastevahendeid, hoiab vanema kliendina kinni, ja „vanem ja
+  laps treenivad kõrvuti" on tugev pilt ja tugev lugu.
+
+### Mis praegusest kaob ja miks
+
+- „Funktsionaalne treening" → **Kivitund** + **Raske hommik**. Sõna
+  „funktsionaalne" ei ütle Eestis enam mitte midagi.
+- „Mobiilsus & liikuvus" → **Sau ja õlad**. Kaks sünonüümi pealkirjas on raisk.
+- „Rituaalne liikumine & hingamine" → hoia **sündmusena**, mitte nädalase
+  treeninguna. Sellele on raske iga nädal 8 inimest kokku saada, aga
+  saunaõhtu või pööripäeva osana töötab suurepäraselt.
+
+---
+
+## 9. Sündmused — mida päriselt korraldada
+
+Järjestatud selle järgi, mis toob raha ja mainet kõige kindlamini.
+
+### 9.1 PROOVIKIVI — teie tunnussündmus ja tasuta turundusmasin
+
+**Idee.** Valige üks konkreetne raske kivi. Andke sellele nimi ja koht, kus ta
+alaliselt on. Kes ta rinnale/õlale tõstab, saab nime nimekirja — nimekiri on
+saidil, uueneb, on avalik ja on igavene.
+
+Šotimaal on Dinnie Stones, Islandil Húsafelli kivi, Baskimaal
+*harri-jasotzaile*. **Eestis ei ole ühtegi.** Sõna „proovikivi" tähendab
+eesti keeles korraga „katsumust" ja „katsetuskivi" — parem nimi ei ole võimalik.
+
+**Miks see on parim idee siin dokumendis:**
+- Maksab teile ühe kivi ja ühe veebilehe.
+- Töötab 365 päeva aastas ilma juhendajata.
+- Annab inimesele põhjuse teie juurde tulla, isegi kui ta trenni ei osta.
+- Ajakirjandus kirjutab sellest tasuta. Instagram elab sellest.
+- Iga aasta saab teha „Proovikivi päeva" — ühe päeva, kus kõik proovivad.
+
+**Praktiline:** kaks kivi, kergem ja raskem (nt {60 kg} ja {100 kg}), et ka
+uustulnukal oleks midagi. Ohutusjuhend seinal. Foto ja nimi nimekirja.
+
+### 9.2 OMA KIVI — tee endale ise sangpomm
+
+- Terve päev (6–7 h) · 6–8 inimest · {250–400} € inimese kohta, vahend kaasa
+- Kava: hommikul käid kivihunniku juures ja valid oma kivi (see ongi kõige
+  põnevam osa), pärast teed sellele sanga — puit, kuju, jämedus, kinnitus;
+  lõunasöök lõkkel; pärastlõunal esimene trenn oma vahendiga; lõpuks graveerime
+  nimetähed või kuupäeva.
+- **Miks:** kõrgeim tulu osaleja kohta, ühendab toote ja sündmuse üheks, ja
+  inimene läheb koju asjaga, mille kohta ta räägib iga külalisele järgmised
+  kümme aastat. See on ühtaegu sündmus ja tootemüük.
+
+### 9.3 RÄNDRAHNU RETK
+
+- 3–4 h · 10–20 inimest · {35–50} € · kevad ja sügis
+- Kava: matk konkreetsete rändrahnude juurde, lühike lugu jääajast ja sellest,
+  kust teie kivid tulevad, treeningpeatused rahnude juures, lõpus tee või supp.
+- **Miks:** ainus liikumissündmus Eestis, kus treening ja geoloogia on koos.
+  Sobib ka peredele ja ettevõtetele. Väga tugev sisuallikas RA•IO+ jaoks.
+
+### 9.4 PÄIKESETÕUSU TREENING JA SUPLUS  *(olemas — hoia)*
+
+- 2 h · 8–14 inimest · {30–40} € · mai–september
+- Praegune tekst on hea. Lisa ainult üks aus rida: „Vesi on {mai lõpus umbes
+  12 °C}. Külma vette minek on vabatahtlik."
+
+### 9.5 JÕUÕHTU JA SAUNARITUAAL  *(olemas — hoia, tee suuremaks)*
+
+- 4 h · 8–12 inimest · {60–85} € · aasta ringi
+- Kava: trenn → saun → söök → vestlusring lõkke ääres.
+- **Miks:** parim marginaal, töötab ka talvel, ja on ainus formaat, mis loob
+  päriselt kogukonna. Tee sellest **igakuine kindel kuupäev** (nt iga kuu
+  esimene reede) — korduv kuupäev müüb ennast ise.
+
+### 9.6 SANGPOMMI TÖÖTUBA  *(olemas — hoia)*
+
+- 2,5 h · 8–12 inimest · {45–60} € · aasta ringi
+- Selge müügitrepp: töötuba → esimene ost. Anna osalejale sooduskood vahendile.
+
+### 9.7 PÖÖRIPÄEVAD — neli korda aastas, kindel kuupäev
+
+- Suvine pööripäev (juuni), talvine pööripäev (detsember), kevad- ja
+  sügisööpäev.
+- Talvine on kõige tugevam: pime, lõke, tõrvikud, lühike raske trenn, saun.
+- **Miks:** kuupäev on kalendris juba olemas, kordub igal aastal, ja siin
+  töötab „rituaali" keel päriselt — mitte tavatrenni sildina, vaid seal, kus ta
+  on aus.
+
+### 9.8 NÄDALAVAHETUSE LAAGER
+
+- 2 päeva / 1 öö · 10–16 inimest · {180–280} € · 2 korda aastas (mai, august)
+- Kava: reede õhtu saabumine ja lõke, laupäev kaks trenni + töötuba + saun,
+  pühapäeva hommik kerge liikumine ja lõpetamine.
+- **Miks:** suurim käive ühe nädalavahetusega, ja laagrist tulevad kõige
+  lojaalsemad kliendid.
+
+### 9.9 KIVIKANDMISE PÄEV — võistlus
+
+- 1 päev · avatud · {20} € osavõtutasu või tasuta
+- Alad: kandmine kaugusele, kandmine ajale, tõstmine (Proovikivi), paariskanne.
+- **Miks:** meedia, Instagram, uued inimesed. Ei pea olema tõsine võistlus —
+  pigem külapäev, kus on kivid.
+
+### 9.10 ETTEVÕTETELE — kolm paketti (praegu on lehel formaadid, aga pole pakette)
+
+| Pakett | Kestus | Grupp | Sisu | Orienteeruv hind |
+|---|---|---|---|---|
+| **Töötuba** | 2 h | 8–20 | Sangpommi ja saua tehnika, ohutus, proovimine | {alates X €/in} |
+| **Pool päeva** | 4 h | 10–30 | Töötuba + Kanne + söök | {alates X €/in} |
+| **Terve päev** | 7 h | 10–40 | Kaks trenni, Oma kivi lühiversioon, saun, söök | {alates X €/in} |
+
+Lisa igale paketile üks konkreetne rida: **kes juhendab, mis on hinna sees, mis
+juhtub vihmaga.** Ettevõtte klient ei osta emotsiooni, ta ostab kindlust, et
+päev ei kuku läbi.
+
+### 9.11 Aastakalender — kuidas need kokku käivad
+
+| Kuu | Kindlad asjad |
+|---|---|
+| Jaan–veebr | Külm ja kivi (näd.vah.), Jõuõhtu (1×/kuu), Sau ja õlad sees |
+| Märts | Sama + kevadine ööpäev |
+| Aprill | Hooaja avamine, Rändrahnu retk |
+| Mai | Laager, Päikesetõusu treening algab, Oma kivi |
+| Juuni | Suvine pööripäev, ettevõtete suvepäevad (tipphooaeg) |
+| Juuli | Ettevõtted, Kanne, Päikesetõus |
+| August | Laager, Kivikandmise päev, ettevõtted |
+| Sept | Rändrahnu retk, sügisene ööpäev, Oma kivi |
+| Okt | Oma kivi (jõulukingi tähtaeg!), Jõuõhtu |
+| Nov | Külm ja kivi algab, Oma kivi kingituseks |
+| Dets | Talvine pööripäev — aasta tugevaim sündmus |
+
+**Tähtis äriline märkus:** oktoober ja november on **kingiaeg**. Oma kivi ja
+kinkekaardid tuleb turule tuua septembris, mitte detsembris.
+
+---
+
+## 10. Instagrami ja lühivormide read
+
+Valmis read, mida saab pildi peale panna või pealkirjaks võtta:
+
+- Valitud, mitte valatud.
+- Kivi tegi jää. Puu kasvas ise. Vahendi tegime meie.
+- Kivi üksi ei ole sangpomm. Puu üksi ka mitte.
+- Kogu töö on ühes kohas: seal, kus puu ja kivi kokku saavad.
+- Nimi ei ole välja mõeldud. See on tegija oma.
+- Me ei tee kive ümaraks. Selle tegi juba vesi ära.
+- Selle kivi tõi siia jää. Meie panime talle sanga.
+- Metsas ei ole peegleid.
+- Kivi ei valeta.
+- Vihm ei tühista.
+- 12 000 aastat vana. Sinu käes esimest korda.
+- Kaks ühesugust me teha ei oska.
+- Number kivi peal ei ole.
+- Täna hommikul oli käepide külm.
+- Kulunud puit ei ole viga. See on logiraamat.
+- Enne sind hoidis seda kahe inimese käsi.
+- Tõsta midagi, mis on vanem kui sina.
+
+**Sisuformaadid, mis sellel brändil töötavad** (ja mida praegu vähe on):
+üks kivi töökojas enne ja pärast · käed ja tolm · kaalu kaalumine ·
+kaks „ühesugust" vahendit kõrvuti, et näidata erinevust · vahend aasta hiljem
+kliendi käes · hommikuvalgus ja aur · Proovikivi nimekiri.
+
+---
+
+## 11. Mida teha esimesena (tähtsuse järjekorras)
+
+1. **Vaheta AI-pildid päris piltide vastu** — vähemalt tooted ja treeningud.
+   Vt osa 3b. See on suurem asi kui ükski tekst siin dokumendis. (Koos
+   piltidega vaheta ka alt-tekstid — praegu kirjeldab üks neist ausalt
+   „mägist maastikku".)
+2. ~~Paranda sündmuste ja RA•IO+ lugude kuupäevad~~ — **tehtud** (27.07 seisuga
+   sündmused aug–sept 2026, lood apr–mai 2026). Jälgi ainult, et möödunud
+   kuupäevad edaspidi maha tuleksid.
+3. **Vali peaslogan.** Soovitus: „Valitud, mitte valatud." kõrvale
+   olemasolevale „Trenn on tunne." Ja „CHOSEN, NOT CAST." ingliskeelseks
+   liiniks praeguse „STRONGER. NATURALLY." asemel.
+4. **Kirjuta Meist-lehe lugu ära** — kolme faktiga, mis on ainult sinul.
+   Ettevõtte klient loeb selle lehe alati.
+5. **Pane ettevõtete lehele hinnavahemik.** Ilma selleta jäävad päringud
+   tulemata.
+6. **Nimeta treeningud ümber** ja lisa Kanne. Nimed on odav muudatus ja mõjuvad
+   kohe.
+7. **Otsusta Proovikivi ära.** Kui ta on, siis alusta talvel, et kevadeks oleks
+   nimekirjas juba 30 nime.
+8. **Pikenda tootekirjeldused** 120–155 märgini (osa 6 tekstid on valmis).
+9. **Ühtlusta „sau"** kogu saidil — „jalutuskepp" avalehelt välja.
+
+---
+
+## 12. Mida ma sinu käest vajan, et edasi minna
+
+- **Numbrid:** vahendite kaalud ja hinnad, grupi suurused, praegused
+  treeninguajad ja -kohad, ettevõtete senine hind.
+- **Kaks-kolm fakti algusloost:** millal, kus, kelle idee, esimene vahend.
+- **Kust kivi ja puit tulevad** (maakond piisab) ja kus töökoda asub.
+- **Pildid on nüüd üle vaadatud** (`public/Pictures`, vt 3b). Vaja on veel
+  ühte vastust: **millised pildid on päris fotod?** Hero ja treenerite fotod
+  on ilmselgelt päris; sau samblal vajab kinnitust. See ütleb, kui suur
+  pildivahetuse töö tegelikult on.
+- **Kas Kristen ja Marten on kaasasutajad või töötajad** — see muudab
+  Meist-lehe struktuuri.
+
+---
+
+## Lisa: sõnavara, mis peab olema täpne
+
+Kuna kive ei raiuta, muutub ka sõnavalik oluliseks. Soovitus:
+
+| Kasuta | Ära kasuta | Miks |
+|---|---|---|
+| **munakivi**, **põllukivi**, **maakivi** | rändrahn | rändrahn on suur eraldi seisev rahn, mitte põllult korjatav kivi |
+| **valitud**, **leitud**, **välja otsitud** | raiutud, tahutud, vormitud | te ei muuda kivi kuju |
+| **sang**, **sanga tegemine** | „töötlemine" | sang ongi see osa, mis on teie tehtud |
+| **käsitöö** (sanga ja valiku kohta) | „käsitsi valmistatud kivi" | kivi ei ole valmistatud, see leiti |
+
+Kui mõne mudeli puhul kivi siiski töödeldakse (lihvitakse tasaseks, puuritakse
+auk sanga jaoks), siis **öelge täpselt, mida tehakse** — „puurime augu ja
+lihvime istme, muud kuju me ei muuda". Täpsus on siin tugevam kui suurem sõna.
+
+---
+
+*Fakt, mille tasub üle kontrollida enne trükki: jääliustik taandus Eesti alalt
+umbes 13 000–11 000 aastat tagasi ja jättis siia kivid, mille jää ja sulavesi
+ümaraks lihvisid. „Umbes 12 000 aastat" on turvaline sõnastus.*
