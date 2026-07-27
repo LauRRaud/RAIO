@@ -87,5 +87,7 @@ body .training-lasting-panel .training-solid-button:focus-visible {
    (omanik 2026-07-27) — keskele ja kaugemale, siis kuulub ta kogu bändile. */
 .about-closing-copy .events-solid-button {
   align-self: center;
-  margin-top: clamp(60px, 6vw, 88px);
+  /* 63px oli lähedal, 86px liiga kaugel — 74px on omaniku kolmanda vaatuse
+     järgi paigas. */
+  margin-top: clamp(52px, 5.2vw, 74px);
 }
