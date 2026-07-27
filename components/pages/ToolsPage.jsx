@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Clock3, Leaf } from "lucide-react";
 import { LineIcon } from "@/components/Icons";
+import { BandMedia } from "@/components/BandMedia";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getHeaderTextures } from "@/lib/payloadContent";
@@ -86,12 +87,13 @@ export async function ToolsPage({ locale = "et" }) {
             </div>
 
             <div className="tools-material-image">
-              <Image
-                src={t.material.image}
+              <BandMedia
+                video={t.material.video}
+                image={t.material.image}
                 alt={t.material.imageAlt}
-                fill
-                loading="eager"
                 sizes="(max-width: 900px) 100vw, 42vw"
+                playLabel={messages.video.play}
+                priority
               />
             </div>
           </section>

@@ -1,0 +1,70 @@
+/* Videopesa (components/BandMedia.jsx).
+
+   Elab pildipesa SEES — .training-lasting-image, .tools-material-image,
+   .events-host-image, .about-story-image ja modaalis .modal-video. Kõik need
+   on juba position: relative (Next/Image fill nõuab seda), seega nupp ja
+   iframe katavad täpselt sama ala, mille kataks pilt. Nii ei muutu ükski
+   bändipaigutus sellest, kas videot on või ei ole. */
+.band-video-poster {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.band-video-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border: 1px solid rgba(248, 243, 236, 0.7);
+  border-radius: 999px;
+  /* Tume ketas, mitte läbipaistev: nupp seisab foto peal, mille heledus on
+     iga pildi puhul erinev, ja ainult kontrastne ketas loeb neil kõigil. */
+  background: rgba(14, 13, 11, 0.55);
+  color: #f8f3ec;
+  /* Kolmnurk on optiliselt vasakule kaldu, kui ta on matemaatiliselt keskel. */
+  padding-left: 4px;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.band-video-poster:hover .band-video-play,
+.band-video-poster:focus-visible .band-video-play {
+  background: rgba(14, 13, 11, 0.78);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.band-video-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Modaalis ei ole valmis pildipesa, seega video saab oma raami. 16:9 hoiab
+   koha enne laadimist kinni — muidu hüppaks modaali sisu klõpsu peale. */
+.modal-video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-top: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(241, 236, 224, 0.16);
+  border-radius: var(--ui-card-radius, 8px);
+}
+
+@media (max-width: 620px) {
+  .band-video-play {
+    width: 62px;
+    height: 62px;
+  }
+}

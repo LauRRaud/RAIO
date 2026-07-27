@@ -1,5 +1,4 @@
 import { SteppedTitle } from "@/components/SteppedTitle";
-import Image from "next/image";
 import Link from "next/link";
 import { Heart, Leaf, UserRound, UsersRound } from "lucide-react";
 import { Footer } from "@/components/Footer";
@@ -7,6 +6,7 @@ import { Header } from "@/components/Header";
 import { getHeaderTextures } from "@/lib/payloadContent";
 import { HeroMedia } from "@/components/HeroMedia";
 import { HostEventModal } from "@/components/HostEventModal";
+import { BandMedia } from "@/components/BandMedia";
 import { LineIcon } from "@/components/Icons";
 import { TrainingCardsCarousel } from "@/components/TrainingCardsCarousel";
 import { getLocalizedPath } from "@/lib/i18n";
@@ -82,6 +82,7 @@ export async function TrainingPage({ locale = "et" }) {
               allLabel={t.allLink}
               registerLabel={t.register}
               registerHref={contactHref}
+              playLabel={messages.video.play}
             />
           </div>
 
@@ -92,12 +93,13 @@ export async function TrainingPage({ locale = "et" }) {
           >
             <TextureSlideshow set="gray" />
             <div className="training-lasting-image">
-              <Image
-                src={t.lasting.image}
+              <BandMedia
+                video={t.lasting.video}
+                image={t.lasting.image}
                 alt={t.lasting.imageAlt}
-                fill
-                loading="eager"
                 sizes="(max-width: 900px) 100vw, 42vw"
+                playLabel={messages.video.play}
+                priority
               />
             </div>
 

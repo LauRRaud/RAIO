@@ -1,9 +1,9 @@
 import { SteppedTitle } from "@/components/SteppedTitle";
-import Image from "next/image";
 import { EventsCardsCarousel } from "@/components/EventsCardsCarousel";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { HostEventModal } from "@/components/HostEventModal";
+import { BandMedia } from "@/components/BandMedia";
 import { getHeaderTextures } from "@/lib/payloadContent";
 import { HeroMedia } from "@/components/HeroMedia";
 import { getLocalizedPath } from "@/lib/i18n";
@@ -67,6 +67,7 @@ export async function EventsPage({ locale = "et" }) {
               allLabel={t.allLink}
               registerLabel={t.register}
               registerFallbackHref={contactHref}
+              playLabel={messages.video.play}
               statusLabels={{
                 soon: t.registrationSoon,
                 full: t.registrationFull,
@@ -82,11 +83,12 @@ export async function EventsPage({ locale = "et" }) {
           >
             <TextureSlideshow set="terracotta" />
             <div className="events-host-image">
-              <Image
-                src={t.host.image}
+              <BandMedia
+                video={t.host.video}
+                image={t.host.image}
                 alt={t.host.imageAlt}
-                fill
                 sizes="(max-width: 900px) 100vw, 44vw"
+                playLabel={messages.video.play}
               />
             </div>
             <div className="events-host-copy">

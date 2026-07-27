@@ -1,12 +1,14 @@
 "use client";
 
+import { BandMedia } from "@/components/BandMedia";
+import { youtubeId } from "@/lib/youtube";
 import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight, MapPin, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { scrollCarouselByCards } from "@/lib/carouselScroll";
 
-export function EventsCardsCarousel({ events, cta, modalClose, labels, title, titleId, allLabel, registerLabel, statusLabels, registerFallbackHref }) {
+export function EventsCardsCarousel({ events, cta, modalClose, labels, title, titleId, allLabel, registerLabel, statusLabels, registerFallbackHref, playLabel }) {
   const eventTrackRef = useRef(null);
   const closeButtonRef = useRef(null);
   const [activeEvent, setActiveEvent] = useState(null);
@@ -191,6 +193,17 @@ export function EventsCardsCarousel({ events, cta, modalClose, labels, title, ti
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
+              {youtubeId(activeEvent.video) ? (
+                <div className="modal-video">
+                  <BandMedia
+                    video={activeEvent.video}
+                    image={activeEvent.image}
+                    alt={activeEvent.title}
+                    sizes="(max-width: 900px) 100vw, 700px"
+                    playLabel={playLabel}
+                  />
+                </div>
+              ) : null}
               {(activeEvent.ctaUrl || registerFallbackHref) &&
               (activeEvent.registrationStatus || "open") === "open" ? (
                 <a

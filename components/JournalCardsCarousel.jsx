@@ -1,5 +1,7 @@
 "use client";
 
+import { BandMedia } from "@/components/BandMedia";
+import { youtubeId } from "@/lib/youtube";
 import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -23,6 +25,7 @@ export function JournalCardsCarousel({
   articles,
   readMore,
   modalClose,
+  playLabel,
   labels,
   title,
   titleId,
@@ -234,6 +237,17 @@ export function JournalCardsCarousel({
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
+              {youtubeId(activeArticle.video) ? (
+                <div className="modal-video">
+                  <BandMedia
+                    video={activeArticle.video}
+                    image={activeArticle.image}
+                    alt={activeArticle.title}
+                    sizes="(max-width: 900px) 100vw, 700px"
+                    playLabel={playLabel}
+                  />
+                </div>
+              ) : null}
             </div>
           </article>
         </div>,

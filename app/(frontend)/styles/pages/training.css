@@ -951,7 +951,11 @@ body .training-modal-content .training-meta span {
 
 .training-page-redesign .training-workshop-panel > .training-solid-button {
   justify-self: center;
-  margin-top: clamp(26px, 2.6vw, 36px);
+  /* Ülemine ots 36 -> 30 ja vw-tegur 2.6 -> 1.8: desktopil jäi nupu ja teksti
+     vahele 94px auku ja nupp istus bändis liiga madalal (omanik 2026-07-27:
+     "nupp väike nõks desktopis üles poole"). Alumine ots 26px jääb, seega
+     telefonis ei muutu midagi — seal oli vahe juba paigas. */
+  margin-top: clamp(26px, 1.8vw, 30px);
 }
 
 /* Band colours (with the shared soft glow) over the polarity theme.

@@ -1,5 +1,7 @@
 "use client";
 
+import { BandMedia } from "@/components/BandMedia";
+import { youtubeId } from "@/lib/youtube";
 import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -17,6 +19,7 @@ export function TrainingCardsCarousel({
   allLabel,
   registerLabel,
   registerHref,
+  playLabel,
 }) {
   const trainingTrackRef = useRef(null);
   const closeButtonRef = useRef(null);
@@ -200,6 +203,17 @@ export function TrainingCardsCarousel({
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
+              {youtubeId(activeTraining.video) ? (
+                <div className="modal-video">
+                  <BandMedia
+                    video={activeTraining.video}
+                    image={activeTraining.image}
+                    alt={activeTraining.title}
+                    sizes="(max-width: 900px) 100vw, 700px"
+                    playLabel={playLabel}
+                  />
+                </div>
+              ) : null}
               {registerHref && registerLabel ? (
                 <a className="training-solid-button training-modal-register" href={registerHref}>
                   {registerLabel}

@@ -15,9 +15,32 @@ import { createPortal } from "react-dom";
    klassidest, et kõik modaalid näeksid välja ühesugused; host-modal-* klassid
    katavad ainult seda sisu, mida sündmuse modaalis ei ole (formaadid, sammud,
    "hea teada"). */
+/* Aken on jagatav: /sundmused#korralda avab selle kohe ja avatud akna ajal
+   seisab see aadress ka aadressiribal, nii et lingi saab lihtsalt kopeerida.
+   history.replaceState, mitte pushState — muidu tekiks iga avamine ajalukku
+   eraldi sammuna ja "tagasi" nupp klõpsiks läbi modaali avamiste. */
+const HASH = "#korralda";
+
 export function HostEventModal({ label, closeLabel, content, contactHref, buttonClassName = "events-solid-button" }) {
   const [open, setOpen] = useState(false);
   const closeButtonRef = useRef(null);
+
+  /* Avamine lingilt: nii esmasel laadimisel kui siis, kui keegi kleebib
+     aadressi juba avatud lehel (hashchange). */
+  useEffect(() => {
+    const sync = () => setOpen(window.location.hash === HASH);
+
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, []);
+
+  useEffect(() => {
+    const { pathname, search, hash } = window.location;
+
+    if (open && hash !== HASH) window.history.replaceState(null, "", `${pathname}${search}${HASH}`);
+    if (!open && hash === HASH) window.history.replaceState(null, "", `${pathname}${search}`);
+  }, [open]);
 
   useEffect(() => {
     if (!open) return undefined;

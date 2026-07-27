@@ -1,5 +1,6 @@
 import { SteppedTitle } from "@/components/SteppedTitle";
 import Image from "next/image";
+import { BandMedia } from "@/components/BandMedia";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getHeaderTextures } from "@/lib/payloadContent";
@@ -67,11 +68,12 @@ export async function AboutPage({ locale = "et" }) {
           <section className="about-story-panel" aria-labelledby="about-story-title" {...getCmsSectionProps(messages, "aboutStory")}>
             <TextureSlideshow set="green" />
             <div className="about-story-image">
-              <Image
-                src={t.storyImage}
+              <BandMedia
+                video={t.storyVideo}
+                image={t.storyImage}
                 alt={t.storyImageAlt}
-                fill
                 sizes="(max-width: 980px) 100vw, 46vw"
+                playLabel={messages.video.play}
               />
             </div>
             <div className="about-story-copy">

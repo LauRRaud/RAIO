@@ -88,6 +88,24 @@ function imageField(name: string, label = "Sektsiooni pilt"): Field {
   return { name, label, type: "upload", relationTo: "media" };
 }
 
+/* MEELEGA KEELESTAMATA (localized puudub). Kaks põhjust: sama klipp sobib
+   tavaliselt mõlemasse keelde, ja keelestatud väli läheks tabelisse
+   page_editor_locales, mis on 81 veeru peal — Postgres loeb selle rea ühe
+   json_build_array'ga, millel on 100-argumendiline lagi. Keelestamata väli
+   läheb page_editor'isse, kus seda piirangut ei ole. */
+function videoField(name = "video"): Field {
+  return {
+    name,
+    label: "Video (YouTube'i link)",
+    type: "text",
+    admin: {
+      description:
+        "Kleebi tavaline YouTube'i link. Tühjaks jättes jääb sektsiooni pilt. Video avaneb alles vajutamisel — kuni selleni on näha ülalolev pilt.",
+      placeholder: "https://www.youtube.com/watch?v=..."
+    }
+  };
+}
+
 function textField(name: string, label: string, textarea = false): Field {
   if (textarea) {
     return { name, label, type: "textarea", localized: true };
@@ -199,7 +217,7 @@ export const PageEditor: GlobalConfig = {
               textField("title", "Sektsiooni pealkiri"), textField("cta", "Kaardi nupu tekst"),
               { name: "qualities", label: "Kvaliteedimärksõnad", type: "array", localized: true, fields: [textField("title", "Tekst")] }
             ], "Kaarte lisad ja muudad vasakmenüüst „Treeningud”."),
-            sectionGroup("trainingLasting", "03 · Kestev treening", [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst"), imageField("image")], "Pildi ja tekstiga sisusektsioon."),
+            sectionGroup("trainingLasting", "03 · Kestev treening", [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst"), imageField("image"), videoField()], "Pildi ja tekstiga sisusektsioon."),
             sectionGroup("trainingWorkshop", "04 · Töötuba", [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst")], "Treeningute lehe alumine üleskutse. Nupp avab sama akna „Korralda sündmus · modaal”, mis sündmuste lehel.")
           ]
         },
@@ -211,7 +229,7 @@ export const PageEditor: GlobalConfig = {
               textField("title", "Sektsiooni pealkiri"), textField("cta", "Kaardi nupu tekst"),
               { name: "proofLabels", label: "Materjali sektsiooni märksõnad", type: "array", localized: true, fields: [textField("label", "Tekst")] }
             ], "Kaarte lisad ja muudad vasakmenüüst „Vahendite kaardid”."),
-            sectionGroup("toolsMaterial", "03 · Materjal", [textField("title", "Pealkiri"), textField("text", "Tekst", true), imageField("image")], "Materjalide pildi- ja tekstisektsioon."),
+            sectionGroup("toolsMaterial", "03 · Materjal", [textField("title", "Pealkiri"), textField("text", "Tekst", true), imageField("image"), videoField()], "Materjalide pildi- ja tekstisektsioon."),
             sectionGroup("toolsCare", "04 · Hooldus", [textField("title", "Pealkiri"), textField("text", "Tekst", true), imageField("image")], "Hoolduse pildi- ja tekstisektsioon.")
           ]
         },
@@ -220,7 +238,7 @@ export const PageEditor: GlobalConfig = {
           fields: [
             hero("eventsHero"),
             sectionGroup("eventsCarousel", "02 · Sündmuste karussell", [textField("title", "Sektsiooni pealkiri"), textField("cta", "Kaardi nupu tekst")], "Kaarte lisad ja muudad vasakmenüüst „Sündmused”."),
-            sectionGroup("eventsHost", "03 · Korralda sündmus (bänd)", [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst"), imageField("image")], "Sündmuste lehe alumine pildi- ja tekstisektsioon. Nupp avab akna „Korralda sündmus · modaal”, sama mille avab treeningute lehe töötoa-nupp.")
+            sectionGroup("eventsHost", "03 · Korralda sündmus (bänd)", [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst"), imageField("image"), videoField()], "Sündmuste lehe alumine pildi- ja tekstisektsioon. Nupp avab akna „Korralda sündmus · modaal”, sama mille avab treeningute lehe töötoa-nupp.")
           ]
         },
         {
@@ -235,7 +253,7 @@ export const PageEditor: GlobalConfig = {
           label: "Meist",
           fields: [
             hero("aboutHero"),
-            sectionGroup("aboutStory", "02 · Meie lugu", [textField("title", "Pealkiri"), textField("text", "Tekst", true), imageField("image")], "Meie loo sektsioon."),
+            sectionGroup("aboutStory", "02 · Meie lugu", [textField("title", "Pealkiri"), textField("text", "Tekst", true), imageField("image"), videoField()], "Meie loo sektsioon."),
             sectionGroup("aboutTrainers", "03 · Treenerid", [
               textField("title", "Sektsiooni pealkiri"),
               { name: "items", label: "Treenerid", type: "array", localized: true, fields: [textField("name", "Nimi"), textField("text", "Tutvustus", true), imageField("image", "Treeneri pilt")] }

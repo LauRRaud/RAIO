@@ -60,6 +60,7 @@ export async function JournalPage({ locale = "et" }) {
               allLabel={t.allLink}
               categories={t.categories}
               categoryNavLabel={t.categoryNavLabel}
+              playLabel={messages.video.play}
             />
           </div>
 

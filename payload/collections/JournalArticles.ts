@@ -73,6 +73,18 @@ export const JournalArticles: CollectionConfig = {
       relationTo: "media"
     },
     {
+      /* Keelestamata: sama klipp sobib mõlemasse keelde ja hoiab
+         *_locales tabeli kitsana. Tühi väli = modaalis videot ei ole. */
+      name: "videoUrl",
+      label: "Video (YouTube'i link)",
+      type: "text",
+      admin: {
+        description:
+          "Kleebi tavaline YouTube'i link. Video ilmub modaali kaardipildi kohale ja avaneb alles vajutamisel. Tühjaks jättes videot ei kuvata.",
+        placeholder: "https://www.youtube.com/watch?v=..."
+      }
+    },
+    {
       name: "content",
       label: "Sisu",
       type: "richText",
