@@ -34,14 +34,14 @@
         "href": "/treeningud"
       },
       {
-        "key": "vahendid",
-        "label": "Tools",
-        "href": "/vahendid"
-      },
-      {
         "key": "sundmused",
         "label": "Events",
         "href": "/sundmused"
+      },
+      {
+        "key": "vahendid",
+        "label": "Tools",
+        "href": "/vahendid"
       },
       {
         "key": "pood",

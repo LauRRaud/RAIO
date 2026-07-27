@@ -165,9 +165,12 @@ export const PageEditor: GlobalConfig = {
               type: "group",
               admin: { description: "Muudad ainult lingi nime. URL ja route jäävad alati samaks." },
               fields: [
+                /* Väljade järjekord = menüü järjekord, et adminis oleks sama
+                   pilt mis lehel. Veerunimed tulevad väljanimest, seega
+                   ümberjärjestamine ei vaja migratsiooni. */
                 textField("trainings", "Treeningud · /treeningud"),
-                textField("tools", "Vahendid · /vahendid"),
                 textField("events", "Sündmused · /sundmused"),
+                textField("tools", "Vahendid · /vahendid"),
                 textField("shop", "Pood · /pood"),
                 textField("about", "Meist · /meist"),
                 textField("journal", "Journal · /journal")
