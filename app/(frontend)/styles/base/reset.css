@@ -24,7 +24,12 @@ body::-webkit-scrollbar {
 body {
   margin: 0;
   color: var(--text);
-  background: var(--bg);
+  /* MUST, mitte --bg beež (omanik 2026-07-27: "tahtsin musta panna"). Body
+     taust paistab kahes kohas: jaluse alt, kui leht on lühem kui aken, ja
+     ülevalt/altpoolt kummipaela-kerimisel. Mõlemal pool on nüüd tume pind
+     (päise ja jaluse #14140f), seega beež luges seal võõra ribana.
+     --bg jääb alles: tooteleht kasutab seda endiselt paberitaustana. */
+  background: #14140f;
   font-family: var(--font-ui), system-ui, sans-serif;
   font-size: calc(18px * var(--cms-text-scale, 1));
   line-height: 1.55;

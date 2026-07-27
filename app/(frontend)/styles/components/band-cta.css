@@ -83,8 +83,9 @@ body .training-lasting-panel .training-solid-button:focus-visible {
 }
 
 /* Meist-lehe lõpubändis on nupp kolme väärtuseveeru ALL (flex-veerg), mitte
-   nende kõrval. Ilma veeriseta istub ta esimese lõigu küljes ja näeb välja
-   nagu kuuluks ainult sellesse veergu. */
+   nende kõrval. Vasakule joondatuna ja lähedal luges ta "Liikumise" nupuna
+   (omanik 2026-07-27) — keskele ja kaugemale, siis kuulub ta kogu bändile. */
 .about-closing-copy .events-solid-button {
-  margin-top: clamp(28px, 2.8vw, 40px);
+  align-self: center;
+  margin-top: clamp(60px, 6vw, 88px);
 }
