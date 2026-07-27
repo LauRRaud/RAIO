@@ -1,0 +1,263 @@
+================================================================================
+RA•IO — SEO JUHEND JA TEHTUD TÖÖ
+Koostatud 2026-07-27
+================================================================================
+
+SISUKORD
+  1. Mis muutus
+  2. Kust SEO-d muuta
+  3. Kaart „Lehtede tekstid”
+  4. Kaart „Jagamispilt ja vaikeväärtused”
+  5. Kaart „robots.txt”
+  6. Kaart „Sitemap”
+  7. Tootelehed
+  8. Kolm reeglit, mis kehtivad kõikjal
+  9. Kuidas kontrollida, kas muudatus läks läbi
+ 10. Mida ma sel korral tegin
+ 11. Mis jäi lahti — sinu otsustada
+
+
+================================================================================
+1. MIS MUUTUS
+================================================================================
+
+Varem elasid kõik SEO-tekstid koodifailides. Iga sõnamuutus nõudis minu
+sekkumist ja uut deploy'd.
+
+Nüüd muudad neid ise admin'is ja muudatus jõustub kohe pärast Save'i.
+Koodifailid jäid alles vaikeväärtusteks: kui admini väli on tühi, kehtib
+koodis olev tekst.
+
+
+================================================================================
+2. KUST SEO-D MUUTA
+================================================================================
+
+  https://raio.ee/admin  →  vasakust menüüst „SEO · Google ja jagamine”
+  Otselink: https://raio.ee/admin/globals/seo
+
+  Vaates on neli kaarti (ülemine ribamenüü):
+    Lehtede tekstid · Jagamispilt ja vaikeväärtused · robots.txt · Sitemap
+
+  Keelt vahetad paremal üleval Locale-valikust (Eesti / English).
+  NB! Eesti ja inglise tekstid on eraldi — muuda mõlemat.
+
+
+================================================================================
+3. KAART „LEHTEDE TEKSTID”
+================================================================================
+
+Iga lehe kohta on kaks välja ja üks pilt.
+
+  PEALKIRI
+    Kus paistab: sinine klikitav rida Google'i tulemuses + brauseri saki tekst.
+    Pikkus: kuni umbes 60 märki. Pikem lõigatakse „...”-ga.
+    Hea pealkiri: mida leht pakub + brändi nimi.
+      näide: „Treeningud looduses — jõud ja teadlik liikumine | RA•IO”
+
+  KIRJELDUS
+    Kus paistab: hall seletav tekst otsingutulemuse all. Sama tekst ilmub ka
+    siis, kui keegi jagab linki Facebookis või WhatsAppis.
+    Pikkus: 120–155 märki. Google lõikab ~160 juures.
+    See EI mõjuta pingerida. See mõjutab, kas inimene klikib.
+
+  JAGAMISPILT
+    Sellel lehel jagamisel näidatav pilt. Tühjaks jättes kasutatakse üldist
+    pilti (kaart „Jagamispilt ja vaikeväärtused”).
+
+Iga välja all on hall abitekst, kus seisab, MIS TEKST jääb kehtima, kui sa
+välja tühjaks teed — nii eesti kui inglise keeles. Kasuta seda ka siis, kui
+tahad lihtsalt näha, mis teises keeles kirjas on.
+
+Lehed, mida saad muuta: Avaleht, Treeningud, Vahendid, Sündmused, RA•IO+,
+Pood, Meist. Lisaks „Kogu saidi vaikeväärtus”, mida läheb harva vaja.
+
+Ostukorv ja makseleht puuduvad meelega — need on Google'ist väljas.
+
+
+================================================================================
+4. KAART „JAGAMISPILT JA VAIKEVÄÄRTUSED”
+================================================================================
+
+Üks pilt, mis kehtib kõigil lehtedel, millel pole oma jagamispilti.
+
+  Soovituslik mõõt: 1200 × 630 pikslit.
+  Tühjaks jättes kasutatakse faili /og/og-default.jpg.
+
+Pildi laadid üles samamoodi nagu mujal admin'is: „Choose from existing” valib
+juba üleslaetud pildi, „Create New” laeb uue.
+
+
+================================================================================
+5. KAART „ROBOTS.TXT”
+================================================================================
+
+robots.txt ütleb otsingurobotitele, mida nad tohivad läbi lugeda.
+Vaata tulemust: https://raio.ee/robots.txt
+
+  LÜLITI „Luba tehisintellekti robotitel sisu lugeda”  (vaikimisi SEES)
+    SEES  = ChatGPT, Claude, Perplexity jt tohivad RA•IO sisu lugeda ja
+            mudelites kasutada. Sinu sisu võib jõuda AI-vestlustesse.
+    VÄLJAS = 12 tuntud AI-robotit saavad keelu. Sinu tekstid ja fotod jäävad
+            mudelitest välja.
+    Google'i tavaotsingut see valik EI mõjuta kummaski asendis.
+
+  VÄLI „Lisaks keelatud teed”
+    Üks rida = üks tee, näiteks /mingi-leht. Tavaliselt jäta tühjaks.
+
+Miks siin ei ole vaba tekstivälja: üks vale rida robots.txt-is kustutab terve
+saidi Google'ist. Seepärast keeldub vorm salvestamast rida, mis ei alga
+kaldkriipsuga, sisaldab tühikut või on paljas „/”.
+
+/admin ja /api/ on alati keelatud ja neid ei saa sisse lülitada.
+
+
+================================================================================
+6. KAART „SITEMAP”
+================================================================================
+
+Sitemap on lehtede nimekiri, mille anname Google'ile.
+Vaata tulemust: https://raio.ee/sitemap.xml
+
+  Iga lehe kohta on linnuke. Sees = leht on nimekirjas.
+  Eraldi linnuke „Tootelehed” lülitab korraga kõik nähtavad tooted.
+
+  NB! Linnukese mahavõtmine EI kustuta lehte Google'ist. See lõpetab ainult
+  lehe soovitamise. Lehe päris peitmiseks on vaja muud lahendust — küsi.
+
+  Ostukorv ja makse ei ole nimekirjas kunagi.
+
+
+================================================================================
+7. TOOTELEHED
+================================================================================
+
+Tooteid siin vaates ei ole. Toote SEO tuleb toote enda kirjest:
+
+  admin → Products → ava toode
+    Toote nimi        → saab tootelehe pealkirjaks: „<nimi> | RA•IO”
+    Toote kirjeldus   → saab tootelehe Google-kirjelduseks
+    Toote esimene foto → saab jagamispildiks
+
+  Praegu on tootekirjeldused 59–79 märki, Google'i soovituslik on 120–155.
+  Siin on kõige rohkem võita ja seda saad ise teha.
+
+
+================================================================================
+8. KOLM REEGLIT, MIS KEHTIVAD KÕIKJAL
+================================================================================
+
+  1. TÜHI VÄLI = PRAEGUNE TEKST JÄÄB KEHTIMA.
+     Tühjaks tehtud väli ei tähenda tühja pealkirja — koodis olev tekst võtab
+     üle. See on ka lihtne tagasitee: kui sõnastus ei istu, tee väli tühjaks.
+
+  2. SAVE MÕJUB KOHE.
+     Deploy'd ei ole vaja. Ava avalik leht ja vaata brauseri saki teksti.
+
+  3. GOOGLE VÕTAB AEGA.
+     Sait muutub kohe, aga Google'i otsingutulemus uueneb alles siis, kui
+     robot uuesti külas käib — tavaliselt mõne päeva jooksul.
+
+
+================================================================================
+9. KUIDAS KONTROLLIDA, KAS MUUDATUS LÄKS LÄBI
+================================================================================
+
+  Pealkiri:      ava leht, vaata brauseri saki teksti.
+  Kirjeldus:     paremklõps lehel → „Vaata lehe lähtekoodi” → otsi
+                 <meta name="description".
+  Jagamispilt:   kleebi link Facebooki või WhatsAppi vestlusesse (ära saada) —
+                 eelvaade ilmub.
+  robots.txt:    https://raio.ee/robots.txt
+  Sitemap:       https://raio.ee/sitemap.xml
+
+  Kui jagamispilt ei uuene, on tegu Facebooki vahemäluga, mitte veaga —
+  Facebooki „Sharing Debugger” sunnib värskendama.
+
+
+================================================================================
+10. MIDA MA SEL KORRAL TEGIN
+================================================================================
+
+Kokku neli commit'i, kõik GitHubis ja serveris.
+
+A) BRAUSERI SAKK JA HERO-VAHE
+   - Avalehe sakis luges „RA•IO — käsitöö sangpommid ja treeningvahendid”,
+     millest kitsas sakis paistis ainult „käsitöö sangpommid”.
+     Nüüd: „RA•IO — treeningvahendid” / „RA•IO — training tools”.
+   - Alalehtede hero-pealkirja ja selle all oleva teksti vahe: 28 → 52 pikslit
+     telefonis. Kontrollitud kuuel lehel 390×664 ja kahel 1440×900.
+
+B) SEO-TEKSTID: „TREENINGVAHENDID” JUHTSÕNAKS
+   Neli teksti mõlemas keeles: saidiülene kirjeldus, avalehe kirjeldus, poe
+   pealkiri ja poe kirjeldus. Sangpommid jäid loetellu — märksõna säilib
+   Google'i jaoks, aga ei defineeri enam brändi.
+   Puutumata jäid vahendite ja „Meist” kirjeldused, kus „sangpommid” on osa
+   tootekategooriate loetelust.
+
+C) SEO ADMINI ALLA  ← põhitöö
+   - Uus admini vaade „SEO · Google ja jagamine” nelja kaardiga.
+   - robots.txt ja sitemap.xml loetakse nüüd jooksvalt, mitte ei küpsetata
+     build'i ajal — muidu ei mõjuks Save enne järgmist deploy'd.
+   - Turvavõte: tühi väli = koodi tekst jääb kehtima. Nii ei saa kogemata
+     tühja pealkirja avalikule lehele saata.
+   - Turvavõte: robots.txt ei ole vaba tekstiväli, vaid lülitid ja
+     kontrollitud keeluread.
+   - Admini väljad täideti automaatselt praeguste avalike tekstidega, et sa
+     näeksid lahtris seda, mis päriselt Google'is on.
+   - Andmebaasi muudatus (migratsioon) tehtud nii lokaalselt kui serveris.
+
+D) ABITEKSTID VÄLJADE ALLA
+   Iga pealkirja- ja kirjeldusvälja alla tuli rida, kus seisab, mis tekst
+   tühja välja korral kehtima jääb — eesti ja inglise keeles korraga.
+
+KONTROLLITUD
+   - Admini muudatus jõudis avalikule lehele ilma build'ita: pealkiri,
+     kirjeldus, robots.txt AI-keeld, sitemap'ist lehe eemaldamine.
+   - Tühjaks tehtud väli langes tagasi koodi tekstile.
+   - Prod: kõik lehed vastavad 200-ga, serveri vealogi tühi.
+   - MIDA MA EI NÄINUD: admini vormi ennast. Lokaalses andmebaasis pole
+     kasutajakontot ja kontode loomine ei ole minu teha. Ava palun
+     /admin/globals/seo ja ütle, kui midagi on segane või katki.
+
+TEISED FAILID SIIN KAUSTAS
+   SEO-TEKSTID.txt   — kõigi lehtede ja toodete praegused tekstid märgiarvudega
+   SEO-ROBOTS.txt    — robots.txt rida-realt lahti seletatud
+   SEO-SITEMAP.txt   — sitemap'i nimekiri ja kakskeelsuse loogika
+
+
+================================================================================
+11. MIS JÄI LAHTI — SINU OTSUSTADA
+================================================================================
+
+1. TOOTEKIRJELDUSED ON LÜHIKESED (59–79 märki, soovituslik 120–155).
+   Saad ise admin'is pikendada. Kõige suurem võit väikseima vaevaga.
+
+2. INGLISKEELSED AADRESSID ON EESTIKEELSED
+   /en/treeningud, /en/vahendid, /en/sundmused. Inglise otsijale loeks
+   /en/training, /en/tools, /en/events paremini. Marsruudid on koodis olemas,
+   aga kasutusel pole. Vajab ümbersuunamisi, et Google'i senine ajalugu ei
+   kaoks — eraldi töö, ütle kui tahad.
+
+3. JAGAMISPILT ON KÕIGIL LEHTEDEL ÜKS JA SAMA
+   Nüüd saad igale lehele oma pildi anda. Kui tahad, et ma need valmis
+   kujundaksin (1200×630), ütle.
+
+4. ETTEVÕTTE ANDMED GOOGLE'ILE
+   Praegu saadame: nimi, ametlik nimi, aadress raio.ee, logo, Instagram.
+   Puuduvad: e-post, telefon, füüsiline aadress, Facebook. Nende lisamine
+   aitab Google'il ettevõtet tuvastada — ütle, millised andmed tohivad
+   avalikud olla.
+
+5. SITEMAP'I KUUPÄEVAD
+   Praegu näitab sitemap kõigil lehtedel muutmise ajaks päringu hetke, seega
+   Google näeb alati kõiki lehti „just muutununa”. Päris kuupäevade
+   kasutamine on väike ja ohutu parandus.
+
+6. GOOGLE SEARCH CONSOLE
+   Sitemap tuleb seal ühe korra ette anda: Search Console → Sitemaps →
+   „sitemap.xml” → Submit. Pärast seda näed, mitu lehte on päriselt indeksis.
+
+
+MINU MÄRKUSED:
+
