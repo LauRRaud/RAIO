@@ -92,6 +92,9 @@ export function HostEventModal({ label, closeLabel, content, contactHref, button
                   {content.formats.map((item) => (
                     <li key={item.title}>
                       <h4>{item.title}</h4>
+                      {/* Kestus · grupp · hind. Omanik täidab admin'is; tühjana
+                          rida puudub, et leht ei lubaks numbrit, mida ei ole. */}
+                      {item.meta ? <p className="host-modal-format-meta">{item.meta}</p> : null}
                       <p>{item.text}</p>
                     </li>
                   ))}

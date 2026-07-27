@@ -29,6 +29,20 @@ function textField(name: string, label: string, textarea = false): Field {
     : { name, label, type: "text", localized: true };
 }
 
+/* Kestus, grupi suurus ja hind ÜHEL vabatekstiväljal, mitte kolmel eraldi:
+   hinnamudel on veel lahtine (inimese kohta? tunnihind? paketihind?) ja
+   vabatekst kannatab kõiki neid välja, ilma et iga mudelivahetus nõuaks uut
+   migratsiooni. Eraldajaks " · ", nagu treeningukaartide meta-real. */
+function metaField(name: string): Field {
+  return {
+    name,
+    label: "Kestus, grupp ja hind (vabatahtlik)",
+    type: "text",
+    localized: true,
+    admin: { description: "Näiteks: 3–4 h · 10–30 inimest · alates 55 €/inimene. Tühjaks jättes rida ei kuvata." }
+  };
+}
+
 function group(name: string, label: string, fields: Field[], description: string): Field {
   return { name, label, type: "group", admin: { description }, fields };
 }
@@ -59,12 +73,15 @@ export const HostEvent: GlobalConfig = {
         textField("title", "Sektsiooni pealkiri"),
         textField("formatOneTitle", "1. formaadi pealkiri"),
         textField("formatOneText", "1. formaadi tekst", true),
+        metaField("formatOneMeta"),
         textField("formatTwoTitle", "2. formaadi pealkiri"),
         textField("formatTwoText", "2. formaadi tekst", true),
+        metaField("formatTwoMeta"),
         textField("formatThreeTitle", "3. formaadi pealkiri"),
-        textField("formatThreeText", "3. formaadi tekst", true)
+        textField("formatThreeText", "3. formaadi tekst", true),
+        metaField("formatThreeMeta")
       ],
-      "Kolm plokki: mida sündmus üldse olla saab."
+      "Kolm plokki: mida sündmus üldse olla saab. Kestuse, grupi suuruse ja hinna rida on VABATAHTLIK — tühjaks jäetuna seda rida lehel ei ole."
     ),
     group(
       "process",

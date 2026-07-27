@@ -75,6 +75,19 @@
   line-height: 1.3;
 }
 
+/* Kestus · grupp · hind: silt, mitte kehatekst — väiksem, hõrendatud ja
+   roheline, sama aktsent mis sammunumbritel. Mõõt tuleb siit, sest jagatud
+   modaalireegel component-type.css-is arvab selle klassi meelega välja. */
+.host-modal-format-meta {
+  margin: 0 0 10px;
+  color: var(--events-icon-green);
+  font-size: calc(clamp(0.82rem, 0.9vw, 0.94rem) * var(--cms-text-scale, 1));
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 /* Sammud: number eraldi veerus, et pealkiri jääks tavalisse rütmi ja loend
    püsiks ekraanilugejale ordered listiks. */
 .host-modal-steps {

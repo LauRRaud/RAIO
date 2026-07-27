@@ -203,11 +203,14 @@
 /* Karussellimodaalide (treening/sündmus/artikkel) kehatekst — liivatekstuuril
    luges vaikimisi lehe-p mõõt liiga väikesena (omanik 2026-07-21: "tekst on
    liiga väike ja ma ei näe lugeda"). */
+/* :not(.host-modal-format-meta) — formaadi kestus/hind rida EI ole kehatekst,
+   vaid silt, ja saab oma mõõdu pages/host-event.css-is. Erand on kirjas siin,
+   reegli enda juures, mitte hilisema ülekirjutusena. */
 :is(
   .training-modal-content,
   .events-event-modal-content,
   .journal-article-content
-) p,
+) p:not(.host-modal-format-meta),
 /* "Korralda sündmus" modaali „hea teada” punktid on li, mitte p — sama mõõt
    siit, et modaali kehatekst oleks endiselt ÜHES kohas defineeritud. */
 .host-modal-notes li {
