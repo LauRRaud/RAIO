@@ -36,6 +36,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import path from "node:path";
 import fs from "node:fs/promises";
 import { chromium } from "playwright";
+import sharp from "sharp";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = path.join(root, "public");
@@ -44,13 +45,21 @@ const outDir = path.join(publicDir, "og");
 const WIDTH = 1200;
 const HEIGHT = 630;
 
-/* Raamitud foto kast. 548×506 ehk suhe 1,08 — kitsam kui ükski lähtefoto
-   (1,33 ja 1,50), seega cover lõikab ainult külgedelt. */
-const PHOTO_W = 548;
-const PHOTO_H = 506;
-const TEXT_W = WIDTH - PHOTO_W - 72 - 48 - 40; // äärised: vasak 72, parem 48, vahe 40
+/* Raamitud foto kast. Suhe 1,24 — endiselt kitsam kui ükski lähtefoto (1,33 ja
+   1,50), seega cover lõikab ainult külgedelt ja vertikaalset kärbet ei teki.
+   1,33-ni ei tohi minna: siis hakkaks kõrgus kaduma. */
+const PAD_LEFT = 60;
+const PAD_RIGHT = 40;
+const GAP = 36;
+const PHOTO_W = 660;
+const PHOTO_H = 534;
+const TEXT_W = WIDTH - PHOTO_W - PAD_LEFT - PAD_RIGHT - GAP;
 
-const TITLE_MAX = 64; // Posterama on versaalfont ja lai — päris suurus mõõdetakse brauseris
+const TITLE_MAX = 60; // Posterama on versaalfont ja lai — päris suurus mõõdetakse brauseris
+
+/* Renderdame kahekordses mõõdus ja vähendame sharp'iga: 2px raamijoon ja
+   peenike Posterama jäävad nii puhtad, mitte hambulised. */
+const SCALE = 2;
 
 const FONT = path.join(root, "app", "(frontend)", "fonts", "Posterama-2001-W04-Regular.ttf");
 const LOGO = path.join(publicDir, "Logo", "RAIO_horizontal_white_transparent.svg");
@@ -82,8 +91,8 @@ function card({ title, photoUrl, fontUrl, logoUrl, textureUrl }) {
     height: ${HEIGHT}px;
     display: flex;
     align-items: center;
-    gap: 40px;
-    padding: 0 48px 0 72px;
+    gap: ${GAP}px;
+    padding: 0 ${PAD_RIGHT}px 0 ${PAD_LEFT}px;
     background: #17130f;
     color: #fdf8ee;
     font-family: "Posterama", serif;
@@ -112,7 +121,7 @@ function card({ title, photoUrl, fontUrl, logoUrl, textureUrl }) {
     justify-content: center;
     gap: 44px;
   }
-  .logo { width: 232px; display: block; }
+  .logo { width: 214px; display: block; }
   .title {
     font-size: ${TITLE_MAX}px;
     line-height: 1.24;
@@ -153,7 +162,10 @@ function card({ title, photoUrl, fontUrl, logoUrl, textureUrl }) {
    päris file:// aadressilt; --allow-file-access-from-files lubab fondi. */
 const tmpHtml = path.join(publicDir, "__og-card.html");
 const browser = await chromium.launch({ args: ["--allow-file-access-from-files"] });
-const page = await browser.newPage({ viewport: { width: WIDTH, height: HEIGHT }, deviceScaleFactor: 1 });
+const page = await browser.newPage({
+  viewport: { width: WIDTH, height: HEIGHT },
+  deviceScaleFactor: SCALE
+});
 
 const fontUrl = pathToFileURL(FONT).href;
 const logoUrl = pathToFileURL(LOGO).href;
@@ -189,7 +201,17 @@ for (const entry of PAGES) {
         ? path.join(outDir, `og-${entry.key}.jpg`)
         : path.join(outDir, "en", `og-${entry.key}.jpg`);
 
-    await page.screenshot({ path: file, type: "jpeg", quality: 88 });
+    /* JPEG kirjutab sharp, mitte Playwright: vaikimisi 4:2:0 alamdiskreetimine
+       võttis 2px valgelt raamijoonelt värvuse ära ja naabripikslite soe toon
+       värvis ta kuldseks (mõõdetud rgb(253,215,192) asemel rgb(253,248,238)).
+       4:4:4 hoiab iga piksli oma värvuse. */
+    const shot = await page.screenshot({ type: "png" });
+
+    await sharp(shot)
+      .resize(WIDTH, HEIGHT)
+      .jpeg({ quality: 90, chromaSubsampling: "4:4:4" })
+      .toFile(file);
+
     console.log(`${path.relative(root, file)}`);
   }
 }
