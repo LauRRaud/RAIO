@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { AboutPage } from "@/components/pages/AboutPage";
 import { CartPage } from "@/components/pages/CartPage";
 import { EventsPage } from "@/components/pages/EventsPage";
@@ -63,6 +63,12 @@ export default async function EnglishSitePage({ params, searchParams }) {
 
   if (!route || route === "en") {
     return <HomePage locale="en" />;
+  }
+
+  /* Lühikest aega (2026-07-27) elanud alaleht, nüüd modaal — link võib elada
+     järjehoidjates. Sama suunamine on eesti poolel eraldi lehefailina. */
+  if (route === "sundmused/korralda") {
+    redirect("/en/sundmused#korralda");
   }
 
   // Makse tulemusleht vajab query-parameetreid (status, order), mille üldine

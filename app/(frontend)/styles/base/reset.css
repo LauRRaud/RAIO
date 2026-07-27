@@ -12,6 +12,12 @@ html {
   -ms-overflow-style: none;
   font-synthesis-weight: none;
   font-synthesis-style: none;
+  /* Puuteplaadi/puutetundliku kummipael maha: üle ääre kerides venitas
+     brauser lehte ja näitas päise/jaluse tagant lehe aluspinda (omanik
+     2026-07-27: "miks mõnikord saab päist ja jalust kerida edasi").
+     Kõrvalmõju: keelab mobiilis ka pull-to-refresh'i. Modaalide sisemist
+     kerimist see ei puuduta — nende overflow on omaette konteineris. */
+  overscroll-behavior-y: none;
 }
 
 html::-webkit-scrollbar,
