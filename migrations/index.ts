@@ -12,6 +12,7 @@ import * as migration_20260720_180000_texture_backdrops from './20260720_180000_
 import * as migration_20260720_200000_maksekeskus_payment_fields from './20260720_200000_maksekeskus_payment_fields';
 import * as migration_20260726_210000_textures_collection from './20260726_210000_textures_collection';
 import * as migration_20260727_120000_seo_global from './20260727_120000_seo_global';
+import * as migration_20260727_150000_host_event_page from './20260727_150000_host_event_page';
 
 export const migrations = [
   {
@@ -83,5 +84,10 @@ export const migrations = [
     up: migration_20260727_120000_seo_global.up,
     down: migration_20260727_120000_seo_global.down,
     name: '20260727_120000_seo_global'
+  },
+  {
+    up: migration_20260727_150000_host_event_page.up,
+    down: migration_20260727_150000_host_event_page.down,
+    name: '20260727_150000_host_event_page'
   },
 ];

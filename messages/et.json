@@ -454,11 +454,70 @@
     "host": {
       "title": "Korralda oma sündmus.",
       "text": "Ettevõtte suvepäevad, töötoad ja liikumiskogemused looduses.",
-      "cta": "Võta ühendust",
+      "cta": "Vaata võimalusi",
       "image": "/Pictures/Sündmused/events-host-workshop.png",
       "imageAlt": "Metsane sündmuseala sangpommide ja puidust treeningvahenditega"
     },
     "heroImageMobile": "/Pictures/Avaleht/raio-sundmused.webp"
+  },
+  "hostEvent": {
+    "metadata": {
+      "title": "Korralda oma sündmus — suvepäevad ja töötoad | RA•IO",
+      "description": "Ettevõtte suvepäevad, töötoad ja liikumiskogemused looduses. RA•IO toob vahendid ja juhendajad, kava teeme teie grupi ja koha järgi."
+    },
+    "heroTitle": "Korralda oma sündmus.",
+    "heroText": [
+      "Ettevõtte suvepäevad, töötoad ja liikumiskogemused looduses.",
+      "Kava sünnib teie inimeste, koha ja ajaga koos — mitte valmis paketist."
+    ],
+    "heroImage": "/Pictures/Sündmused/events-host-workshop.png",
+    "heroImageMobile": "/Pictures/Sündmused/events-host-workshop.png",
+    "heroImageAlt": "Metsane sündmuseala sangpommide ja puidust treeningvahenditega",
+    "formatsTitle": "Kolm formaati.",
+    "formats": [
+      {
+        "title": "Ettevõtte suvepäev",
+        "text": "Pool päeva või terve päev looduses: liikumine, käsitöövahendid ja ühine paus. Kava kohandame grupi suuruse järgi."
+      },
+      {
+        "title": "Töötuba",
+        "text": "Sissejuhatus sangpommi ja puidust vahendite kasutamisse: tehnika, hingamine ja ohutus. Sobib ka neile, kes pole varem tõstnud."
+      },
+      {
+        "title": "Liikumiskogemus",
+        "text": "Juhendatud treening metsas või vee ääres, teie tempos. Lühem formaat tiimile, kes tahab pigem liikuda kui istuda."
+      }
+    ],
+    "processTitle": "Kuidas see käib.",
+    "steps": [
+      {
+        "title": "Kirjuta",
+        "text": "Anna teada, kui palju inimesi, millal ja kus. Kui kohta veel pole, pakume välja."
+      },
+      {
+        "title": "Räägime läbi",
+        "text": "Vaatame üle kestuse, ajakava ja selle, mida te sellest päevast ootate."
+      },
+      {
+        "title": "Saad pakkumise",
+        "text": "Kirjalik pakkumine koos kavaga. Hind sõltub grupi suurusest, kestusest ja asukohast."
+      },
+      {
+        "title": "Teeme ära",
+        "text": "Meie toome vahendid ja juhendajad. Teie tulete kohale."
+      }
+    ],
+    "notesTitle": "Hea teada",
+    "notes": [
+      "Hooaeg on soe pool aastast; töötuba saab teha ka sisetingimustes.",
+      "Mida varem ühendust võtad, seda rohkem on vabu aegu.",
+      "Vahendid, juhendamine ja ohutusjuhis on hinna sees.",
+      "Toitlustuse ja koha saame korraldada või jätta teie hooleks.",
+      "Vihm ei tühista — kohandame riietuse ja kava."
+    ],
+    "closingTitle": "Räägime ära.",
+    "closingText": "Kirjuta paari lausega, mida plaanite — millal, kui palju inimesi ja mida ootate. Sellest piisab, et saata sulle pakkumine.",
+    "closingCta": "Võta ühendust"
   },
   "journal": {
     "metadata": {

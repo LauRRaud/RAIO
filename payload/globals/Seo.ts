@@ -19,6 +19,7 @@ const seoPages = [
   { name: "training", label: "Treeningud · /treeningud" },
   { name: "tools", label: "Vahendid · /vahendid" },
   { name: "events", label: "Sündmused · /sundmused" },
+  { name: "hostEvent", label: "Korralda oma sündmus · /sundmused/korralda" },
   { name: "journal", label: "RA•IO+ · /journal" },
   { name: "shop", label: "Pood · /pood" },
   { name: "about", label: "Meist · /meist" }
@@ -240,6 +241,7 @@ export const Seo: GlobalConfig = {
                 sitemapToggle("training", "Treeningud"),
                 sitemapToggle("tools", "Vahendid"),
                 sitemapToggle("events", "Sündmused"),
+                sitemapToggle("hostEvent", "Korralda oma sündmus"),
                 sitemapToggle("journal", "RA•IO+ / journal"),
                 sitemapToggle("shop", "Pood"),
                 sitemapToggle("about", "Meist"),

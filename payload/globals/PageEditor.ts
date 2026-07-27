@@ -220,7 +220,7 @@ export const PageEditor: GlobalConfig = {
           fields: [
             hero("eventsHero"),
             sectionGroup("eventsCarousel", "02 · Sündmuste karussell", [textField("title", "Sektsiooni pealkiri"), textField("cta", "Kaardi nupu tekst")], "Kaarte lisad ja muudad vasakmenüüst „Sündmused”."),
-            sectionGroup("eventsHost", "03 · Korralda sündmus", [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst"), imageField("image")], "Sündmuste lehe alumine pildi- ja tekstisektsioon.")
+            sectionGroup("eventsHost", "03 · Korralda sündmus (bänd)", [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst"), imageField("image")], "Sündmuste lehe alumine pildi- ja tekstisektsioon. Nupp viib alalehele „Korralda oma sündmus”.")
           ]
         },
         {

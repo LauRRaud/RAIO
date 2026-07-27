@@ -454,11 +454,70 @@
     "host": {
       "title": "Host your own event.",
       "text": "Company days, workshops, and movement experiences in nature.",
-      "cta": "Get in touch",
+      "cta": "See what we offer",
       "image": "/Pictures/Sündmused/events-host-workshop.png",
       "imageAlt": "A forest event area with kettlebells and wooden training tools"
     },
     "heroImageMobile": "/Pictures/Avaleht/raio-sundmused.webp"
+  },
+  "hostEvent": {
+    "metadata": {
+      "title": "Host your own event — company days and workshops | RA•IO",
+      "description": "Company summer days, workshops and movement experiences in nature. RA•IO brings the tools and the guides; the programme is built around your group and place."
+    },
+    "heroTitle": "Host your own event.",
+    "heroText": [
+      "Company summer days, workshops and movement experiences in nature.",
+      "The programme grows out of your people, place and time — not out of a ready-made package."
+    ],
+    "heroImage": "/Pictures/Sündmused/events-host-workshop.png",
+    "heroImageMobile": "/Pictures/Sündmused/events-host-workshop.png",
+    "heroImageAlt": "A forest event area with stone kettlebells and wooden training tools",
+    "formatsTitle": "Three formats.",
+    "formats": [
+      {
+        "title": "Company day",
+        "text": "Half a day or a full day outdoors: movement, handmade tools and a shared break. The programme is shaped to the size of the group."
+      },
+      {
+        "title": "Workshop",
+        "text": "An introduction to stone kettlebells and wooden tools: technique, breathing and safety. Suitable for people who have never lifted before."
+      },
+      {
+        "title": "Movement experience",
+        "text": "A guided session in the forest or by the water, at your own pace. A shorter format for a team that would rather move than sit."
+      }
+    ],
+    "processTitle": "How it works.",
+    "steps": [
+      {
+        "title": "Write to us",
+        "text": "Tell us how many people, when and where. If there is no place yet, we will suggest one."
+      },
+      {
+        "title": "We talk it through",
+        "text": "We go over the length, the schedule and what you want from the day."
+      },
+      {
+        "title": "You get a quote",
+        "text": "A written quote with the programme. The price depends on group size, length and location."
+      },
+      {
+        "title": "We make it happen",
+        "text": "We bring the tools and the guides. You just show up."
+      }
+    ],
+    "notesTitle": "Good to know",
+    "notes": [
+      "The season is the warm half of the year; workshops can also be held indoors.",
+      "The earlier you get in touch, the more dates are open.",
+      "Tools, guidance and the safety briefing are always included.",
+      "Catering and the venue can be arranged by us or left to you.",
+      "Rain does not cancel — we adjust the clothing and the programme."
+    ],
+    "closingTitle": "Let's talk it through.",
+    "closingText": "Write a couple of sentences about what you have in mind — when, how many people and what you expect. That is enough for us to send you a quote.",
+    "closingCta": "Get in touch"
   },
   "journal": {
     "metadata": {

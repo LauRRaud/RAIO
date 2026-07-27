@@ -3,6 +3,7 @@ import { AboutPage } from "@/components/pages/AboutPage";
 import { CartPage } from "@/components/pages/CartPage";
 import { EventsPage } from "@/components/pages/EventsPage";
 import { HomePage } from "@/components/HomePage";
+import { HostEventPage } from "@/components/pages/HostEventPage";
 import { JournalPage } from "@/components/pages/JournalPage";
 import { PaymentResultPage } from "@/components/pages/PaymentResultPage";
 import { ProductPage } from "@/components/pages/ProductPage";
@@ -22,6 +23,9 @@ import {
 export const dynamic = "force-dynamic";
 
 const routePages = {
+  /* Mitmeosaline tee: getRouteKey liidab segmendid kaldkriipsuga, seega
+     /en/sundmused/korralda võti on "sundmused/korralda". */
+  "sundmused/korralda": { page: "hostEvent", Component: HostEventPage },
   treeningud: { page: "training", Component: TrainingPage },
   vahendid: { page: "tools", Component: ToolsPage },
   sundmused: { page: "events", Component: EventsPage },
