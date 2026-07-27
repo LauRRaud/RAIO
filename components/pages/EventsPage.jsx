@@ -1,9 +1,9 @@
 import { SteppedTitle } from "@/components/SteppedTitle";
 import Image from "next/image";
-import Link from "next/link";
 import { EventsCardsCarousel } from "@/components/EventsCardsCarousel";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HostEventModal } from "@/components/HostEventModal";
 import { getHeaderTextures } from "@/lib/payloadContent";
 import { HeroMedia } from "@/components/HeroMedia";
 import { getLocalizedPath } from "@/lib/i18n";
@@ -93,11 +93,14 @@ export async function EventsPage({ locale = "et" }) {
               <h2 id="events-host-title">{t.host.title}</h2>
               <span className="events-short-rule" aria-hidden="true" />
               <p>{t.host.text}</p>
-              {/* Nupp viib alalehele, mitte otse kontaktile: seal on formaadid,
+              {/* Nupp avab modaali, mitte ei vii kontaktile: seal on formaadid,
                   protsess ja "hea teada", ning alles selle lõpus kontakt. */}
-              <Link href={path("/sundmused/korralda")} className="events-solid-button">
-                {t.host.cta}
-              </Link>
+              <HostEventModal
+                label={t.host.cta}
+                closeLabel={messages.hostEvent.close}
+                content={messages.hostEvent}
+                contactHref={contactHref}
+              />
             </div>
           </section>
         </section>

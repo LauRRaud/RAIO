@@ -1,112 +1,113 @@
-/* Korralda oma sündmus (/sundmused/korralda)
-   Leht kannab .events-page-redesign klassi, seega --events-* muutujad,
-   tüpograafia ja nupud tulevad events.css-ist. Siin on ainult need plokid,
-   mida sündmuste lehel ei ole: formaadikaardid, sammud, "hea teada" ja
-   lõpetav üleskutse. */
+/* "Korralda oma sündmus" — sündmuste lehe bändi nupu taga olev modaal.
+   Kroom (taust, sulgemisnupp, kerimine, pealkiri) tuleb events.css-i
+   .events-event-* reeglitest; siin on ainult see sisu, mida sündmuse modaalis
+   ei ole: formaadid, sammud, "hea teada" ja lõpetav üleskutse.
 
-.host-band {
-  position: relative;
-  isolation: isolate;
-  padding: clamp(64px, 7vw, 120px) clamp(24px, 5vw, 96px);
+   KEHATEKSTI MÕÕTU SIIN EI OLE. Modaalide p-mõõt on defineeritud
+   components/component-type.css-is ja komponendikiht imporditakse globals.css-is
+   PÄRAST lehekihti — siia kirjutatud font-size ei jõustuks niikuinii. Kolme
+   modaali kehatekst peabki olema ühesugune, seega ainuke õige koht on seal.
+
+   Modaal renderdatakse portaaliga document.body alla, seega
+   .events-page-redesign muutujad SIIA EI ULATU — joone- ja rõhuvärv tuleb
+   dialoogi enda skoobis defineerida, nagu events.css teeb --events-ink'iga. */
+.host-event-dialog {
+  --events-line: rgba(241, 236, 224, 0.16);
+  --events-icon-green: #b3c281;
 }
 
-.host-band-inner {
-  max-width: 1180px;
-  margin-inline: auto;
+.host-modal-lead {
+  display: grid;
+  gap: 12px;
+  max-width: 560px;
+  margin-top: 24px;
 }
 
-.host-band h2 {
-  margin: 0 0 clamp(32px, 3.4vw, 52px);
+.host-modal-lead p,
+.host-modal-formats p,
+.host-modal-steps p,
+.host-modal-closing p {
+  margin: 0;
+  /* Täisheledus, mitte muted: omanik on korduvalt öelnud, et poolläbipaistev
+     kiri fotoslaidi peal ei loe ("liiga tume, halvasti näha"). */
+  color: var(--events-ink);
+}
+
+.host-modal-block {
+  margin-top: clamp(34px, 3.2vw, 48px);
+  padding-top: clamp(24px, 2.4vw, 34px);
+  border-top: 1px solid var(--events-line);
+}
+
+.host-modal-block > h3,
+.host-modal-closing h3 {
+  margin: 0 0 clamp(20px, 2vw, 28px);
   color: var(--events-ink);
   font-family: var(--font-display), Georgia, serif;
   font-weight: 400;
-  font-size: calc(clamp(2rem, 3.25vw, 3.75rem) * var(--cms-text-scale, 1));
-  line-height: 1.24;
+  font-size: calc(clamp(1.75rem, 2.1vw, 2.3rem) * var(--cms-text-scale, 1));
+  line-height: 1.22;
   letter-spacing: 0.01em;
 }
 
-/* Kolm formaati kõrvuti; kaardid on lihtsad raamid, mitte pildikaardid —
-   sisu on siin tekst, mitte foto. */
-.host-formats,
-.host-steps,
-.host-notes ul {
+.host-modal-formats,
+.host-modal-steps,
+.host-modal-notes ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.host-formats {
+.host-modal-formats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(20px, 2vw, 32px);
+  gap: clamp(22px, 2.2vw, 30px);
 }
 
-.host-format {
-  padding: clamp(26px, 2.4vw, 38px);
-  border: 1px solid var(--events-line);
-  background: rgba(242, 221, 194, 0.42);
-}
-
-.host-format h3,
-.host-step h3,
-.host-notes h3 {
-  margin: 0 0 12px;
+/* Ploki- ja sammupealkirjad jäävad h3 ja kehateksti vahele: kehatekst on
+   modaalis 1.34rem, seega h4 peab olema sellest selgelt suurem. */
+.host-modal-formats h4,
+.host-modal-steps h4 {
+  margin: 0 0 8px;
   color: var(--events-ink);
   font-family: var(--font-display), Georgia, serif;
   font-weight: 400;
-  font-size: calc(clamp(1.3rem, 1.6vw, 1.72rem) * var(--cms-text-scale, 1));
+  font-size: calc(clamp(1.44rem, 1.7vw, 1.8rem) * var(--cms-text-scale, 1));
   line-height: 1.3;
 }
 
-.host-format p,
-.host-step p,
-.host-notes li {
-  margin: 0;
-  color: var(--events-muted);
-  font-size: calc(clamp(1rem, 1.05vw, 1.14rem) * var(--cms-text-scale, 1));
-  line-height: 1.7;
-}
-
-/* Sammud: number on eraldi element, et pealkiri saaks jääda tavalise
-   pealkirjarütmi sisse ja loend jääks ka ekraanilugejale ordered listiks. */
-.host-steps {
+/* Sammud: number eraldi veerus, et pealkiri jääks tavalisse rütmi ja loend
+   püsiks ekraanilugejale ordered listiks. */
+.host-modal-steps {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(20px, 2vw, 34px);
+  gap: clamp(20px, 2vw, 26px);
 }
 
-.host-step {
-  padding-top: 18px;
-  border-top: 1px solid var(--events-line);
+.host-modal-steps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
 }
 
-.host-step-number {
-  display: block;
-  margin-bottom: 14px;
+.host-modal-step-number {
   color: var(--events-icon-green);
   font-size: calc(0.78rem * var(--cms-text-scale, 1));
   font-weight: 700;
   letter-spacing: 0.18em;
 }
 
-.host-notes {
-  margin-top: clamp(44px, 4vw, 72px);
-  padding-top: clamp(28px, 2.6vw, 44px);
-  border-top: 1px solid var(--events-line);
-}
-
-.host-notes ul {
+.host-modal-notes ul {
   display: grid;
   gap: 10px;
-  max-width: 760px;
 }
 
-.host-notes li {
-  padding-left: 22px;
+.host-modal-notes li {
   position: relative;
+  padding-left: 22px;
+  color: var(--events-ink);
 }
 
-.host-notes li::before {
+.host-modal-notes li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -116,80 +117,31 @@
   background: var(--events-icon-green);
 }
 
-/* Lõpetav üleskutse: sama kuju nagu sündmuste lehe host-bänd, aga ilma
-   pildiveeruta — pilt on juba hero's. */
-.host-closing {
-  position: relative;
-  isolation: isolate;
-  padding: clamp(64px, 7vw, 120px) clamp(24px, 5vw, 96px);
+.host-modal-closing {
+  margin-top: clamp(34px, 3.2vw, 48px);
+  padding-top: clamp(24px, 2.4vw, 34px);
+  border-top: 1px solid var(--events-line);
 }
 
-.host-closing-copy {
-  max-width: 640px;
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+.host-modal-closing p {
+  max-width: 560px;
 }
 
-.host-closing-copy h2 {
-  margin: 0 0 20px;
-  color: var(--events-ink);
-  font-family: var(--font-display), Georgia, serif;
-  font-weight: 400;
-  font-size: calc(clamp(2.2rem, 3.25vw, 3.75rem) * var(--cms-text-scale, 1));
-  line-height: 1.24;
-  letter-spacing: 0.01em;
-}
-
-.host-closing-copy p {
-  margin: 0 0 clamp(24px, 2.4vw, 34px);
-  color: var(--events-ink);
-  font-size: calc(clamp(1.06rem, 1.12vw, 1.24rem) * var(--cms-text-scale, 1));
-  line-height: 1.7;
-}
-
-@media (max-width: 900px) {
-  .host-formats,
-  .host-steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.host-modal-contact {
+  margin-top: clamp(24px, 2.4vw, 32px);
 }
 
 @media (max-width: 620px) {
-  /* Telefonis üks veerg ja keskjoondatud sektsioonipealkirjad — sama reegel,
-     mis kehtib kõigil teistel bändidel (vt components/hero-polish.css). */
-  .host-formats,
-  .host-steps {
+  /* Telefonis on kehatekst 1.34rem (component-type.css) ja h2 ~2.7rem —
+     vahepealsed astmed tuleb siin lahti hoida, muidu jooksevad h3, h4 ja
+     kehatekst ühte mõõtu kokku. */
+  .host-modal-block > h3,
+  .host-modal-closing h3 {
+    font-size: calc(clamp(1.75rem, 7.2vw, 2.2rem) * var(--cms-text-scale, 1));
+  }
+
+  .host-modal-steps li {
     grid-template-columns: 1fr;
-  }
-
-  .host-band h2 {
-    text-align: center;
-  }
-
-  .host-band h2,
-  .host-closing-copy h2 {
-    font-size: calc(clamp(2rem, 8.5vw, 2.5rem) * var(--cms-text-scale, 1));
-  }
-
-  .host-format p,
-  .host-step p,
-  .host-notes li,
-  .host-closing-copy p {
-    font-size: calc(clamp(1.36rem, 5vw, 1.48rem) * var(--cms-text-scale, 1));
-  }
-
-  .host-format h3,
-  .host-step h3,
-  .host-notes h3 {
-    font-size: calc(clamp(1.5rem, 6vw, 1.8rem) * var(--cms-text-scale, 1));
-  }
-
-  /* Nupp keskele, nagu kõigis alalehe bändides (omanik 2026-07-09). */
-  .host-closing-copy {
-    align-items: center;
-    text-align: center;
+    gap: 6px;
   }
 }

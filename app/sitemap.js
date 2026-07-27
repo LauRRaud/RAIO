@@ -13,7 +13,6 @@ const PUBLIC_PATHS = [
   { key: "training", path: "/treeningud" },
   { key: "tools", path: "/vahendid" },
   { key: "events", path: "/sundmused" },
-  { key: "hostEvent", path: "/sundmused/korralda" },
   { key: "journal", path: "/journal" },
   { key: "shop", path: "/pood" },
   { key: "about", path: "/meist" }

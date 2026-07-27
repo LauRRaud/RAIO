@@ -2,65 +2,26 @@ import type { Field, GlobalConfig } from "payload";
 
 import { anyone, authenticated } from "@/payload/access";
 
-/* Alaleht /sundmused/korralda.
+/* Sündmuste lehe "Korralda sündmus" bändi nupu taga olev MODAAL.
  *
  * MIKS OMA GLOBAAL, mitte uus tab "Lehtede sisu ja kujundus" all:
  * page_editor_locales oli juba 83 veeru peal ja Payload loeb lokaliseeritud
  * välju ühe `json_build_array(...)` kutsega, millel on Postgresis KÕVA
- * 100-argumendiline lagi. Selle lehe 23 välja viisid päringu üle piiri ja kogu
+ * 100-argumendiline lagi. Selle sisu 23 välja viisid päringu üle piiri ja kogu
  * admin jäi veaga 54023 seisma. Oma tabel = oma lagi. Kui järgmine leht tuleb,
  * tee talle samamoodi oma globaal, ära kasva page_editor'i sisse.
  *
- * Formaate on kolm ja samme neli — kindlad kohad, mitte lisatavad read: leht
+ * MIKS SIIN EI OLE VÄRVI-/FONDIVÄLJU (nagu page-editor'i sektsioonidel):
+ * modaal ei ole sektsioon lehel, vaid jagab kroomi treeningu- ja sündmuse-
+ * modaaliga (tume tekstuurtaust, hele tekst). Kui neid siin sättida saaks,
+ * lagundaks see kolme modaali ühtsuse. Migratsioon 20260727_150000 lõi need
+ * veerud enne, kui sisust modaal sai — need jäävad tabelisse kasutuseta,
+ * andmeid seal ei ole ja Payload ei puutu neid.
+ *
+ * Formaate on kolm ja samme neli — kindlad kohad, mitte lisatavad read: modaal
  * on nende arvude peale kujundatud. Sõnalised järjenumbrid (formatOne…, mitte
  * format1…) sellepärast, et Payload teeb väljanimest veerunime ja number keset
  * nime annaks "format_1_title". */
-
-const fontOptions = [
-  { label: "Lehe vaikimisi font", value: "inherit" },
-  { label: "RAIO / Posterama", value: "posterama" },
-  { label: "Moodne süsteemifont", value: "system" },
-  { label: "Arial · puhas ja neutraalne", value: "arial" },
-  { label: "Helvetica · minimalistlik", value: "helvetica" },
-  { label: "Verdana · hästi loetav", value: "verdana" },
-  { label: "Trebuchet · pehme ja inimlik", value: "trebuchet" },
-  { label: "Tahoma · kompaktne", value: "tahoma" },
-  { label: "Georgia · ajakirjalik serif", value: "georgia" },
-  { label: "Times · klassikaline serif", value: "times" },
-  { label: "Garamond · elegantne serif", value: "garamond" },
-  { label: "Palatino · soe serif", value: "palatino" },
-  { label: "Courier New · kirjutusmasin", value: "courier" },
-  { label: "Lucida Console · tehniline", value: "lucida" },
-  { label: "Impact · tugev aktsent", value: "impact" }
-];
-
-const textScaleOptions = [
-  { label: "Väiksem (90%)", value: "0.9" },
-  { label: "Vaikimisi (100%)", value: "1" },
-  { label: "Veidi suurem (110%)", value: "1.1" },
-  { label: "Suurem (125%)", value: "1.25" },
-  { label: "Kõige suurem (150%)", value: "1.5" }
-];
-
-function appearanceFields(): Field[] {
-  return [
-    {
-      name: "styleBackgroundColor",
-      label: "Sektsiooni taustavärv",
-      type: "text",
-      admin: { description: "HEX, RGB või CSS värv. Tühjaks jättes säilib praegune kujundus.", width: "50%" }
-    },
-    {
-      name: "styleTextColor",
-      label: "Teksti värv",
-      type: "text",
-      admin: { description: "Näiteks #11100d või white.", width: "50%" }
-    },
-    { name: "styleHeadingFont", label: "Pealkirjade font", type: "select", defaultValue: "inherit", options: fontOptions, admin: { width: "50%" } },
-    { name: "styleBodyFont", label: "Tekstide font", type: "select", defaultValue: "inherit", options: fontOptions, admin: { width: "50%" } },
-    { name: "styleTextScale", label: "Tekstide suurus", type: "select", defaultValue: "1", options: textScaleOptions, admin: { width: "50%" } }
-  ];
-}
 
 function textField(name: string, label: string, textarea = false): Field {
   return textarea
@@ -69,29 +30,27 @@ function textField(name: string, label: string, textarea = false): Field {
 }
 
 function group(name: string, label: string, fields: Field[], description: string): Field {
-  return { name, label, type: "group", admin: { description }, fields: [...fields, ...appearanceFields()] };
+  return { name, label, type: "group", admin: { description }, fields };
 }
 
 export const HostEvent: GlobalConfig = {
   slug: "host-event",
-  label: "Korralda sündmus · alaleht",
+  label: "Korralda sündmus · modaal",
   access: { read: anyone, update: authenticated },
   admin: {
     group: "01 · MUUDA VEEBILEHTE",
     description:
-      "Alaleht raio.ee/sundmused/korralda, kuhu viib sündmuste lehe nupp. Tühjaks jäetud väli tähendab: jääb kehtima praegune tekst."
+      "Aken, mis avaneb sündmuste lehe alumise bändi nupust. Tühjaks jäetud väli tähendab: jääb kehtima praegune tekst. Nupu enda teksti muudad „Lehtede sisu ja kujundus” → „Sündmused”."
   },
   fields: [
     group(
       "hero",
-      "01 · Header / hero",
+      "01 · Pealkiri ja sissejuhatus",
       [
         textField("title", "Pealkiri"),
-        textField("text", "Tekst (iga uus rida loob eraldi lõigu)", true),
-        { name: "image", label: "Hero pilt", type: "upload", relationTo: "media" },
-        { name: "mobileImage", label: "Hero pilt telefonis", type: "upload", relationTo: "media" }
+        textField("text", "Tekst (iga uus rida loob eraldi lõigu)", true)
       ],
-      "Lehe esimene sektsioon."
+      "Modaali esimesed read."
     ),
     group(
       "formats",
@@ -105,7 +64,7 @@ export const HostEvent: GlobalConfig = {
         textField("formatThreeTitle", "3. formaadi pealkiri"),
         textField("formatThreeText", "3. formaadi tekst", true)
       ],
-      "Kolm kaarti: mida sündmus üldse olla saab."
+      "Kolm plokki: mida sündmus üldse olla saab."
     ),
     group(
       "process",
@@ -129,7 +88,7 @@ export const HostEvent: GlobalConfig = {
       "closing",
       "04 · Lõpetav üleskutse",
       [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst")],
-      "Lehe alumine plokk. Nupp viib kontaktideni lehel „Meist”."
+      "Modaali alumine plokk. Nupp viib kontaktideni lehel „Meist”."
     )
   ]
 };

@@ -207,7 +207,10 @@
   .training-modal-content,
   .events-event-modal-content,
   .journal-article-content
-) p {
+) p,
+/* "Korralda sündmus" modaali „hea teada” punktid on li, mitte p — sama mõõt
+   siit, et modaali kehatekst oleks endiselt ÜHES kohas defineeritud. */
+.host-modal-notes li {
   font-size: calc(clamp(1.34rem, 1.38vw, 1.6rem) * var(--cms-text-scale, 1));
   line-height: 1.68;
 }

@@ -461,18 +461,12 @@
     "heroImageMobile": "/Pictures/Avaleht/raio-sundmused.webp"
   },
   "hostEvent": {
-    "metadata": {
-      "title": "Host your own event — company days and workshops | RA•IO",
-      "description": "Company summer days, workshops and movement experiences in nature. RA•IO brings the tools and the guides; the programme is built around your group and place."
-    },
+    "close": "Close",
     "heroTitle": "Host your own event.",
     "heroText": [
       "Company summer days, workshops and movement experiences in nature.",
       "The programme grows out of your people, place and time — not out of a ready-made package."
     ],
-    "heroImage": "/Pictures/Sündmused/events-host-workshop.png",
-    "heroImageMobile": "/Pictures/Sündmused/events-host-workshop.png",
-    "heroImageAlt": "A forest event area with stone kettlebells and wooden training tools",
     "formatsTitle": "Three formats.",
     "formats": [
       {

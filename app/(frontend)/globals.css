@@ -13,7 +13,7 @@
 @import "./styles/pages/cart.css";
 @import "./styles/pages/payment.css";
 @import "./styles/pages/events.css";
-/* Sündmuste alaleht — kasutab events.css muutujaid, seega peab tulema pärast. */
+/* "Korralda sündmus" modaal — laiendab events.css modaalikroomi, seega pärast. */
 @import "./styles/pages/host-event.css";
 @import "./styles/pages/journal.css";
 @import "./styles/pages/tools.css";

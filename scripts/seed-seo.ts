@@ -27,7 +27,7 @@ const force = process.argv.includes("--force");
 
 /* Admini võti -> messages'i võti. Ostukorv ja makse on noindex, neil ei ole
    admini vormil kohta. */
-const PAGES = ["home", "training", "tools", "events", "hostEvent", "journal", "shop", "about"];
+const PAGES = ["home", "training", "tools", "events", "journal", "shop", "about"];
 
 function pageMetadata(locale: string, key: string) {
   return messages[locale][key]?.metadata || {};

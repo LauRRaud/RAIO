@@ -461,18 +461,12 @@
     "heroImageMobile": "/Pictures/Avaleht/raio-sundmused.webp"
   },
   "hostEvent": {
-    "metadata": {
-      "title": "Korralda oma sündmus — suvepäevad ja töötoad | RA•IO",
-      "description": "Ettevõtte suvepäevad, töötoad ja liikumiskogemused looduses. RA•IO toob vahendid ja juhendajad, kava teeme teie grupi ja koha järgi."
-    },
+    "close": "Sulge",
     "heroTitle": "Korralda oma sündmus.",
     "heroText": [
       "Ettevõtte suvepäevad, töötoad ja liikumiskogemused looduses.",
       "Kava sünnib teie inimeste, koha ja ajaga koos — mitte valmis paketist."
     ],
-    "heroImage": "/Pictures/Sündmused/events-host-workshop.png",
-    "heroImageMobile": "/Pictures/Sündmused/events-host-workshop.png",
-    "heroImageAlt": "Metsane sündmuseala sangpommide ja puidust treeningvahenditega",
     "formatsTitle": "Kolm formaati.",
     "formats": [
       {
