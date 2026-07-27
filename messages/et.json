@@ -9,7 +9,7 @@
   },
   "metadata": {
     "title": "RA•IO",
-    "description": "RA•IO — käsitöö sangpommid, hantlid ja treeningvahendid Eesti kivist ja puidust. Treeningud ja liikumissündmused looduses."
+    "description": "RA•IO — käsitöö treeningvahendid Eesti kivist ja puidust: sangpommid, hantlid ja treeningnuiad. Treeningud ja liikumissündmused looduses."
   },
   "header": {
     "homeLabel": "RA•IO avalehele",
@@ -93,7 +93,7 @@
   "home": {
     "metadata": {
       "title": "RA•IO — treeningvahendid",
-      "description": "Käsitöö sangpommid, hantlid ja treeningnuiad Eesti kivist ja puidust. Treeningud ja sündmused looduses. Trenn on tunne."
+      "description": "Käsitöö treeningvahendid Eesti kivist ja puidust: sangpommid, hantlid ja treeningnuiad. Treeningud ja sündmused looduses. Trenn on tunne."
     },
     "hero": {
       "image": "/Pictures/Avaleht/RAIO HERO1.webp",
@@ -568,9 +568,9 @@
   },
   "shop": {
     "metadata": {
-      "title": "Käsitöö sangpommid ja treeningvahendid | RA•IO pood",
+      "title": "Käsitöö treeningvahendid | RA•IO pood",
       "breadcrumb": "Pood",
-      "description": "Telli ette RA•IO first edition: kivisangpommid, puidust hantlid ja treeningnuiad. Käsitööna Eesti materjalist, valmimisaeg kinnitatakse tellimisel."
+      "description": "Telli ette RA•IO first edition: käsitöö treeningvahendid Eesti materjalist — sangpommid, hantlid ja treeningnuiad. Valmimisaeg kinnitatakse tellimisel."
     },
     "kicker": "First edition",
     "heroTitle": "Ettetellimine\navatud.",

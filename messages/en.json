@@ -9,7 +9,7 @@
   },
   "metadata": {
     "title": "RA•IO",
-    "description": "RA•IO — handcrafted kettlebells, dumbbells and training tools made of Estonian stone and wood. Training and movement events in nature."
+    "description": "RA•IO — handcrafted training tools made of Estonian stone and wood: kettlebells, dumbbells and training clubs. Training and movement events in nature."
   },
   "header": {
     "homeLabel": "RA•IO home",
@@ -93,7 +93,7 @@
   "home": {
     "metadata": {
       "title": "RA•IO — training tools",
-      "description": "Handcrafted kettlebells, dumbbells and training clubs made of Estonian stone and wood. Training and events in nature. Training is a feeling."
+      "description": "Handcrafted training tools made of Estonian stone and wood: kettlebells, dumbbells and training clubs. Training and events in nature. Training is a feeling."
     },
     "hero": {
       "image": "/Pictures/Avaleht/RAIO HERO1.webp",
@@ -568,9 +568,9 @@
   },
   "shop": {
     "metadata": {
-      "title": "Handcrafted kettlebells and training tools | RA•IO shop",
+      "title": "Handcrafted training tools | RA•IO shop",
       "breadcrumb": "Shop",
-      "description": "Pre-order the RA•IO first edition: stone kettlebells, wooden dumbbells and training clubs. Handmade from Estonian materials, lead time confirmed at ordering."
+      "description": "Pre-order the RA•IO first edition: training tools handmade from Estonian stone and wood — kettlebells, dumbbells and clubs. Lead time confirmed at ordering."
     },
     "kicker": "First edition",
     "heroTitle": "Pre-orders\nopen.",
