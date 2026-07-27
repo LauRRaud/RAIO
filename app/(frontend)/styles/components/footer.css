@@ -19,8 +19,10 @@
   mask-image: linear-gradient(#000, #000), var(--raio-stone-edge-top);
   mask-repeat: no-repeat, repeat-x;
   mask-position: bottom, top;
+  /* +1px ülekate kihtide vahel — sama murdpiksli-pilu parandus, mis
+     header.css'is (DPR 1.25 juuksekarv kihtide kohtumisjoonel). */
   mask-size:
-    100% calc(100% - var(--raio-stone-edge-h)),
+    100% calc(100% - var(--raio-stone-edge-h) + 1px),
     var(--raio-stone-edge-tile);
 }
 

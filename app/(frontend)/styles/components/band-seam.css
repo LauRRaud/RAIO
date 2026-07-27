@@ -88,3 +88,34 @@
    ainult 8–21px kaardi ÜLASERVAST, kus on niikuinii ainult foto; kaardi sisu
    (pealkiri, allkiri) istub vertikaalses keskmes ega puutu. Sama loogika nagu
    iga teise bändi juures: murre käib läbi foto, mitte lameda värvi. */
+
+/* Õmblusbändi FOTO algab bändi ülaservast 1px allpool — sama murdpiksli-
+   parandus, mis päisel ja jalusel (DPR 1.25: elemendi ülaserv langeb poolele
+   füüsilisele pikslile ja foto serv joonistub juuksekarvana õmbluse kohale;
+   mõõdetult /meist creators +39 -> +23 ja trainers -15 -> 0). Puuduva rea
+   katab bändi enda taust, mida sakitippude hõre mask niikuinii peaaegu ei
+   näita. Selektorite loend on sama, mis ülal — uus bänd lisa MÕLEMASSE. */
+:is(
+  .home-split-philosophy,
+  .home-split-tools,
+  .home-world,
+  .events-scroll-band,
+  .events-host-cta,
+  .journal-scroll-band,
+  .journal-signup-banner,
+  .training-scroll-band,
+  .training-lasting-panel,
+  .training-workshop-panel,
+  .tools-category-band,
+  .tools-material-panel,
+  .tools-support-band,
+  .store-products-section,
+  .store-custom-band,
+  .about-story-panel,
+  .about-creators-section,
+  .about-trainers-section,
+  .about-closing-panel,
+  .product-related-section
+) > .texture-backdrop {
+  top: 1px;
+}

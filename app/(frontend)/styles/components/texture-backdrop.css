@@ -204,15 +204,34 @@
   isolation: isolate;
 }
 
+/* Jaluse foto algab elemendi ülaservast 1px allpool — sama murdpiksli-lugu,
+   mis päisel: jaluse ülaserv langeb DPR 1.25-l poolele pikslile ja hele
+   kivifoto joonistus sakitippude kohale heleda juuksekarvana (mõõdetult
+   71 -> 94 -> 72). Puuduva piksliriba katab jaluse enda tume taust. */
+.footer .texture-backdrop {
+  top: 1px;
+}
+
 /* Päise fotokiht järgib sama kivist murdejoont nagu .site-header::before
    taustakiht: ulatub kasti alt servariba võrra välja ja saab identse maski,
    nii et foto ja lame varutoon murduvad ühte joont pidi. */
 .site-header .texture-backdrop {
-  bottom: calc(-1 * var(--raio-stone-edge-h));
+  /* +1px: foto jääb sakiriba alumisest servast piksli võrra ÜLES. Kui foto
+     ulatus täpselt riba põhjani, jäi tema alumine serv murdskaalal (DPR 1.25)
+     poolele pikslile ja joonistus heleda juuksekarvana üle sakkide tippude —
+     mõõdetult heledus 21 -> 56 -> 22. Puuduvat piksliriba täidab ::before'i
+     must, mis tumeda hero peal ei paista. */
+  bottom: calc(-1 * var(--raio-stone-edge-h) + 1px);
   mask-image: linear-gradient(#000, #000), var(--raio-stone-edge-bottom);
   mask-repeat: no-repeat, repeat-x;
   mask-position: top, bottom;
+  /* +1px ÜLEKATE lame osa ja sakitiili vahel — täpselt joonel kohtudes jääb
+     murdskaalal (DPR 1.25) foto maski kahe kihi vahele poolläbipaistev rida,
+     kust must varukiht (::before) läbi kumab: tume juuksekarv päise all servas
+     (omanik 2026-07-27). Sama parandus on ::before'il (header.css) ja jalusel
+     (footer.css) — SEE kiht on fotona kõige pealmine, seega just tema õmblus
+     oli see, mida silm nägi. */
   mask-size:
-    100% calc(100% - var(--raio-stone-edge-h)),
+    100% calc(100% - var(--raio-stone-edge-h) + 1px),
     var(--raio-stone-edge-tile);
 }

@@ -80,8 +80,13 @@
   mask-image: linear-gradient(#000, #000), var(--raio-stone-edge-bottom);
   mask-repeat: no-repeat, repeat-x;
   mask-position: top, bottom;
+  /* +1px ÜLEKATE: lame osa ja sakiriba KATTUVAD piksli võrra, mitte ei puutu
+     joonel. Täpselt joonel kohtudes jääb murdskaalal (DPR 1.25, Windowsi 125%)
+     kahe maskikihi vahele juuksekarva laiune pilu — omanik 2026-07-27: "mingi
+     imelik triip on päisemenüü all servas". Sakitiili ülemine rida on täis-
+     läbipaistmatu, seega ülekate ei muuda siluetti. Sama parandus footer.css. */
   mask-size:
-    100% calc(100% - var(--raio-stone-edge-h)),
+    100% calc(100% - var(--raio-stone-edge-h) + 1px),
     var(--raio-stone-edge-tile);
   /* Vari järgib maskitud siluetti — box-shadow joonistaks sirge kasti serva
      tagasi. Sama sügavus, mis endisel box-shadow paaril. */
