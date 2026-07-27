@@ -11,7 +11,10 @@
      istub translateY võrra veel allpool. */
   margin-top: calc(-1 * var(--raio-stone-edge-h));
   padding: clamp(14px, 2vw, 30px) clamp(24px, 5vw, 64px) clamp(58px, 5vw, 78px);
-  background: #e6ceb0;
+  /* Foto ALL olev lame varutoon on must, mitte beež (omanik 2026-07-27) —
+     sama otsus ja sama värv nagu .site-header::before'il. Näha ainult siis,
+     kui fotot veel ei ole (laadimine, crossfade). */
+  background: #14140f;
   color: #40342a;
   mask-image: linear-gradient(#000, #000), var(--raio-stone-edge-top);
   mask-repeat: no-repeat, repeat-x;

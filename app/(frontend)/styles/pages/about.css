@@ -897,9 +897,10 @@
 }
 
 /* Loojate bänd kannab JALUSE heledat kivi (omanik 2026-07-26: "see taust pane
-   sama hele, mis jalusel on") — sama "beige" tekstuurikomplekt (AboutPage.jsx),
-   sama alusvärv ja sama tume tint mis components/footer.css-is. Seetõttu on ta
-   ka ainus /meist bänd, kus tekst on tume. */
+   sama hele, mis jalusel on") — sama "beige" tekstuurikomplekt (AboutPage.jsx)
+   ja sama hele tint. Alusvärv EI ole enam jalusega sama: päis/jalus said
+   2026-07-27 foto alla musta varutooni, see bänd jääb beeži peale, sest siin on
+   tekst tume ja laadimisaegne must vilguks valel hetkel valesse suunda. */
 .about-page-redesign .about-creators-section {
   padding-inline: var(--band-pad);
   padding-block: clamp(52px, 5.2vw, 84px);

@@ -71,7 +71,12 @@
   z-index: -4;
   /* Pseudo laiendaks muidu päise klikiala sakiriba võrra hero sisu peale. */
   pointer-events: none;
-  background: #e6ceb0;
+  /* Foto ALL olev lame varutoon on must, mitte beež (omanik 2026-07-27: "päise
+     ja jaluse all on mingi roosakas/beez taust, võiks olla pigem must" — ja
+     täpsustatult "filtrit ma siin ei mõtle, mis on foto peal"). Näha saab teda
+     siis, kui fotot veel ei ole: laadimise ja crossfade'i ajal. Sama #14140f,
+     mis tumedatel backdrop'idel (texture-backdrop.css). */
+  background: #14140f;
   mask-image: linear-gradient(#000, #000), var(--raio-stone-edge-bottom);
   mask-repeat: no-repeat, repeat-x;
   mask-position: top, bottom;
@@ -422,11 +427,12 @@
      jäämiseks peab ülemine padding olema selle võrra suurem. */
   padding: 96px 24px 48px;
   /* Vahetuv paekivi-slaidiseanss renderdatakse paneeli sisse (Header.jsx,
-     set="beige") sama --beige toonikihiga nagu päisebändil; ühtlane #e6ceb0 jääb
-     varuks laadimise ajaks. isolation hoiab backdrop'i z-index:-3 paneeli sees
-     (muidu kukuks päisebändi taha). */
+     set="beige") sama --beige toonikihiga nagu päisebändil; ühtlane must jääb
+     varuks laadimise ajaks (omanik 2026-07-27, vt .site-header::before).
+     isolation hoiab backdrop'i z-index:-3 paneeli sees (muidu kukuks päisebändi
+     taha). */
   isolation: isolate;
-  background: #e6ceb0;
+  background: #14140f;
   color: #2b241b;
   overflow-y: auto;
   overscroll-behavior: contain;
