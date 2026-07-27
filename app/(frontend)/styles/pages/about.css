@@ -750,6 +750,20 @@
        lõigu reakastidest) — vt .about-hero-logo kommentaari samas failis. */
     padding: 0 0 12px;
   }
+
+  /* Pealkiri allapoole, kõik muu paigale (omanik 2026-07-27: "siin liiguta
+     hero pealkirja alla poole, muud sisu ära liiguta"). Ainus vaba ruum on
+     pealkirja ja lõigu vahel, seega margin-top võtab TÄPSELT sama palju
+     margin-bottom'ist tagasi: pealkiri 96 → 116px, lõik jääb 291px peale,
+     logo ja bänd ei liigu pikslitki.
+
+     `.about-page-redesign` on spetsiifilisuse pärast, mitte ilu pärast:
+     globals.css impordib components/ PÄRAST pages/, seega headings.css
+     võidaks võrdse spetsiifilisuse viigi ja margin-bottom jääks 52px peale. */
+  .about-page-redesign .about-hero-panel h1 {
+    margin-top: 20px;
+    margin-bottom: 32px;
+  }
 }
 
 @media (max-width: 620px) {
