@@ -471,14 +471,17 @@
     "formats": [
       {
         "title": "Ettevõtte suvepäev",
-        "text": "Pool päeva või terve päev looduses: liikumine, käsitöövahendid ja ühine paus. Kava kohandame grupi suuruse järgi."
+        "meta": "3–4 h · 10–30 inimest · alates 55 €/inimene",
+        "text": "Kolm kuni neli tundi teie päeva sees: liikumine, käsitöövahendid ja ühine paus. Ülejäänud päeva kava jääb teie kanda."
       },
       {
         "title": "Töötuba",
+        "meta": "2–3 h · 8–20 inimest · alates 45 €/inimene",
         "text": "Sissejuhatus sangpommi ja puidust vahendite kasutamisse: tehnika, hingamine ja ohutus. Sobib ka neile, kes pole varem tõstnud."
       },
       {
         "title": "Liikumiskogemus",
+        "meta": "1–1,5 h · 8–25 inimest · alates 25 €/inimene",
         "text": "Juhendatud treening metsas või vee ääres, teie tempos. Lühem formaat tiimile, kes tahab pigem liikuda kui istuda."
       }
     ],

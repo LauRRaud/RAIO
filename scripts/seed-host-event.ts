@@ -62,10 +62,13 @@ async function seedHostEvent(locale: "et" | "en") {
         title: keep(current?.formats?.title, t.formatsTitle),
         formatOneTitle: keep(current?.formats?.formatOneTitle, t.formats[0].title),
         formatOneText: keep(current?.formats?.formatOneText, t.formats[0].text),
+        formatOneMeta: keep(current?.formats?.formatOneMeta, t.formats[0].meta),
         formatTwoTitle: keep(current?.formats?.formatTwoTitle, t.formats[1].title),
         formatTwoText: keep(current?.formats?.formatTwoText, t.formats[1].text),
+        formatTwoMeta: keep(current?.formats?.formatTwoMeta, t.formats[1].meta),
         formatThreeTitle: keep(current?.formats?.formatThreeTitle, t.formats[2].title),
-        formatThreeText: keep(current?.formats?.formatThreeText, t.formats[2].text)
+        formatThreeText: keep(current?.formats?.formatThreeText, t.formats[2].text),
+        formatThreeMeta: keep(current?.formats?.formatThreeMeta, t.formats[2].meta)
       },
       process: {
         ...(current?.process || {}),

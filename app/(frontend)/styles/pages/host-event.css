@@ -24,7 +24,9 @@
 }
 
 .host-modal-lead p,
-.host-modal-formats p,
+/* :not(...) — kestuse/hinna rida on samuti p, aga sellel on oma veeris ja oma
+   värv; erand käib siia reegli juurde, mitte hilisemaks ülekirjutuseks. */
+.host-modal-formats p:not(.host-modal-format-meta),
 .host-modal-steps p,
 .host-modal-closing p {
   margin: 0;
@@ -79,12 +81,14 @@
    roheline, sama aktsent mis sammunumbritel. Mõõt tuleb siit, sest jagatud
    modaalireegel component-type.css-is arvab selle klassi meelega välja. */
 .host-modal-format-meta {
-  margin: 0 0 10px;
+  /* Ülemine veeris kollabeerub h4 8px-ga, seega 14 annab õhku mõlemale
+     poole ühtviisi (omanik: "rohkem õhku üles ja alla"). */
+  margin: 14px 0;
   color: var(--events-icon-green);
-  font-size: calc(clamp(0.82rem, 0.9vw, 0.94rem) * var(--cms-text-scale, 1));
+  font-size: calc(clamp(0.94rem, 1.05vw, 1.08rem) * var(--cms-text-scale, 1));
   font-weight: 700;
   line-height: 1.4;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 

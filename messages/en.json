@@ -471,14 +471,17 @@
     "formats": [
       {
         "title": "Company day",
-        "text": "Half a day or a full day outdoors: movement, handmade tools and a shared break. The programme is shaped to the size of the group."
+        "meta": "3–4 h · 10–30 people · from €55/person",
+        "text": "Three to four hours inside your day: movement, handmade tools and a shared break. The rest of the day stays yours."
       },
       {
         "title": "Workshop",
+        "meta": "2–3 h · 8–20 people · from €45/person",
         "text": "An introduction to stone kettlebells and wooden tools: technique, breathing and safety. Suitable for people who have never lifted before."
       },
       {
         "title": "Movement experience",
+        "meta": "1–1.5 h · 8–25 people · from €25/person",
         "text": "A guided session in the forest or by the water, at your own pace. A shorter format for a team that would rather move than sit."
       }
     ],
