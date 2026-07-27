@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getHeaderTextures } from "@/lib/payloadContent";
 import { HeroMedia } from "@/components/HeroMedia";
-import { HostEventModal } from "@/components/HostEventModal";
+import { HostEventModalDialog, HostEventModalTrigger } from "@/components/HostEventModal";
 import { BandMedia } from "@/components/BandMedia";
 import { LineIcon } from "@/components/Icons";
 import { TrainingCardsCarousel } from "@/components/TrainingCardsCarousel";
@@ -145,16 +145,20 @@ export async function TrainingPage({ locale = "et" }) {
             </div>
             {/* Sama modaal, mis sündmuste lehel: küsimus on sama ("tellige
                 meilt oma grupile"), seega ei kirjuta me vastust kaks korda. */}
-            <HostEventModal
-              label={t.workshop.cta}
-              closeLabel={messages.hostEvent.close}
-              content={messages.hostEvent}
-              contactHref={contactHref}
-              buttonClassName="training-solid-button"
-            />
+            <HostEventModalTrigger label={t.workshop.cta} buttonClassName="training-solid-button" />
           </section>
         </section>
       </main>
+
+      {/* Aken on <main> VÄLJAS meelega. Sees olles tabaks teda lehe juurklassi
+          kehateksti reegel (:is(.events-page-redesign, ...) p), mis muutis
+          modaali tüpograafiat — portaalis olles pääses ta sellest. Siin on ta
+          serveripoolses HTML-is (Google näeb) ega päri lehe reegleid. */}
+      <HostEventModalDialog
+        closeLabel={messages.hostEvent.close}
+        content={messages.hostEvent}
+        contactHref={contactHref}
+      />
       <Footer locale={locale} />
     </>
   );

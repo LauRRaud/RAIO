@@ -225,6 +225,13 @@ button.events-outline-button {
   background: rgba(17, 16, 13, 0.72);
 }
 
+/* "Korralda sündmus" aken renderdatakse ALATI (et Google sisu näeks) ja
+   peidetakse hidden-atribuudiga. Ilma selle reeglita võidaks display: grid
+   ülalt brauseri [hidden] vaikereegli ja aken seisaks alati lahti. */
+.events-event-modal[hidden] {
+  display: none;
+}
+
 .events-event-dialog {
   position: relative;
   width: min(760px, 100%);

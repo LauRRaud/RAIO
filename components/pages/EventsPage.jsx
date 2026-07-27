@@ -2,12 +2,14 @@ import { SteppedTitle } from "@/components/SteppedTitle";
 import { EventsCardsCarousel } from "@/components/EventsCardsCarousel";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { HostEventModal } from "@/components/HostEventModal";
+import { HostEventModalDialog, HostEventModalTrigger } from "@/components/HostEventModal";
+import { JsonLd } from "@/components/JsonLd";
 import { BandMedia } from "@/components/BandMedia";
 import { getHeaderTextures } from "@/lib/payloadContent";
 import { HeroMedia } from "@/components/HeroMedia";
 import { getLocalizedPath } from "@/lib/i18n";
 import { getCmsSectionProps, getEventItems, getMessagesWithAdminImages } from "@/lib/payloadContent";
+import { buildHostEventJsonLd } from "@/lib/seo";
 import { TextureSlideshow } from "@/components/TextureSlideshow";
 
 export async function EventsPage({ locale = "et" }) {
@@ -97,16 +99,24 @@ export async function EventsPage({ locale = "et" }) {
               <p>{t.host.text}</p>
               {/* Nupp avab modaali, mitte ei vii kontaktile: seal on formaadid,
                   protsess ja "hea teada", ning alles selle lõpus kontakt. */}
-              <HostEventModal
-                label={t.host.cta}
-                closeLabel={messages.hostEvent.close}
-                content={messages.hostEvent}
-                contactHref={contactHref}
-              />
+              <HostEventModalTrigger label={t.host.cta} />
             </div>
           </section>
         </section>
       </main>
+
+      {/* Aken on <main> VÄLJAS meelega. Sees olles tabaks teda lehe juurklassi
+          kehateksti reegel (:is(.events-page-redesign, ...) p), mis muutis
+          modaali tüpograafiat — portaalis olles pääses ta sellest. Siin on ta
+          serveripoolses HTML-is (Google näeb) ega päri lehe reegleid. */}
+      <HostEventModalDialog
+        closeLabel={messages.hostEvent.close}
+        content={messages.hostEvent}
+        contactHref={contactHref}
+      />
+      {/* Struktuurandmed käivad KOOS nähtava sisuga: alles nüüd, kui modaali
+          tekst on lehe märgistuses, tohib seda Google'ile ka kirjeldada. */}
+      <JsonLd data={buildHostEventJsonLd(messages, locale)} />
       <Footer locale={locale} />
     </>
   );
