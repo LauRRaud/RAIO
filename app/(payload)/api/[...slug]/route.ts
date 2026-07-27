@@ -32,7 +32,10 @@ export const OPTIONS = REST_OPTIONS(config);
    päringu meetodit ja HEAD-ile käsitlejat ei leia -> 404. Seepärast teeme
    ise GET-päringu ja tagastame sellest ainult staatuse ja päised: HTTP nõuab,
    et HEAD-vastusel keha ei oleks, aga päised peavad olema samad mis GET-il. */
-export const HEAD = async (request: Request, context: unknown) => {
+export const HEAD = async (
+  request: Request,
+  context: { params: Promise<{ slug?: string[] }> }
+) => {
   const response = await restGet(
     new Request(request.url, { method: "GET", headers: request.headers }),
     context
