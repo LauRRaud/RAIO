@@ -16,6 +16,7 @@
     "seed:admin": "tsx scripts/seed-admin-content.ts",
     "seed:seo": "tsx scripts/seed-seo.ts",
     "seed:host-event": "tsx scripts/seed-host-event.ts",
+    "og:cards": "node scripts/generate-og-cards.mjs",
     "textures:variants": "node scripts/texture-variants.mjs",
     "textures:import": "tsx scripts/import-textures.ts",
     "textures:sync": "tsx scripts/sync-texture-files.mjs"
