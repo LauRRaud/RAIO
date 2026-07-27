@@ -1,20 +1,10 @@
-import { getPublicSiteUrl } from "@/lib/seo";
+import { buildRobots } from "@/lib/seo";
 
-export default function robots() {
-  const site = getPublicSiteUrl();
+/* Sisu tuleb admini globaalist "seo" (lülitid, mitte vaba tekst — üks vale
+   rida robots.txt-is kustutaks saidi Google'ist). Seepärast ei tohi seda
+   build'i ajal külmutada: omanik ootab, et Save mõjuks kohe. */
+export const dynamic = "force-dynamic";
 
-  return {
-    rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-        /* Ostukorv ja makse EI ole siin: neil on lehe peal noindex (vt
-           lib/seo.js NOINDEX_PAGES). Crawl'i keelamine takistaks robotil
-           seda noindex'it lugeda — leht võiks välislingi kaudu ikka
-           indeksisse sattuda. Üks signaal, mitte kaks vastuolulist. */
-        disallow: ["/admin", "/api/"]
-      }
-    ],
-    sitemap: `${site}/sitemap.xml`
-  };
+export default async function robots() {
+  return buildRobots();
 }

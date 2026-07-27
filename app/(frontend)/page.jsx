@@ -1,7 +1,9 @@
 import { HomePage } from "@/components/HomePage";
 import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = buildPageMetadata("et", "home");
+export async function generateMetadata() {
+  return buildPageMetadata("et", "home");
+}
 export const dynamic = "force-dynamic";
 
 export default function Home() {

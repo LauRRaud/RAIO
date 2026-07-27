@@ -74,6 +74,16 @@ export const AdminGuide: GlobalConfig = {
               "„Nähtav” määrab, kas kaart kuvatakse avalikul lehel.\n„Järjekord” määrab kaartide järjestuse: väiksem number kuvatakse eespool.\nToote või kaardi pildi muutmiseks ava vastav kirje, mitte „Lehtede sisu ja kujundus”."
             )
           ]
+        },
+        {
+          label: "Google ja jagamine",
+          fields: [
+            guideField(
+              "seoBasics",
+              "SEO · Google ja jagamine",
+              "SEO · GOOGLE JA JAGAMINE — mida Google ja Facebook sinu lehtedest näitavad.\n„Lehtede tekstid” — iga lehe pealkiri ja kirjeldus otsingutulemuses. Tühi väli = praegune tekst jääb kehtima.\n„Jagamispilt” — pilt, mis ilmub lingi jagamisel Facebookis või WhatsAppis.\n„robots.txt” ja „Sitemap” — mida otsingurobotid tohivad lugeda ja millised lehed Google'ile ette antakse.\nMuudatus jõustub kohe pärast Save. Google võtab uued tekstid kasutusele mõne päeva jooksul."
+            )
+          ]
         }
       ]
     }

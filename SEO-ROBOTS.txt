@@ -1,0 +1,100 @@
+================================================================================
+RA•IO — ROBOTS.TXT ÜLEVAATAMISEKS
+Seis: 2026-07-27 (nagu praegu https://raio.ee/robots.txt peal)
+================================================================================
+
+MIS SEE ON
+  robots.txt on esimene fail, mille Google'i robot saidilt loeb. See ütleb,
+  MIDA TOHIB ROOMATA — mitte seda, mis otsingusse jõuab. Roomamise keeld ja
+  indekseerimise keeld on kaks eri asja (vt allpool "Ostukorv ja makse").
+
+KUS SEE ELAB  (uuendatud 2026-07-27)
+  Admin → „SEO · Google ja jagamine” → kaart „robots.txt”.
+  Muudatus jõustub kohe pärast Save.
+  Aadress: https://raio.ee/robots.txt
+  Kood: app/robots.js + lib/seo.js buildRobots()
+
+  Admin'is EI ole vaba tekstivälja — üks vale rida robots.txt-is kustutaks
+  terve saidi Google'ist. Selle asemel on nimetatud lülitid ja kontrollitud
+  keeluridade loend, mis keeldub salvestamast vigast rida.
+
+
+--------------------------------------------------------------------------------
+PRAEGUNE SISU (sõna-sõnalt)
+--------------------------------------------------------------------------------
+
+User-Agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+Sitemap: https://raio.ee/sitemap.xml
+
+
+--------------------------------------------------------------------------------
+MIDA IGA RIDA TÄHENDAB
+--------------------------------------------------------------------------------
+
+User-Agent: *
+  Reegel kehtib kõigile robotitele (Google, Bing, aga ka AI-robotid).
+
+Allow: /
+  Kogu sait on roomamiseks lubatud.
+
+Disallow: /admin
+  Payloadi admin-liides. Robotil pole seal midagi teha ja login-lehed
+  otsingutulemustes näevad välja nagu turvaviga.
+
+Disallow: /api/
+  Sisemised API-otspunktid (ostukorv, makse, sisu laadimine). Need tagastavad
+  masinloetavat andmet, mitte lehti — indeksisse ei kuulu.
+
+Sitemap: https://raio.ee/sitemap.xml
+  Viide lehtede nimekirjale. Vt eraldi faili SEO-SITEMAP.txt.
+
+
+--------------------------------------------------------------------------------
+OSTUKORV JA MAKSE — MIKS NEID SIIN EI OLE
+--------------------------------------------------------------------------------
+
+  /ostukorv ja /makse EI ole otsingutulemustes, aga neid ei ole ka siin
+  keelatud — ja see on meelega.
+
+  Nendel lehtedel on lehe SEES märgend "noindex" (= ära pane indeksisse).
+  Kui keelaksime robotil neid ka roomata, ei saaks ta seda märgendit lugeda —
+  ja leht võiks kellegi välislingi kaudu ikkagi indeksisse sattuda.
+  Üks selge signaal on parem kui kaks vastuolulist.
+
+  Kood: lib/seo.js → NOINDEX_PAGES
+
+
+--------------------------------------------------------------------------------
+MIDA SIIN VEEL SAAKS TEHA — SINU OTSUSTADA
+--------------------------------------------------------------------------------
+
+1. AI-ROBOTID  → see on nüüd admin'is lüliti „Luba tehisintellekti
+   robotitel sisu lugeda” (vaikimisi SEES).
+   Praegu tohivad ChatGPT (GPTBot), Claude (ClaudeBot), Perplexity jt saidi
+   sisu vabalt läbi lugeda ja oma mudelite treenimiseks kasutada.
+   - Jätta nii = RA•IO sisu võib jõuda AI-vestlustesse (nähtavus, aga sinu
+     tekstid ja fotod lähevad võõrasse mudelisse).
+   - Linnuke maha = 12 tuntud AI-robotit saavad robots.txt-is keelu.
+     Google'i tavaotsingut see EI mõjuta.
+
+2. ROOMAMISE KIIRUS (Crawl-delay)
+   Pole vaja — sait on väike ja server ei ole koormatud.
+
+3. PILDID
+   Praegu tohib robot kõiki pilte roomata. See on hea: tootefotod võivad
+   jõuda Google Images'isse ja sealtkaudu tuleb päris palju külastusi.
+
+
+--------------------------------------------------------------------------------
+KUIDAS TÄIENDADA
+--------------------------------------------------------------------------------
+  Kirjuta oma soovid siia faili lõppu või ütle suuliselt.
+  Ma ei muuda robots.txt-i omal algatusel — vale rida siin võib terve saidi
+  Google'ist välja lülitada.
+
+MINU MÄRKUSED:
+

@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { CartProvider } from "@/components/CartProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { getMessages } from "@/lib/messages";
-import { buildOrganizationJsonLd, getPublicSiteUrl } from "@/lib/seo";
+import { buildOrganizationJsonLd, buildSiteMetadata, getPublicSiteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const display = localFont({
@@ -16,23 +16,23 @@ const display = localFont({
 
 const messages = getMessages("et");
 
-export const metadata = {
-  metadataBase: new URL(getPublicSiteUrl()),
-  title: messages.metadata.title,
-  description: messages.metadata.description
-};
-
-metadata.icons = {
-  icon: "/favicon.ico"
-};
-
 /* Google Search Console'i HTML-tag kinnitus — alternatiiv DNS TXT-kirjele.
-   Env loetakse build-ajal, seega uus väärtus nõuab rebuild'i + deploy'd.
    Tühja muutujaga ei lisata tagi üldse: pool-tühi verification-meta on
    Google'ile vigane signaal. */
 const googleVerification = process.env.GOOGLE_SITE_VERIFICATION?.trim();
-if (googleVerification) {
-  metadata.verification = { google: googleVerification };
+
+/* Saidiülene vaikepealkiri tuleb admini SEO-globaalist (tühi väli = messages
+   väärtus), seega ei saa see enam olla staatiline `export const metadata`. */
+export async function generateMetadata() {
+  const site = await buildSiteMetadata("et");
+
+  return {
+    metadataBase: new URL(getPublicSiteUrl()),
+    title: site.title,
+    description: site.description,
+    icons: { icon: "/favicon.ico" },
+    ...(googleVerification ? { verification: { google: googleVerification } } : {})
+  };
 }
 
 /* Keel tuleb teelt, mille proxy.js päisesse paneb — /en lehed peavad

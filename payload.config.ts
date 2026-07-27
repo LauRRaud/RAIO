@@ -19,6 +19,7 @@ import { HomePage } from "@/payload/globals/HomePage";
 import { AdminGuide } from "@/payload/globals/AdminGuide";
 import { PageImages } from "@/payload/globals/PageImages";
 import { PageEditor } from "@/payload/globals/PageEditor";
+import { Seo } from "@/payload/globals/Seo";
 import { SiteSettings } from "@/payload/globals/SiteSettings";
 import { TextureBackdrops } from "@/payload/globals/TextureBackdrops";
 
@@ -38,7 +39,7 @@ export default buildConfig({
     }
   },
   collections: [Users, Media, Textures, Pages, ToolCards, Products, Orders, Events, Trainings, JournalArticles],
-  globals: [AdminGuide, PageEditor, SiteSettings, HomePage, PageImages, TextureBackdrops],
+  globals: [AdminGuide, PageEditor, Seo, SiteSettings, HomePage, PageImages, TextureBackdrops],
   editor: lexicalEditor(),
   localization: {
     locales: [

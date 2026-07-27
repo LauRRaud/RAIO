@@ -1,0 +1,372 @@
+================================================================================
+RA•IO — SEO-TEKSTID ÜLEVAATAMISEKS
+Seis: 2026-07-27 (nagu praegu raio.ee peal)
+================================================================================
+
+KUS NEED TEKSTID ELAVAD  (uuendatud 2026-07-27)
+  Lehtede pealkirjad ja kirjeldused:  admin → „SEO · Google ja jagamine”.
+  Muudatus jõustub kohe pärast Save, deploy'd pole vaja.
+  Tühjaks jäetud väli tähendab: jääb kehtima koodis olev tekst
+  (messages/et.json ja messages/en.json, iga lehe all plokk "metadata").
+
+  Toodete pealkirjad ja kirjeldused:  admin → Products, iga toote enda kirje.
+  Need tulevad andmebaasist ja jõustuvad samuti kohe.
+
+  See fail on hetktõmmis ülevaatamiseks. Väiksemad parandused tee otse
+  admin'is; kui tahad kõik korraga ümber kirjutada, täida „UUS:” read ja
+  saada fail tagasi.
+
+MIDA MIS TEEB
+  TITLE  = sinine klikitav rida Google'is + brauseri saki tekst.
+           Soovituslik kuni 60 märki, muidu Google lõikab "..."-ga.
+  DESC   = hall seletav tekst otsingutulemuse all + link Facebookis/WhatsAppis.
+           Soovituslik 120-155 märki. Ei mõjuta pingerida, mõjutab klikkimist.
+
+KUIDAS TÄIENDADA
+  Kirjuta oma variant "UUS:" rea järele. Tühjaks jäetud "UUS:" = jääb nii,
+  nagu praegu on. Saada fail tagasi, siis viin muudatused koodi ja deployn.
+
+================================================================================
+SAIDIÜLENE VAIKEVÄÄRTUS (kasutatakse, kui lehel oma pealkirja pole)
+  URL: —
+  Fail: messages/{et,en}.json → metadata
+================================================================================
+
+ET TITLE  (5 märki)
+  praegu: RA•IO
+  UUS:
+
+ET KIRJELDUS  (137 märki)
+  praegu: RA•IO — käsitöö treeningvahendid Eesti kivist ja puidust: sangpommid, hantlid ja treeningnuiad. Treeningud ja liikumissündmused looduses.
+  UUS:
+
+EN TITLE  (5 märki)
+  praegu: RA•IO
+  UUS:
+
+EN KIRJELDUS  (150 märki)
+  praegu: RA•IO — handcrafted training tools made of Estonian stone and wood: kettlebells, dumbbells and training clubs. Training and movement events in nature.
+  UUS:
+
+================================================================================
+AVALEHT
+  URL: https://raio.ee/
+  Fail: messages/{et,en}.json → home.metadata
+================================================================================
+
+ET TITLE  (24 märki)
+  praegu: RA•IO — treeningvahendid
+  UUS:
+
+ET KIRJELDUS  (137 märki)
+  praegu: Käsitöö treeningvahendid Eesti kivist ja puidust: sangpommid, hantlid ja treeningnuiad. Treeningud ja sündmused looduses. Trenn on tunne.
+  UUS:
+
+EN TITLE  (22 märki)
+  praegu: RA•IO — training tools
+  UUS:
+
+EN KIRJELDUS  ⚠ 156 märki — üle soovitusliku 155
+  praegu: Handcrafted training tools made of Estonian stone and wood: kettlebells, dumbbells and training clubs. Training and events in nature. Training is a feeling.
+  UUS:
+
+================================================================================
+TREENINGUD
+  URL: https://raio.ee/treeningud
+  Fail: messages/{et,en}.json → training.metadata
+================================================================================
+
+ET TITLE  (55 märki)
+  praegu: Treeningud looduses — jõud ja teadlik liikumine | RA•IO
+  UUS:
+
+ET KIRJELDUS  (118 märki)
+  praegu: RA•IO treeningud ühendavad jõu, vastupidavuse ja teadliku liikumise looduse rütmiga. Vaata treeninguid ja tule proovi.
+  UUS:
+
+EN TITLE  (58 märki)
+  praegu: Training in nature — strength and mindful movement | RA•IO
+  UUS:
+
+EN KIRJELDUS  (130 märki)
+  praegu: RA•IO training brings together strength, endurance, and mindful movement with the rhythm of nature. See the sessions and come try.
+  UUS:
+
+================================================================================
+VAHENDID
+  URL: https://raio.ee/vahendid
+  Fail: messages/{et,en}.json → tools.metadata
+================================================================================
+
+ET TITLE  (50 märki)
+  praegu: Käsitöö treeningvahendid puidust ja kivist | RA•IO
+  UUS:
+
+ET KIRJELDUS  (114 märki)
+  praegu: Sangpommid, hantlid, treeningnuiad ja lastevahendid — käsitööna Eesti puidust ja kivist. Iga vahend on ainulaadne.
+  UUS:
+
+EN TITLE  (52 märki)
+  praegu: Handcrafted training tools in wood and stone | RA•IO
+  UUS:
+
+EN KIRJELDUS  (135 märki)
+  praegu: Kettlebells, dumbbells, training clubs and tools for children — handcrafted from Estonian wood and stone. Every piece is one of a kind.
+  UUS:
+
+================================================================================
+SÜNDMUSED
+  URL: https://raio.ee/sundmused
+  Fail: messages/{et,en}.json → events.metadata
+================================================================================
+
+ET TITLE  (34 märki)
+  praegu: Liikumissündmused looduses | RA•IO
+  UUS:
+
+ET KIRJELDUS  (120 märki)
+  praegu: RA•IO sündmused ühendavad liikumise, looduse ja kogukonna. Vaata tulevasi treeninglaagreid ja sündmusi ning tule kohale.
+  UUS:
+
+EN TITLE  (33 märki)
+  praegu: Movement events in nature | RA•IO
+  UUS:
+
+EN KIRJELDUS  (108 märki)
+  praegu: RA•IO events bring together movement, nature, and community. See upcoming camps and gatherings, and join us.
+  UUS:
+
+================================================================================
+RA•IO+ (journal)
+  URL: https://raio.ee/journal
+  Fail: messages/{et,en}.json → journal.metadata
+================================================================================
+
+ET TITLE  (42 märki)
+  praegu: RA•IO+ — artiklid liikumisest ja käsitööst
+  UUS:
+
+ET KIRJELDUS  (116 märki)
+  praegu: Mõtteid ja kogemusi liikumisest, käsitöövahendite valmimisest ja looduses treenimisest. RA•IO+ artiklid ja lugemine.
+  UUS:
+
+EN TITLE  (38 märki)
+  praegu: RA•IO+ — writing on movement and craft
+  UUS:
+
+EN KIRJELDUS  (113 märki)
+  praegu: Thoughts and experiences on movement, how the tools are made, and training outdoors. RA•IO+ articles and reading.
+  UUS:
+
+================================================================================
+POOD
+  URL: https://raio.ee/pood
+  Fail: messages/{et,en}.json → shop.metadata
+================================================================================
+
+ET TITLE  (37 märki)
+  praegu: Käsitöö treeningvahendid | RA•IO pood
+  UUS:
+
+ET KIRJELDUS  (151 märki)
+  praegu: Telli ette RA•IO first edition: käsitöö treeningvahendid Eesti materjalist — sangpommid, hantlid ja treeningnuiad. Valmimisaeg kinnitatakse tellimisel.
+  UUS:
+
+EN TITLE  (39 märki)
+  praegu: Handcrafted training tools | RA•IO shop
+  UUS:
+
+EN KIRJELDUS  ⚠ 156 märki — üle soovitusliku 155
+  praegu: Pre-order the RA•IO first edition: training tools handmade from Estonian stone and wood — kettlebells, dumbbells and clubs. Lead time confirmed at ordering.
+  UUS:
+
+================================================================================
+MEIST
+  URL: https://raio.ee/meist
+  Fail: messages/{et,en}.json → about.metadata
+================================================================================
+
+ET TITLE  (41 märki)
+  praegu: RA•IO lugu — liikumine ja käsitöövahendid
+  UUS:
+
+ET KIRJELDUS  (106 märki)
+  praegu: Kes RA•IO taga on: liikumine, käsitööna valmivad treeningvahendid Eesti materjalist ja kogemused looduses.
+  UUS:
+
+EN TITLE  (45 märki)
+  praegu: The RA•IO story — movement and handmade tools
+  UUS:
+
+EN KIRJELDUS  (109 märki)
+  praegu: Who is behind RA•IO: movement, training tools handcrafted from Estonian materials, and experiences in nature.
+  UUS:
+
+================================================================================
+OSTUKORV  (noindex — Google ei näita)
+  URL: https://raio.ee/ostukorv
+  Fail: messages/{et,en}.json → cart.metadata
+================================================================================
+
+ET TITLE  (16 märki)
+  praegu: Ostukorv | RA•IO
+  UUS:
+
+ET KIRJELDUS  (14 märki)
+  praegu: RA•IO ostukorv
+  UUS:
+
+EN TITLE  (12 märki)
+  praegu: Cart | RA•IO
+  UUS:
+
+EN KIRJELDUS  (10 märki)
+  praegu: RA•IO cart
+  UUS:
+
+================================================================================
+MAKSE  (noindex — Google ei näita)
+  URL: https://raio.ee/makse
+  Fail: messages/{et,en}.json → payment.metadata
+================================================================================
+
+ET TITLE  (13 märki)
+  praegu: Makse | RA•IO
+  UUS:
+
+ET KIRJELDUS  (13 märki)
+  praegu: Makse staatus
+  UUS:
+
+EN TITLE  (15 märki)
+  praegu: Payment | RA•IO
+  UUS:
+
+EN KIRJELDUS  (14 märki)
+  praegu: Payment status
+  UUS:
+
+================================================================================
+TOOTELEHED  (allikas: Payload admin → Products, MITTE koodifail)
+================================================================================
+
+Tootelehe TITLE koostatakse automaatselt: "<toote nimi> | RA•IO".
+Tootelehe KIRJELDUS = toote lühikirjeldus admin'is.
+Muuda neid admin'is — jõustub kohe, deploy'd pole vaja.
+NB! Kirjeldused on praegu 60-85 märki, s.t Google'i soovituslikust
+    (120-155) tublisti lühemad. Siin on kõige rohkem võita.
+
+--------------------------------------------------------------------------------
+https://raio.ee/pood/kivisangpomm
+  TITLE  (20 märki)
+    praegu: Kivisangpomm | RA•IO
+    UUS:
+  KIRJELDUS  (65 märki)
+    praegu: Kivist sangpomm jõu, vastupidavuse ja keha kontrolli treeninguks.
+    UUS:
+
+--------------------------------------------------------------------------------
+https://raio.ee/en/pood/kivisangpomm
+  TITLE  (24 märki)
+    praegu: Stone kettlebell | RA•IO
+    UUS:
+  KIRJELDUS  (70 märki)
+    praegu: A stone kettlebell for strength, endurance, and body-control training.
+    UUS:
+
+--------------------------------------------------------------------------------
+https://raio.ee/pood/puu-kivi-sangpomm
+  TITLE  (27 märki)
+    praegu: Puu & kivi sangpomm | RA•IO
+    UUS:
+  KIRJELDUS  (74 märki)
+    praegu: Puidust käepidemega kivisangpomm loomulikuks ja mitmekesiseks treeninguks.
+    UUS:
+
+--------------------------------------------------------------------------------
+https://raio.ee/en/pood/puu-kivi-sangpomm
+  TITLE  (31 märki)
+    praegu: Wood & stone kettlebell | RA•IO
+    UUS:
+  KIRJELDUS  (72 märki)
+    praegu: A stone kettlebell with a wooden handle for natural, versatile training.
+    UUS:
+
+--------------------------------------------------------------------------------
+https://raio.ee/pood/hantlid
+  TITLE  (15 märki)
+    praegu: Hantlid | RA•IO
+    UUS:
+  KIRJELDUS  (79 märki)
+    praegu: Kivist raskused puidust käepidemega rahulikuks jõu- ja vastupidavustreeninguks.
+    UUS:
+
+--------------------------------------------------------------------------------
+https://raio.ee/en/pood/hantlid
+  TITLE  (17 märki)
+    praegu: Dumbbells | RA•IO
+    UUS:
+  KIRJELDUS  (75 märki)
+    praegu: Stone weights with wooden handles for calm strength and endurance training.
+    UUS:
+
+--------------------------------------------------------------------------------
+https://raio.ee/pood/treeningnui-sau
+  TITLE  (25 märki)
+    praegu: Treeningnui (sau) | RA•IO
+    UUS:
+  KIRJELDUS  (71 märki)
+    praegu: Puidust treeningvahend liikuvuse, haarde ja kogu keha jõu arendamiseks.
+    UUS:
+
+--------------------------------------------------------------------------------
+https://raio.ee/en/pood/treeningnui-sau
+  TITLE  (29 märki)
+    praegu: Training club (staff) | RA•IO
+    UUS:
+  KIRJELDUS  (78 märki)
+    praegu: A wooden training tool for developing mobility, grip, and whole-body strength.
+    UUS:
+
+--------------------------------------------------------------------------------
+https://raio.ee/pood/laste-treeningvahendid
+  TITLE  (30 märki)
+    praegu: Laste treeningvahendid | RA•IO
+    UUS:
+  KIRJELDUS  (69 märki)
+    praegu: Lastele loodud kergemad looduslikud vahendid mänguliseks liikumiseks.
+    UUS:
+
+--------------------------------------------------------------------------------
+https://raio.ee/en/pood/laste-treeningvahendid
+  TITLE  (33 märki)
+    praegu: Children's training tools | RA•IO
+    UUS:
+  KIRJELDUS  (59 märki)
+    praegu: Lighter natural tools made for children's playful movement.
+    UUS:
+
+================================================================================
+MIS VEEL OTSINGUTULEMUSE VÄLJANÄGEMIST MÕJUTAB
+================================================================================
+
+Jagamispilt (Facebook, WhatsApp, LinkedIn, Slack):
+  Praegu on KÕIGIL lehtedel üks ja sama pilt: https://raio.ee/og/og-default.jpg
+  Tootelehtedel läheb pildiks toote esimene foto.
+  Kui tahad avalehele/poele eraldi jagamispildi (1200x630), ütle — teen ära.
+
+Google'i tootekaart (hind, saadavus, tagastus):
+  Tootelehed saadavad Google'ile struktureeritud andmeid: nimi, kirjeldus,
+  hind, EUR, saadavus, 14-päevane tagastusõigus, tagastuskulu ostja kanda.
+  Kui poe tegelikud tingimused erinevad, ütle — need on koodis (lib/seo.js).
+
+Ettevõtte andmed (Google'i paremal serval olev kaart):
+  Praegu saadame Google'ile: nimi RA•IO, ametlik nimi Raio33Movement OÜ,
+  aadress raio.ee, logo, ja üks sotsiaalmeedia link:
+  https://www.instagram.com/ra.ioworld
+  Kood: lib/seo.js → buildOrganizationJsonLd
+
+  Puuduvad: e-post, telefon, füüsiline aadress, Facebook.
+  E-post (ra.io33movement@gmail.com) ja registrikood (17338447) on saidil
+  jalusel olemas, aga Google'ile masinloetavalt neid ei saadeta.
+  Kui soovid, lisan — ütle, millised andmed tohivad avalikud olla.

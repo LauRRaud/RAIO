@@ -1,0 +1,122 @@
+================================================================================
+RA•IO — SITEMAP.XML ÜLEVAATAMISEKS
+Seis: 2026-07-27 (nagu praegu https://raio.ee/sitemap.xml peal)
+================================================================================
+
+MIS SEE ON
+  Sitemap on lehtede nimekiri, mille anname Google'ile: "need lehed on
+  olemas, palun vaata üle". See ei garanteeri indekseerimist, aga kiirendab
+  uute lehtede leidmist ja ütleb, MILLINE aadress on õige (kaks keelt).
+
+KUS SEE ELAB  (uuendatud 2026-07-27)
+  Admin → „SEO · Google ja jagamine” → kaart „Sitemap”.
+  Seal on iga lehe kohta linnuke: sees = leht on nimekirjas.
+  Muudatus jõustub kohe pärast Save.
+  Kood: app/sitemap.js (nimekiri ise) + lib/seo.js getSitemapToggles()
+
+  Tooted tulevad automaatselt Payloadist — admin'is lisatud toode ilmub
+  sitemap'i kohe, ilma deploy'ta. Terve tooteploki saab ühe linnukesega
+  välja lülitada.
+
+
+--------------------------------------------------------------------------------
+PRAEGU SEES — 12 LEHTE + 10 TOOTELEHTE (mõlemas keeles)
+--------------------------------------------------------------------------------
+
+  tähtsus  uuendamine   aadress
+  -------  -----------  --------------------------------------------------
+   1.0     kord kuus    https://raio.ee                    (avaleht)
+   1.0     kord kuus    https://raio.ee/en
+   0.7     kord kuus    https://raio.ee/treeningud
+   0.7     kord kuus    https://raio.ee/en/treeningud
+   0.7     kord kuus    https://raio.ee/vahendid
+   0.7     kord kuus    https://raio.ee/en/vahendid
+   0.7     kord kuus    https://raio.ee/sundmused
+   0.7     kord kuus    https://raio.ee/en/sundmused
+   0.7     kord kuus    https://raio.ee/journal            (RA•IO+)
+   0.7     kord kuus    https://raio.ee/en/journal
+   0.9     kord nädalas https://raio.ee/pood
+   0.9     kord nädalas https://raio.ee/en/pood
+
+   0.8     kord nädalas https://raio.ee/pood/kivisangpomm
+   0.8     kord nädalas https://raio.ee/en/pood/kivisangpomm
+   0.8     kord nädalas https://raio.ee/pood/puu-kivi-sangpomm
+   0.8     kord nädalas https://raio.ee/en/pood/puu-kivi-sangpomm
+   0.8     kord nädalas https://raio.ee/pood/hantlid
+   0.8     kord nädalas https://raio.ee/en/pood/hantlid
+   0.8     kord nädalas https://raio.ee/pood/treeningnui-sau
+   0.8     kord nädalas https://raio.ee/en/pood/treeningnui-sau
+   0.8     kord nädalas https://raio.ee/pood/laste-treeningvahendid
+   0.8     kord nädalas https://raio.ee/en/pood/laste-treeningvahendid
+
+   0.7     kord kuus    https://raio.ee/meist
+   0.7     kord kuus    https://raio.ee/en/meist
+
+  "tähtsus" (priority) = sinu enda hinnang lehe kaalule saidi sees, 0-1.
+  Google võtab seda vihjena, mitte käsuna.
+
+
+--------------------------------------------------------------------------------
+MIDA SITEMAP'IS MEELEGA EI OLE
+--------------------------------------------------------------------------------
+
+  /ostukorv, /makse  — ostuvoo lehed, neil on "noindex". Sitemap'i kuuluvad
+                       ainult lehed, mida me päriselt indeksisse tahame.
+  /admin, /api/      — vt SEO-ROBOTS.txt.
+  Peidetud tooted    — kui märgid toote admin'is nähtamatuks, kaob ta ka
+                       sitemap'ist (järgmisel build'il).
+
+
+--------------------------------------------------------------------------------
+KAKS KEELT — KUIDAS SEE TÖÖTAB
+--------------------------------------------------------------------------------
+
+  Iga leht on sitemap'is kaks korda: eesti ja inglise. Lisaks ütleb iga leht
+  Google'ile ise, kus tema teiskeelne paariline on:
+
+      <link rel="canonical"  href="https://raio.ee/pood">
+      <link rel="alternate" hreflang="et"        href="https://raio.ee/pood">
+      <link rel="alternate" hreflang="en"        href="https://raio.ee/en/pood">
+      <link rel="alternate" hreflang="x-default" href="https://raio.ee/pood">
+
+  x-default = eesti keel on vaikimisi, kui Google ei tea külastaja keelt.
+
+  TÄHELEPANEK ÜLEVAATAMISEKS:
+  Ingliskeelsed aadressid kasutavad eestikeelseid sõnu — /en/treeningud,
+  /en/vahendid, /en/sundmused. Inglise otsijale loeks paremini
+  /en/training, /en/tools, /en/events.
+  Koodis on /shop ja /workshops marsruudid juba olemas, aga sitemap ja
+  lingid neid ei kasuta. See on suurem töö (vanad aadressid tuleks uutele
+  ümber suunata, et olemasolev Google'i ajalugu ei kaoks) — ütle, kas
+  tahad, siis teen eraldi.
+
+
+--------------------------------------------------------------------------------
+"lastModified" — VIIMASE MUUTMISE KUUPÄEV
+--------------------------------------------------------------------------------
+
+  Praegu paneb sitemap kõigile lehtedele viimase muutmise ajaks päringu
+  hetke. See tähendab: Google näeb alati, nagu oleks KÕIK lehed just
+  muutunud, ka need, mida ei puutunud. Google usaldab sellist kuupäeva
+  vähem.
+  Kui tahad, saab tõmmata päris kuupäevad Payloadist (toote/lehe viimane
+  salvestus) — see on väike ja ohutu parandus.
+
+
+--------------------------------------------------------------------------------
+GOOGLE SEARCH CONSOLE
+--------------------------------------------------------------------------------
+
+  Sait on GSC-s kinnitatud failimeetodiga (URL-prefix). Sitemap tuleb seal
+  ühe korra ette anda: Search Console → Sitemaps → "sitemap.xml" → Submit.
+  Pärast seda näed sealt, mitu lehte on tegelikult indeksis ja mis jäi välja.
+  Ütle, kui tahad, et selle üle vaataksin — vajan ligipääsu või ekraanipilti.
+
+
+--------------------------------------------------------------------------------
+KUIDAS TÄIENDADA
+--------------------------------------------------------------------------------
+  Kirjuta soovid siia faili lõppu või ütle suuliselt.
+
+MINU MÄRKUSED:
+

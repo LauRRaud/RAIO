@@ -2,7 +2,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { ShopPage } from "@/components/pages/ShopPage";
 import { buildPageMetadata, buildShopBreadcrumbJsonLd, buildShopItemListJsonLd } from "@/lib/seo";
 
-export const metadata = buildPageMetadata("et", "shop");
+export async function generateMetadata() {
+  return buildPageMetadata("et", "shop");
+}
 export const dynamic = "force-dynamic";
 
 export default async function Pood() {

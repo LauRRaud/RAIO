@@ -10,13 +10,13 @@ import { ShopPage } from "@/components/pages/ShopPage";
 import { ToolsPage } from "@/components/pages/ToolsPage";
 import { TrainingPage } from "@/components/pages/TrainingPage";
 import { JsonLd } from "@/components/JsonLd";
-import { getMessages } from "@/lib/messages";
 import {
   buildPageMetadata,
   buildProductJsonLd,
   buildProductMetadata,
   buildShopBreadcrumbJsonLd,
-  buildShopItemListJsonLd
+  buildShopItemListJsonLd,
+  buildSiteMetadata
 } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
@@ -39,7 +39,6 @@ function getRouteKey(slug) {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const route = getRouteKey(slug);
-  const messages = getMessages("en");
 
   if (!route || route === "en") {
     return buildPageMetadata("en", "home");
@@ -54,7 +53,8 @@ export async function generateMetadata({ params }) {
     return buildProductMetadata("en", productSlug);
   }
 
-  return { title: messages.metadata.title };
+  const site = await buildSiteMetadata("en");
+  return { title: site.title };
 }
 
 export default async function EnglishSitePage({ params, searchParams }) {

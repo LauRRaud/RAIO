@@ -14,6 +14,7 @@
     "audit:ui": "node scripts/ui-audit.mjs",
     "audit:css": "node scripts/css-duplicate-guard.mjs",
     "seed:admin": "tsx scripts/seed-admin-content.ts",
+    "seed:seo": "tsx scripts/seed-seo.ts",
     "textures:variants": "node scripts/texture-variants.mjs",
     "textures:import": "tsx scripts/import-textures.ts"
   },
