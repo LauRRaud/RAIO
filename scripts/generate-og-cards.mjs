@@ -130,7 +130,14 @@ function card({ title, photoUrl, fontUrl, logoUrl, textureUrl }) {
     text-shadow: 0 2px 18px rgba(10, 7, 4, 0.55);
   }
   /* Foto raamis: pilt täidab kasti, valge joon jookseb pildi SEES, nagu
-     alalehe päises (card-chrome.css --raio-frame-inset / --raio-frame-line). */
+     alalehe päises (card-chrome.css --raio-frame-inset / --raio-frame-line).
+
+     ERINEVUS SAIDIST, teadlik: joon on siin läbipaistmatu, saidil
+     rgba(253,248,238,0.92). Läbi 8% alfa kumas soojal fotol (avalehe
+     õhtupäike, treeningute männid) foto oma toon läbi ja raam luges kuldsena,
+     jahedal metsafotol aga valgena — seitse kaarti kõrvuti nägid välja nagu
+     kaks eri kujundust (omanik 2026-07-27: "paaril ikka kollane raam" →
+     "pane ikka 1"). Kaardid seisavad Facebookis üksteise kõrval, sait mitte. */
   .figure {
     flex: 0 0 ${PHOTO_W}px;
     position: relative;
@@ -143,7 +150,7 @@ function card({ title, photoUrl, fontUrl, logoUrl, textureUrl }) {
     content: "";
     position: absolute;
     inset: 12px;
-    border: 2px solid rgba(253, 248, 238, 0.92);
+    border: 2px solid rgb(253, 248, 238);
   }
 </style></head>
 <body>

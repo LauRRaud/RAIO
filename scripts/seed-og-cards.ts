@@ -44,23 +44,42 @@ const CARDS = [
   { key: "about", file: "og-meist.jpg", et: "RA•IO jagamispilt: meist", en: "RA•IO share image: about" }
 ];
 
-/* Payload annab uploadile unikaalse nime alles siis, kui sama nimi on hõivatud
-   (og-pood-1.jpg). Otsime seepärast TÄPSE nime järgi: kui doc on olemas, on ta
-   meie oma ja teist ei tehta. */
+/* Otsinguvõti on ALT, mitte failinimi. Payload ei kirjuta uploadi uuendamisel
+   vana faili üle, vaid nimetab uue ümber (og-avaleht.jpg -> og-avaleht-1.jpg);
+   failinime järgi otsides ei leia järgmine jooks oma docti enam üles ja teeb
+   duplikaadi. Alt on meie enda kirjutatud, kaardi kohta unikaalne ja püsib. */
 async function ensureMedia({ file, et, en }) {
-  const existing = await payload.find({
-    collection: "media",
-    limit: 1,
-    overrideAccess: true,
-    where: { filename: { equals: file } }
-  });
-
-  if (existing.docs[0]) return { id: existing.docs[0].id, created: false };
-
   const filePath = path.join(root, "public", "og", file);
   if (!fs.existsSync(filePath)) {
     console.warn(`  puudub, jätan vahele: public/og/${file} (jooksuta enne npm run og:cards)`);
     return null;
+  }
+
+  const existing = await payload.find({
+    collection: "media",
+    limit: 1,
+    locale: "et",
+    overrideAccess: true,
+    where: { alt: { equals: et } }
+  });
+
+  const doc = existing.docs[0];
+
+  if (doc) {
+    /* Kaardi kujundus muutub aeg-ajalt ja failinimi jääb samaks. Ainult
+       olemasolu kontrollimisest jääks prodi vana pilt igaveseks — doci
+       leidmine ei too uusi baite kaasa. Võrdleme suurust ja vahetame faili,
+       kui kaustaversioon on teine. */
+    const size = fs.statSync(filePath).size;
+    if (doc.filesize === size) return { id: doc.id, state: "olemas", rebind: false };
+
+    /* ASENDAME DOCI, mitte ei uuenda faili. payload.update({ filePath }) lisab
+       nimele -1 ka siis, kui vana fail on kettalt kustutatud: nime vabadust
+       kontrollitakse andmebaasist ja doc leiab konflikti iseendaga. Nii
+       kasvaks iga kujundusmuudatusega og-meist-1.jpg, -2, -3 ja vanad jääks
+       kausta vedelema. Kustutamine vabastab nime päriselt; docti viitab ainult
+       SEO-globaal, mille me kohe uuesti seome. */
+    await payload.delete({ collection: "media", id: doc.id, overrideAccess: true });
   }
 
   const created = await payload.create({
@@ -81,7 +100,7 @@ async function ensureMedia({ file, et, en }) {
     data: { alt: en }
   });
 
-  return { id: created.id, created: true };
+  return { id: created.id, state: doc ? "asendatud" : "üles laaditud", rebind: true };
 }
 
 /* fallbackLocale: false — vaikimisi tagastaks päring eesti väärtused ka siis,
@@ -94,30 +113,31 @@ const current = await payload.findGlobal({
 });
 
 const data: Record<string, unknown> = {};
-let uploaded = 0;
+let touched = 0;
 
 for (const card of CARDS) {
   const existing = current?.[card.key] || {};
 
-  if (existing.shareImage && !force) {
-    console.log(`${card.key}: jagamispilt juba seatud, jätan vahele`);
+  /* Fail käiakse ALATI üle, ka siis, kui seos on juba olemas — muidu jääks
+     uuendatud kujundusega kaart lokaalseks ja prod näitaks vana pilti. */
+  const media = await ensureMedia(card);
+  if (!media) continue;
+  if (media.state !== "olemas") touched += 1;
+
+  /* rebind: uus doc = uus ID, seega seos TULEB üle kirjutada ka siis, kui
+     väli oli juba täidetud — muidu osutaks globaal kustutatud pildile. */
+  if (existing.shareImage && !force && !media.rebind) {
+    console.log(`${card.key}: ${card.file} (${media.state}), seos juba paigas`);
     continue;
   }
 
-  const media = await ensureMedia(card);
-  if (!media) continue;
-  if (media.created) uploaded += 1;
-
   data[card.key] = { ...existing, shareImage: media.id };
-  console.log(`${card.key}: ${card.file}${media.created ? " (üles laaditud)" : " (juba olemas)"}`);
+  console.log(`${card.key}: ${card.file} (${media.state}), seotud`);
 }
 
-if (!Object.keys(data).length) {
-  console.log("Midagi muuta ei olnud.");
-  process.exit(0);
+if (Object.keys(data).length) {
+  await payload.updateGlobal({ slug: "seo", locale: "et", overrideAccess: true, data });
 }
 
-await payload.updateGlobal({ slug: "seo", locale: "et", overrideAccess: true, data });
-
-console.log(`Valmis: ${Object.keys(data).length} lehte seotud, ${uploaded} uut faili.`);
+console.log(`Valmis: ${Object.keys(data).length} uut seost, ${touched} faili puudutatud.`);
 process.exit(0);
