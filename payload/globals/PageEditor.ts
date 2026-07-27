@@ -200,7 +200,7 @@ export const PageEditor: GlobalConfig = {
               { name: "qualities", label: "Kvaliteedimärksõnad", type: "array", localized: true, fields: [textField("title", "Tekst")] }
             ], "Kaarte lisad ja muudad vasakmenüüst „Treeningud”."),
             sectionGroup("trainingLasting", "03 · Kestev treening", [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst"), imageField("image")], "Pildi ja tekstiga sisusektsioon."),
-            sectionGroup("trainingWorkshop", "04 · Töötuba", [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst")], "Treeningute lehe alumine üleskutse.")
+            sectionGroup("trainingWorkshop", "04 · Töötuba", [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst")], "Treeningute lehe alumine üleskutse. Nupp avab sama akna „Korralda sündmus · modaal”, mis sündmuste lehel.")
           ]
         },
         {
@@ -220,7 +220,7 @@ export const PageEditor: GlobalConfig = {
           fields: [
             hero("eventsHero"),
             sectionGroup("eventsCarousel", "02 · Sündmuste karussell", [textField("title", "Sektsiooni pealkiri"), textField("cta", "Kaardi nupu tekst")], "Kaarte lisad ja muudad vasakmenüüst „Sündmused”."),
-            sectionGroup("eventsHost", "03 · Korralda sündmus (bänd)", [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst"), imageField("image")], "Sündmuste lehe alumine pildi- ja tekstisektsioon. Nupp viib alalehele „Korralda oma sündmus”.")
+            sectionGroup("eventsHost", "03 · Korralda sündmus (bänd)", [textField("title", "Pealkiri"), textField("text", "Tekst", true), textField("cta", "Nupu tekst"), imageField("image")], "Sündmuste lehe alumine pildi- ja tekstisektsioon. Nupp avab akna „Korralda sündmus · modaal”, sama mille avab treeningute lehe töötoa-nupp.")
           ]
         },
         {

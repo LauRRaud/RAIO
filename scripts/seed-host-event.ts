@@ -1,10 +1,11 @@
 // @ts-nocheck -- data bridge: messages/*.json -> Payload "host-event" global
 //
 // Kaks tööd:
-//  1. Täidab alalehe /sundmused/korralda admini väljad praeguste avalike
-//     tekstidega, et omanik näeks vormil seda, mis päriselt lehel on.
-//  2. Uuendab sündmuste lehe bändi nupu teksti ("Võta ühendust" ->
-//     "Vaata võimalusi"), sest see elab page-editor'i andmebaasis ja
+//  1. Täidab modaali admini väljad praeguste avalike tekstidega, et omanik
+//     näeks vormil seda, mis päriselt lehel on.
+//  2. Uuendab MÕLEMA modaali avava bändi nupu teksti ("Võta ühendust" ->
+//     "Vaata võimalusi") — sündmuste lehe eventsHost ja treeningute lehe
+//     trainingWorkshop. Need elavad page-editor'i andmebaasis ja
 //     messages/*.json muutmine ei jõua sinna. Puutumata jääb nupp, mille
 //     omanik on ise juba millekski muuks kirjutanud.
 //
@@ -92,27 +93,36 @@ async function seedHostEvent(locale: "et" | "en") {
   console.log(`${locale}: host-event täidetud`);
 }
 
+/* Mõlemad modaali avavad bändid: sündmuste leht ja treeningute leht. */
+const BANDS = [
+  { section: "eventsHost", label: "sündmuste bänd", wanted: (m) => m.events.host.cta },
+  { section: "trainingWorkshop", label: "treeningute bänd", wanted: (m) => m.training.workshop.cta }
+];
+
 async function updateBandCta(locale: "et" | "en") {
   const current = await payload.findGlobal({ slug: "page-editor", locale, depth: 0, fallbackLocale: false });
-  const existing = current?.eventsHost?.cta;
-  const wanted = messages[locale].events.host.cta;
 
-  if (existing && !OLD_CTA.includes(existing) && !force) {
-    console.log(`${locale}: bändi nupp on omaniku oma ("${existing}"), ei puutu`);
-    return;
-  }
-  if (existing === wanted) {
-    console.log(`${locale}: bändi nupp juba "${wanted}"`);
-    return;
-  }
+  for (const band of BANDS) {
+    const existing = current?.[band.section]?.cta;
+    const wanted = band.wanted(messages[locale]);
 
-  await payload.updateGlobal({
-    slug: "page-editor",
-    locale,
-    overrideAccess: true,
-    data: { eventsHost: { ...(current?.eventsHost || {}), cta: wanted } }
-  });
-  console.log(`${locale}: bändi nupp "${existing || "(tühi)"}" -> "${wanted}"`);
+    if (existing && !OLD_CTA.includes(existing) && !force) {
+      console.log(`${locale}: ${band.label} on omaniku oma ("${existing}"), ei puutu`);
+      continue;
+    }
+    if (existing === wanted) {
+      console.log(`${locale}: ${band.label} juba "${wanted}"`);
+      continue;
+    }
+
+    await payload.updateGlobal({
+      slug: "page-editor",
+      locale,
+      overrideAccess: true,
+      data: { [band.section]: { ...(current?.[band.section] || {}), cta: wanted } }
+    });
+    console.log(`${locale}: ${band.label} "${existing || "(tühi)"}" -> "${wanted}"`);
+  }
 }
 
 for (const locale of ["et", "en"] as const) {

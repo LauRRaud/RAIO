@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getHeaderTextures } from "@/lib/payloadContent";
 import { HeroMedia } from "@/components/HeroMedia";
+import { HostEventModal } from "@/components/HostEventModal";
 import { LineIcon } from "@/components/Icons";
 import { TrainingCardsCarousel } from "@/components/TrainingCardsCarousel";
 import { getLocalizedPath } from "@/lib/i18n";
@@ -140,9 +141,15 @@ export async function TrainingPage({ locale = "et" }) {
               <h2 id="training-workshop-title">{t.workshop.title}</h2>
               <p>{t.workshop.text}</p>
             </div>
-            <Link href={contactHref} className="training-solid-button">
-              {t.workshop.cta}
-            </Link>
+            {/* Sama modaal, mis sündmuste lehel: küsimus on sama ("tellige
+                meilt oma grupile"), seega ei kirjuta me vastust kaks korda. */}
+            <HostEventModal
+              label={t.workshop.cta}
+              closeLabel={messages.hostEvent.close}
+              content={messages.hostEvent}
+              contactHref={contactHref}
+              buttonClassName="training-solid-button"
+            />
           </section>
         </section>
       </main>

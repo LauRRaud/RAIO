@@ -4,13 +4,18 @@ import { X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-/* Sündmuste lehe bändi nupp avab modaali, mitte alalehte — sama muster nagu
-   treeningu- ja sündmusekaartidel (EventsCardsCarousel, TrainingCardsCarousel).
+/* "Korralda ise" modaal. Sama aken avaneb KAHEST kohast: sündmuste lehe
+   bändist ja treeningute lehe töötoa-bändist — mõlemad küsivad sedasama
+   ("tellige meilt oma grupile"), aga vastus on üks ja sama, seega üks sisu
+   ühes globaalis. Bändi pealkiri ja tekst jäävad lehele omaseks, ainult nupu
+   siht on jagatud. buttonClassName sellepärast, et nupustiil on lehe oma
+   (.events-solid-button / .training-solid-button).
+
    Modaali kroom (taust, sulgemisnupp, kerimine) tuleb meelega sündmuse modaali
-   klassidest, et kolm modaali näeksid välja ühesugused; host-modal-* klassid
+   klassidest, et kõik modaalid näeksid välja ühesugused; host-modal-* klassid
    katavad ainult seda sisu, mida sündmuse modaalis ei ole (formaadid, sammud,
    "hea teada"). */
-export function HostEventModal({ label, closeLabel, content, contactHref }) {
+export function HostEventModal({ label, closeLabel, content, contactHref, buttonClassName = "events-solid-button" }) {
   const [open, setOpen] = useState(false);
   const closeButtonRef = useRef(null);
 
@@ -40,7 +45,7 @@ export function HostEventModal({ label, closeLabel, content, contactHref }) {
     <>
       <button
         type="button"
-        className="events-solid-button"
+        className={buttonClassName}
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
       >
