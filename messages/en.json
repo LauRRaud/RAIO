@@ -399,7 +399,7 @@
     "registrationClosed": "Registration is closed",
     "events": [
       {
-        "date": "25 May 2024",
+        "date": "15 August 2026",
         "title": "Morning movement by the river",
         "description": "Functional training in nature. Breathing, strength, and presence.",
         "location": "Tartu, Emajõgi",
@@ -412,7 +412,7 @@
         ]
       },
       {
-        "date": "8 June 2024",
+        "date": "29 August 2026",
         "title": "Kettlebell workshop",
         "description": "Learn kettlebell technique, use, and history.",
         "location": "Near Elva",
@@ -425,7 +425,7 @@
         ]
       },
       {
-        "date": "22 June 2024",
+        "date": "12 September 2026",
         "title": "Sunrise training and swim",
         "description": "Movement, cold water, and a morning ritual.",
         "location": "Lake Peipsi, Kallaste",
@@ -438,7 +438,7 @@
         ]
       },
       {
-        "date": "13 July 2024",
+        "date": "26 September 2026",
         "title": "Strength evening & sauna ritual",
         "description": "An evening strength session, fire, sauna, and a circle of conversation.",
         "location": "Võrumaa",
@@ -486,7 +486,7 @@
     "steps": [
       {
         "title": "Write to us",
-        "text": "Tell us how many people, when and where. If there is no place yet, we will suggest one."
+        "text": "Tell us how many people, when and where. If you don't have a place yet, we'll help you find one."
       },
       {
         "title": "We talk it through",
@@ -498,7 +498,7 @@
       },
       {
         "title": "We make it happen",
-        "text": "We bring the tools and the guides. You just show up."
+        "text": "We bring the tools and the guides — all you have to do is turn up."
       }
     ],
     "notesTitle": "Good to know",
@@ -509,8 +509,8 @@
       "Catering and the venue can be arranged by us or left to you.",
       "Rain does not cancel — we adjust the clothing and the programme."
     ],
-    "closingTitle": "Let's talk it through.",
-    "closingText": "Write a couple of sentences about what you have in mind — when, how many people and what you expect. That is enough for us to send you a quote.",
+    "closingTitle": "Let's start with a conversation.",
+    "closingText": "Write a couple of sentences about what you have in mind — when, how many people and what you're hoping for. That's enough for us to put together an offer that fits.",
     "closingCta": "Get in touch"
   },
   "journal": {
@@ -540,7 +540,7 @@
     "modalClose": "Close story",
     "articles": [
       {
-        "date": "23 May 2024",
+        "date": "23 May 2026",
         "category": "Nature",
         "title": "The power of morning movement",
         "excerpt": "Why early-morning training brings clarity, energy, and calm to the day.",
@@ -552,7 +552,7 @@
         ]
       },
       {
-        "date": "12 May 2024",
+        "date": "12 May 2026",
         "category": "Craft",
         "title": "Made by hand",
         "excerpt": "Every tool is made by hand. From choosing the materials to the finish - the story behind the process.",
@@ -564,7 +564,7 @@
         ]
       },
       {
-        "date": "5 May 2024",
+        "date": "5 May 2026",
         "category": "Training",
         "title": "Functional strength in nature",
         "excerpt": "How to build strength, endurance, and mobility using the body and nature.",
@@ -576,7 +576,7 @@
         ]
       },
       {
-        "date": "28 April 2024",
+        "date": "28 April 2026",
         "category": "Thoughts",
         "title": "Silence as a source of strength",
         "excerpt": "Why time spent in silence helps strengthen focus, the nervous system, and inner resilience.",
@@ -588,7 +588,7 @@
         ]
       },
       {
-        "date": "17 April 2024",
+        "date": "17 April 2026",
         "category": "Craft",
         "title": "Wood and stone - a timeless pairing",
         "excerpt": "Natural materials that endure over time and support our movement.",
@@ -600,7 +600,7 @@
         ]
       },
       {
-        "date": "9 April 2024",
+        "date": "9 April 2026",
         "category": "Nature",
         "title": "Recovery in nature",
         "excerpt": "How nature helps reduce stress and improves our physical and mental well-being.",

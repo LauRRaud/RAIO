@@ -399,7 +399,7 @@
     "registrationClosed": "Registreerimine on suletud",
     "events": [
       {
-        "date": "25. mai 2024",
+        "date": "15. august 2026",
         "title": "Hommikune liikumine jõe ääres",
         "description": "Funktsionaalne treening looduses. Hingamine, jõud ja kohalolu.",
         "location": "Tartu, Emajõgi",
@@ -412,7 +412,7 @@
         ]
       },
       {
-        "date": "8. juuni 2024",
+        "date": "29. august 2026",
         "title": "Sangpommi töötuba",
         "description": "Õpi sangpommi tehnikat, kasutust ja ajalugu.",
         "location": "Elva lähistel",
@@ -425,7 +425,7 @@
         ]
       },
       {
-        "date": "22. juuni 2024",
+        "date": "12. september 2026",
         "title": "Päikesetõusu treening ja suplus",
         "description": "Liikumine, külm vesi ja hommikune rituaal.",
         "location": "Peipsi järv, Kallaste",
@@ -438,7 +438,7 @@
         ]
       },
       {
-        "date": "13. juuli 2024",
+        "date": "26. september 2026",
         "title": "Jõuõhtu & saunarituaal",
         "description": "Õhtune jõutreening, tuli, saun ja vestlusring.",
         "location": "Võrumaa",
@@ -485,8 +485,8 @@
     "processTitle": "Kuidas see käib.",
     "steps": [
       {
-        "title": "Kirjuta",
-        "text": "Anna teada, kui palju inimesi, millal ja kus. Kui kohta veel pole, pakume välja."
+        "title": "Kirjuta meile",
+        "text": "Anna teada, kui palju inimesi, millal ja kus. Kui kohta veel pole, aitame selle leida."
       },
       {
         "title": "Räägime läbi",
@@ -497,8 +497,8 @@
         "text": "Kirjalik pakkumine koos kavaga. Hind sõltub grupi suurusest, kestusest ja asukohast."
       },
       {
-        "title": "Teeme ära",
-        "text": "Meie toome vahendid ja juhendajad. Teie tulete kohale."
+        "title": "Viime läbi",
+        "text": "Meie toome vahendid ja juhendajad — teil tuleb vaid kohale tulla."
       }
     ],
     "notesTitle": "Hea teada",
@@ -509,8 +509,8 @@
       "Toitlustuse ja koha saame korraldada või jätta teie hooleks.",
       "Vihm ei tühista — kohandame riietuse ja kava."
     ],
-    "closingTitle": "Räägime ära.",
-    "closingText": "Kirjuta paari lausega, mida plaanite — millal, kui palju inimesi ja mida ootate. Sellest piisab, et saata sulle pakkumine.",
+    "closingTitle": "Alustame vestlusest.",
+    "closingText": "Kirjuta paari lausega, mida plaanite — millal, kui palju inimesi ja mida ootate. Sellest piisab, et saaksime teile sobiva pakkumise koostada.",
     "closingCta": "Võta ühendust"
   },
   "journal": {
@@ -540,7 +540,7 @@
     "modalClose": "Sulge lugu",
     "articles": [
       {
-        "date": "23. mai 2024",
+        "date": "23. mai 2026",
         "category": "Loodus",
         "title": "Hommikuse liikumise jõud",
         "excerpt": "Miks varahommikused treeningud loovad päevale selguse, energia ja rahu.",
@@ -552,7 +552,7 @@
         ]
       },
       {
-        "date": "12. mai 2024",
+        "date": "12. mai 2026",
         "category": "Käsitöö",
         "title": "Käsitööna loodud",
         "excerpt": "Iga vahend valmib käsitsi. Materjalide valikust viimistluseni - lugu protsessi tagant.",
@@ -564,7 +564,7 @@
         ]
       },
       {
-        "date": "5. mai 2024",
+        "date": "5. mai 2026",
         "category": "Treening",
         "title": "Funktsionaalne tugevus looduses",
         "excerpt": "Kuidas arendada jõudu, vastupidavust ja liikuvust kasutades keha ja loodust.",
@@ -576,7 +576,7 @@
         ]
       },
       {
-        "date": "28. aprill 2024",
+        "date": "28. aprill 2026",
         "category": "Mõtted",
         "title": "Vaikus kui jõuallikas",
         "excerpt": "Miks vaikuses viibimine aitab tugevdada fookust, närvisüsteemi ja sisemist vastupidavust.",
@@ -588,7 +588,7 @@
         ]
       },
       {
-        "date": "17. aprill 2024",
+        "date": "17. aprill 2026",
         "category": "Käsitöö",
         "title": "Puit ja kivi - ajatu kooslus",
         "excerpt": "Looduslikud materjalid, mis peavad vastu ajale ja toetavad meie liikumist.",
@@ -600,7 +600,7 @@
         ]
       },
       {
-        "date": "9. aprill 2024",
+        "date": "9. aprill 2026",
         "category": "Loodus",
         "title": "Looduses taastumine",
         "excerpt": "Kuidas loodus aitab vähendada stressi ja parandab meie füüsilist ning vaimset heaolu.",

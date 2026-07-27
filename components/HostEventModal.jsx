@@ -99,7 +99,7 @@ export function HostEventModal({ label, closeLabel, content, contactHref }) {
                   {content.steps.map((step, index) => (
                     <li key={step.title}>
                       <span className="host-modal-step-number" aria-hidden="true">
-                        {String(index + 1).padStart(2, "0")}
+                        {index + 1}
                       </span>
                       <div>
                         <h4>{step.title}</h4>
