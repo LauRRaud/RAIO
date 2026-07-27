@@ -1,5 +1,7 @@
 import type { Field, GlobalConfig } from "payload";
 
+import en from "@/messages/en.json";
+import et from "@/messages/et.json";
 import { anyone, authenticated } from "@/payload/access";
 
 /* SEO-tekstid ja otsingumootorite seaded admini alt.
@@ -22,6 +24,22 @@ const seoPages = [
   { name: "about", label: "Meist · /meist" }
 ] as const;
 
+/* Tühi väli tähendab "kasuta koodi teksti" — aga tühjast lahtrist ei näe,
+   MILLINE tekst see on (omanik 2026-07-27: "kuidas ma näen praegust teksti,
+   mille sõnastust muuta, kui seal on tühi väli?"). Seepärast kirjutame
+   messages/*.json väärtuse välja kirjeldusse, mõlemas keeles korraga:
+   admini Locale-lüliti ei ole väljakirjeldustele kättesaadav, ja niikuinii on
+   kasulik näha, mis teises keeles seisab. Kirjeldus loetakse koodifailist,
+   seega ta ei saa DB-ga lahku minna. */
+function currentText(key: "title" | "description", pageKey?: string): string {
+  const pick = (catalog: Record<string, any>) =>
+    (pageKey ? catalog[pageKey]?.metadata : catalog.metadata)?.[key] || "—";
+
+  /* Reavahetused ei jõua kirjelduseni (Payload renderdab teksti ühte diivi ja
+     HTML sööb \n ära), seega eraldajad on nähtavad märgid. */
+  return `Tühjaks jättes jääb kehtima praegune tekst — ET: „${pick(et)}” · EN: „${pick(en)}”`;
+}
+
 function pageSeoGroup(name: string, label: string): Field {
   return {
     name,
@@ -29,7 +47,7 @@ function pageSeoGroup(name: string, label: string): Field {
     type: "group",
     admin: {
       description:
-        "Tühjaks jäetud väli tähendab: jääb kehtima praegune tekst. Eesti ja inglise vahel vahetad paremal üleval Locale valikust."
+        "Eesti ja inglise sisu vahetad paremal üleval Locale valikust. Iga välja all on kirjas, mis tekst tühja välja korral kehtima jääb."
     },
     fields: [
       {
@@ -38,7 +56,7 @@ function pageSeoGroup(name: string, label: string): Field {
         type: "text",
         localized: true,
         admin: {
-          description: "Kuni umbes 60 märki, muidu Google lõikab lõpu ära."
+          description: `Kuni umbes 60 märki, muidu Google lõikab lõpu ära. ${currentText("title", name)}`
         }
       },
       {
@@ -47,8 +65,7 @@ function pageSeoGroup(name: string, label: string): Field {
         type: "textarea",
         localized: true,
         admin: {
-          description:
-            "Soovituslik 120–155 märki. Ei mõjuta pingerida, mõjutab seda, kas inimene klikib."
+          description: `Soovituslik 120–155 märki. Ei mõjuta pingerida, mõjutab seda, kas inimene klikib. ${currentText("description", name)}`
         }
       },
       {
@@ -134,13 +151,15 @@ export const Seo: GlobalConfig = {
                   name: "title",
                   label: "Vaikimisi pealkiri",
                   type: "text",
-                  localized: true
+                  localized: true,
+                  admin: { description: currentText("title") }
                 },
                 {
                   name: "description",
                   label: "Vaikimisi kirjeldus",
                   type: "textarea",
-                  localized: true
+                  localized: true,
+                  admin: { description: currentText("description") }
                 }
               ]
             },
