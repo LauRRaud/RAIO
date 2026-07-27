@@ -13,7 +13,9 @@ body :is(
   .training-lasting-panel .training-solid-button,
   .training-workshop-panel .training-solid-button,
   .training-dialog .training-solid-button,
-  .store-custom-band .store-solid-button
+  .store-custom-band .store-solid-button,
+  /* Meist-lehe lõpubänd: sama tume terrakota pind, sama nupukeel. */
+  .about-closing-copy .events-solid-button
 ) {
   width: fit-content;
   min-width: 0;
@@ -34,7 +36,9 @@ body :is(
   .training-lasting-panel .training-solid-button,
   .training-workshop-panel .training-solid-button,
   .training-dialog .training-solid-button,
-  .store-custom-band .store-solid-button
+  .store-custom-band .store-solid-button,
+  /* Meist-lehe lõpubänd: sama tume terrakota pind, sama nupukeel. */
+  .about-closing-copy .events-solid-button
 ):hover,
 body :is(
   .events-host-cta .events-solid-button,
@@ -43,7 +47,9 @@ body :is(
   .training-lasting-panel .training-solid-button,
   .training-workshop-panel .training-solid-button,
   .training-dialog .training-solid-button,
-  .store-custom-band .store-solid-button
+  .store-custom-band .store-solid-button,
+  /* Meist-lehe lõpubänd: sama tume terrakota pind, sama nupukeel. */
+  .about-closing-copy .events-solid-button
 ):focus-visible {
   border-color: var(--ui-box-button-hover-bg);
   background: var(--ui-button-hover-surface);
@@ -74,4 +80,11 @@ body .training-lasting-panel .training-solid-button:focus-visible {
   letter-spacing: 0.015em;
   -webkit-text-stroke: 0 transparent;
   text-shadow: none;
+}
+
+/* Meist-lehe lõpubändis on nupp kolme väärtuseveeru ALL (flex-veerg), mitte
+   nende kõrval. Ilma veeriseta istub ta esimese lõigu küljes ja näeb välja
+   nagu kuuluks ainult sellesse veergu. */
+.about-closing-copy .events-solid-button {
+  margin-top: clamp(28px, 2.8vw, 40px);
 }

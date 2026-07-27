@@ -3,6 +3,7 @@ import Image from "next/image";
 import { BandMedia } from "@/components/BandMedia";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HostEventModalDialog, HostEventModalTrigger } from "@/components/HostEventModal";
 import { getHeaderTextures } from "@/lib/payloadContent";
 import { getCmsSectionProps, getMessagesWithAdminImages } from "@/lib/payloadContent";
 import { TextureSlideshow } from "@/components/TextureSlideshow";
@@ -159,6 +160,10 @@ export async function AboutPage({ locale = "et" }) {
                   </article>
                 ))}
               </div>
+              {/* Sama aken, mis sündmuste ja treeningute lehel. Kontaktipaneeli
+                  juurde sattunud külastaja ei pea pakkumise nägemiseks tagasi
+                  teisele lehele minema. */}
+              <HostEventModalTrigger label={t.closingCta} />
             </div>
             <aside className="about-contact-panel" id="kontakt" aria-labelledby="about-contact-title">
               <h3 id="about-contact-title">{contactLabels.title}</h3>
@@ -191,6 +196,12 @@ export async function AboutPage({ locale = "et" }) {
           </section>
         </div>
       </main>
+
+      <HostEventModalDialog
+        closeLabel={messages.hostEvent.close}
+        content={messages.hostEvent}
+        contactHref="#kontakt"
+      />
       <Footer locale={locale} />
     </>
   );
