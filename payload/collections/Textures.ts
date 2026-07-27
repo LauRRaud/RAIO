@@ -12,7 +12,7 @@ import { anyone, authenticated } from "@/payload/access";
       tekstuuridel on nüüd oma nähtav kogu.
 
    Mõõdud PEAVAD ühtima kaustavariante genereeriva scripts/texture-variants.mjs
-   loogikaga (1200 + 1600 maastikku, 960x1600 püstine, webp q60), sest leht
+   loogikaga (1200 + 1600 maastikku, 960x1600 püstine, webp q82), sest leht
    ühendab mõlemad allikad ühte srcset'i — vt lib/payloadContent.js
    uploadEntry/folderEntry. */
 export const Textures: CollectionConfig = {
@@ -37,9 +37,16 @@ export const Textures: CollectionConfig = {
   upload: {
     staticDir: "public/media/taustad",
     mimeTypes: ["image/*"],
-    /* Kõik uploadid normaliseeritakse webp q60 peale — sama otsus mis
-       kaustapiltidel (17.4 -> 4.7 MB, vt scripts/texture-variants.mjs). */
-    formatOptions: { format: "webp", options: { quality: 60 } },
+    /* Kõik uploadid normaliseeritakse webp q82 peale — sama otsus mis
+       kaustapiltidel (vt scripts/texture-variants.mjs).
+
+       q60 -> q82 (omanik 2026-07-27: "peamine sektsioon on roheline, mis ei ole
+       piisavalt hea"). Mõõdetud: q60 sõi lähtefotolt 24–67% kõrgsagedusest ja
+       ekraanil (1900 CSS px @ DPR 1.25) andis q82 tagasi +10…+51%. Suurem MÕÕT
+       (2560/2800 px) EI aidanud — mõõtsin, vahe jäi alla 5% ja fail kahekordistus,
+       sest lähtefotodel ei ole detaili nii kõrgel. Kadu oli seega kodeerimises,
+       mitte skaleerimises. Ära vii tagasi allapoole 80. */
+    formatOptions: { format: "webp", options: { quality: 82 } },
     imageSizes: [
       {
         /* Mõõdunimed on teadlikult numbrivabad. Payloadi veerunimede teisendus
@@ -53,13 +60,13 @@ export const Textures: CollectionConfig = {
            valetaks srcset'is. Leht loeb srcset'i jaoks SALVESTATUD laiust,
            mitte siin soovitud mõõtu, nii et kärbitud variant ei eksita. */
         withoutEnlargement: true,
-        formatOptions: { format: "webp", options: { quality: 60 } }
+        formatOptions: { format: "webp", options: { quality: 82 } }
       },
       {
         name: "wide",
         width: 1600,
         withoutEnlargement: true,
-        formatOptions: { format: "webp", options: { quality: 60 } }
+        formatOptions: { format: "webp", options: { quality: 82 } }
       },
       {
         name: "portrait",
@@ -71,7 +78,7 @@ export const Textures: CollectionConfig = {
         height: 1600,
         fit: "cover",
         position: "centre",
-        formatOptions: { format: "webp", options: { quality: 60 } }
+        formatOptions: { format: "webp", options: { quality: 82 } }
       }
     ]
   },

@@ -17,7 +17,8 @@
     "seed:seo": "tsx scripts/seed-seo.ts",
     "seed:host-event": "tsx scripts/seed-host-event.ts",
     "textures:variants": "node scripts/texture-variants.mjs",
-    "textures:import": "tsx scripts/import-textures.ts"
+    "textures:import": "tsx scripts/import-textures.ts",
+    "textures:sync": "tsx scripts/sync-texture-files.mjs"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.85.1",

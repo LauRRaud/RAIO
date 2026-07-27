@@ -6,7 +6,7 @@
    its displayed dimensions (1379x940)".
 
    Lahendus EI OLE tugevam kompressioon — omanik nägi q55 juures heleda kivi
-   pehmenemist. Variandid tehakse SAMA kvaliteediga (q60), ainult väiksemate
+   pehmenemist. Variandid tehakse SAMA kvaliteediga, ainult väiksemate
    mõõtmetega.
 
    PORTREEVARIANDID (2026-07-26). Ülal olnud arutlus "telefoni ekraan on ~1170
@@ -65,7 +65,12 @@ const WIDTHS = [1200, 1600];
    (w1600 = 2.45 MB). Kui omanik tahab maksimaalset teravust, tõsta 1080-le. */
 const PORTRAIT = { width: 960, height: 1600 };
 const HIRES = process.env.TEXTURE_HIRES || "";
-const QUALITY = 60;
+/* q60 -> q82 (omanik 2026-07-27). Mõõdetud: q60 sõi lähtefotolt 24–67%
+   kõrgsagedusest ja desktopil (1900 CSS px @ DPR 1.25) tõi q82 tagasi +10…+51%.
+   Suurem MÕÕT ei aidanud — 2560 ja 2800 px andsid ekraanil alla 5% vahet ja
+   kahekordse faili, sest lähtefotodel EI OLE detaili nii kõrgel. Kadu istub
+   kodeerimises, mitte skaleerimises. Peab ühtima Textures.ts formatOptions'iga. */
+const QUALITY = 82;
 const IMAGE_EXT = /\.(jpe?g|png|webp|avif)$/i;
 
 const manifest = {};
