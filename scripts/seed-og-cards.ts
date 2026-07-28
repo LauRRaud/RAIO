@@ -17,6 +17,11 @@
  * Käivita ka SERVERIS — public/media on gitignore'is, seega prod-i andmebaas ja
  * failid on lokaalsetest eraldi (vt memory deploy-to-server). Kaardifailid ise
  * on gitis, seega `git pull` toob nad serverisse kaasa.
+ *
+ * NB! SERVERIS TULEB PÄRAST SEDA pm2 RESTARTIDA. Next loeb public/ sisu
+ * käivitumisel sisse, seega siin loodud failid annavad /media/... pealt 404
+ * kuni restardini — build'i pole vaja, ainult restart. Uued kaardid olid
+ * esimesel korral täpselt sellepärast prodis katki (2026-07-28).
  */
 import fs from "node:fs";
 import path from "node:path";
