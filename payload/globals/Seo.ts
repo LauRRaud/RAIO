@@ -73,9 +73,12 @@ function pageSeoGroup(name: string, label: string): Field {
         label: "Jagamispilt (Facebook, WhatsApp, LinkedIn)",
         type: "upload",
         relationTo: "media",
+        /* Kaardil seisab lehe nimi pildi peal ("SÜNDMUSED" / "EVENTS"), seega
+           see on avalik tekst ja käib mõlemas keeles (CLAUDE.md). */
+        localized: true,
         admin: {
           description:
-            "Soovituslik 1200×630 pikslit. Tühjaks jättes kasutatakse üldist jagamispilti („Jagamispilt ja vaikeväärtused” kaardilt)."
+            "Eesti ja inglise pilti vahetad paremal üleval Locale valikust — kaardil on lehe nimi pildi peal. Soovituslik 1200×630 pikslit. Tühjaks jättes kasutatakse üldist jagamispilti („Jagamispilt ja vaikeväärtused” kaardilt)."
         }
       }
     ]

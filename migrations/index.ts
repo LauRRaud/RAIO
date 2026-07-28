@@ -15,6 +15,7 @@ import * as migration_20260727_120000_seo_global from './20260727_120000_seo_glo
 import * as migration_20260727_150000_host_event_page from './20260727_150000_host_event_page';
 import * as migration_20260727_160000_host_event_format_meta from './20260727_160000_host_event_format_meta';
 import * as migration_20260727_170000_video_fields from './20260727_170000_video_fields';
+import * as migration_20260727_200000_seo_share_image_localized from './20260727_200000_seo_share_image_localized';
 
 export const migrations = [
   {
@@ -101,5 +102,10 @@ export const migrations = [
     up: migration_20260727_170000_video_fields.up,
     down: migration_20260727_170000_video_fields.down,
     name: '20260727_170000_video_fields'
+  },
+  {
+    up: migration_20260727_200000_seo_share_image_localized.up,
+    down: migration_20260727_200000_seo_share_image_localized.down,
+    name: '20260727_200000_seo_share_image_localized'
   },
 ];

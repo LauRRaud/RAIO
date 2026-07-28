@@ -18,18 +18,16 @@
  * tekst ja logo — sharp/librsvg ei laadi projekti kohalikku fonti.
  *
  * Käivitus:  npm run og:cards
- * Väljund:   public/og/og-<leht>.jpg (et) ja public/og/en/og-<leht>.jpg (en)
+ * Väljund:   public/og/og-<leht>.jpg (et) ja public/og/og-<leht>-en.jpg (en)
+ *
+ * Mõlemad keeled elavad SAMAS kaustas eri nime all, mitte en/ alamkaustas:
+ * Payloadi media-kollektsioon on lame ja võtab nime failist, seega kaks
+ * ühenimelist faili annaks teisele `-1` saba (og-avaleht-1.jpg).
  *
  * NB! Failid ise ei jõua avalikele lehtedele automaatselt — lib/seo.js loeb
  * jagamispilti admini SEO-globaalist (Payload → SEO · Google ja jagamine →
- * iga lehe „Jagamispilt”). Vaikepilt /og/og-default.jpg on ainus, mis kehtib
- * ilma admini sammuta.
- *
- * NB2! og/en/ kaardid on praegu VARUKS, mitte kasutusel: Seo.ts shareImage ei
- * ole `localized: true`, seega admini üks pilt kehtib mõlemas keeles ja EN
- * kaardi üleslaadimine kirjutaks ET oma üle. Kui kakskeelsus on vaja päriselt
- * sisse lülitada, tuleb väli lokaliseerida (Postgresis kolib veerg
- * seo → seo_locales, ehk käsitsi migratsioon).
+ * iga lehe „Jagamispilt”, keel Locale-lülitist). Vaikepilt /og/og-default.jpg
+ * on ainus, mis kehtib ilma admini sammuta. Seemnestaja: npm run seed:og.
  */
 
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -178,7 +176,11 @@ const fontUrl = pathToFileURL(FONT).href;
 const logoUrl = pathToFileURL(LOGO).href;
 const textureUrl = pathToFileURL(TEXTURE).href;
 
-await fs.mkdir(path.join(outDir, "en"), { recursive: true });
+await fs.mkdir(outDir, { recursive: true });
+
+/* Varasem paigutus oli public/og/en/ — koristame ta ära, et kaks tõde kõrvuti
+   ei seisaks ja seemnestaja vana faili üles ei korjaks. */
+await fs.rm(path.join(outDir, "en"), { recursive: true, force: true });
 
 for (const entry of PAGES) {
   const photoUrl = pathToFileURL(path.join(publicDir, entry.photo)).href;
@@ -203,10 +205,7 @@ for (const entry of PAGES) {
       }
     }, TITLE_MAX);
 
-    const file =
-      locale === "et"
-        ? path.join(outDir, `og-${entry.key}.jpg`)
-        : path.join(outDir, "en", `og-${entry.key}.jpg`);
+    const file = path.join(outDir, `og-${entry.key}${locale === "en" ? "-en" : ""}.jpg`);
 
     /* JPEG kirjutab sharp, mitte Playwright: vaikimisi 4:2:0 alamdiskreetimine
        võttis 2px valgelt raamijoonelt värvuse ära ja naabripikslite soe toon
