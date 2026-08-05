@@ -69,8 +69,15 @@ const HIRES = process.env.TEXTURE_HIRES || "";
    kõrgsagedusest ja desktopil (1900 CSS px @ DPR 1.25) tõi q82 tagasi +10…+51%.
    Suurem MÕÕT ei aidanud — 2560 ja 2800 px andsid ekraanil alla 5% vahet ja
    kahekordse faili, sest lähtefotodel EI OLE detaili nii kõrgel. Kadu istub
-   kodeerimises, mitte skaleerimises. Peab ühtima Textures.ts formatOptions'iga. */
-const QUALITY = 82;
+   kodeerimises, mitte skaleerimises. Peab ühtima Textures.ts formatOptions'iga.
+
+   TEXTURE_QUALITY lubab ühel jooksul teist väärtust (omanik 2026-08-05: tume
+   komplekt q80). Mõõdetud samal fotol: q80 ja q82 annavad ekraanil sama detaili
+   (9.454 vs 9.455) ja q80 fail on 7% väiksem — vahe on mürapiiril, seega ühe
+   komplekti kõrvalekalle ei ole nähtav. VAIKEVÄÄRTUS jääb 82, sest admini kaudu
+   üles laetud pilt kodeeritakse Textures.ts-is alati 82-ga ja kaks erinevat
+   vaikimisi väärtust oleks kaks tõde. */
+const QUALITY = Number(process.env.TEXTURE_QUALITY) || 82;
 const IMAGE_EXT = /\.(jpe?g|png|webp|avif)$/i;
 
 const manifest = {};
