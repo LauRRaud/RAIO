@@ -46,8 +46,9 @@
   opacity: 1;
   transform: translateY(0);
   transition:
-    transform 680ms cubic-bezier(0.19, 1, 0.22, 1),
-    opacity 460ms ease;
+    /* Kiire tagasitulek hoiab üles kerides sisu musta serva alt paistmast. */
+    transform 220ms cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 140ms ease;
   /* Püsiv `will-change: transform` on ära võetud: see hoidis päist alaliselt oma
      kompositorikihis, ilma et peita/näita üleminek sellest võidaks — kihi loob
      brauser ülemineku ajaks niikuinii ise.
