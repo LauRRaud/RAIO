@@ -30,13 +30,19 @@
 }
 
 .site-header {
+  /* One continuous cut avoids seams between separately rasterized mask layers. */
+  --header-edge-clip: polygon(
+    0 0, 100% 0,
+    100% calc(100% - 10px), 86.5% calc(100% - 8px),
+    72% calc(100% - 12px), 54% calc(100% - 8.5px),
+    35.5% calc(100% - 11.5px), 17% calc(100% - 9px),
+    0 calc(100% - 10px)
+  );
   position: sticky;
   top: 0;
   z-index: 80;
   border: 0;
-  /* Taust ja vari elavad ::before kihil, et alaserv saaks kivise murdejoone.
-     Maski EI TOHI panna .site-header'ile endale — mask lõikab ka üle kasti
-     ulatuvad lapsed ja mobiilimenüü paneel ripub kasti alt väljas. */
+  /* Clip only the background layers so the mobile menu can extend below the header. */
   opacity: 1;
   transform: translateY(0);
   transition:
@@ -77,27 +83,12 @@
      siis, kui fotot veel ei ole: laadimise ja crossfade'i ajal. Sama #14140f,
      mis tumedatel backdrop'idel (texture-backdrop.css). */
   background: #14140f;
-  mask-image: linear-gradient(#000, #000), var(--raio-stone-edge-bottom);
-  mask-repeat: no-repeat, repeat-x;
-  mask-position: top, bottom;
-  /* +1px ÜLEKATE: lame osa ja sakiriba KATTUVAD piksli võrra, mitte ei puutu
-     joonel. Täpselt joonel kohtudes jääb murdskaalal (DPR 1.25, Windowsi 125%)
-     kahe maskikihi vahele juuksekarva laiune pilu — omanik 2026-07-27: "mingi
-     imelik triip on päisemenüü all servas". Sakitiili ülemine rida on täis-
-     läbipaistmatu, seega ülekate ei muuda siluetti. Sama parandus footer.css. */
-  mask-size:
-    100% calc(100% - var(--raio-stone-edge-h) + 1px),
-    var(--raio-stone-edge-tile);
-  /* Vari järgib maskitud siluetti — box-shadow joonistaks sirge kasti serva
-     tagasi. Sama sügavus, mis endisel box-shadow paaril. */
-  filter: drop-shadow(0 10px 28px rgba(17, 16, 13, 0.14))
-    drop-shadow(0 4px 12px rgba(17, 16, 13, 0.08));
+  clip-path: var(--header-edge-clip);
 }
 
 .site-header.is-hidden {
   opacity: 0;
-  /* -56px: murdejooneriba (16px) + drop-shadow ulatuvad kasti alt välja ja
-     peavad samuti ekraanilt kaduma. */
+  /* Include the extended stone edge when moving the header offscreen. */
   transform: translateY(calc(-100% - 56px));
   pointer-events: none;
 }
